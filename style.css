@@ -20,6 +20,7 @@ body {
     font-size: 40px;
     font-weight: 400;
     font-family: "chaneyultra_extended";
+    position: absolute;
 }
 /* aside section */
 .aside {
@@ -53,4 +54,11 @@ body {
 
 }
 
+.aside_line {
+    width: 2px;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.15);
+    position: fixed;
+    left: 240px;
+}
 
