@@ -4,6 +4,10 @@
     font-family: 'Poppins', sans-serif;
     font-family: 'chaneyultra_extended';
 */
+@font-face {
+    font-family: "chaneyultra_extended";
+    src: url(./CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf);
+}
 * {
     margin: 0;
     padding: 0;
@@ -15,5 +19,34 @@ body {
     color: #fff;
     font-size: 40px;
     font-weight: 400;
-    font-family: 'chaneyultra_extended';
+    font-family: "chaneyultra_extended";
 }
+/* aside section */
+.aside {
+    width: 240px;
+    height: 100vh;
+}
+.logo_bx {
+    width: 100px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #fff;
+}
+
+/* main section */
+.main{
+    
+}
+
+/* component section */
+.component {
+
+}
+.category {
+
+}
+.category__label {
+
+}
+
+
