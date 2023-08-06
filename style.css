@@ -22,6 +22,7 @@ body {
     font-weight: 400;
     font-family: "chaneyultra_extended";
     overflow: hidden;
+    display: flex;
 }
 /* aside section */
 .aside {
@@ -44,7 +45,19 @@ body {
     width: 100vw;
     height: 400vh;
 }
-
+.headline {
+    padding: 60px 80px;
+    width: 400px;
+    height: 200px;
+    font-size: 60px;
+}
+.headline div:nth-of-type(2) {
+    text-align: end;
+}
+.headline_sub {
+    margin-top: 25px;
+    font-size: 16px;
+}
 /* component section */
 .component {
 
