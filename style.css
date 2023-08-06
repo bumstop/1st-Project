@@ -14,13 +14,14 @@
     border: 0;
 }
 body {
-    height: 400vh;
+    width: 100vw;
+    height: 100%;
     background-color: #000;
     color: #fff;
     font-size: 40px;
     font-weight: 400;
     font-family: "chaneyultra_extended";
-    position: absolute;
+    overflow: hidden;
 }
 /* aside section */
 .aside {
@@ -40,7 +41,8 @@ body {
 }
 /* main section */
 .main{
-    
+    width: 100vw;
+    height: 400vh;
 }
 
 /* component section */
@@ -56,9 +58,18 @@ body {
 
 .aside_line {
     width: 2px;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(255,255,255,0.15);
     position: fixed;
+    top: 0;
     left: 240px;
+}
+.section_line {
+    width: calc(100% - 242px);
+    height: 2px;
+    background-color: rgba(255,255,255,0.15);
+    position: fixed;
+    right: 0;
+    bottom: 250px;
 }
 
