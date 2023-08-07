@@ -30,6 +30,7 @@ body {
     width: 280px;
     height: calc(100vh);
     padding: 70px;
+    position: relative;
 }
 .logo_bx {
     width: 140px;
@@ -39,6 +40,46 @@ body {
 .logo_bx img {
     width: 100%;
     height: 100%;
+}
+.hamburger {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 70px;
+    bottom: 70px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.petty, .petty::before, .petty::after {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+}
+.petty {
+    transform: translate(0, -50%);
+    top: 50%;
+    transition: .5s all;
+    opacity: 1;
+}
+.petty::before {
+    content: '';
+    top: -10px;
+}
+.petty::after {
+    width: 20px;
+    content: '';
+    bottom: -10px;
+}
+.active > .petty {
+    opacity: 0;
+}
+.active > .petty::before {
+    content: '';
+    transform: rotate(45deg) translate(5px, 10px);
+}
+.active > .petty::after {
+    content: '';
 }
 /* main section */
 .main{
@@ -59,13 +100,10 @@ body {
     font-size: 16px;
 }
 /* component section */
-.component {
-
-}
 .category {
     width: 100px;
     height: 25px;
-    /* overflow: hidden; */
+    overflow: hidden;
     position: fixed;
     left: calc(282px + 70px);
     bottom: 70px;
@@ -84,7 +122,7 @@ body {
     gap: 10px;
 }
 .page_number__now {
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 .aside_line {
     width: 2px;

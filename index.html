@@ -21,6 +21,9 @@
                     <img src="./img/LCK.png" alt="LCK_logo" />
                 </div>
             </a>
+            <div class="hamburger">
+                <span class="petty"></span>
+            </div>
         </div>
         <div class="main">
             <div class="headline">
@@ -55,3 +58,17 @@
         </div>
     </body>
 </html>
+<script>
+    const q = (q) => document.querySelector(q);
+    const hamburger = q('.hamburger');
+    const petty = q('.petty');
+
+    hamburger.addEventListener('click', toggleHamburgerMenu)
+        
+    function toggleHamburgerMenu() {
+        hamburger.classList.toggle('active');
+    }
+
+
+    
+</script>
