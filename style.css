@@ -67,7 +67,7 @@ body {
     position: absolute;
     content: '';
     top: -10px;
-    transition: all .3s linear;
+    transition: all .3s ease-in-out;
 }
 .petty::after {
     width: 30px;
@@ -77,18 +77,18 @@ body {
     width: 20px;
     content: '';
     bottom: -10px;
-    transition: all .4s ease-out;
+    transition: all .5s ease-in-out;
 }
 .active .petty {
     background-color: transparent;
     /* opacity: 0 은 왜 before after에 같이 적용될까..? */
 }
-.active > .petty::before {
+.active .petty::before {
     content: '';
     top: 50%;
     transform: translate(0, -50%) rotate(135deg);
 }
-.active > .petty::after {
+.active .petty::after {
     content: '';
     width: 30px;
     top: 50%;
