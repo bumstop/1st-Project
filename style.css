@@ -58,7 +58,7 @@ body {
     transform: translate(0, -50%);
     top: 50%;
     transition: all .3s ease-in-out;
-    opacity: 1;
+    /* opacity: 1; */
 }
 .petty::before {
     width: 30px;
@@ -81,7 +81,7 @@ body {
 }
 .active .petty {
     background-color: transparent;
-    /* opacity: 0 은 왜 before after에 같이 적용될까..? */
+    /* opacity: 0; */
 }
 .active .petty::before {
     content: '';

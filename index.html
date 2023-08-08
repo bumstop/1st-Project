@@ -62,13 +62,20 @@
     const q = (q) => document.querySelector(q);
     const hamburger = q('.hamburger');
     const petty = q('.petty');
+    const category = q('.category');
+    const categoryLabel = q('.category__label');
+    const lineHeight = 25;
+    let i = 1;
 
     hamburger.addEventListener('click', toggleHamburgerMenu)
         
     function toggleHamburgerMenu() {
         hamburger.classList.toggle('active');
     }
-
+    category.addEventListener('click', function() { //카테고리, 페이지넘버 핸들러
+        categoryLabel.style.transform = `translateY(${-lineHeight * i}px)`;
+        i++;
+    })
 
     
 </script>
