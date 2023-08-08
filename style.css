@@ -21,16 +21,16 @@ body {
     font-size: 14px;
     font-weight: 400;
     font-family: "chaneyultra_extended",'Poppins', 'Noto Sans KR';
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
 }
 /* aside section */
 .aside {
     box-sizing: border-box;
     width: 280px;
-    height: calc(100vh);
+    height: 100vh;
     padding: 70px;
-    position: relative;
+    position: fixed;
 }
 .logo_bx {
     width: 140px;
@@ -97,9 +97,11 @@ body {
 /* main section */
 .main{
     width: 100vw;
-    height: 400vh;
+    height: 300vh;
 }
 .headline {
+    position: absolute;
+    left: 282px;
     padding: 60px 80px;
     width: 400px;
     height: 200px;
@@ -112,13 +114,22 @@ body {
     margin-top: 25px;
     font-size: 16px;
 }
+#page1 {
+    width: 100vw;
+    height: 100vh;
+}
+#page2 {
+    width: 100vw;
+    height: 100vh;
+    background-color: lightgray;
+}
 /* component section */
 .category {
     width: 100px;
     height: 25px;
     overflow: hidden;
     position: fixed;
-    left: calc(282px + 70px);
+    left: calc(282px + 80px);
     bottom: 70px;
 }
 .category__label {
@@ -126,16 +137,17 @@ body {
 }
 .page_number {
     display: flex;
-    width: 80px;
+    width: 90px;
     height: 25px;
     line-height: 25px;
     position: fixed;
-    right: 70px;
+    overflow: hidden;
+    right: 80px;
     bottom: 70px;
     gap: 10px;
 }
 .page_number__now {
-    overflow: hidden;
+
 }
 .aside_line {
     width: 2px;

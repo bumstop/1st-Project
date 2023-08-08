@@ -26,13 +26,16 @@
             </div>
         </div>
         <div class="main">
-            <div class="headline">
-                <div>ORIGIN</div>
-                <div>AGAIN</div>
-                <div class="headline_sub">
-                    <div>2023 LoL Champions Korea</div>
+            <div id="page1">
+                <div class="headline">
+                    <div>ORIGIN</div>
+                    <div>AGAIN</div>
+                    <div class="headline_sub">
+                        <div>2023 LoL Champions Korea</div>
+                    </div>
                 </div>
             </div>
+            <div id="page2"></div>
         </div>
         <div class="component">
             <div class="category">
@@ -47,10 +50,9 @@
                     <div>1</div>
                     <div>2</div>
                     <div>3</div>
-                    <div>4</div>
                 </div>
                 <div>of</div>
-                <div>4</div>
+                <div>3</div>
             </div>
             <div class="aside_line"></div>
             <div class="section_line"></div>
@@ -60,22 +62,47 @@
 </html>
 <script>
     const q = (q) => document.querySelector(q);
-    const hamburger = q('.hamburger');
-    const petty = q('.petty');
-    const category = q('.category');
-    const categoryLabel = q('.category__label');
+    const hamburger = q(".hamburger");
+    const petty = q(".petty");
+    const category = q(".category");
+    const categoryLabel = q(".category__label");
+    const pageNumberNow = q(".page_number__now");
     const lineHeight = 25;
-    let i = 1;
 
-    hamburger.addEventListener('click', toggleHamburgerMenu)
-        
+    const html = q("html");
+    let page = 1;
+    const lastPage = 3;
+
+    html.animate({ scrollTop: 0 }, 10);
+
+    hamburger.addEventListener("click", toggleHamburgerMenu);
+
     function toggleHamburgerMenu() {
-        hamburger.classList.toggle('active');
+        hamburger.classList.toggle("active");
     }
-    category.addEventListener('click', function() { //카테고리, 페이지넘버 핸들러
-        categoryLabel.style.transform = `translateY(${-lineHeight * i}px)`;
-        i++;
-    })
 
-    
+    window.addEventListener("wheel",
+        function (e) {
+            e.preventDefault();
+        }, { passive: false }
+    ); //마우스 휠 기본이벤트 제거
+
+    window.addEventListener("wheel", function (e) {
+        // if (html.is(":animated")) return;
+        if (e.originalEvent.deltaY > 0) {
+            if (page == lastPage) return;
+            page++;
+        } else if (e.originalEvent.deltaY < 0) {
+            if (page == 1) return;
+            page--;
+        }
+        var posTop = (page - 1) * window.height();
+
+        html.animate({ scrollTop: posTop });
+    });
+
+    window.addEventListener("wheel", function () {
+        categoryLabel.style.transform = `translateY(${-lineHeight * page}px)`;
+        pageNumberNow.style.transform = `translateY(${-lineHeight * page}px)`;
+    }); //카테고리, 페이지넘버 핸들러
 </script>
