@@ -21,10 +21,11 @@ body {
     font-size: 14px;
     font-weight: 400;
     font-family: "chaneyultra_extended",'Poppins', 'Noto Sans KR';
-    /* overflow: hidden; */
     display: flex;
 }
-
+::-webkit-scrollbar {
+    display: none;
+}
 
 
 /* aside section */
