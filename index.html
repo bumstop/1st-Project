@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="main">
-            <div id="page1">
+            <div id="page1" class="page">
                 <div class="headline">
                     <div>ORIGIN</div>
                     <div>AGAIN</div>
@@ -35,7 +35,15 @@
                     </div>
                 </div>
             </div>
-            <div id="page2"></div>
+            <div id="page2" class="page">
+                <div class="headline">
+                    <div>PAGE</div>
+                    <div>2</div>
+                    <div class="headline_sub">
+                        <div>2023 LoL Champions Korea</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="component">
             <div class="category">
@@ -62,23 +70,18 @@
 </html>
 <script>
     const q = (q) => document.querySelector(q);
-    const hamburger = q(".hamburger");
-    const petty = q(".petty");
-    const category = q(".category");
-    const categoryLabel = q(".category__label");
-    const pageNumberNow = q(".page_number__now");
     const lineHeight = 25;
 
-    const html = q("html");
+    const html = q('html');
     let page = 1;
     const lastPage = 3;
 
     html.animate({ scrollTop: 0 }, 10);
 
-    hamburger.addEventListener("click", toggleHamburgerMenu);
+    q(".hamburger").addEventListener("click", toggleHamburgerMenu);
 
     function toggleHamburgerMenu() {
-        hamburger.classList.toggle("active");
+        q(".hamburger").classList.toggle("active");
     }
 
     window.addEventListener("wheel",
@@ -102,7 +105,7 @@
     });
 
     window.addEventListener("wheel", function () {
-        categoryLabel.style.transform = `translateY(${-lineHeight * page}px)`;
-        pageNumberNow.style.transform = `translateY(${-lineHeight * page}px)`;
+        q(".category__label").style.transform = `translateY(${-lineHeight * page}px)`;
+        q(".page_number__now").style.transform = `translateY(${-lineHeight * page}px)`;
     }); //카테고리, 페이지넘버 핸들러
 </script>

@@ -24,6 +24,9 @@ body {
     /* overflow: hidden; */
     display: flex;
 }
+
+
+
 /* aside section */
 .aside {
     box-sizing: border-box;
@@ -94,6 +97,9 @@ body {
     top: 50%;
     transform: translate(0, -50%) rotate(225deg);
 }
+
+
+
 /* main section */
 .main{
     width: 100vw;
@@ -114,15 +120,19 @@ body {
     margin-top: 25px;
     font-size: 16px;
 }
-#page1 {
+.page {
     width: 100vw;
     height: 100vh;
+}
+#page1 {
+
 }
 #page2 {
-    width: 100vw;
-    height: 100vh;
     background-color: lightgray;
 }
+
+
+
 /* component section */
 .category {
     width: 100px;
