@@ -76,7 +76,7 @@
     let page = 1;
     const lastPage = 3;
 
-    html.animate({ scrollTop: 0 }, 10);
+    html.animate({ scrollTop: 0 }, 500);
 
     q(".hamburger").addEventListener("click", toggleHamburgerMenu);
     function toggleHamburgerMenu() {
@@ -90,7 +90,7 @@
     ); //마우스 휠 기본이벤트 제거
 
     window.addEventListener("wheel", function (e) {
-        // if (html.(":animated")) return;
+        // if (html.is(":animated")) return;
         if (e.deltaY > 0) {
             if (page == lastPage) return;
             page++;
@@ -99,13 +99,12 @@
             page--;
         }
         let posTop = (page - 1) * (document.body.clientHeight / lastPage);
-
-        html.animate({ scrollTop: posTop });
-        console.log(posTop)
+        html.animate( {scrollTop: posTop}, 500);
+        // $('html').scrollTop('0'); https://100ah.tistory.com/12
     });
 
     window.addEventListener("wheel", function () {
-        q(".category__label").style.transform = `translateY(${-lineHeight * page}px)`;
-        q(".page_number__now").style.transform = `translateY(${-lineHeight * page}px)`;
+        q(".category__label").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
+        q(".page_number__now").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
     }); //카테고리, 페이지넘버 핸들러
 </script>

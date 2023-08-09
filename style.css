@@ -13,9 +13,11 @@
     padding: 0;
     border: 0;
 }
+html, body {
+    height: 100%;
+}
 body {
     width: 100vw;
-    height: 100%;
     background-color: #000;
     color: #fff;
     font-size: 14px;
@@ -23,9 +25,9 @@ body {
     font-family: "chaneyultra_extended",'Poppins', 'Noto Sans KR';
     display: flex;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
 
 
 /* aside section */
@@ -142,9 +144,11 @@ body {
     position: fixed;
     left: calc(282px + 80px);
     bottom: 70px;
+    
 }
 .category__label {
     line-height: 25px;
+    transition: all .5s ease-out;
 }
 .page_number {
     display: flex;
@@ -158,7 +162,7 @@ body {
     gap: 10px;
 }
 .page_number__now {
-
+    transition: all .5s ease-out;
 }
 .aside_line {
     width: 2px;
