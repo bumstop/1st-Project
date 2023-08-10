@@ -105,8 +105,9 @@
             page--;
         }
         let posTop = (page - 1) * (document.body.clientHeight);
+        html.scrollTo({ top: posTop, behavior: 'smooth' });
         // q('.main').style.transform = `translateY(${-posTop}px)`;
-        html.scrollTop = posTop;
+        // html.scrollTop = posTop;
     });
 
     window.addEventListener("wheel", function () {

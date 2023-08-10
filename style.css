@@ -15,6 +15,7 @@
 }
 html, body {
     height: 100%;
+    transition: all 0.3s ease-out;
 }
 body {
     width: 100vw;
@@ -105,7 +106,7 @@ body {
 .main{
     width: 100vw;
     height: 300vh;
-    transition: all .5s ease-out;
+    /* transition: all .5s ease-out; */
 }
 .headline {
     position: absolute;
