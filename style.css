@@ -24,10 +24,8 @@ body {
     font-weight: 400;
     font-family: "chaneyultra_extended",'Poppins', 'Noto Sans KR';
     display: flex;
+    overflow: hidden;
 }
-/* ::-webkit-scrollbar {
-    display: none;
-} */
 
 
 /* aside section */
@@ -107,6 +105,7 @@ body {
 .main{
     width: 100vw;
     height: 300vh;
+    transition: transform .5s;
 }
 .headline {
     position: absolute;
