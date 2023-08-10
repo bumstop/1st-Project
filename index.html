@@ -76,8 +76,6 @@
     let page = 1;
     const lastPage = 3;
 
-    // html.animate({ scrollTop: 0 }, 500);
-
     q(".hamburger").addEventListener("click", toggleHamburgerMenu);
     function toggleHamburgerMenu() {
         q(".hamburger").classList.toggle("active");
@@ -98,8 +96,8 @@
             page--;
         }
         let posTop = (page - 1) * (document.body.clientHeight);
-        // html.animate( { scrollTop: posTop }, 500);
-        q('.main').style.transform = `translateY(${-posTop}px)`;
+        // q('.main').style.transform = `translateY(${-posTop}px)`;
+        html.scrollTop = posTop;
     });
 
     window.addEventListener("wheel", function () {
