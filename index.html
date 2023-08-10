@@ -81,7 +81,7 @@
     const q = (q) => document.querySelector(q);
     const lineHeight = 25;
 
-    const html = q('html');
+    const html = q("html");
     let page = 1;
     const lastPage = 3;
 
@@ -90,24 +90,38 @@
         q(".hamburger").classList.toggle("active");
     }
 
-    window.addEventListener("wheel",
+    window.addEventListener(
+        "wheel",
         function (e) {
             e.preventDefault();
-        }, { passive: false }
+        },
+        { passive: false }
     ); //마우스 휠 기본이벤트 제거
 
-    window.addEventListener("wheel", function (e) {
-        if (e.deltaY > 0) {
-            if (page == lastPage) return;
-            page++;
-        } else if (e.deltaY < 0) {
-            if (page == 1) return;
-            page--;
-        }
-        let posTop = (page - 1) * (document.body.clientHeight);
-        html.scrollTo({ top: posTop, behavior: 'smooth' });
-        // q('.main').style.transform = `translateY(${-posTop}px)`;
-        // html.scrollTop = posTop;
+    let chk = false;
+
+    window.addEventListener("wheel", function (e) {       
+            if (e.deltaY > 0 && !chk) {
+                chk = true;
+                if (page == lastPage) {
+                    chk = false;
+                    return;
+                }
+                page++;
+                setTimeout(() => {chk = false}, 1000);
+            } else if (e.deltaY < 0 && !chk) {
+                chk = true;
+                if (page == 1) {
+                    chk = true;
+                    return;
+                }
+                page--;
+                setTimeout(() => {chk = false}, 1000);
+            }
+            let posTop = (page - 1) * document.body.clientHeight;
+            html.scrollTo({ top: posTop, behavior: "smooth" });
+            // q('.main').style.transform = `translateY(${-posTop}px)`;
+            // html.scrollTop = posTop;
     });
 
     window.addEventListener("wheel", function () {
