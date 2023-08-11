@@ -100,19 +100,19 @@
     const lineHeight = 25;
     window.addEventListener("wheel", function (e) {       
             if (e.deltaY > 0 && ! scrollChk) {
-                // scrollChk = true;
-                // setTimeout(() => {scrollChk = false}, 1000);
+                scrollChk = true;
+                setTimeout(() => {scrollChk = false}, 1000);
                 if (page == lastPage) {
-                    // scrollChk = false;
+                    scrollChk = false;
                     return;
                 }
                 page++;
             } 
             else if (e.deltaY < 0 && !scrollChk) {
-                // scrollChk = true;
-                // setTimeout(() => {scrollChk = false}, 1000);
+                scrollChk = true;
+                setTimeout(() => {scrollChk = false}, 1000);
                 if (page == 1) {
-                    // scrollChk = false;
+                    scrollChk = false;
                     return;
                 }
                 page--;
@@ -129,5 +129,5 @@
     function componentHanddler() {
         q(".category__label").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
         q(".page_number__now").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
-    }); //카테고리, 페이지넘버 핸들러
+    }; //카테고리, 페이지넘버 핸들러
 </script>
