@@ -99,19 +99,19 @@
 
     window.addEventListener("wheel", function (e) {       
             if (e.deltaY > 0 && !chk) {
-                chk = true;
-                setTimeout(() => {chk = false}, 1000);
+                // chk = true;
+                // setTimeout(() => {chk = false}, 1000);
                 if (page == lastPage) {
-                    chk = false;
+                    // chk = false;
                     return;
                 }
                 page++;
             } 
             else if (e.deltaY < 0 && !chk) {
-                chk = true;
-                setTimeout(() => {chk = false}, 1000);
+                // chk = true;
+                // setTimeout(() => {chk = false}, 1000);
                 if (page == 1) {
-                    chk = false;
+                    // chk = false;
                     return;
                 }
                 page--;
