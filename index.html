@@ -98,7 +98,26 @@
     const lastPage = 3;
     let scrollChk = false;
     const lineHeight = 25;
-    window.addEventListener("wheel", function (e) {       
+
+
+    window.addEventListener("wheel", throttle(scrollHandler, 300)); //최종 풀페이지 & 스크롤 이벤트 제어
+    
+
+    // delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가
+    // delay 시간이 경과했을 때 이벤트가 발생하면 콜백 함수를 호출하고 새로운 타이머를 재설정한다. 
+    // 즉, delay 시간 간격으로 콜백 함수가 호출된다.
+    function throttle(callback, delay) {
+        let timer;
+        return e => {
+            if (timer) return;
+            timer = setTimeout(() => {
+                callback(e);
+                timer = null; 
+            }, delay, e);
+        };
+    };
+
+    function scrollHandler(e) {       
             if (e.deltaY > 0 && ! scrollChk) {
                 scrollChk = true;
                 setTimeout(() => {scrollChk = false}, 1000);
@@ -117,14 +136,11 @@
                 }
                 page--;
             }
-
             let posTop = (page - 1) * document.body.clientHeight;
             html.scrollTo({ top: posTop, behavior: "smooth" });
             componentHanddler();
-            // q('.main').style.transform = `translateY(${-posTop}px)`;
-            // html.scrollTop = posTop;
-    });
-    
+    }; //풀페이지 스크롤 제어
+
     function componentHanddler() {
         q(".category__label").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
         q(".page_number__now").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
