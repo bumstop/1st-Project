@@ -136,14 +136,17 @@ body {
 #page4 {
     display: flex;
     justify-content: end;
+    background: url(./img/kt_poster.webp) no-repeat center/cover;
+    backdrop-filter: blur(10px);
 }
 #page4 .bg {
+    background-image: url(./img/kt_poster.webp);
     width: calc(100% - 282px);
     height: calc(100% - 252px);
-    background:
-        url(./img/kt_poster.webp)
-        no-repeat
-        center/100% 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
 }
 
 /* component section */
