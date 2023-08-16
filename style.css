@@ -21,7 +21,7 @@ body {
     width: 100vw;
     background-color: #000;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     font-family: "chaneyultra_extended",'Poppins', 'Noto Sans KR';
     display: flex;
@@ -141,13 +141,12 @@ body {
 
 /* component section */
 .category {
-    width: 100px;
+    width: 120px;
     height: 25px;
     overflow: hidden;
     position: fixed;
     left: calc(282px + 80px);
     bottom: 70px;
-    
 }
 .category__label {
     line-height: 25px;
@@ -155,7 +154,7 @@ body {
 }
 .page_number {
     display: flex;
-    width: 90px;
+    width: 100px;
     height: 25px;
     line-height: 25px;
     position: fixed;
