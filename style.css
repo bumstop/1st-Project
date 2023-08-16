@@ -13,7 +13,8 @@
     padding: 0;
     border: 0;
 }
-html, body {
+html,
+body {
     height: 100%;
     transition: all 0.3s ease-out;
 }
@@ -23,11 +24,10 @@ body {
     color: #fff;
     font-size: 16px;
     font-weight: 400;
-    font-family: "chaneyultra_extended",'Poppins', 'Noto Sans KR';
+    font-family: "chaneyultra_extended", "Poppins", "Noto Sans KR";
     display: flex;
     overflow: hidden;
 }
-
 
 /* aside section */
 .aside {
@@ -62,7 +62,7 @@ body {
     position: absolute;
     transform: translate(0, -50%);
     top: 50%;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     /* opacity: 1; */
 }
 .petty::before {
@@ -70,9 +70,9 @@ body {
     height: 3px;
     background-color: #fff;
     position: absolute;
-    content: '';
+    content: "";
     top: -10px;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .petty::after {
     width: 30px;
@@ -80,30 +80,28 @@ body {
     background-color: #fff;
     position: absolute;
     width: 20px;
-    content: '';
+    content: "";
     bottom: -10px;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 .active .petty {
     background-color: transparent;
     /* opacity: 0; */
 }
 .active .petty::before {
-    content: '';
+    content: "";
     top: 50%;
     transform: translate(0, -50%) rotate(135deg);
 }
 .active .petty::after {
-    content: '';
+    content: "";
     width: 30px;
     top: 50%;
     transform: translate(0, -50%) rotate(225deg);
 }
 
-
-
 /* main section */
-.main{
+.main {
     width: 100vw;
     height: 300vh;
     /* transition: all .5s ease-out; */
@@ -128,7 +126,6 @@ body {
     height: 100vh;
 }
 #page1 {
-
 }
 #page2 {
     background-color: lightgray;
@@ -136,8 +133,18 @@ body {
 #page3 {
     background-color: gray;
 }
-
-
+#page4 {
+    display: flex;
+    justify-content: end;
+}
+#page4 .bg {
+    width: calc(100% - 282px);
+    height: calc(100% - 252px);
+    background:
+        url(./img/kt_poster.webp)
+        no-repeat
+        center/100% 100%;
+}
 
 /* component section */
 .category {
@@ -150,7 +157,7 @@ body {
 }
 .category__label {
     line-height: 25px;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 .page_number {
     display: flex;
@@ -164,12 +171,12 @@ body {
     gap: 10px;
 }
 .page_number__now {
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 .aside_line {
     width: 2px;
     height: 100%;
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(255, 255, 255, 0.15);
     position: fixed;
     top: 0;
     left: 280px;
@@ -177,16 +184,15 @@ body {
 .section_line {
     width: calc(100% - 282px);
     height: 2px;
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(255, 255, 255, 0.15);
     position: fixed;
     right: 0;
     bottom: 250px;
 }
 .breadcrumbs {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     transform: rotate(90deg);
     position: fixed;
     top: 120px;
     right: 50px;
 }
-
