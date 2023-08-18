@@ -67,12 +67,7 @@
                 </div>
             </div>
             <div class="page_number">
-                <div class="page_number__now">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                </div>
+                <div class="page_number__now"></div>
                 <div>of</div>
                 <div>4</div>
             </div>
@@ -84,6 +79,7 @@
 </html>
 <script>
     const q = (q) => document.querySelector(q);
+    const qAll = (q) => document.querySelector(q);
 
     //----------햄버거 메뉴 제어----------
     q(".hamburger").addEventListener("click", toggleHamburgerMenu);
@@ -93,61 +89,64 @@
     }
 
     //----------풀 페이지 & 스크롤 이벤트 제어----------
-    window.addEventListener("wheel",function (e) {
+    window.addEventListener(
+        "wheel",
+        function (e) {
             e.preventDefault();
-        },{ passive: false }
+        },
+        { passive: false }
     ); //마우스 휠 기본이벤트 제거
 
     const html = q("html");
     let page = 1;
-    const lastPage = 4;
-    let scrollChk = false;
-    const lineHeight = 25;
+    const lastPage = q('.category__label').childElementCount;
+    const componentLineHeight = 25;
 
+    for(let i = 1;i <= lastPage; i++) {
+        q('.page_number__now').innerHTML += `<div>${i}</div>`;
+    }
 
-    window.addEventListener("wheel", throttle(scrollHandler, 300)); //최종 풀페이지 & 스크롤 이벤트 제어
-    
+    window.addEventListener("wheel", throttle(scrollHandler, 700)); //최종 풀페이지 & 스크롤 이벤트 제어
 
-    // delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가
-    // delay 시간이 경과했을 때 이벤트가 발생하면 콜백 함수를 호출하고 새로운 타이머를 재설정한다. 
-    // 즉, delay 시간 간격으로 콜백 함수가 호출된다.
+    /** 
+     * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가 
+     * delay 시간이 경과했을 때 이벤트가 발생하면 콜백 함수를 호출하고 새로운 타이머를 재설정한다. 
+     * 즉, delay 시간 간격으로 콜백 함수가 호출된다.
+     * @param {srting} callback - 적용시킬 함수 
+     * @param {number} delay - event block 시킬 ms
+     */
     function throttle(callback, delay) {
         let timer;
-        return e => {
+        return (e) => {
             if (timer) return;
-            timer = setTimeout(() => {
-                callback(e);
-                timer = null; 
-            }, delay, e);
+            timer = setTimeout(
+                () => {
+                    callback(e);
+                    timer = null;
+                }, delay, e
+            );
         };
-    };
+    }
 
-    function scrollHandler(e) {       
-            if (e.deltaY > 0 && ! scrollChk) {
-                scrollChk = true;
-                setTimeout(() => {scrollChk = false}, 1000);
-                if (page == lastPage) {
-                    scrollChk = false;
-                    return;
-                }
-                page++;
-            } 
-            else if (e.deltaY < 0 && !scrollChk) {
-                scrollChk = true;
-                setTimeout(() => {scrollChk = false}, 1000);
-                if (page == 1) {
-                    scrollChk = false;
-                    return;
-                }
-                page--;
+    function scrollHandler(e) {
+        if (e.deltaY > 0) {
+            if (page == lastPage) {
+                return;
             }
-            let posTop = (page - 1) * document.body.clientHeight;
-            html.scrollTo({ top: posTop, behavior: "smooth" });
-            componentHanddler();
-    }; //풀페이지 스크롤 제어
+            page++;
+        } else if (e.deltaY < 0) {
+            if (page == 1) {
+                return;
+            }
+            page--;
+        }
+        let posTop = (page - 1) * document.body.clientHeight;
+        html.scrollTo({ top: posTop, behavior: "smooth"});
+        componentHanddler();
+    } //풀페이지 스크롤 제어
 
     function componentHanddler() {
-        q(".category__label").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
-        q(".page_number__now").style.transform = `translateY(${-lineHeight * (page - 1)}px)`;
-    }; //카테고리, 페이지넘버 핸들러
+        q(".category__label").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
+        q(".page_number__now").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
+    } //카테고리, 페이지넘버 핸들러
 </script>
