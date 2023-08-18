@@ -13,6 +13,9 @@
     padding: 0;
     border: 0;
 }
+html {
+    font-size: 10px;
+}
 html,
 body {
     height: 100%;
@@ -22,7 +25,7 @@ body {
     width: 100vw;
     background-color: #000;
     color: #fff;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
     font-family: "chaneyultra_extended", "Poppins", "Noto Sans KR";
     display: flex;
@@ -63,7 +66,6 @@ body {
     transform: translate(0, -50%);
     top: 50%;
     transition: all 0.3s ease-in-out;
-    /* opacity: 1; */
 }
 .petty::before {
     width: 30px;
@@ -86,7 +88,6 @@ body {
 }
 .active .petty {
     background-color: transparent;
-    /* opacity: 0; */
 }
 .active .petty::before {
     content: "";
@@ -102,9 +103,7 @@ body {
 
 /* main section */
 .main {
-    width: 100vw;
-    height: 300vh;
-    /* transition: all .5s ease-out; */
+
 }
 .headline {
     position: absolute;
@@ -125,28 +124,17 @@ body {
     width: 100vw;
     height: 100vh;
 }
-#page1 {
+#page_01 {
+
 }
-#page2 {
-    background-color: lightgray;
+#page_02 {
+    background: url()
 }
-#page3 {
+#page_03 {
     background-color: gray;
 }
-#page4 {
-    display: flex;
-    justify-content: end;
-    background: url(./img/kt_poster.webp) no-repeat center/cover;
-    backdrop-filter: blur(10px);
-}
-#page4 .bg {
-    background-image: url(./img/kt_poster.webp);
-    width: calc(100% - 282px);
-    height: calc(100% - 252px);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    
+#page_04 {
+    background-color: darkgray;
 }
 
 /* component section */

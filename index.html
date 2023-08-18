@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="main">
-            <div id="page1" class="page">
+            <div id="page_01" class="page">
                 <div class="headline">
                     <div>ORIGIN</div>
                     <div>AGAIN</div>
@@ -35,26 +35,32 @@
                     </div>
                 </div>
             </div>
-            <div id="page2" class="page">
+            <div id="page_02" class="page">
                 <div class="headline">
                     <div>PAGE</div>
                     <div>2</div>
                     <div class="headline_sub">
-                        <div>2023 LoL Champions Korea</div>
+                        <div>team</div>
                     </div>
                 </div>
             </div>
-            <div id="page3" class="page">
+            <div id="page_03" class="page">
                 <div class="headline">
                     <div>PAGE</div>
                     <div>3</div>
                     <div class="headline_sub">
-                        <div>2023 LoL Champions Korea</div>
+                        <div>ranking</div>
                     </div>
                 </div>
             </div>
-            <div id="page4" class="page">
-                <div class="bg"></div>
+            <div id="page_04" class="page">
+                <div class="headline">
+                    <div>PAGE</div>
+                    <div>4</div>
+                    <div class="headline_sub">
+                        <div>news</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="component">
@@ -76,6 +82,7 @@
             <div class="breadcrumbs">scroll down</div>
         </div>
     </body>
+    
 </html>
 <script>
     const q = (q) => document.querySelector(q);
@@ -106,7 +113,7 @@
         q('.page_number__now').innerHTML += `<div>${i}</div>`;
     }
 
-    window.addEventListener("wheel", throttle(scrollHandler, 700)); //최종 풀페이지 & 스크롤 이벤트 제어
+    window.addEventListener("wheel", throttle(scrollHandler, 300)); //최종 풀페이지 & 스크롤 이벤트 제어
 
     /** 
      * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가 
