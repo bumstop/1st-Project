@@ -21,6 +21,80 @@
                     <img src="./img/LCK.png" alt="LCK_logo" />
                 </div>
             </a>
+            <div class="nav_modal">
+                <ul>
+                    <li>
+                        <a href="">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            News
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            DK
+                            <span>Dplus Kia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            DRX
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            GEN
+                            <span>Gen.G Esports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            HLE
+                            <span>Hanwha Life Esports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            KDF
+                            <span>KWANGDONG FREECS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            KT
+                            <span>kt Rolster</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            LSB
+                            <span>Liiv SANDBOX</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            NS
+                            <span>Nongshim RedForce</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            BRO
+                            <span>OKSavingsBank BRION</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            T1
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div class="hamburger">
                 <span class="petty"></span>
             </div>
@@ -40,7 +114,7 @@
                     <div>PAGE</div>
                     <div>2</div>
                     <div class="headline_sub">
-                        <div>team</div>
+                        <div>news</div>
                     </div>
                 </div>
             </div>
@@ -49,7 +123,7 @@
                     <div>PAGE</div>
                     <div>3</div>
                     <div class="headline_sub">
-                        <div>ranking</div>
+                        <div>team</div>
                     </div>
                 </div>
             </div>
@@ -58,7 +132,7 @@
                     <div>PAGE</div>
                     <div>4</div>
                     <div class="headline_sub">
-                        <div>news</div>
+                        <div>ranking</div>
                     </div>
                 </div>
             </div>
@@ -67,9 +141,9 @@
             <div class="category">
                 <div class="category__label">
                     <span>Main</span>
+                    <span>News</span>
                     <span>Team</span>
                     <span>Ranking</span>
-                    <span>News</span>
                 </div>
             </div>
             <div class="page_number">
@@ -82,7 +156,6 @@
             <div class="breadcrumbs">scroll down</div>
         </div>
     </body>
-    
 </html>
 <script>
     const q = (q) => document.querySelector(q);
@@ -106,20 +179,20 @@
 
     const html = q("html");
     let page = 1;
-    const lastPage = q('.category__label').childElementCount;
+    const lastPage = q(".category__label").childElementCount;
     const componentLineHeight = 25;
 
-    for(let i = 1;i <= lastPage; i++) {
-        q('.page_number__now').innerHTML += `<div>${i}</div>`;
+    for (let i = 1; i <= lastPage; i++) {
+        q(".page_number__now").innerHTML += `<div>${i}</div>`;
     }
 
     window.addEventListener("wheel", throttle(scrollHandler, 300)); //최종 풀페이지 & 스크롤 이벤트 제어
 
-    /** 
-     * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가 
-     * delay 시간이 경과했을 때 이벤트가 발생하면 콜백 함수를 호출하고 새로운 타이머를 재설정한다. 
+    /**
+     * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가
+     * delay 시간이 경과했을 때 이벤트가 발생하면 콜백 함수를 호출하고 새로운 타이머를 재설정한다.
      * 즉, delay 시간 간격으로 콜백 함수가 호출된다.
-     * @param {srting} callback - 적용시킬 함수 
+     * @param {srting} callback - 적용시킬 함수
      * @param {number} delay - event block 시킬 ms
      */
     function throttle(callback, delay) {
@@ -130,7 +203,9 @@
                 () => {
                     callback(e);
                     timer = null;
-                }, delay, e
+                },
+                delay,
+                e
             );
         };
     }
@@ -148,7 +223,7 @@
             page--;
         }
         let posTop = (page - 1) * document.body.clientHeight;
-        html.scrollTo({ top: posTop, behavior: "smooth"});
+        html.scrollTo({ top: posTop, behavior: "smooth" });
         componentHanddler();
     } //풀페이지 스크롤 제어
 
