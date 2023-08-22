@@ -21,17 +21,13 @@
                     <img src="./img/LCK.png" alt="LCK_logo" />
                 </a>
             </div>
-            <div class="nav_modal">
-                <ul>
+            <div class="nav_modal_wrap">
+                <ul class="nav_modal">
                     <li>
-                        <a href="">
-                            About
-                        </a>
+                        <a href=""> About </a>
                     </li>
                     <li>
-                        <a href="">
-                            News
-                        </a>
+                        <a href=""> News </a>
                     </li>
                     <li>
                         <a href="">
@@ -162,10 +158,11 @@
     const qAll = (q) => document.querySelector(q);
 
     //********** 햄버거 메뉴 제어 **********
-    q(".hamburger").addEventListener("click", toggleHamburgerMenu);
+    q(".hamburger").addEventListener("click", toggleHamburgerNav);
 
-    function toggleHamburgerMenu() {
+    function toggleHamburgerNav() {
         q(".hamburger").classList.toggle("active");
+        q(".nav_modal_wrap").classList.toggle("active");
     }
 
     //********** 풀 페이지 & 스크롤 이벤트 제어 **********
