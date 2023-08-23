@@ -55,6 +55,10 @@ body {
     font-family: "chaneyultra-extended", "Poppins", "Noto Sans KR", sans-serif;
     display: flex;
     overflow: hidden;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
 }
 
 /* 1. aside section */
@@ -64,6 +68,7 @@ body {
     height: 100vh;
     padding: 4rem;
     position: fixed;
+    z-index: 99;
 }
 
 /* 1-1. main logo */
@@ -74,7 +79,7 @@ body {
     width: 14rem;
     height: 14rem;
     margin-bottom: 1.5rem;
-    z-index: 99;
+    z-index: 9;
 }
 .logo-bx a, .logo-bx img{
     display: block;
@@ -131,7 +136,7 @@ body {
 
 .nav-modal a:hover > span {
     color: transparent;
-    background-image: linear-gradient(45deg, #fff 0%, #0000005d 120%);
+    background-image: linear-gradient(45deg, #fff 0%, transparent 120%);
     background-clip: text;
     -webkit-background-clip: text;
     
@@ -153,7 +158,7 @@ body {
     bottom: 7rem;
     vertical-align: middle;
     cursor: pointer;
-    z-index: 99;
+    z-index: 9;
 }
 .petty {
     width: 3rem;
@@ -207,15 +212,31 @@ body {
     height: 100vh;
 }
 #page-01 {
+
 }
+
 #page-02 {
-    background: url(./img/kt_poster.webp) no-repeat center/cover;
+    
 }
-#page-03 {
-    background-color: gray;
+
+/* #page-03 {
+   position: relative;
+   background: url(./img/dk/dk_logo.png) no-repeat 25% 60%/30%;
+   
 }
+.team-slider {
+    width: 100%;
+    height: 100%;
+}
+.team-slider img {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 30%;
+    filter: blur(1rem);
+} */
 #page-04 {
-    background-color: darkgray;
+    
 }
 
 /* 2-2. headline */
