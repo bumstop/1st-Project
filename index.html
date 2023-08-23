@@ -16,13 +16,13 @@
 
     <body>
         <div class="aside">
-            <div class="logo_bx">
+            <div class="logo-bx">
                 <a href="index.html">
-                    <img src="./img/LCK.png" alt="LCK_logo" />
+                    <img src="./img/LCK.png" alt="LCK-logo" />
                 </a>
             </div>
-            <div class="nav_modal_wrap">
-                <ul class="nav_modal">
+            <div class="nav-modal_wrap">
+                <ul class="nav-modal">
                     <li>
                         <a href="">
                             <span>About</span>
@@ -102,38 +102,38 @@
             </div>
         </div>
         <div class="main">
-            <div id="page_01" class="page">
+            <div id="page-01" class="page">
                 <div class="headline">
                     <div>ORIGIN</div>
                     <div>AGAIN</div>
-                    <div class="headline_sub">
+                    <div class="headline-sub">
                         <div>2023 LoL Champions Korea</div>
                     </div>
                 </div>
             </div>
-            <div id="page_02" class="page">
+            <div id="page-02" class="page">
                 <div class="headline">
                     <div>PAGE</div>
                     <div>2</div>
-                    <div class="headline_sub">
+                    <div class="headline-sub">
                         <div>news</div>
                     </div>
                 </div>
             </div>
-            <div id="page_03" class="page">
+            <div id="page-03" class="page">
                 <div class="headline">
                     <div>PAGE</div>
                     <div>3</div>
-                    <div class="headline_sub">
+                    <div class="headline-sub">
                         <div>team</div>
                     </div>
                 </div>
             </div>
-            <div id="page_04" class="page">
+            <div id="page-04" class="page">
                 <div class="headline">
                     <div>PAGE</div>
                     <div>4</div>
-                    <div class="headline_sub">
+                    <div class="headline-sub">
                         <div>ranking</div>
                     </div>
                 </div>
@@ -148,13 +148,13 @@
                     <span>Ranking</span>
                 </div>
             </div>
-            <div class="page_number">
-                <div class="page_number__now"></div>
+            <div class="page-number">
+                <div class="page-number__now"></div>
                 <div>of</div>
                 <div>4</div>
             </div>
-            <div class="aside_line"></div>
-            <div class="section_line"></div>
+            <div class="aside-line"></div>
+            <div class="section-line"></div>
             <div class="breadcrumbs">scroll down</div>
         </div>
     </body>
@@ -168,7 +168,7 @@
 
     function toggleHamburgerNav() {
         q(".hamburger").classList.toggle("active");
-        q(".nav_modal_wrap").classList.toggle("active");
+        q(".nav-modal-wrap").classList.toggle("active");
     }
 
     //********** 풀 페이지 & 스크롤 이벤트 제어 **********
@@ -185,7 +185,7 @@
     const componentLineHeight = 25;
 
     for (let i = 1; i <= lastPage; i++) {
-        q(".page_number__now").innerHTML += `<div>${i}</div>`;
+        q(".page-number__now").innerHTML += `<div>${i}</div>`;
     }
 
     window.addEventListener("wheel", throttle(scrollHandler, 300)); //최종 풀페이지 & 스크롤 이벤트 제어
@@ -231,6 +231,6 @@
 
     function componentHanddler() {
         q(".category__label").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
-        q(".page_number__now").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
+        q(".page-number__now").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
     } //카테고리, 페이지넘버 핸들러
 </script>
