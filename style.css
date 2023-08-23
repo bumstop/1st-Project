@@ -2,10 +2,10 @@
 /*
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Poppins', sans-serif;
-    font-family: 'chaneyultra_extended';
+    font-family: 'chaneyultra-extended';
 */
 @font-face {
-    font-family: "chaneyultra_extended";
+    font-family: "chaneyultra-extended";
     src: url(./CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf);
 }
 * {
@@ -27,7 +27,7 @@ body {
     color: #fff;
     font-size: 1.6rem;
     font-weight: 400;
-    font-family: "chaneyultra_extended", "Poppins", "Noto Sans KR", sans-serif;
+    font-family: "chaneyultra-extended", "Poppins", "Noto Sans KR", sans-serif;
     display: flex;
     overflow: hidden;
 }
@@ -59,7 +59,7 @@ body {
 }
 
 /* 1-2. navigation modal */
-.nav-modal_wrap {
+.nav-modal-wrap {
     position: absolute;
     top: 0;
     left: 0;
@@ -68,48 +68,48 @@ body {
     backdrop-filter: blur(1rem);
     /* background: url(./img/kt_poster.webp) no-repeat center/cover; */
 }
-.nav_modal {
+.nav-modal {
     position: absolute;
     top: calc(4rem + 14rem + 1rem);
-    /* top: aside padding + logo_bx height + margin */
+    /* top: aside padding + logo-bx height + margin */
     left: 4rem;
     /* left: aside padding */
     font-size: 2.5rem;
     opacity: 0;
     transition: all 0.3s ease-in-out;
 }
-.active > .nav_modal {
+.active > .navmodal {
     opacity: 1;
 }
-.nav_modal li {
+.nav-modal li {
     height: 5.4rem;
     list-style: none;
     transform: translateY(-4rem) rotateX(90deg);
     transition: all 0.3s linear;
 }
 
-.active > .nav_modal li {
+.active > .nav-modal li {
     transform: rotateX(0deg);
 }
-.nav_modal a {
+.nav-modal a {
     color: #fff;
     text-decoration: none;
     display: flex;
     flex-direction: column;
 }
-.nav_modal span {
+.nav-modal span {
     width: fit-content;
     transition: .5s ease-in-out;
 }
 
-.nav_modal a:hover > span {
+.nav-modal a:hover > span {
     color: transparent;
     background-image: linear-gradient(45deg, #fff 0%, #000 120%);
     background-clip: text;
     -webkit-background-clip: text;
     
 }
-.nav_modal span:last-child {
+.nav-modal span:last-child {
     font-family: "Poppins", "Noto Sans KR", sans-serif;
     font-size: 1.5rem;
     transform: translateY(-1rem);
@@ -179,15 +179,15 @@ body {
     width: 100vw;
     height: 100vh;
 }
-#page_01 {
+#page-01 {
 }
-#page_02 {
+#page-02 {
     background-color: darkgray;
 }
-#page_03 {
+#page-03 {
     background-color: gray;
 }
-#page_04 {
+#page-04 {
     background-color: darkgray;
 }
 
@@ -203,7 +203,7 @@ body {
 .headline div:nth-of-type(2) {
     text-align: end;
 }
-.headline_sub {
+.headline-sub {
     margin-top: 2.5rem;
     font-size: 1.6rem;
 }
@@ -225,7 +225,7 @@ body {
 }
 
 /* 3-2. page number */
-.page_number {
+.page-number {
     display: flex;
     width: 10rem;
     height: 2.5rem;
@@ -236,11 +236,11 @@ body {
     bottom: 7rem;
     gap: 1rem;
 }
-.page_number__now {
+.page-number__now {
     transition: all 0.5s ease-out;
 }
 /* 3-3. component line */
-.aside_line {
+.aside-line {
     width: 0.2rem;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.15);
@@ -248,7 +248,7 @@ body {
     top: 0;
     left: 28rem;
 }
-.section_line {
+.section-line {
     width: calc(100% - 28.2rem);
     height: 0.2rem;
     background-color: rgba(255, 255, 255, 0.15);
