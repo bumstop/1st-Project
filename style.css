@@ -32,7 +32,7 @@
         3-4. breadcrumbs
 */
 
-/* 0. 기본 초기화, font설정 / html, body설정 */
+/* 0. 기본 초기화, font설정 / html, body설정 / root */
 * {
     margin: 0;
     padding: 0;
@@ -60,13 +60,16 @@ body {
     -ms-user-select:none;
     user-select:none
 }
-
+:root {
+    --aside-padding: 4rem;
+    --main-logo-w-h: 14rem;
+}
 /* 1. aside section */
 .aside {
     box-sizing: border-box;
     width: 28rem;
     height: 100vh;
-    padding: 4rem;
+    padding: var(--aside-padding);
     position: fixed;
     z-index: 99;
 }
@@ -76,8 +79,8 @@ body {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 14rem;
-    height: 14rem;
+    width: var(--main-logo-w-h);
+    height: var(--main-logo-w-h);
     margin-bottom: 1.5rem;
     z-index: 9;
 }
@@ -105,10 +108,8 @@ body {
 }
 .nav-modal {
     position: absolute;
-    top: calc(4rem + 14rem + 1rem);
-    /* top: aside padding + logo-bx height + margin */
-    left: 4rem;
-    /* left: aside padding */
+    top: calc(var(--aside-padding) + var(--main-logo-w-h) + 1vh);
+    left: var(--aside-padding);
     font-size: 2.5rem;
 }
 .nav-modal li {
@@ -144,7 +145,6 @@ body {
     font-family: "Poppins", "Noto Sans KR", sans-serif;
     font-size: 1.5rem;
     transform: translateY(-1rem);
-    color: #fff;
 }
 
 
