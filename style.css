@@ -32,6 +32,13 @@
         3-4. breadcrumbs
 */
 
+/* 
+    [ z-index ]
+
+    [ 001 ] .logo-bx
+    [ 999 ] .aside 
+*/
+
 /* 0. 기본 초기화, font설정 / html, body설정 / root */
 * {
     margin: 0;
@@ -55,10 +62,10 @@ body {
     font-family: "chaneyultra-extended", "Poppins", "Noto Sans KR", sans-serif;
     display: flex;
     overflow: hidden;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 :root {
     --aside-padding: 4rem;
@@ -71,7 +78,7 @@ body {
     height: 100vh;
     padding: var(--aside-padding);
     position: fixed;
-    z-index: 99;
+    z-index: 999;
 }
 
 /* 1-1. main logo */
@@ -82,9 +89,10 @@ body {
     width: var(--main-logo-w-h);
     height: var(--main-logo-w-h);
     margin-bottom: 1.5rem;
-    z-index: 9;
+    z-index: 1;
 }
-.logo-bx a, .logo-bx img{
+.logo-bx a,
+.logo-bx img {
     display: block;
     width: 100%;
     height: 100%;
@@ -135,7 +143,7 @@ body {
     background-image: linear-gradient(45deg, #fff 0%, transparent 120%);
     background-clip: text;
     -webkit-background-clip: text;
-    transition: .5s ease-out;
+    transition: 0.5s ease-out;
 }
 
 .nav-modal a:hover > span {
@@ -148,7 +156,6 @@ body {
     transform: translateY(-1rem);
 }
 
-
 /* 1-3. hamburger menu button */
 .hamburger {
     width: 3rem;
@@ -158,7 +165,6 @@ body {
     bottom: 7rem;
     vertical-align: middle;
     cursor: pointer;
-    z-index: 9;
 }
 .petty {
     width: 3rem;
@@ -212,11 +218,9 @@ body {
     height: 100vh;
 }
 #page-01 {
-
 }
 
 #page-02 {
-    
 }
 
 /* #page-03 {
@@ -236,7 +240,6 @@ body {
     filter: blur(1rem);
 } */
 #page-04 {
-    
 }
 
 /* 2-2. headline */

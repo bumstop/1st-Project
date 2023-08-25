@@ -181,7 +181,7 @@
     const q = (q) => document.querySelector(q);
     const qAll = (q) => document.querySelector(q);
 
-    //********** 햄버거 메뉴 제어 **********
+    /*************** 햄버거 메뉴 제어 ***************/
     q(".hamburger").addEventListener("click", toggleHamburgerNav);
 
     function toggleHamburgerNav() {
@@ -189,7 +189,7 @@
         q(".nav-modal-wrap").classList.toggle("active");
     }
 
-    //********** 풀 페이지 & 스크롤 이벤트 제어 **********
+    /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/
     window.addEventListener(
         "wheel",
         function (e) {
@@ -230,6 +230,11 @@
         };
     }
 
+    /** 
+     * 풀페이지 스크롤 제어 
+     * 1. Y축 스크롤 제어
+     * 2. componentHanddler함수 제어
+     */
     function scrollHandler(e) {
         if (e.deltaY > 0) {
             if (page == lastPage) {
@@ -245,10 +250,25 @@
         let posTop = (page - 1) * document.body.clientHeight;
         html.scrollTo({ top: posTop, behavior: "smooth" });
         componentHanddler();
-    } //풀페이지 스크롤 제어
+    }
 
+    /** 카테고리, 페이지넘버 핸들러  */
     function componentHanddler() {
         q(".category__label").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
         q(".page-number__now").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
-    } //카테고리, 페이지넘버 핸들러
+    } 
+
+    /*************** page 컨텐츠 ***************/
+    const page02 = q('.page-02');
+    const page02BackgroundUrl = [
+        './img/geng/win_summer_2023_1.jpg',
+        './img/geng/win_summer_2023_2.jpg',
+        './img/geng/win_summer_2023_3.jpg',
+        './img/geng/win_summer_2023_4.jpg',
+        './img/geng/win_summer_2023_5.jpg'
+    ];
+
+    forEach
+    page02.style.backgroundImage = page02BackgroundUrl;
+
 </script>
