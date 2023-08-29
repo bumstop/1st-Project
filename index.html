@@ -179,7 +179,7 @@
 </html>
 <script>
     const q = (q) => document.querySelector(q);
-    const qAll = (q) => document.querySelector(q);
+    const qAll = (q) => document.querySelectorAll(q);
 
     /*************** 햄버거 메뉴 제어 ***************/
     q(".hamburger").addEventListener("click", toggleHamburgerNav);
@@ -268,34 +268,23 @@
         "./img/geng/win_summer_2023_5.jpg",
     ];
 
-    let promisefn = new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, 2000);
+    page02BgUrl.forEach((val, idx) => {
+        page02Container.innerHTML += `
+            <div style="
+                background-image:url(${val});
+                opacity:${idx == 0 ? 1 : 0};">
+            </div>
+        `;
     });
 
-    function insertBg(seq) {
-        page02Container.style.backgroundImage = `url(${page02BgUrl[seq]})`;
-    }
-
-    // page02Container.style.backgroundImage = `url(${page02BgUrl[0]})`;
-
-    page02BgUrl.forEach((val,idx)=>{ // val 배열값 / idx - 순번
-        page02Container.innerHTML += 
-        `<div 
-        style="position:absolute;width:100%;height:100%;background-image:url(${val});opacity:${idx==0?1:0};transition:2s ease-in-out;"></div>`;
-    })
-
-    let target = page02Container.querySelectorAll('div');
-    console.log(target)
-
-    // page02BgUrl.forEach((val) => {
+    let target = page02Container.querySelectorAll("div");
     let seq = 0;
+
     setInterval(() => {
         target[seq].style.opacity = 0;
         seq++;
-        if(seq==page02BgUrl.length) seq=0;
-
+        if (seq == page02BgUrl.length) seq = 0;
         target[seq].style.opacity = 1;
-    }, 2000);
+    }, 5000);
+
 </script>
