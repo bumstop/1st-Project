@@ -268,6 +268,11 @@
         './img/geng/win_summer_2023_5.jpg'
     ];
 
-    page02BackgroundUrl.forEach((el) => { page02.style.backgroundImage = `url('${el}')` });
-
+    setInterval(() => {
+        page02BackgroundUrl.forEach((el,idx) => { 
+            page02.style.backgroundImage = `url('${el[idx]}')`;
+            if(idx == el.length) idx = 0;
+        });
+    }, 2000);
+    
 </script>
