@@ -107,7 +107,6 @@
 
         <!-- 메인 -->
         <div class="main">
-
             <!-- 1 페이지 -->
             <div id="page-01" class="page">
                 <div class="headline">
@@ -119,7 +118,7 @@
                 </div>
             </div>
 
-             <!-- 2 페이지 -->
+            <!-- 2 페이지 -->
             <div id="page-02" class="page">
                 <div class="headline">
                     <div>PAGE</div>
@@ -128,9 +127,10 @@
                         <div>news</div>
                     </div>
                 </div>
+                <div class="page-02__container"></div>
             </div>
 
-             <!-- 3 페이지 -->
+            <!-- 3 페이지 -->
             <div id="page-03" class="page">
                 <div class="headline">
                     <div>PAGE</div>
@@ -144,7 +144,7 @@
                 </div>
             </div>
 
-             <!-- 4 페이지 -->
+            <!-- 4 페이지 -->
             <div id="page-04" class="page">
                 <div class="headline">
                     <div>PAGE</div>
@@ -230,8 +230,8 @@
         };
     }
 
-    /** 
-     * 풀페이지 스크롤 제어 
+    /**
+     * 풀페이지 스크롤 제어
      * 1. Y축 스크롤 제어
      * 2. componentHanddler함수 제어
      */
@@ -256,23 +256,27 @@
     function componentHanddler() {
         q(".category__label").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
         q(".page-number__now").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
-    } 
+    }
 
     /*************** page 컨텐츠 ***************/
-    const page02 = q('#page-02');
-    const page02BackgroundUrl = [
-        './img/geng/win_summer_2023_1.jpg',
-        './img/geng/win_summer_2023_2.jpg',
-        './img/geng/win_summer_2023_3.jpg',
-        './img/geng/win_summer_2023_4.jpg',
-        './img/geng/win_summer_2023_5.jpg'
+    const page02Container = q(".page-02__container");
+    const page02BgUrl = [
+        "./img/geng/win_summer_2023_1.jpg",
+        "./img/geng/win_summer_2023_2.jpg",
+        "./img/geng/win_summer_2023_3.jpg",
+        "./img/geng/win_summer_2023_4.jpg",
+        "./img/geng/win_summer_2023_5.jpg",
     ];
 
-    setInterval(() => {
-        page02BackgroundUrl.forEach((el,idx) => { 
-            page02.style.backgroundImage = `url('${el[idx]}')`;
-            if(idx == el.length) idx = 0;
-        });
-    }, 2000);
-    
+    let promisefn = new Promise((resolve) => {
+        setTimeout(() => {resolve();}, 2000);
+    });
+
+    function insertBg(el) {
+        page02Container.style.backgroundImage = `url(${el})`;
+    }
+
+    page02BgUrl.forEach((el) => {
+        setTimeout(insertBg(el), 2000);
+    });
 </script>

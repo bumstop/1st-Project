@@ -210,6 +210,7 @@ body {
 
 /* 2. main section */
 .main {
+    
 }
 
 /* 2-1. pages */
@@ -218,14 +219,22 @@ body {
     height: 100vh;
 }
 #page-01 {
+    
 }
 
 #page-02 {
+    position: relative;
+}
+.page-02__container {
+    position: absolute;
+    top: 0;
+    left: 28.2rem;
+    width: calc(100% - 28.2rem);
+    height: calc(100% - 25.2rem);
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: contain;
 }
-
 /* #page-03 {
    position: relative;
    background: url(./img/dk/dk_logo.png) no-repeat 25% 60%/30%;
