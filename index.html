@@ -259,7 +259,7 @@
     } 
 
     /*************** page 컨텐츠 ***************/
-    const page02 = q('.page-02');
+    const page02 = q('#page-02');
     const page02BackgroundUrl = [
         './img/geng/win_summer_2023_1.jpg',
         './img/geng/win_summer_2023_2.jpg',
@@ -268,7 +268,6 @@
         './img/geng/win_summer_2023_5.jpg'
     ];
 
-    forEach
-    page02.style.backgroundImage = page02BackgroundUrl;
+    page02BackgroundUrl.forEach((el) => { page02.style.backgroundImage = `url('${el}')` });
 
 </script>
