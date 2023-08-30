@@ -121,10 +121,10 @@
             <!-- 2 페이지 -->
             <div id="page-02" class="page">
                 <div class="headline">
-                    <div>PAGE</div>
-                    <div>2</div>
+                    <div>CHAMPION</div>
+                    <div>GEN.G</div>
                     <div class="headline-sub">
-                        <div>news</div>
+                        <div>2023 LoL Champions Korea</div>
                     </div>
                 </div>
                 <div class="page-02__container"></div>
@@ -179,7 +179,7 @@
 </html>
 <script>
     const q = (q) => document.querySelector(q);
-    const qAll = (q) => document.querySelectorAll(q);
+    const qa = (q) => document.querySelectorAll(q);
 
     /*************** 햄버거 메뉴 제어 ***************/
     q(".hamburger").addEventListener("click", toggleHamburgerNav);
@@ -190,6 +190,13 @@
     }
 
     /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/
+
+    window.onload = function () {
+        setTimeout(function () {
+            scrollTo(0, 0);
+        }, 100);
+    }; // 새로고침시 페이지 스크롤 맨위로 조정
+
     window.addEventListener(
         "wheel",
         function (e) {
@@ -197,6 +204,7 @@
         },
         { passive: false }
     ); //마우스 휠 기본이벤트 제거
+
     const html = q("html");
     let page = 1;
     const lastPage = q(".category__label").childElementCount;
@@ -260,31 +268,26 @@
 
     /*************** page 컨텐츠 ***************/
     const page02Container = q(".page-02__container");
-    const page02BgUrl = [
-        "./img/geng/win_summer_2023_1.jpg",
+    const page02Imgs = [
         "./img/geng/win_summer_2023_2.jpg",
         "./img/geng/win_summer_2023_3.jpg",
         "./img/geng/win_summer_2023_4.jpg",
         "./img/geng/win_summer_2023_5.jpg",
     ];
 
-    page02BgUrl.forEach((val, idx) => {
+    page02Imgs.forEach((val, idx) => {
         page02Container.innerHTML += `
-            <div style="
-                background-image:url(${val});
-                opacity:${idx == 0 ? 1 : 0};">
-            </div>
+            <img src="${val}" class="imgs" style="opacity:${idx == 0 ? 1 : 0};">
         `;
     });
 
-    let target = page02Container.querySelectorAll("div");
+    let imgs = qa(".imgs");
     let seq = 0;
 
     setInterval(() => {
-        target[seq].style.opacity = 0;
+        imgs[seq].style.opacity = 0;
         seq++;
-        if (seq == page02BgUrl.length) seq = 0;
-        target[seq].style.opacity = 1;
+        if (seq == page02Imgs.length) seq = 0;
+        imgs[seq].style.opacity = 1;
     }, 5000);
-
 </script>
