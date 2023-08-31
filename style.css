@@ -315,16 +315,16 @@ body {
 }
 /* 3-3. component line */
 .aside-line {
-    width: 0.2rem;
+    width: var(--component-line-border);
     height: 100%;
     background-color: rgba(255, 255, 255, 0.15);
     position: fixed;
     top: 0;
-    left: 28rem;
+    left: var(--aside-width);
 }
 .section-line {
-    width: calc(100% - 28.2rem);
-    height: 0.2rem;
+    width: calc(100% - var(--aside-width) - var(--component-line-border));
+    height: var(--component-line-border);
     background-color: rgba(255, 255, 255, 0.15);
     position: fixed;
     right: 0;
