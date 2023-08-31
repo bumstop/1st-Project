@@ -121,10 +121,10 @@
             <!-- 2 페이지 -->
             <div id="page-02" class="page">
                 <div class="headline">
+                    <div><span style="font-size: ;">GEN.G</span> the</div>
                     <div>CHAMPION</div>
-                    <div>GEN.G</div>
                     <div class="headline-sub">
-                        <div>2023 LoL Champions Korea</div>
+                        <div><span style="margin:0 3rem;">of</span>2023 LoL Champions Korea</div>
                     </div>
                 </div>
                 <div class="page-02__container"></div>
@@ -179,7 +179,7 @@
 </html>
 <script>
     const q = (q) => document.querySelector(q);
-    const qa = (q) => document.querySelectorAll(q);
+    const qAll = (q) => document.querySelectorAll(q);
 
     /*************** 햄버거 메뉴 제어 ***************/
     q(".hamburger").addEventListener("click", toggleHamburgerNav);
@@ -191,8 +191,8 @@
 
     /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/
 
-    window.onload = function () {
-        setTimeout(function () {
+    window.onload = () => {
+        setTimeout(() => {
             scrollTo(0, 0);
         }, 100);
     }; // 새로고침시 페이지 스크롤 맨위로 조정
@@ -207,14 +207,14 @@
 
     const html = q("html");
     let page = 1;
-    const lastPage = q(".category__label").childElementCount;
+    const lastPage = qAll(".page").length;
     const componentLineHeight = 25;
 
     for (let i = 1; i <= lastPage; i++) {
         q(".page-number__now").innerHTML += `<div>${i}</div>`;
     }
 
-    window.addEventListener("wheel", throttle(scrollHandler, 300)); //최종 풀페이지 & 스크롤 이벤트 제어
+    window.addEventListener("wheel", throttle(scrollHandler, 1000)); //최종 풀페이지 & 스크롤 이벤트 제어
 
     /**
      * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가
@@ -230,6 +230,7 @@
             timer = setTimeout(
                 () => {
                     callback(e);
+                    console.log(e);
                     timer = null;
                 },
                 delay,
@@ -281,7 +282,7 @@
         `;
     });
 
-    let imgs = qa(".imgs");
+    let imgs = qAll(".imgs");
     let seq = 0;
 
     setInterval(() => {
