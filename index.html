@@ -248,7 +248,7 @@
         pageNumberNow.innerHTML += `<div>${i}</div>`;
     }
 
-    window.addEventListener("wheel", throttle(scrollHandler, 1000)); //최종 풀페이지 & 스크롤 이벤트 제어
+    window.addEventListener("wheel", throttle(scrollHandler, 500)); //최종 풀페이지 & 스크롤 이벤트 제어
 
     /**
      * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가
