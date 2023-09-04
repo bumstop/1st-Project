@@ -107,6 +107,7 @@
 
         <!-- 메인 -->
         <div class="main">
+
             <!-- 1 페이지 -->
             <div id="page-01" class="page">
                 <div class="headline">
@@ -211,14 +212,18 @@
     const qAll = (q) => document.querySelectorAll(q);
 
     /*************** 햄버거 메뉴 제어 ***************/
-    q(".hamburger").addEventListener("click", toggleHamburgerNav);
+    const hamburger = q(".hamburger");
+    const navModalWrap = q(".nav-modal-wrap");
+    hamburger.addEventListener("click", toggleHamburgerNav);
 
     function toggleHamburgerNav() {
-        q(".hamburger").classList.toggle("active");
-        q(".nav-modal-wrap").classList.toggle("active");
+        hamburger.classList.toggle("on");
+        navModalWrap.classList.toggle("on");
     }
 
     /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/
+    const pageNumberNow = q(".page-number__now");
+    const categoryLabel = q(".category__label");
 
     window.onload = () => {
         setTimeout(() => {
@@ -240,7 +245,7 @@
     const componentLineHeight = 25;
 
     for (let i = 1; i <= lastPage; i++) {
-        q(".page-number__now").innerHTML += `<div>${i}</div>`;
+        pageNumberNow.innerHTML += `<div>${i}</div>`;
     }
 
     window.addEventListener("wheel", throttle(scrollHandler, 1000)); //최종 풀페이지 & 스크롤 이벤트 제어
@@ -293,11 +298,13 @@
 
     /** 카테고리, 페이지넘버 핸들러  */
     function componentHanddler() {
-        q(".category__label").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
-        q(".page-number__now").style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
+        categoryLabel.style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
+        pageNumberNow.style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
     }
 
     /*************** page 컨텐츠 ***************/
+
+    // page02
     const page02Container = q(".page-02__container");
     const page02Imgs = [
         "./img/geng/win_summer_2023_2.jpg",
@@ -321,4 +328,16 @@
         if (seq == page02Imgs.length) seq = 0;
         imgs[seq].style.opacity = 1;
     }, 5000);
+
+    // page03
+    const teamSliderItems = qAll('.team-slider__items');
+    
+    teamSliderItems.forEach((ele) => {
+        ele.addEventListener('click', (e) => {
+            teamSliderItems.forEach((ele) => { 
+                ele.classList.remove("on"); 
+            });
+            ele.classList.add("on");
+        });
+    });
 </script>
