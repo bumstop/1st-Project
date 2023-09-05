@@ -253,10 +253,11 @@
     /**
      * 풀페이지 스크롤 제어
      * 1. Y축 스크롤 제어
-     * 2. componentHanddler함수 제어
+     * 2. 휠 동작중 중복동작 제어
+     * 3. componentHanddler함수 제어
      */
     function scrollHandler(e) {
-        if (wheelMove) return; // 여기서나감
+        if (wheelMove) return; // 나감
         wheelMove = 1; // 잠금
         setTimeout(() => {
             wheelMove = 0;
