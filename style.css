@@ -279,15 +279,26 @@ body {
 }
 
 .team-slider .team-slider__items:nth-child(1) {
-    background: url(./img/dk/dk_logo.png) no-repeat -100px 0/20vw;
-    /* filter: blur(3px); */
-    background-color: #00a2ff;
+    background: 
+        #000 
+        url(./img/dk/dk_logo.png) 
+        no-repeat 
+        0 0/3.5vw;
+
 }
 .team-slider .team-slider__items:nth-child(2) {
-    background-color: #0089d8;
+    background: 
+        #1003a3 
+        url(./img/drx/drx_logo.png) 
+        no-repeat 
+        0 0/3.5vw;
 }
 .team-slider .team-slider__items:nth-child(3) {
-    background-color: #0078bd;
+    background: 
+        #65646d
+        url(./img/geng/geng_logo.png) 
+        no-repeat 
+        0 0/5vw;
 }
 .team-slider .team-slider__items:nth-child(4) {
     background-color: #0267a1;
