@@ -213,38 +213,40 @@
     /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/
     const pageNumberNow = q(".page-number__now");
     const categoryLabel = q(".category__label");
-    let wheelMove = 0; // 휠 동작 감시 변수
 
+    /* 새로고침시 페이지 스크롤 맨위로 조정 */
     window.onload = () => {
         setTimeout(() => {
             scrollTo(0, 0);
         }, 100);
-    }; // 새로고침시 페이지 스크롤 맨위로 조정
+    }; 
 
+    /* 마우스 휠 기본이벤트 제거 */
     window.addEventListener(
         "wheel",
         function (e) {
             e.preventDefault();
         },
         { passive: false }
-    ); //마우스 휠 기본이벤트 제거
+    );
 
     const html = q("html");
     let page = 1;
     const lastPage = qAll(".page").length;
     const componentLineHeight = 25;
 
+    /* component - page number 부여 */
     for (let i = 1; i <= lastPage; i++) {
         pageNumberNow.innerHTML += `<div>${i}</div>`;
     }
 
-    window.addEventListener("wheel", scrollHandler); //최종 풀페이지 & 스크롤 이벤트 제어
+    let wheelMove = 0; // 휠 동작 감시 변수
 
     /**
      * 풀페이지 스크롤 제어
-     * 1. Y축 스크롤 제어
-     * 2. 휠 동작중 중복동작 제어
-     * 3. componentHanddler함수 제어
+     * 1. 휠 동작중 중복동작 제어 및 delay 조절
+     * 2. Y축 스크롤 제어
+     * 3. componentHanddler 함수 제어
      */
     function scrollHandler(e) {
         if (wheelMove) return; // 나감
@@ -276,10 +278,15 @@
         pageNumberNow.style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
     }
 
+    /* 최종 풀페이지 & 스크롤 이벤트 제어 */
+    window.addEventListener("wheel", scrollHandler); 
+
     /*************** page 컨텐츠 ***************/
 
     // page02
     const page02Container = q(".page-02__container");
+
+    /* 2페이지 배경이미지 */
     const page02Imgs = [
         "./img/geng/win_summer_2023_2.jpg",
         "./img/geng/win_summer_2023_3.jpg",
@@ -296,6 +303,7 @@
     let imgs = qAll(".imgs");
     let seq = 0;
 
+    /* 배경이미지 변경 시간 조절 */
     setInterval(() => {
         imgs[seq].style.opacity = 0;
         seq++;
@@ -306,6 +314,7 @@
     // page03
     const teamSliderItems = qAll(".team-slider__items");
 
+    /* 팀 슬라이더 flex 조절 - on class 부여 */
     teamSliderItems.forEach((ele) => {
         ele.addEventListener("click", (e) => {
             teamSliderItems.forEach((ele) => {
@@ -314,4 +323,6 @@
             ele.classList.add("on");
         });
     });
+
+
 </script>
