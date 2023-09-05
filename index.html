@@ -22,9 +22,9 @@
                     <img src="./img/LCK.png" alt="LCK-logo" />
                 </a>
             </div>
-            <div class="nav-modal-wrap">
-                <div class="nav-modal-wrap__fake">
-                    <ul class="nav-modal">
+            <div class="nav-slider-wrap">
+                <div class="nav-slider-wrap__fake">
+                    <ul class="nav-slider">
                         <li>
                             <a href="">
                                 <span>About</span>
@@ -213,12 +213,12 @@
 
     /*************** 햄버거 메뉴 제어 ***************/
     const hamburger = q(".hamburger");
-    const navModalWrap = q(".nav-modal-wrap");
+    const navSliderWrap = q(".nav-slider-wrap");
     hamburger.addEventListener("click", toggleHamburgerNav);
 
     function toggleHamburgerNav() {
         hamburger.classList.toggle("on");
-        navModalWrap.classList.toggle("on");
+        navSliderWrap.classList.toggle("on");
     }
 
     /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/

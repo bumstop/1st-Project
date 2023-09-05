@@ -16,7 +16,7 @@
     1. aside section
 
         1-1. main logo
-        1-2. navigation modal
+        1-2. navigation slider
         1-3. hamburger menu button
 
     2. main section
@@ -37,8 +37,9 @@
 
     [ 999 ] .aside
 
-    [ 001 ] .logo-bx
-            .headline
+    [ 001 ] .component
+            .logo-bx
+            .hamburger
 
 */
 
@@ -103,8 +104,8 @@ body {
     height: 100%;
 }
 
-/* 1-2. navigation modal */
-.nav-modal-wrap {
+/* 1-2. navigation slider */
+.nav-slider-wrap {
     position: absolute;
     top: 0;
     left: 0;
@@ -112,7 +113,7 @@ body {
     height: 100%;
 }
 
-.nav-modal-wrap__fake {
+.nav-slider-wrap__fake {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -125,30 +126,30 @@ body {
         rgba(20, 20, 20, 0) 100%
     );
 }
-.nav-modal {
+.nav-slider {
     position: absolute;
     top: calc(var(--aside-padding) + var(--main-logo-w-h) + 1vh);
     left: var(--aside-padding);
     font-size: 2.5rem;
 }
-.nav-modal li {
+.nav-slider li {
     height: 5.4rem;
     list-style: none;
     transform: translateY(-4rem) rotateX(90deg);
     transition: all 0.7s;
 }
-.on > .nav-modal-wrap__fake {
+.on > .nav-slider-wrap__fake {
     opacity: 1;
 }
-.on > .nav-modal-wrap__fake .nav-modal li {
+.on > .nav-slider-wrap__fake .nav-slider li {
     transform: rotateX(0deg);
 }
-.nav-modal a {
+.nav-slider a {
     text-decoration: none;
     display: flex;
     flex-direction: column;
 }
-.nav-modal span {
+.nav-slider span {
     width: fit-content;
     color: transparent;
     background-image: linear-gradient(45deg, #fff 0%, transparent 100%);
@@ -157,11 +158,11 @@ body {
     transition: 0.5s ease-out;
 }
 
-.nav-modal a:hover > span {
+.nav-slider a:hover > span {
     color: #fff;
     text-shadow: 0 0 15px #fff;
 }
-.nav-modal span:last-child {
+.nav-slider span:last-child {
     font-family: "Poppins", "Noto Sans KR", sans-serif;
     font-size: 1.5rem;
     transform: translateY(-1rem);
@@ -176,6 +177,7 @@ body {
     bottom: 7rem;
     vertical-align: middle;
     cursor: pointer;
+    z-index: 1;
 }
 .petty {
     width: 3rem;
@@ -249,6 +251,12 @@ body {
 }
 
 /* 2-1-3. page03 */
+#page-03 .headline {
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
 .team-slider {
     display: flex;
     justify-content: flex-end;
@@ -260,7 +268,8 @@ body {
 .team-slider__items {
     width: 100%;
     height: 100%;
-    transition: .8s cubic-bezier(0.5, 0, 0.5, 0.99);
+    overflow: hidden;
+    transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
     flex: 1;
 }
 
@@ -270,6 +279,8 @@ body {
 }
 
 .team-slider .team-slider__items:nth-child(1) {
+    background: url(./img/dk/dk_logo.png) no-repeat -100px 0/20vw;
+    /* filter: blur(3px); */
     background-color: #00a2ff;
 }
 .team-slider .team-slider__items:nth-child(2) {
@@ -320,7 +331,9 @@ body {
 }
 
 /* 3. component section */
-
+.component {
+    z-index: 1;
+}
 /* 3-1. category */
 .category {
     width: 12rem;
