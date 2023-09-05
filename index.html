@@ -107,7 +107,6 @@
 
         <!-- 메인 -->
         <div class="main">
-
             <!-- 1 페이지 -->
             <div id="page-01" class="page">
                 <div class="headline">
@@ -224,6 +223,7 @@
     /*************** 풀 페이지 & 스크롤 이벤트 제어 ***************/
     const pageNumberNow = q(".page-number__now");
     const categoryLabel = q(".category__label");
+    let wheelMove = 0; // 휠 작동 감지 변수
 
     window.onload = () => {
         setTimeout(() => {
@@ -248,30 +248,7 @@
         pageNumberNow.innerHTML += `<div>${i}</div>`;
     }
 
-    window.addEventListener("wheel", throttle(scrollHandler, 500)); //최종 풀페이지 & 스크롤 이벤트 제어
-
-    /**
-     * delay 시간이 경과하기 전에 이벤트가 발생하면 아무것도 하지 않다가
-     * delay 시간이 경과했을 때 이벤트가 발생하면 콜백 함수를 호출하고 새로운 타이머를 재설정한다.
-     * 즉, delay 시간 간격으로 콜백 함수가 호출된다.
-     * @param {srting} callback - 적용시킬 함수
-     * @param {number} delay - event block 시킬 ms
-     */
-    function throttle(callback, delay) {
-        let timer;
-        return (e) => {
-            if (timer) return;
-            timer = setTimeout(
-                () => {
-                    callback(e);
-                    console.log(e);
-                    timer = null;
-                },
-                delay,
-                e
-            );
-        };
-    }
+    window.addEventListener("wheel", scrollHandler); //최종 풀페이지 & 스크롤 이벤트 제어
 
     /**
      * 풀페이지 스크롤 제어
@@ -279,6 +256,12 @@
      * 2. componentHanddler함수 제어
      */
     function scrollHandler(e) {
+        if (wheelMove) return; // 여기서나감
+        wheelMove = 1; // 잠금
+        setTimeout(() => {
+            wheelMove = 0;
+        }, 800);
+
         if (e.deltaY > 0) {
             if (page == lastPage) {
                 return;
@@ -330,12 +313,12 @@
     }, 5000);
 
     // page03
-    const teamSliderItems = qAll('.team-slider__items');
-    
+    const teamSliderItems = qAll(".team-slider__items");
+
     teamSliderItems.forEach((ele) => {
-        ele.addEventListener('click', (e) => {
-            teamSliderItems.forEach((ele) => { 
-                ele.classList.remove("on"); 
+        ele.addEventListener("click", (e) => {
+            teamSliderItems.forEach((ele) => {
+                ele.classList.remove("on");
             });
             ele.classList.add("on");
         });
