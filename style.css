@@ -55,7 +55,7 @@ html {
 html,
 body {
     height: 100%;
-    transition: .8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 body {
     width: 100vw;
@@ -119,12 +119,7 @@ body {
     height: 100%;
     opacity: 0;
     transition: all 0.5s;
-    background: linear-gradient(
-        to right,
-        rgba(20, 20, 20, 1) 33%,
-        rgba(20, 20, 20, .5) 80%,
-        rgba(20, 20, 20, 0) 100%
-    );
+    background: linear-gradient(to right, rgba(20, 20, 20, 1) 33%, rgba(20, 20, 20, 0.5) 80%, rgba(20, 20, 20, 0) 100%);
 }
 .nav-slider {
     position: absolute;
@@ -280,26 +275,13 @@ body {
 }
 
 .team-slider .team-slider__items:nth-child(1) {
-    background: 
-    #2e2e2e
-        url(./img/dk/dk_logo.png) 
-        no-repeat 
-        0 0/3.5vw;
-
+    background-color: #2e2e2e;
 }
 .team-slider .team-slider__items:nth-child(2) {
-    background: 
-        #1003a3 
-        url(./img/drx/drx_logo.png) 
-        no-repeat 
-        0 0/3.5vw;
+    background-color: #1003a3;
 }
 .team-slider .team-slider__items:nth-child(3) {
-    background: 
-        #65646d
-        url(./img/geng/geng_logo.png) 
-        no-repeat 
-        0 0/5vw;
+    background-color: #65646d;
 }
 .team-slider .team-slider__items:nth-child(4) {
     background-color: #0267a1;

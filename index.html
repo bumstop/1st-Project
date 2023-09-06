@@ -141,25 +141,25 @@
                 </div>
                 <div class="team-slider">
                     <!-- DK -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="dk"></div>
                     <!-- DRX -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="drx"></div>
                     <!-- GENG -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="geng"></div>
                     <!-- HLE -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="hle"></div>
                     <!-- KDF -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="kdf"></div>
                     <!-- KT -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="kt"></div>
                     <!-- LSB -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="lsb"></div>
                     <!-- NS -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="ns"></div>
                     <!-- BRO -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="bro"></div>
                     <!-- T1 -->
-                    <div class="team-slider__items"></div>
+                    <div class="team-slider__items" name="t1"></div>
                 </div>
             </div>
 
@@ -314,14 +314,23 @@
 
     // page03
     const teamSliderItems = qAll(".team-slider__items");
-
-    /* 팀 슬라이더 flex 조절 - on class 부여 */
-    teamSliderItems.forEach((ele) => {
+    const teamLogoBoxes = qAll(".team-logo-bx");
+    
+    teamSliderItems.forEach((ele,idx) => {
+        /* 팀 슬라이더 flex 조절 - on class 부여 */
         ele.addEventListener("click", (e) => {
             teamSliderItems.forEach((ele) => {
                 ele.classList.remove("on");
             });
             ele.classList.add("on");
         });
+        const teamName = ele.getAttribute('name');
+
+        ele.innerHTML = `
+            <div class="team-logo-bx">
+                <img src="./img/${teamName}/${teamName}_logo.png"/>
+            </div>    
+        `;
     });
+    https://lolesports.com/teams/fredit-brion
 </script>
