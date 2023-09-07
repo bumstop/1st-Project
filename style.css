@@ -269,9 +269,9 @@ body {
     flex: 1;
 }
 
-/* flex-grow로 컨텐츠 선택시 크기조절 - flex: 21;*/
+/* flex-grow로 컨텐츠 선택시 크기조절 */
 .team-slider__items.on {
-    flex: 21;
+    flex: 11;
 }
 
 .team-slider .team-slider__items:nth-child(1) {
@@ -303,6 +303,15 @@ body {
 }
 .team-slider .team-slider__items:nth-child(10) {
     background-color: #1a4b68;
+}
+.team-logo-bx {
+    margin: .5rem;
+    width: 200px;
+    height: 200px;
+}
+.team-logo-bx img {
+    width: 100%;
+    height: 100%;
 }
 /* 2-1-4. page04 */
 
