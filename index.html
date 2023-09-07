@@ -157,7 +157,6 @@
                     <!-- NS -->
                     <div class="team-slider__items" name="ns"></div>
                     <!-- BRO -->
-                    <!-- https://lolesports.com/teams/fredit-brion -->
                     <div class="team-slider__items" name="bro"></div>
                     <!-- T1 -->
                     <div class="team-slider__items" name="t1"></div>
@@ -316,7 +315,13 @@
     // page03
     const teamSliderItems = qAll(".team-slider__items");
     const teamLogoBoxes = qAll(".team-logo-bx");
-    
+
+    const playerList = [
+        team = {
+            "name": "dk", 
+        }
+    ];
+    console.log(playerList.team );
     teamSliderItems.forEach((ele,idx) => {
         /* 팀 슬라이더 flex 조절 - on class 부여 */
         ele.addEventListener("click", (e) => {
