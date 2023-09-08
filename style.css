@@ -155,7 +155,7 @@ body {
 
 .nav-slider a:hover > span {
     color: #fff;
-    text-shadow: 0 0 15px #fff;
+    text-shadow: 0 0 1.5rem #fff;
 }
 .nav-slider span:last-child {
     font-family: "Poppins", "Noto Sans KR", sans-serif;
@@ -261,10 +261,9 @@ body {
     height: 100%;
 }
 .team-slider__items {
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 2px #202124;
+    position: relative;
     overflow: hidden;
+    border-left: 1px solid #fff;
     transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
     flex: 1;
 }
@@ -274,7 +273,7 @@ body {
     flex: 11;
 }
 
-.team-slider .team-slider__items:nth-child(1) {
+/* .team-slider .team-slider__items:nth-child(1) {
     background-color: #2e2e2e;
 }
 .team-slider .team-slider__items:nth-child(2) {
@@ -303,15 +302,35 @@ body {
 }
 .team-slider .team-slider__items:nth-child(10) {
     background-color: #1a4b68;
-}
+} */
 .team-logo-bx {
+    display: inline-block;
     margin: .5rem;
-    width: 200px;
-    height: 200px;
+    width: 20rem;
+    height: 20rem;
 }
 .team-logo-bx img {
     width: 100%;
     height: 100%;
+}
+.team-slider .team-name-box {
+    text-transform: uppercase;
+    position: absolute;
+    text-align: end;
+    bottom: 25rem;
+    left: -9rem;
+    width: 10rem;
+    height: 2rem;
+    transform-origin: right;
+    transform: rotate(90deg);
+}
+
+.team-player-box {
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
+    width: 50rem;
+    aspect-ratio: 2/3;
 }
 /* 2-1-4. page04 */
 

@@ -270,6 +270,7 @@
         let posTop = (page - 1) * document.body.clientHeight;
         html.scrollTo({ top: posTop, behavior: "smooth" });
         componentHanddler();
+        
     }
 
     /** 카테고리, 페이지넘버 핸들러  */
@@ -316,6 +317,7 @@
     const teamSliderItems = qAll(".team-slider__items");
     const teamLogoBoxes = qAll(".team-logo-bx");
 
+    /** 선수명단 - 팀: {포지션: 이름}  */
     const playerList = {
         bro: {
             top: "morgan",
@@ -387,10 +389,9 @@
             mid: "faker",
             ad: "gumayusi",
             sup: "keria",
-        },
+        }
     };
 
-    console.log(playerList.teamName);
     teamSliderItems.forEach((ele, idx) => {
         /* 팀 슬라이더 flex 조절 - on class 부여 */
         ele.addEventListener("click", (e) => {
@@ -404,7 +405,17 @@
         ele.innerHTML = `
             <div class="team-logo-bx">
                 <img src="./img/${teamName}/${teamName}_logo.png"/>
-            </div>    
+            </div>
+            <div class="team-name-box">
+                ${teamName}
+            </div>
+            <div class="team-player-box">
+                <div class="top-player-box"></div>
+                <div class="jg-player-box"></div>
+                <div class="mid-player-box"></div>
+                <div class="ad-player-box"></div>
+                <div class="sup-player-box"></div>
+            </div>
         `;
     });
 </script>
