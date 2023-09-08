@@ -316,13 +316,82 @@
     const teamSliderItems = qAll(".team-slider__items");
     const teamLogoBoxes = qAll(".team-logo-bx");
 
-    const playerList = [
-        team = {
-            "name": "dk", 
-        }
-    ];
-    console.log(playerList.team );
-    teamSliderItems.forEach((ele,idx) => {
+    const playerList = {
+        bro: {
+            top: "morgan",
+            jg: "umti",
+            mid: "karis",
+            ad: "hena",
+            sup: "effort",
+        },
+        dk: {
+            top: "canna",
+            jg: "canyon",
+            mid: "showmaker",
+            ad: "deft",
+            sup: "kellin",
+        },
+        drx: {
+            top: "rascal",
+            jg: "croco",
+            mid: "fate",
+            ad: "deokdom",
+            sup: "beryl",
+        },
+        geng: {
+            top: "doran",
+            jg: "peanut",
+            mid: "chovy",
+            ad: "peyz",
+            sup: "delight",
+        },
+        
+        hle: {
+            top: "kingen",
+            jg: "clid",
+            mid: "zeka",
+            ad: "viper",
+            sup: "life",
+        },
+        kdf: {
+            top: "dudu",
+            jg: "youngjae",
+            mid: "bulldog",
+            ad: "taeyoon",
+            sup: "jun",
+        },
+        kt: {
+            top: "kiin",
+            jg: "cuzz",
+            mid: "bdd",
+            ad: "aiming",
+            sup: "lehends",
+        },
+        lsb: {
+            top: "burdol",
+            jg: "willer",
+            mid: "clozer",
+            ad: "teddy",
+            sup: "kael",
+        },
+        ns: {
+            top: "dndn",
+            jg: "sylvie",
+            mid: "fiesta",
+            ad: "vital",
+            sup: "peter",
+        },
+        t1: {
+            top: "zeus",
+            jg: "oner",
+            mid: "faker",
+            ad: "gumayusi",
+            sup: "keria",
+        },
+    };
+
+    console.log(playerList.teamName);
+    teamSliderItems.forEach((ele, idx) => {
         /* 팀 슬라이더 flex 조절 - on class 부여 */
         ele.addEventListener("click", (e) => {
             teamSliderItems.forEach((ele) => {
@@ -330,7 +399,7 @@
             });
             ele.classList.add("on");
         });
-        const teamName = ele.getAttribute('name');
+        const teamName = ele.getAttribute("name");
 
         ele.innerHTML = `
             <div class="team-logo-bx">
