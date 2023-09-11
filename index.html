@@ -401,7 +401,7 @@
         });
         const teamName = ele.getAttribute("name");
 
-        /* player-box innerHTML */
+        /* player-box innerHTML START */
         let playerBoxInnerHTML = '<div class="team-player-box">';
         for (let i in playerList[teamName]) {
             console.log(playerList[teamName])
@@ -413,7 +413,7 @@
             `;   
         }
         playerBoxInnerHTML += '</div>';
-
+        /* player-box innerHTML END */
 
         ele.innerHTML = `
             <div class="team-logo-bx">
