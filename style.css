@@ -246,6 +246,9 @@ body {
 }
 
 /* 2-1-3. page03 */
+#page-03 {
+    background-color: #2a2929;
+}
 #page-03 .headline {
     width: 0;
     height: 0;
@@ -263,14 +266,15 @@ body {
 .team-slider__items {
     position: relative;
     overflow: hidden;
-    border-left: 1px solid #fff;
+    border-right: 2px solid #9e9e9e80;
     transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
     flex: 1;
+    box-sizing: border-box;
 }
 
 /* flex-grow로 컨텐츠 선택시 크기조절 */
 .team-slider__items.on {
-    flex: 11;
+    flex: 15;
 }
 
 /* .team-slider .team-slider__items:nth-child(1) {
@@ -313,24 +317,39 @@ body {
     width: 100%;
     height: 100%;
 }
+.team-logo-bx-small {
+    display: inline-block;
+    position: absolute;
+    bottom: 21.5rem;
+    left: 0;
+    margin: .2rem;
+    width: 3rem;
+    height: 3rem;
+}
+.team-logo-bx-small img {
+    width: 100%;
+    height: 100%;
+}
 .team-slider .team-name-box {
     text-transform: uppercase;
     position: absolute;
     text-align: end;
     bottom: 25rem;
-    left: -9rem;
+    left: -8.5rem;
     width: 10rem;
     height: 2rem;
     transform-origin: right;
     transform: rotate(90deg);
 }
-
 .team-player-box {
     position: absolute;
-    bottom: 5rem;
-    right: 5rem;
-    width: 50rem;
-    aspect-ratio: 2/3;
+    width: 100%;
+    height: 100%;
+}
+.player-box {
+    position: absolute;
+    width: 5rem;
+    aspect-ratio: 9/16;
 }
 /* 2-1-4. page04 */
 

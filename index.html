@@ -270,7 +270,6 @@
         let posTop = (page - 1) * document.body.clientHeight;
         html.scrollTo({ top: posTop, behavior: "smooth" });
         componentHanddler();
-        
     }
 
     /** 카테고리, 페이지넘버 핸들러  */
@@ -337,7 +336,7 @@
             top: "rascal",
             jg: "croco",
             mid: "fate",
-            ad: "deokdom",
+            ad: "deokdam",
             sup: "beryl",
         },
         geng: {
@@ -347,7 +346,7 @@
             ad: "peyz",
             sup: "delight",
         },
-        
+
         hle: {
             top: "kingen",
             jg: "clid",
@@ -389,7 +388,7 @@
             mid: "faker",
             ad: "gumayusi",
             sup: "keria",
-        }
+        },
     };
 
     teamSliderItems.forEach((ele, idx) => {
@@ -402,6 +401,20 @@
         });
         const teamName = ele.getAttribute("name");
 
+        /* player-box innerHTML */
+        let playerBoxInnerHTML = '<div class="team-player-box">';
+        for (let i in playerList[teamName]) {
+            console.log(playerList[teamName])
+            playerBoxInnerHTML += `
+                <div class="${i}-player-box player-box">
+                    <img src="./img/${teamName}/${teamName}_${playerList[teamName][i]}.png"/>
+                    <span>${playerList[teamName][i]}</span>
+                </div>
+            `;   
+        }
+        playerBoxInnerHTML += '</div>';
+
+
         ele.innerHTML = `
             <div class="team-logo-bx">
                 <img src="./img/${teamName}/${teamName}_logo.png"/>
@@ -409,13 +422,34 @@
             <div class="team-name-box">
                 ${teamName}
             </div>
-            <div class="team-player-box">
-                <div class="top-player-box"></div>
-                <div class="jg-player-box"></div>
-                <div class="mid-player-box"></div>
-                <div class="ad-player-box"></div>
-                <div class="sup-player-box"></div>
+            <div class="team-logo-bx-small">
+                <img src="./img/${teamName}/${teamName}_logo.png"/>
             </div>
+            ${playerBoxInnerHTML}
         `;
+
+        // <div>
+        //    <div class="top-player-box player-box">
+        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].top}.png"/>
+        //        <span>${playerList[teamName].top}</span>
+        //    </div>
+        //    <div class="jg-player-box player-box">
+        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].jg}.png"/>
+        //        <span>${playerList[teamName].jg}</span>
+        //    </div>
+        //    <div class="mid-player-box player-box">
+        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].mid}.png"/>
+        //        <span>${playerList[teamName].mid}</span>
+        //    </div>
+        //    <div class="ad-player-box player-box">
+        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].ad}.png"/>
+        //        <span>${playerList[teamName].ad}</span>
+        //    </div>
+        //    <div class="sup-player-box player-box">
+        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].sup}.png"/>
+        //        <span>${playerList[teamName].sup}</span>
+        //    </div>
+        // </div>
+
     });
 </script>
