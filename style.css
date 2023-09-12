@@ -348,8 +348,17 @@ body {
 }
 .player-box {
     position: absolute;
-    width: 5rem;
-    aspect-ratio: 9/16;
+    width: 25rem;
+    /* background-color: #fff; */
+    background-color: #423f3e;
+    color: #000;
+    text-align: center;
+    border-radius: 1rem;
+    object-fit: contain;
+    aspect-ratio: 1/1.1;
+}
+.player-box img {
+    width: 100%;
 }
 /* 2-1-4. page04 */
 

@@ -399,19 +399,21 @@
             });
             ele.classList.add("on");
         });
+        
         const teamName = ele.getAttribute("name");
 
         /* player-box innerHTML START */
         let playerBoxInnerHTML = '<div class="team-player-box">';
+
         for (let i in playerList[teamName]) {
-            console.log(playerList[teamName])
             playerBoxInnerHTML += `
                 <div class="${i}-player-box player-box">
                     <img src="./img/${teamName}/${teamName}_${playerList[teamName][i]}.png"/>
                     <span>${playerList[teamName][i]}</span>
                 </div>
-            `;   
+            `;
         }
+
         playerBoxInnerHTML += '</div>';
         /* player-box innerHTML END */
 
