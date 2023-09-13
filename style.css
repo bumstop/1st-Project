@@ -21,8 +21,11 @@
 
     2. main section
 
-        2-1. pages
-        2-2. headline
+        2-0. pages / headline
+        2-1. page01
+        2-2. page02
+        2-3. page03
+        2-4. page04
 
     3. component section
 
@@ -38,8 +41,9 @@
     [ 999 ] .aside
 
     [ 001 ] .component
-            .logo-bx
-            .hamburger
+            .logo-bx (.aside)
+            .hamburger (.aside)
+            .headline
 
 */
 
@@ -78,6 +82,14 @@ body {
     --component-bd: 0.2rem;
     --component-b-p: 25rem;
 }
+
+.fake {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
 /* 1. aside section */
 .aside {
     box-sizing: border-box;
@@ -221,14 +233,31 @@ body {
 .main {
 }
 
-/* 2-1. pages */
+/* 2-0. pages */
 .page {
     width: 100vw;
     height: 100vh;
 }
-/* 2-1-1. page01 */
+.headline {
+    position: absolute;
+    left: calc(var(--aside-w) + var(--component-bd));
+    padding: 6rem 8rem;
+    min-width: 40rem;
+    height: 20rem;
+    font-size: 6rem;
+    z-index: 1;
+}
+.headline div:nth-of-type(2) {
+    text-align: end;
+}
+.headline-sub {
+    margin-top: 2.5rem;
+    font-size: 1.6rem;
+}
 
-/* 2-1-2. page02 */
+/* 2-1. page01 */
+
+/* 2-2. page02 */
 #page-02 {
     position: relative;
 }
@@ -247,11 +276,16 @@ body {
     transition: opacity 2s ease-in;
 }
 
-/* 2-1-3. page03 */
+/* 2-3. page03 */
 #page-03 {
     background-color: #2a2929;
 }
 
+<<<<<<< Updated upstream
+=======
+
+/* team slider */
+>>>>>>> Stashed changes
 .team-slider {
     display: flex;
     justify-content: flex-end;
@@ -304,6 +338,7 @@ body {
 .team-slider .team-slider__items:nth-child(10) {
     background-color: #1a4b68;
 } */
+
 .team-logo-bx {
     display: inline-block;
     margin: 0.5rem;
@@ -327,7 +362,7 @@ body {
     width: 100%;
     height: 100%;
 }
-.team-slider .team-name-box {
+.team-name-box {
     text-transform: uppercase;
     position: absolute;
     text-align: end;
@@ -351,6 +386,7 @@ body {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+<<<<<<< Updated upstream
     transition: none;
     font-size: min(1.6rem, 1.2vw);
     opacity: 0;
@@ -358,6 +394,8 @@ body {
 .team-slider__items.on .team-player-box {
     opacity: 1;
     transition: opacity 0.5s 0.5s;
+=======
+>>>>>>> Stashed changes
 }
 .player-box {
     position: relative;
@@ -367,7 +405,6 @@ body {
     border-radius: 1rem;
     box-shadow: 0 0 3px #888;
     opacity: 0;
-    transition: none;
 }
 .on .player-box {
     opacity: 1;
@@ -418,8 +455,14 @@ body {
     width: 50%;
     z-index: -1;
 }
-/* 2-1-4. page04 */
+.player-box span {
+    line-height: 75px;
+}
 
+/* 2-4. page04 */
+
+
+<<<<<<< Updated upstream
 /* 2-2. headline */
 .headline {
     position: absolute;
@@ -443,11 +486,14 @@ body {
     margin-top: 2.5rem;
     font-size: 1.6rem;
 }
+=======
+>>>>>>> Stashed changes
 
 /* 3. component section */
 .component {
     z-index: 1;
 }
+
 /* 3-1. category */
 .category {
     width: 12rem;
@@ -477,6 +523,7 @@ body {
 .page-number__now {
     transition: all 0.5s ease-out;
 }
+
 /* 3-3. component line */
 .aside-line {
     width: var(--component-bd);
@@ -494,6 +541,7 @@ body {
     right: 0;
     bottom: var(--component-b-p);
 }
+
 /* 3-4. breadcrumbs */
 .breadcrumbs {
     font-family: "Poppins";
