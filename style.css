@@ -56,6 +56,10 @@ html,
 body {
     height: 100%;
     transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 body {
     width: 100vw;
@@ -66,10 +70,6 @@ body {
     font-family: "chaneyultra-extended", "Poppins", "Noto Sans KR", sans-serif;
     display: flex;
     overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 :root {
     --aside-w: 28rem;
@@ -156,7 +156,7 @@ body {
 
 .nav-slider a:hover > span {
     color: #fff;
-    text-shadow: 0 0 1.5rem #fff;
+    text-shadow: 0 0 .5rem #fff;
 }
 .nav-slider span:last-child {
     font-family: "Poppins", "Noto Sans KR", sans-serif;
@@ -251,12 +251,7 @@ body {
 #page-03 {
     background-color: #2a2929;
 }
-#page-03 .headline {
-    width: 0;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-}
+
 .team-slider {
     display: flex;
     justify-content: flex-end;
@@ -311,7 +306,7 @@ body {
 } */
 .team-logo-bx {
     display: inline-block;
-    margin: .5rem;
+    margin: 0.5rem;
     width: 20rem;
     height: 20rem;
 }
@@ -324,7 +319,7 @@ body {
     position: absolute;
     bottom: 21.5rem;
     left: 0;
-    margin: .2rem;
+    margin: 0.2rem;
     width: 3rem;
     height: 3rem;
 }
@@ -345,31 +340,32 @@ body {
 }
 .team-player-box {
     position: absolute;
-    top: 41%;
-    transform: translateY(-50%);
-    left: 0;
-    width: min(100%,600px);
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100%, 850px);
     aspect-ratio: 1/0.9;
     /* height: calc(100% - var(--component-b-p) - var(--component-bd)); */
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 3rem;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     transition: none;
-    font-size: min(1.6rem,1.2vw);
+    font-size: min(1.6rem, 1.2vw);
     opacity: 0;
 }
 .team-slider__items.on .team-player-box {
     opacity: 1;
-    transition: opacity .5s .6s;
+    transition: opacity 0.5s 0.5s;
 }
 .player-box {
+    position: relative;
     background-color: #423f3e7c;
     color: #fff;
     text-align: center;
     border-radius: 1rem;
-    box-shadow: 0 0 3px #fff;
+    box-shadow: 0 0 3px #888;
     opacity: 0;
     transition: none;
 }
@@ -378,28 +374,49 @@ body {
 }
 .top-player-box {
     grid-row: 2/7;
-    grid-column: 4/7; 
+    grid-column: 4/7;
 }
 .jg-player-box {
     grid-row: 2/7;
     grid-column: 8/11;
 }
-.mid-player-box{
-    grid-row: 8/13;  
+.mid-player-box {
+    grid-row: 8/13;
     grid-column: 2/5;
 }
-.ad-player-box{ 
+.ad-player-box {
     grid-row: 8/13;
     grid-column: 6/9;
 }
-.sup-player-box{
+.sup-player-box {
     grid-row: 8/13;
     grid-column: 10/13;
 }
-.player-box img {
+.player-img {
     width: 100%;
+    border-bottom: 2px solid #ffffff26;
     margin-top: 20%;
-    margin-bottom: 10%;
+    margin-bottom: 15%;
+}
+.position-icon-box {
+    position: absolute;
+    top: 3%;
+    left: 5%;
+    width: 20%;
+}
+.position-icon-box img {
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #ffffff26;
+}
+/* 팀아이콘 백그라운드*/
+.qwer { 
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    z-index: -1;
 }
 /* 2-1-4. page04 */
 
@@ -412,6 +429,12 @@ body {
     height: 20rem;
     font-size: 6rem;
     z-index: 1;
+}
+.headline.fake {   
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
 }
 .headline div:nth-of-type(2) {
     text-align: end;

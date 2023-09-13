@@ -132,7 +132,7 @@
 
             <!-- 3 페이지 -->
             <div id="page-03" class="page">
-                <div class="headline">
+                <div class="headline fake">
                     <div>PAGE</div>
                     <div>3</div>
                     <div class="headline-sub">
@@ -165,7 +165,7 @@
 
             <!-- 4 페이지 -->
             <div id="page-04" class="page">
-                <div class="headline">
+                <div class="headline fake">
                     <div>PAGE</div>
                     <div>4</div>
                     <div class="headline-sub">
@@ -399,7 +399,7 @@
             });
             ele.classList.add("on");
         });
-        
+
         const teamName = ele.getAttribute("name");
 
         /* player-box innerHTML START */
@@ -408,13 +408,23 @@
         for (let i in playerList[teamName]) {
             playerBoxInnerHTML += `
                 <div class="${i}-player-box player-box">
-                    <img src="./img/${teamName}/${teamName}_${playerList[teamName][i]}.png"/>
+                    <img class="player-img" 
+                         src="./img/${teamName}/${teamName}_${playerList[teamName][i]}.png"
+                         alt="${playerList[teamName][i]}"
+                    />
+                    <div class="position-icon-box">
+                        <img src="./img/position_icon/${i}.svg" alt="${i}">
+                    </div>
+                    
                     <span>${playerList[teamName][i]}</span>
                 </div>
             `;
         }
-
-        playerBoxInnerHTML += '</div>';
+        // <div class="qwer">
+        //                 <img src="./img/${teamName}/${teamName}_logo.png"/>
+        //             </div>
+        
+        playerBoxInnerHTML += "</div>";
         /* player-box innerHTML END */
 
         ele.innerHTML = `
@@ -452,6 +462,5 @@
         //        <span>${playerList[teamName].sup}</span>
         //    </div>
         // </div>
-
     });
 </script>
