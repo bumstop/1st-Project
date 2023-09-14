@@ -226,6 +226,14 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+.page-container {
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: calc(100% - var(--aside-w) - var(--component-bd));
+    height: 100%;
+}
 /* 2-1-1. page01 */
 
 /* 2-1-2. page02 */
@@ -253,12 +261,7 @@ body {
 }
 
 .team-slider {
-    display: flex;
     justify-content: flex-end;
-    position: absolute;
-    right: 0;
-    width: calc(100% - var(--aside-w) - var(--component-bd));
-    height: 100%;
 }
 .team-slider__items {
     position: relative;
@@ -389,8 +392,8 @@ body {
     vertical-align: bottom;
     border-bottom: 2px solid #414141;
 }
-/* 팀아이콘 백그라운드*/
-.bg-team-icon { 
+/* 백그라운드 팀로고 */
+.bg-team-logo { 
     position: absolute;
     top: 0;
     left: 0;
@@ -399,14 +402,16 @@ body {
     vertical-align: bottom;
     z-index: -1;
 }
-.bg-team-icon img {
+.bg-team-logo img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 90%;
 }
 /* 2-1-4. page04 */
+
+
 
 /* 2-2. headline */
 .headline {
