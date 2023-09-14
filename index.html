@@ -39,6 +39,12 @@
                         </li>
                         <li>
                             <a href="">
+                                <span>BRO</span>
+                                <span>OKSavingsBank BRION</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
                                 <span>DK</span>
                                 <span>Dplus Kia</span>
                             </a>
@@ -83,12 +89,6 @@
                             <a href="">
                                 <span>NS</span>
                                 <span>Nongshim RedForce</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>BRO</span>
-                                <span>OKSavingsBank BRION</span>
                             </a>
                         </li>
                         <li>
@@ -140,6 +140,8 @@
                     </div>
                 </div>
                 <div class="team-slider">
+                    <!-- BRO -->
+                    <div class="team-slider__items" name="bro"></div>
                     <!-- DK -->
                     <div class="team-slider__items" name="dk"></div>
                     <!-- DRX -->
@@ -156,8 +158,6 @@
                     <div class="team-slider__items" name="lsb"></div>
                     <!-- NS -->
                     <div class="team-slider__items" name="ns"></div>
-                    <!-- BRO -->
-                    <div class="team-slider__items" name="bro"></div>
                     <!-- T1 -->
                     <div class="team-slider__items" name="t1"></div>
                 </div>
@@ -402,7 +402,7 @@
 
         const teamName = ele.getAttribute("name");
 
-        /* player-box innerHTML START */
+        /* team-player-box innerHTML START */
         let playerBoxInnerHTML = '<div class="team-player-box">';
 
         for (let i in playerList[teamName]) {
@@ -415,17 +415,15 @@
                     <div class="position-icon-box">
                         <img src="./img/position_icon/${i}.svg" alt="${i}">
                     </div>
-                    
+                    <div class="bg-team-icon">
+                        <img src="./img/${teamName}/${teamName}_logo.png"/>   
+                    </div>
                     <span class="player-name">${playerList[teamName][i]}</span>
                 </div>
             `;
         }
-        // <div class="qwer">
-        //                 <img src="./img/${teamName}/${teamName}_logo.png"/>
-        //             </div>
-        
         playerBoxInnerHTML += "</div>";
-        /* player-box innerHTML END */
+        /* team-player-box innerHTML END */
 
         ele.innerHTML = `
             <div class="team-logo-bx">
@@ -439,28 +437,5 @@
             </div>
             ${playerBoxInnerHTML}
         `;
-
-        // <div>
-        //    <div class="top-player-box player-box">
-        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].top}.png"/>
-        //        <span>${playerList[teamName].top}</span>
-        //    </div>
-        //    <div class="jg-player-box player-box">
-        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].jg}.png"/>
-        //        <span>${playerList[teamName].jg}</span>
-        //    </div>
-        //    <div class="mid-player-box player-box">
-        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].mid}.png"/>
-        //        <span>${playerList[teamName].mid}</span>
-        //    </div>
-        //    <div class="ad-player-box player-box">
-        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].ad}.png"/>
-        //        <span>${playerList[teamName].ad}</span>
-        //    </div>
-        //    <div class="sup-player-box player-box">
-        //        <img src="./img/${teamName}/${teamName}_${playerList[teamName].sup}.png"/>
-        //        <span>${playerList[teamName].sup}</span>
-        //    </div>
-        // </div>
     });
 </script>

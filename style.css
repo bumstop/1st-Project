@@ -273,37 +273,6 @@ body {
 .team-slider__items.on {
     flex: 15;
 }
-
-/* .team-slider .team-slider__items:nth-child(1) {
-    background-color: #2e2e2e;
-}
-.team-slider .team-slider__items:nth-child(2) {
-    background-color: #1003a3;
-}
-.team-slider .team-slider__items:nth-child(3) {
-    background-color: #65646d;
-}
-.team-slider .team-slider__items:nth-child(4) {
-    background-color: #0267a1;
-}
-.team-slider .team-slider__items:nth-child(5) {
-    background-color: #035686;
-}
-.team-slider .team-slider__items:nth-child(6) {
-    background-color: #244253;
-}
-.team-slider .team-slider__items:nth-child(7) {
-    background-color: #01446b;
-}
-.team-slider .team-slider__items:nth-child(8) {
-    background-color: #2fa9f0;
-}
-.team-slider .team-slider__items:nth-child(9) {
-    background-color: #2682b8;
-}
-.team-slider .team-slider__items:nth-child(10) {
-    background-color: #1a4b68;
-} */
 .team-logo-bx {
     display: inline-block;
     margin: 0.5rem;
@@ -338,6 +307,7 @@ body {
     transform-origin: right;
     transform: rotate(90deg);
 }
+/* team player box */
 .team-player-box {
     position: absolute;
     top: 35%;
@@ -351,8 +321,7 @@ body {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    transition: none;
-    font-size: min(1.6rem, 1.2vw);
+    font-size: min(1.4rem, 1vw);
     opacity: 0;
 }
 .team-slider__items.on .team-player-box {
@@ -367,7 +336,6 @@ body {
     border-radius: 1rem;
     box-shadow: 0 0 3px #888;
     opacity: 0;
-    transition: none;
 }
 .on .player-box {
     opacity: 1;
@@ -398,7 +366,7 @@ body {
     box-sizing: border-box;
     vertical-align: bottom;
     padding-top: 20%;
-    border-bottom: 2px solid #ffffff26;
+    border-bottom: 2px solid #414141;
 }
 .player-name {
     display: flex;
@@ -406,6 +374,8 @@ body {
     justify-content: center;
     width: 100%;
     height: 30%;
+    border-radius: 0 0 1rem 1rem;
+    background-color: #292929;
 }
 .position-icon-box {
     position: absolute;
@@ -417,16 +387,24 @@ body {
     width: 100%;
     height: 100%;
     vertical-align: bottom;
-    border-bottom: 2px solid #ffffff26;
+    border-bottom: 2px solid #414141;
 }
 /* 팀아이콘 백그라운드*/
-.qwer { 
+.bg-team-icon { 
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    vertical-align: bottom;
     z-index: -1;
+}
+.bg-team-icon img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
 }
 /* 2-1-4. page04 */
 
