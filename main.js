@@ -85,7 +85,7 @@ window.addEventListener("wheel", scrollHandler);
 /*************** page 컨텐츠 ***************/
 
 // page02
-const page02Container = q(".page-02__container");
+const page02Container = q(".page-02-container");
 
 /* 2페이지 배경이미지 모음 */
 const page02Imgs = [
@@ -243,63 +243,117 @@ teamSliderItems.forEach((ele, idx) => {
 const rankingBoxWrap = q(".ranking-box-wrap");
 const rankingList = {
     bro: {
+        name: "bro",
         fullName: "OKSavingBank BRION",
         win: 5,
         lose: 13,
         winPoint: -10,
     },
     dk: {
+        name: "dk",
         fullName: "Dplus Kia",
         win: 11,
         lose: 7,
         winPoint: 8,
     },
     drx: {
+        name: "drx",
         fullName: "DRX",
         win: 6,
         lose: 12,
         winPoint: -6,
     },
     geng: {
+        name: "geng",
         fullName: "Gen.G",
         win: 16,
         lose: 2,
         winPoint: 23,
     },
     hle: {
+        name: "hle",
         fullName: "Hanwha Life Esports",
         win: 12,
         lose: 6,
         winPoint: 10,
     },
     kdf: {
+        name: "kdf",
         fullName: "Kwangdong Freecs",
         win: 4,
         lose: 14,
         winPoint: -15,
     },
     kt: {
+        name: "kt",
         fullName: "kt Rolster",
         win: 17,
         lose: 1,
         winPoint: 30,
     },
     lsb: {
+        name: "lsb",
         fullName: "Liiv SANDBOX",
         win: 5,
         lose: 13,
         winPoint: -8,
     },
     ns: {
+        name: "ns",
         fullName: "NongShim REDFORCE",
         win: 5,
         lose: 13,
         winPoint: -11,
     },
     t1: {
+        name: "t1",
         fullName: "T1",
         win: 9,
         lose: 9,
         winPoint: 2,
     },
 };
+
+let sortedRankingList = [];
+for (let ele in rankingList) {
+    // 객체를 배열객체로 변환
+    sortedRankingList.push(rankingList[ele]);
+}
+
+
+sortedRankingList.sort((a, b) => {
+    if (a.win < b.win) {
+        return 2;
+    } else if (a.win > b.win) {
+        return -2;
+    } else {
+        if (a.winPoint < b.winPoint) {
+            return 1;
+        }
+        if (a.winPoint > b.winPoint) {
+            return -1;
+        }
+    }
+});
+// console.log(sortedRankingList);
+
+sortedRankingList.forEach((ele, idx) => {
+    rankingBoxWrap.innerHTML += `
+        <div class="ranking-box">    
+            <span class="rank">${idx + 1}</span>
+            <div class="ranking-team-logo-bx">
+                <img src="./img/${ele.name}/${ele.name}_logo.png"/>   
+            </div>
+            <div class="full-team-name">
+                <span>${ele.fullName}</span>
+                <span class="team-name">${ele.name}</span>
+            </div>
+            <div class="win-or-lose-box">
+                <span class="win-box">${ele.win}승</span>
+                <span class="lose-box">${ele.lose}패</span>
+                <span class="win-point-box">${ele.winPoint}점</span>
+            </div>
+        </div>
+    `;
+});
+
