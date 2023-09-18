@@ -38,7 +38,7 @@
     [ 999 ] .aside
 
     [ 001 ] .component
-            .logo-bx
+            .logo-box
             .hamburger
 
 */
@@ -89,7 +89,7 @@ body {
 }
 
 /* 1-1. main logo */
-.logo-bx {
+.logo-box {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -98,8 +98,8 @@ body {
     margin-bottom: 1.5rem;
     z-index: 1;
 }
-.logo-bx a,
-.logo-bx img {
+.logo-box a,
+.logo-box img {
     display: block;
     width: 100%;
     height: 100%;
@@ -148,7 +148,7 @@ body {
 .nav-slider span {
     width: fit-content;
     color: transparent;
-    background-image: linear-gradient(45deg, #fff 0%, transparent 100%);
+    background-image: linear-gradient(45deg, #fff 0%, transparent 90%);
     background-clip: text;
     -webkit-background-clip: text;
     transition: 0.5s ease-out;
@@ -156,7 +156,7 @@ body {
 
 .nav-slider a:hover > span {
     color: #fff;
-    text-shadow: 0 0 .5rem #fff;
+    text-shadow: 0 0 0.5rem #fff;
 }
 .nav-slider span:last-child {
     font-family: "Poppins", "Noto Sans KR", sans-serif;
@@ -263,8 +263,8 @@ body {
 .team-slider__items {
     position: relative;
     overflow: hidden;
-    border-right: 2px solid #9e9e9e80;
-    transition: flex 1s cubic-bezier(0.25, 1, 0.5, 1);
+    border-right: 0.2rem solid #9e9e9e80;
+    transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
     flex: 1;
     box-sizing: border-box;
 }
@@ -272,19 +272,25 @@ body {
 /* flex-grow로 컨텐츠 선택시 크기조절 */
 .team-slider__items.on {
     flex: 15;
+    transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.team-logo-bx {
+.team-logo-box {
     display: inline-block;
     margin: 0.5rem;
     width: 20rem;
     height: 20rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
-.team-logo-bx img {
+.team-logo-box img {
     width: 100%;
     height: 100%;
     vertical-align: top;
 }
-.team-logo-bx-small {
+.team-logo-box.on {
+    opacity: 1;
+}
+.team-logo-box-small {
     display: inline-block;
     position: absolute;
     bottom: 21.5rem;
@@ -293,7 +299,7 @@ body {
     width: 3rem;
     height: 3rem;
 }
-.team-logo-bx-small img {
+.team-logo-box-small img {
     width: 100%;
     height: 100%;
     vertical-align: top;
@@ -315,7 +321,7 @@ body {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: min(100%, 850px);
+    width: min(100%, 85rem);
     aspect-ratio: 1/0.9;
     /* height: calc(100% - var(--component-b-p) - var(--component-bd)); */
     box-sizing: border-box;
@@ -336,7 +342,7 @@ body {
     color: #fff;
     text-align: center;
     border-radius: 1rem;
-    box-shadow: 0 0 3px #888;
+    box-shadow: 0 0 0.3rem #888;
     opacity: 0;
 }
 .on .player-box {
@@ -368,7 +374,7 @@ body {
     box-sizing: border-box;
     vertical-align: bottom;
     padding-top: 20%;
-    border-bottom: 2px solid #414141;
+    border-bottom: 0.2rem solid #414141;
 }
 .player-name {
     display: flex;
@@ -389,10 +395,10 @@ body {
     width: 100%;
     height: 100%;
     vertical-align: bottom;
-    border-bottom: 2px solid #414141;
+    border-bottom: 0.2rem solid #414141;
 }
 /* 백그라운드 팀로고 */
-.bg-team-logo { 
+.bg-team-logo {
     position: absolute;
     top: 0;
     left: 0;
@@ -409,26 +415,80 @@ body {
     width: 90%;
 }
 /* 2-1-4. page04 */
-.ranking-container{
+.ranking-container {
     position: absolute;
     right: 0;
     width: calc(100% - var(--aside-w) - var(--component-bd));
     height: 100%;
 }
-.ranking-box-wrap{
+.ranking-box-wrap {
     display: flex;
     flex-direction: column;
     height: calc(100% - var(--component-b-p) - var(--component-bd));
 }
 .ranking-box {
     position: relative;
-    border-bottom: 2px solid #9e9e9e80;
-    box-sizing: border-box;
     flex: 1;
+    display: flex;
+    align-items: center;
     width: 100%;
+    border-bottom: 0.1rem solid #9e9e9e80;
+    box-sizing: border-box;
 }
-.win-or-lose-box {
-    font-family: 'Noto Sans KR', 'Poppins', sans-serif;
+
+.rank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 3rem;
+    height: 100%;
+    aspect-ratio: 1/1;
+    font-size: 2.5rem;
+}
+.ranking-team-logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 14rem;
+    vertical-align: top;
+    height: 80%;
+}
+.ranking-team-logo-box img {
+    width: 100%;
+    height: 100%;
+}
+.team-name-box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    left: 27.5rem;
+    height: 75%;
+}
+.full-team-name{
+    display: flex;
+    align-items: flex-end;
+    height: 60%;
+    font-size: 2rem;
+}
+.team-name{
+    height: 40%;
+    font-size: 1.3rem;
+    color: #fffa;
+}
+.win-lose-box{
+    display: flex;
+    position: absolute;
+    right: 12rem;
+    font-family: "Noto Sans KR", "Poppins", sans-serif;
+}
+.win-box, .lose-box{
+    display: flex;
+    justify-content: flex-end;
+    width: 6rem;
+    margin-right: 1rem;
 }
 
 
@@ -442,7 +502,7 @@ body {
     font-size: 6rem;
     z-index: 1;
 }
-.headline.fake {   
+.headline.fake {
     width: 0;
     height: 0;
     padding: 0;

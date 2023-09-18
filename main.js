@@ -34,7 +34,7 @@ window.addEventListener(
 const html = q("html");
 let page = 1;
 const lastPage = qAll(".page").length;
-const componentLineHeight = 25;
+const componentLineHeightRem = 2.5;
 
 /* component - page number 부여 */
 for (let i = 1; i <= lastPage; i++) {
@@ -54,7 +54,7 @@ function scrollHandler(e) {
     wheelMove = 1; // 잠금
     setTimeout(() => {
         wheelMove = 0;
-    }, 800);
+    }, 500); //스크롤 잠금 시간
 
     if (e.deltaY > 0) {
         if (page == lastPage) {
@@ -71,12 +71,13 @@ function scrollHandler(e) {
     let posTop = (page - 1) * document.body.clientHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
     componentHanddler();
+    onTeamLogoIfPage03();
 }
 
 /** 카테고리, 페이지넘버 핸들러  */
 function componentHanddler() {
-    categoryLabel.style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
-    pageNumberNow.style.transform = `translateY(${-componentLineHeight * (page - 1)}px)`;
+    categoryLabel.style.transform = `translateY(${-componentLineHeightRem * (page - 1)}rem)`;
+    pageNumberNow.style.transform = `translateY(${-componentLineHeightRem * (page - 1)}rem)`;
 }
 
 /* 최종 풀페이지 & 스크롤 이벤트 제어 */
@@ -115,7 +116,6 @@ setInterval(() => {
 
 // page03
 const teamSliderItems = qAll(".team-slider__items");
-const teamLogoBoxes = qAll(".team-logo-bx");
 
 /** 선수명단 - 팀: {포지션: 이름}  */
 const playerList = {
@@ -226,18 +226,29 @@ teamSliderItems.forEach((ele, idx) => {
     /* team-player-box innerHTML END */
 
     ele.innerHTML = `
-        <div class="team-logo-bx">
+        <div class="team-logo-box">
             <img src="./img/${teamName}/${teamName}_logo.png"/>
         </div>
         <div class="team-name-box">
             ${teamName}
         </div>
-        <div class="team-logo-bx-small">
+        <div class="team-logo-box-small">
             <img src="./img/${teamName}/${teamName}_logo.png"/>
         </div>
         ${playerBoxInnerHTML}
     `;
 });
+
+const teamLogoBoxes = qAll(".team-logo-box");
+
+function onTeamLogoIfPage03() {
+    if (page >= 3) {
+        teamLogoBoxes.forEach((ele,idx) => {
+            ele.style.transitionDelay = (idx + 1) * 0.1 + 0.5 + 's';
+            ele.classList.add("on");
+        })
+    }
+}
 
 // page04
 const rankingBoxWrap = q(".ranking-box-wrap");
@@ -320,7 +331,6 @@ for (let ele in rankingList) {
     sortedRankingList.push(rankingList[ele]);
 }
 
-
 sortedRankingList.sort((a, b) => {
     if (a.win < b.win) {
         return 2;
@@ -341,19 +351,17 @@ sortedRankingList.forEach((ele, idx) => {
     rankingBoxWrap.innerHTML += `
         <div class="ranking-box">    
             <span class="rank">${idx + 1}</span>
-            <div class="ranking-team-logo-bx">
+            <div class="ranking-team-logo-box">
                 <img src="./img/${ele.name}/${ele.name}_logo.png"/>   
             </div>
-            <div class="full-team-name">
-                <span>${ele.fullName}</span>
+            <div class="team-name-box">
+                <span class="full-team-name">${ele.fullName}</span>
                 <span class="team-name">${ele.name}</span>
             </div>
-            <div class="win-or-lose-box">
-                <span class="win-box">${ele.win}승</span>
-                <span class="lose-box">${ele.lose}패</span>
-                <span class="win-point-box">${ele.winPoint}점</span>
+            <div class="win-lose-box">
+                <span class="win-box">${ele.win} Win</span>
+                <span class="lose-box">${ele.lose} Lose</span>
             </div>
         </div>
     `;
 });
-
