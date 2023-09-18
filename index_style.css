@@ -252,10 +252,9 @@ body {
 .team-slider-container {
     display: flex;
     position: absolute;
-    right: 0;
+    left: calc(var(--header-w) - var(--component-bd));
     width: calc(100% - var(--header-w) - var(--component-bd));
     height: 100%;
-    justify-content: flex-end;
 }
 .team-slider__items {
     position: relative;
