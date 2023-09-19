@@ -29,6 +29,8 @@
         --header-w: 0;
         --header-p: 1.5rem;
         --main-logo-w-h: 10rem;
+        --component-bd: 0.2rem;
+        --component-b-p: 25rem;
     }
 
     /* 1. header section */
@@ -78,9 +80,46 @@
     /* 2-1-3. page03 */
     .team-slider-container {
         flex-direction: column;
+        left: 0;
+        top: calc(var(--main-logo-w-h) + var(--header-p) * 2);
+        width: 100%;
+        height: calc(100% - var(--main-logo-w-h) - var(--header-p) * 2);
+    }
+    .team-slider__items {
         border-right: none;
         border-bottom: 0.2rem solid #9e9e9e80;
+        height: 100%;
     }
+
+    .team-logo-box-small {
+        bottom: auto;
+        left: 93%;
+        transform: translateX(25%);
+        width: 4rem;
+        height: 4rem;
+    }
+    .team-slider-container .team-name-box {
+        bottom: auto;
+        top: 1rem;
+        left: 93%;
+        transform: translateX(-100%);
+    }
+
+    /* team player box */
+    .team-player-box {
+        top: 45%;
+    }
+
+    
+
+
+    /* 2-1-4. page04 */
+    .ranking-container {
+        top: calc(var(--main-logo-w-h) + var(--header-p) * 2);
+        width: 100%;
+        height: calc(100% - var(--main-logo-w-h) - var(--header-p) * 2);
+    }
+
 
     /* 2-2. headline */
     .headline {
@@ -98,7 +137,7 @@
     /* 3-3. component line */
     .header-line {
         width: 100vw;
-        height: var(--component-bd);
+        height: calc(var(--component-bd) * 1.5);
         left: 0;
         top: calc(var(--main-logo-w-h) + var(--header-p) * 2);
     }
@@ -118,5 +157,15 @@
 @media screen and (max-width: 600px) {
     html {
         font-size: 5px;
+    }
+
+    /* team player box */
+    .team-player-box {
+        width: 100%;
+    }
+
+    /* 2-1-4. page04 */
+    .rank {
+        left: 0;
     }
 }
