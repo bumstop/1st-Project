@@ -255,7 +255,7 @@ const rankingBoxWrap = q(".ranking-box-wrap");
 const rankingList = {
     bro: {
         name: "bro",
-        fullName: "OKSavingBank BRION",
+        fullName: "OK Saving Bank BRION",
         win: 5,
         lose: 13,
         winPoint: -10,

@@ -6,7 +6,7 @@
 */
 @font-face {
     font-family: "chaneyultra-extended";
-    src: url(./CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf);
+    src: url(../CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf);
 }
 /* 
     [ 메인 페이지 CSS 구성 ]
@@ -464,7 +464,7 @@ body {
     justify-content: center;
     flex-direction: column;
     left: 27.5rem;
-    height: 75%;
+    height: 100%;
 }
 .full-team-name{
     display: flex;
@@ -522,7 +522,7 @@ body {
 }
 /* 3-1. category */
 .category {
-    width: 12rem;
+    width: 16rem;
     height: 2.5rem;
     overflow: hidden;
     position: fixed;
@@ -533,7 +533,9 @@ body {
     line-height: 2.5rem;
     transition: all 0.5s ease-out;
 }
-
+.category__label span{
+    display: block;
+}
 /* 3-2. page number */
 .page-number {
     display: flex;
