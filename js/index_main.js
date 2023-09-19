@@ -112,7 +112,7 @@ setInterval(() => {
     seq++;
     if (seq == page02Imgs.length) seq = 0;
     imgs[seq].style.opacity = 1;
-}, 5000);
+}, 3500);
 
 // page03
 const teamSliderItems = qAll(".team-slider__items");
