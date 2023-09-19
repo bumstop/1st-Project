@@ -164,6 +164,11 @@ body {
     top: 50%;
     transform: translate(0, -50%) rotate(225deg);
 }
+/* 2. main section */
+.page{
+    width: 100%;
+}
+
 
 /* 3. component section */
 .component {

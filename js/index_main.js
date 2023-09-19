@@ -243,10 +243,10 @@ const teamLogoBoxes = qAll(".team-logo-box");
 
 function onTeamLogoIfPage03() {
     if (page >= 3) {
-        teamLogoBoxes.forEach((ele,idx) => {
-            ele.style.transitionDelay = (idx + 1) * 0.1 + 0.5 + 's';
+        teamLogoBoxes.forEach((ele, idx) => {
+            ele.style.transitionDelay = (idx + 1) * 0.1 + 0.5 + "s";
             ele.classList.add("on");
-        })
+        });
     }
 }
 
@@ -332,17 +332,11 @@ for (let ele in rankingList) {
 }
 
 sortedRankingList.sort((a, b) => {
-    if (a.win < b.win) {
-        return 2;
-    } else if (a.win > b.win) {
-        return -2;
-    } else {
-        if (a.winPoint < b.winPoint) {
-            return 1;
-        }
-        if (a.winPoint > b.winPoint) {
-            return -1;
-        }
+    if (a.win < b.win) return 2;
+    if (a.win > b.win)return -2;
+    else {
+        if (a.winPoint < b.winPoint) return 1;
+        if (a.winPoint > b.winPoint) return -1;
     }
 });
 // console.log(sortedRankingList);

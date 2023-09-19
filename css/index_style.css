@@ -256,6 +256,9 @@ body {
 }
 
 /* flex-grow로 컨텐츠 선택시 크기조절 */
+.team-slider__items:hover {
+    flex: 2;
+}
 .team-slider__items.on {
     flex: 15;
 }
