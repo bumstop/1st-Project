@@ -1,17 +1,9 @@
 @charset "utf-8";
-/*
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'chaneyultra-extended';
-*/
-@font-face {
-    font-family: "chaneyultra-extended";
-    src: url(../CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf);
-}
+@import url(./settings.css);
 /* 
     [ 메인 페이지 CSS 구성 ]
 
-    0. 기본 초기화, font설정 / html, body설정
+    0. html, body설정
 
     1. header section
 
@@ -43,12 +35,8 @@
 
 */
 
-/* 0. 기본 초기화, font설정 / html, body설정 / root */
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+/* 0. font설정 / html, body설정 / root */
+
 html {
     font-size: 10px;
 }
