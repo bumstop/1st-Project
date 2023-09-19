@@ -19,7 +19,7 @@ const categoryLabel = q(".category__label");
 window.onload = () => {
     setTimeout(() => {
         scrollTo(0, 0);
-    }, 100);
+    }, 200);
 };
 
 /* 마우스 휠 기본이벤트 제거 */
