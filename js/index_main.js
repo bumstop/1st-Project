@@ -84,6 +84,16 @@ function componentHanddler() {
 window.addEventListener("wheel", scrollHandler);
 
 /*************** page 컨텐츠 ***************/
+// page01 
+// const lckLogoSvgBox = q(".lck-logo-svg-box");
+// const lckLogoSvg = q(".lck-logo-svg");
+
+// lckLogoSvg.addEventListener('click', scaleUpAndTlY);
+
+// function scaleUpAndTlY() {
+//     lckLogoSvgBox.style.transform = 'translateY(-100%) scale(20)';
+// }
+
 
 // page02
 const page02Container = q(".page-02-container");
@@ -242,7 +252,7 @@ teamSliderItems.forEach((ele, idx) => {
 const teamLogoBoxes = qAll(".team-logo-box");
 
 function onTeamLogoIfPage03() {
-    if (page >= 3) {
+    if (page == 3) {
         teamLogoBoxes.forEach((ele, idx) => {
             ele.style.transitionDelay = (idx + 1) * 0.1 + 0.5 + "s";
             ele.classList.add("on");

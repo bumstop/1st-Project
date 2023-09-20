@@ -165,10 +165,19 @@ body {
     transform: translate(0, -50%) rotate(225deg);
 }
 /* 2. main section */
+.main {
+    /* position: relative; */
+}
 .page{
     width: 100%;
 }
-
+#page-01{
+    height: 100vh;
+}
+#page-02{
+    height: 40vh;
+    background-color: #fff;
+}
 
 /* 3. component section */
 .component {
