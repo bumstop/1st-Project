@@ -168,13 +168,15 @@ body {
 .main {
     /* position: relative; */
 }
-.page{
+.page {
     width: 100%;
 }
-#page-01{
+#page-01 {
     height: 100vh;
 }
-#page-02{
+
+
+#page-02 {
     height: 40vh;
     background-color: #fff;
 }

@@ -222,39 +222,36 @@ body {
     margin: 0 auto;
 }
 
-.wrapper {
+.banner {
     position: relative;
     width: 100%;
-    margin: 0 auto;
-    max-width: 1000px;
+    height: 100vh;
+    overflow: hidden;
+}
 
-    video {
-        width: 100%;
-    }
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        text {
-            font-family: "Montserrat", sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-size: 40px;
-        }
-
-        > rect {
-            -webkit-mask: url(../mp4/lck_opening.mp4);
-            mask: url(../mp4/lck_opening.mp4);
-        }
-
-        rect {
-            fill: #fff;
-        }
-    }
+.mask-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 28vw;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #222222;
+    mix-blend-mode: multiply;
 }
 
 /* 2-1-2. page02 */
