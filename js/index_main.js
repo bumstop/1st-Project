@@ -170,7 +170,7 @@ let seq = 0;
 setInterval(() => {
     imgs[seq].style.opacity = 0;
     seq++;
-    if (seq == page02Imgs.length - 1) seq = 0;
+    if (seq == page02Imgs.length) seq = 0;
     imgs[seq].style.opacity = 1;
 }, 3500);
 
@@ -397,14 +397,16 @@ for (let ele in rankingList) {
     sortedRankingList.push(rankingList[ele]);
 }
 
+
 sortedRankingList.sort((a, b) => {
-    if (a.win < b.win) return 2;
-    if (a.win > b.win) return -2;
+    if (a.win < b.win) return 1;
+    if (a.win > b.win) return -1;
     else {
         if (a.winPoint < b.winPoint) return 1;
         if (a.winPoint > b.winPoint) return -1;
     }
 });
+
 // console.log(sortedRankingList);
 
 sortedRankingList.forEach((ele, idx) => {
