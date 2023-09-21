@@ -48,7 +48,7 @@ let wheelMove = 0; // 휠 동작 감시 변수
  * 풀페이지 스크롤 제어
  * 1. 휠 동작중 중복동작 제어 및 delay 조절
  * 2. Y축 스크롤 제어
- * 3. componentHanddler 함수 제어
+ * 3. componentHandler 함수 제어
  */
 function scrollHandler(e) {
     if (wheelMove) return; // 나감
@@ -58,15 +58,11 @@ function scrollHandler(e) {
     }, STS_WHEEL_TIME); //스크롤 잠금 시간
 
     if (e.deltaY > 0) {
-        if (page == lastPage) {
-            return;
-        }
+        if (page == lastPage) return;
         page++;
     }
     if (e.deltaY < 0) {
-        if (page == 1) {
-            return;
-        }
+        if (page == 1) return;
         page--;
     }
     let posTop = (page - 1) * document.body.clientHeight;
@@ -81,6 +77,30 @@ function scrollHandler(e) {
 let pos_start = 0;
 let pos_end = 0;
 
+function mobileSwipeHandler(dir) {
+    if (wheelMove) return; // 나감
+    wheelMove = 1; // 잠금
+    setTimeout(() => {
+        wheelMove = 0;
+    }, STS_WHEEL_TIME); //스크롤 잠금 시간
+    // dir은 방향값(1-아랫쪽,0-윗쪽)
+    if (dir) {
+        if (page == lastPage) return;
+        page++;
+    }
+    if (dir == 0) {
+        if (page == 1) return;
+        page--;
+    }
+
+    let posTop = (page - 1) * document.body.clientHeight;
+    html.scrollTo({ top: posTop, behavior: "smooth" });
+
+    componentHanddler();
+    restoreMaskText();
+    onTeamLogoIfPage03();
+}
+
 function touchStart(e) {
     pos_start = e.touches[0].screenY;
 }
@@ -88,16 +108,7 @@ function touchEnd(e) {
     pos_end = e.changedTouches[0].screenY;
     let result = pos_start - pos_end;
     if (result == 0) return;
-    movePage(result > 0 ? 1 : 0);
-}
-
-function movePage(dir) {
-    // dir은 방향값(1-아랫쪽,0-윗쪽)
-    if (dir) page++;
-    else page--;
-    if (page < 0) page = 0;
-    if (page == total_pg) page = total_pg - 1;
-    window.scrollTo(0, ele_page[page].offsetTop);
+    mobileSwipeHandler(result > 0 ? 1 : 0);
 }
 
 /** 카테고리, 페이지넘버 핸들러  */
@@ -146,7 +157,7 @@ const page02Imgs = [
 page02Imgs.forEach((val, idx) => {
     page02Container.innerHTML += `
         <div class="page-02-img-box">
-            <img src="${val}" class="imgs">
+            <img src="${val}" class="imgs" style="opacity: ${idx == 0 ? 1 : 0};">
         </div>
     `;
 });
@@ -154,15 +165,12 @@ let imgBoxes = qAll(".page-02-img-box");
 let imgs = qAll(".imgs");
 let seq = 0;
 
-console.log(imgBoxes);
 /* 배경이미지 변경 시간 조절 */
 setInterval(() => {
-    imgBoxes[seq].style.width = "0";
-    // imgs[seq].style.opacity = 0;
+    imgs[seq].style.opacity = 0;
     seq++;
-    if (seq == page02Imgs.length - 1) imgBoxes[seq].style.width = "100%";
-    if (seq == page02Imgs.length) seq = 0;
-    // imgs[seq].style.opacity = 1;
+    if (seq == page02Imgs.length - 1) seq = 0;
+    imgs[seq].style.opacity = 1;
 }, 3500);
 
 // page03
