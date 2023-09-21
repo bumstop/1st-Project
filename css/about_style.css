@@ -173,8 +173,14 @@ body {
 }
 #page-01 {
     height: 100vh;
+    background-color: #383838;
 }
-
+.text {
+    font-family:"Noto Sans KR", sans-serif;
+    line-height: 50vh;
+    text-align: center;
+    font-size: 2.5rem;
+}
 
 #page-02 {
     height: 40vh;
