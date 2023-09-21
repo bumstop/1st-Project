@@ -121,7 +121,6 @@ function componentHanddler() {
 
 /* 최종 풀페이지 & 스크롤 이벤트 제어 */
 window.addEventListener("wheel", scrollHandler);
-
 window.addEventListener("touchstart", touchStart);
 window.addEventListener("touchend", touchEnd);
 
