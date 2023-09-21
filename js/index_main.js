@@ -35,6 +35,7 @@ const html = q("html");
 let page = 1;
 const lastPage = qAll(".page").length;
 const componentLineHeightRem = 2.5;
+const STS_WHEEL_TIME = 800;
 
 /* component - page number 부여 */
 for (let i = 1; i <= lastPage; i++) {
@@ -54,7 +55,7 @@ function scrollHandler(e) {
     wheelMove = 1; // 잠금
     setTimeout(() => {
         wheelMove = 0;
-    }, 500); //스크롤 잠금 시간
+    }, STS_WHEEL_TIME); //스크롤 잠금 시간
 
     if (e.deltaY > 0) {
         if (page == lastPage) {
@@ -70,8 +71,33 @@ function scrollHandler(e) {
     }
     let posTop = (page - 1) * document.body.clientHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
+
     componentHanddler();
+    restoreMaskText();
     onTeamLogoIfPage03();
+}
+
+/* 모바일 스크롤 제어 */
+let pos_start = 0;
+let pos_end = 0;
+
+function touchStart(e) {
+    pos_start = e.touches[0].screenY;
+}
+function touchEnd(e) {
+    pos_end = e.changedTouches[0].screenY;
+    let result = pos_start - pos_end;
+    if (result == 0) return;
+    movePage(result > 0 ? 1 : 0);
+}
+
+function movePage(dir) {
+    // dir은 방향값(1-아랫쪽,0-윗쪽)
+    if (dir) page++;
+    else page--;
+    if (page < 0) page = 0;
+    if (page == total_pg) page = total_pg - 1;
+    window.scrollTo(0, ele_page[page].offsetTop);
 }
 
 /** 카테고리, 페이지넘버 핸들러  */
@@ -83,17 +109,27 @@ function componentHanddler() {
 /* 최종 풀페이지 & 스크롤 이벤트 제어 */
 window.addEventListener("wheel", scrollHandler);
 
+window.addEventListener("touchstart", touchStart);
+window.addEventListener("touchend", touchEnd);
+
 /*************** page 컨텐츠 ***************/
-// page01 
-// const lckLogoSvgBox = q(".lck-logo-svg-box");
-// const lckLogoSvg = q(".lck-logo-svg");
+// page01
+const maskText = q(".mask-text");
 
-// lckLogoSvg.addEventListener('click', scaleUpAndTlY);
+maskText.addEventListener("click", (e) => fontSizeUpAndChangeBgc(e.target));
 
-// function scaleUpAndTlY() {
-//     lckLogoSvgBox.style.transform = 'translateY(-100%) scale(20)';
-// }
-
+function fontSizeUpAndChangeBgc(ele) {
+    ele.style.fontSize = "500rem";
+    setTimeout(() => {
+        ele.style.backgroundColor = "#fff";
+    }, 600);
+}
+function restoreMaskText() {
+    if (!(page == 1)) {
+        maskText.style.fontSize = "28vw";
+        maskText.style.backgroundColor = "#181818";
+    }
+}
 
 // page02
 const page02Container = q(".page-02-container");
@@ -109,19 +145,24 @@ const page02Imgs = [
 /* 2페이지 배경이미지 삽입 */
 page02Imgs.forEach((val, idx) => {
     page02Container.innerHTML += `
-        <img src="${val}" class="imgs" style="opacity:${idx == 0 ? 1 : 0};">
+        <div class="page-02-img-box">
+            <img src="${val}" class="imgs">
+        </div>
     `;
 });
-
+let imgBoxes = qAll(".page-02-img-box");
 let imgs = qAll(".imgs");
 let seq = 0;
 
+console.log(imgBoxes);
 /* 배경이미지 변경 시간 조절 */
 setInterval(() => {
-    imgs[seq].style.opacity = 0;
+    imgBoxes[seq].style.width = "0";
+    // imgs[seq].style.opacity = 0;
     seq++;
+    if (seq == page02Imgs.length - 1) imgBoxes[seq].style.width = "100%";
     if (seq == page02Imgs.length) seq = 0;
-    imgs[seq].style.opacity = 1;
+    // imgs[seq].style.opacity = 1;
 }, 3500);
 
 // page03
@@ -343,7 +384,7 @@ for (let ele in rankingList) {
 
 sortedRankingList.sort((a, b) => {
     if (a.win < b.win) return 2;
-    if (a.win > b.win)return -2;
+    if (a.win > b.win) return -2;
     else {
         if (a.winPoint < b.winPoint) return 1;
         if (a.winPoint > b.winPoint) return -1;

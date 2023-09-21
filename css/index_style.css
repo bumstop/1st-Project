@@ -231,8 +231,6 @@ body {
 
 video {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -240,8 +238,6 @@ video {
 
 .mask-text {
     position: absolute;
-    top: 0;
-    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -250,8 +246,11 @@ video {
     font-size: 28vw;
     text-transform: uppercase;
     color: #fff;
-    background-color: #222222;
+    background-color: #181818;
     mix-blend-mode: multiply;
+    transition: 1s;
+    transform: scale3d(1, 1.3, 1);
+    cursor: pointer;
 }
 
 /* 2-1-2. page02 */
@@ -265,12 +264,19 @@ video {
     width: 100%;
     height: 100%;
 }
-.page-02-container .imgs {
+.page-02-img-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: width 1s ease-out;
+    overflow: hidden;
+}
+.page-02-img-box .imgs {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 2s ease-in;
+    /* transition: opacity 2s ease-in; */
 }
 
 /* 2-1-3. page03 */
