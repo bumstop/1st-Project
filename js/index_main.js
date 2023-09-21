@@ -49,6 +49,8 @@ let wheelMove = 0; // 휠 동작 감시 변수
  * 1. 휠 동작중 중복동작 제어 및 delay 조절
  * 2. Y축 스크롤 제어
  * 3. componentHandler 함수 제어
+ * 4. restoreMaskText 함수 제어
+ * 5. ToggleTeamLogoPage03 함수 제어
  */
 function scrollHandler(e) {
     if (wheelMove) return; // 나감
@@ -70,7 +72,7 @@ function scrollHandler(e) {
 
     componentHanddler();
     restoreMaskText();
-    onTeamLogoIfPage03();
+    ToggleTeamLogoPage03();
 }
 
 /* 모바일 스크롤 제어 */
@@ -98,7 +100,7 @@ function mobileSwipeHandler(dir) {
 
     componentHanddler();
     restoreMaskText();
-    onTeamLogoIfPage03();
+    ToggleTeamLogoPage03();
 }
 
 function touchStart(e) {
@@ -300,11 +302,17 @@ teamSliderItems.forEach((ele, idx) => {
 
 const teamLogoBoxes = qAll(".team-logo-box");
 
-function onTeamLogoIfPage03() {
+function ToggleTeamLogoPage03() {
     if (page == 3) {
         teamLogoBoxes.forEach((ele, idx) => {
             ele.style.transitionDelay = (idx + 1) * 0.1 + 0.5 + "s";
             ele.classList.add("on");
+        });
+    }
+    else {
+        teamLogoBoxes.forEach((ele) => {
+            ele.style.transitionDelay = '0s';
+            ele.classList.remove("on");
         });
     }
 }
