@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/*
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'chaneyultra-extended';
+*/
+@font-face {
+    font-family: "chaneyultra-extended";
+    src: url(../CHANEY-ULTRA-EXTENDED/Webfont/CHANEY-UltraExtended-webfont/chaney-ultraextended-webfont.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}

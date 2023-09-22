@@ -1,0 +1,192 @@
+@charset "utf-8";
+@media screen and (max-width: 1280px) {
+    html {
+        font-size: 9px;
+    }
+}
+@media screen and (max-width: 1179px) {
+    html {
+        font-size: 8.5px;
+    }
+}
+@media screen and (max-width: 1079px) {
+    html {
+        font-size: 8px;
+    }
+}
+@media screen and (max-width: 979px) {
+    html {
+        font-size: 7.5px;
+    }
+}
+/* 900px 부터 사이드바 상단으로 이동 */
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 7px;
+    }
+
+    :root {
+        --header-w: 0;
+        --header-p: 1.5rem;
+        --main-logo-w-h: 10rem;
+        --component-bd: 0.2rem;
+        --component-b-p: 25rem;
+    }
+
+    /* 1. header section */
+    .header {
+        width: 100vw;
+        height: auto;
+    }
+
+    /* 1-1. main logo */
+    .logo-box {
+        left: 7rem;
+        margin-bottom: 0;
+    }
+
+    /* 1-2. navigation slider */
+    .nav-slider-wrap {
+        position: fixed;
+    }
+    .nav-slider-wrap {
+        background: #000000a4;
+        transform: translateX(-100%);
+    }
+    .on.nav-slider-wrap {
+        transform: translateX(0);
+    }
+    .nav-slider {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+    }
+    .nav-slider li {
+        height: 10rem;
+    }
+    .nav-slider span:last-child {
+        font-size: 3rem;
+        transform: translateY(-2rem);
+    }
+
+    /* 1-3. hamburger menu button */
+    .hamburger {
+        left: auto;
+        right: 7rem;
+        bottom: 50%;
+        transform: translateY(50%);
+    }
+
+    /* 2-1-3. page03 */
+    .team-slider-container {
+        flex-direction: column;
+        left: 0;
+        top: calc(var(--main-logo-w-h) + var(--header-p) * 2);
+        width: 100%;
+        height: calc(100% - var(--main-logo-w-h) - var(--header-p) * 2);
+    }
+    .team-slider__items {
+        border-right: none;
+        border-bottom: 0.2rem solid #9e9e9e80;
+        height: 100%;
+    }
+    .team-logo-box {
+        transform: translateY(-25%);
+    }
+    .team-slider__items.on > .team-logo-box {
+        transform: translateY(0);
+    }
+    .team-logo-box-small {
+        bottom: 0.5rem;
+        left: 93%;
+        transform: translateX(25%);
+        width: 4rem;
+        height: 4rem;
+    }
+    .team-slider-container .team-name-box {
+        bottom: 2rem;
+        left: 93%;
+        transform: translateX(-100%);
+    }
+
+    /* team player box */
+    .team-player-box {
+        top: 45%;
+    }
+
+    
+
+
+    /* 2-1-4. page04 */
+    .ranking-container {
+        top: calc(var(--main-logo-w-h) + var(--header-p) * 2);
+        width: 100%;
+        height: calc(100% - var(--main-logo-w-h) - var(--header-p) * 2);
+    }
+
+
+    /* 2-2. headline */
+    .headline {
+        top: auto;
+        bottom: 13rem;
+    }
+
+    /* 3. component section */
+
+    /* 3-1. category */
+    .category {
+        left: 7rem;
+    }
+
+    /* 3-3. component line */
+    .header-line {
+        width: 100vw;
+        height: calc(var(--component-bd) * 1.5);
+        left: 0;
+        top: calc(var(--main-logo-w-h) + var(--header-p) * 2);
+    }
+
+    /* section-line 숨김 */
+    .section-line {
+        height: 0;
+    }
+
+    /* 3-4. breadcrumbs */
+    .breadcrumbs {
+        top: 22rem;
+        right: 4rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 5px;
+    }
+
+    /* team player box */
+    .team-player-box {
+        width: 100%;
+    }
+
+    /* 2-1-4. page04 */
+    .rank {
+        left: 0;
+    }
+}
+@media screen and (max-width: 469px) {
+    
+    .team-name-box {
+        width: 20rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    .full-team-name {
+        display: none;
+    }
+    .team-name {
+        color: #fff;
+        display: flex;
+        align-items: center;
+    }
+}
