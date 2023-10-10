@@ -1,9 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body, html, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+html {
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
 .top-banner{
     width: 100vw;
     height: 35px;
     text-align: center;
     line-height: 35px;
-    color: #fff;
     background: #000;
-
+}
+.top-banner a{
+    color: #fff;
 }
