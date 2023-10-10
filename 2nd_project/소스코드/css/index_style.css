@@ -2,9 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* 기본 설정 */
-body, html, h1, h2, h3, h4, h5, h6 {
+body, html, h1, h2, h3, h4, h5, h6, ul, li {
     margin: 0;
     padding: 0;
+}
+ul, li{
+    list-style: none;
 }
 a {
     text-decoration: none;
@@ -79,4 +82,25 @@ html {
     content: "";
     bottom: -8px;
     transition: all 0.5s ease-in-out;
+}
+.top-logo {
+
+}
+.gnb-category{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2%;
+    height: 100%;
+}
+.gnb-category li {
+    white-space: nowrap;
+    height: 100%;
+}
+.gnb-category a{
+    font-size: 15px;
+    font-weight: 600;
+    color: #111;
+
 }
