@@ -57,6 +57,7 @@ body {
     font-family: "chaneyultra-extended", "Poppins", "Noto Sans KR", sans-serif;
     display: flex;
     overflow: hidden;
+    touch-action: none;
 }
 :root {
     --header-w: 28rem;
