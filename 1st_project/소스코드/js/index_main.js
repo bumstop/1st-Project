@@ -30,6 +30,13 @@ window.addEventListener(
     },
     { passive: false }
 );
+window.addEventListener(
+    "touchmove",
+    function (e) {
+        e.preventDefault();
+    },
+    { passive: false }
+);
 
 const html = q("html");
 let page = 1;
@@ -95,7 +102,7 @@ function mobileSwipeHandler(dir) {
         page--;
     }
 
-    let posTop = (page - 1) *  window.innerHeight;
+    let posTop = (page - 1) * window.innerHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
 
     componentHanddler();
@@ -115,8 +122,12 @@ function touchEnd(e) {
 
 /** 카테고리, 페이지넘버 핸들러  */
 function componentHanddler() {
-    categoryLabel.style.transform = `translateY(${-componentLineHeightRem * (page - 1)}rem)`;
-    pageNumberNow.style.transform = `translateY(${-componentLineHeightRem * (page - 1)}rem)`;
+    categoryLabel.style.transform = `translateY(${
+        -componentLineHeightRem * (page - 1)
+    }rem)`;
+    pageNumberNow.style.transform = `translateY(${
+        -componentLineHeightRem * (page - 1)
+    }rem)`;
 }
 
 /* 최종 풀페이지 & 스크롤 이벤트 제어 */
@@ -128,7 +139,9 @@ window.addEventListener("touchend", touchEnd);
 // page01
 const maskText = q(".mask-text");
 
-maskText.addEventListener("click", (e) => fontSizeUpAndChangeBgc(e.target));
+maskText.addEventListener("click", (e) =>
+    fontSizeUpAndChangeBgc(e.target)
+);
 
 function fontSizeUpAndChangeBgc(ele) {
     ele.style.fontSize = "500rem";
@@ -158,7 +171,9 @@ const page02Imgs = [
 page02Imgs.forEach((val, idx) => {
     page02Container.innerHTML += `
         <div class="page-02-img-box">
-            <img src="${val}" class="imgs" style="opacity: ${idx == 0 ? 1 : 0};">
+            <img src="${val}" class="imgs" style="opacity: ${
+        idx == 0 ? 1 : 0
+    };">
         </div>
     `;
 });
@@ -307,10 +322,9 @@ function ToggleTeamLogoPage03() {
             ele.style.transitionDelay = (idx + 1) * 0.1 + 0.5 + "s";
             ele.classList.add("on");
         });
-    }
-    else {
+    } else {
         teamLogoBoxes.forEach((ele) => {
-            ele.style.transitionDelay = '0s';
+            ele.style.transitionDelay = "0s";
             ele.classList.remove("on");
         });
     }
@@ -396,7 +410,6 @@ for (let ele in rankingList) {
     // 객체를 배열객체로 변환
     sortedRankingList.push(rankingList[ele]);
 }
-
 
 sortedRankingList.sort((a, b) => {
     if (a.win < b.win) return 1;
