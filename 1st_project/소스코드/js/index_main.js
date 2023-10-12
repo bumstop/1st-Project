@@ -30,13 +30,23 @@ window.addEventListener(
     },
     { passive: false }
 );
-window.addEventListener(
-    "touchmove",
-    function (e) {
-        e.preventDefault();
-    },
-    { passive: false }
-);
+// window.addEventListener(
+//     "touchmove",
+//     function (e) {
+//         e.preventDefault();
+//     },
+//     { passive: false }
+// );
+
+function setScreenSize() {
+    let vh = window.innerHeight * 0.01;
+
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+}
+
+setScreenSize();
+
+window.addEventListener("resize", () => setScreenSize());
 
 const html = q("html");
 let page = 1;
@@ -116,7 +126,7 @@ function touchStart(e) {
 function touchEnd(e) {
     pos_end = e.changedTouches[0].screenY;
     let result = pos_start - pos_end;
-    if (Math.abs(result) < 1000) return;
+    if (result == 0) return;
     mobileSwipeHandler(result > 0 ? 1 : 0);
 }
 
