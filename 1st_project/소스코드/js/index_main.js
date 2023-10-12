@@ -112,7 +112,7 @@ function mobileSwipeHandler(dir) {
         page--;
     }
 
-    let posTop = (page - 1) * window.innerHeight;
+    let posTop = (page - 1) * window.outerHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
 
     componentHanddler();
