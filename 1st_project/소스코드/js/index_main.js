@@ -95,7 +95,7 @@ function mobileSwipeHandler(dir) {
         page--;
     }
 
-    let posTop = (page - 1) * document.body.clientHeight;
+    let posTop = (page - 1) *  window.innerHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
 
     componentHanddler();
@@ -109,7 +109,7 @@ function touchStart(e) {
 function touchEnd(e) {
     pos_end = e.changedTouches[0].screenY;
     let result = pos_start - pos_end;
-    if (Math.abs(result) < 100) return;
+    if (Math.abs(result) < 300) return;
     mobileSwipeHandler(result > 0 ? 1 : 0);
 }
 
