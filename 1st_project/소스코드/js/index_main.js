@@ -30,13 +30,6 @@ window.addEventListener(
     },
     { passive: false }
 );
-// window.addEventListener(
-//     "touchmove",
-//     function (e) {
-//         e.preventDefault();
-//     },
-//     { passive: false }
-// );
 
 function setScreenSize() {
     let vh = window.innerHeight * 0.01;
