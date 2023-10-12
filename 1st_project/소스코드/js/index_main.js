@@ -40,7 +40,6 @@ window.addEventListener(
 
 function setScreenSize() {
     let vh = window.innerHeight * 0.01;
-
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 }
 
@@ -84,7 +83,7 @@ function scrollHandler(e) {
         if (page == 1) return;
         page--;
     }
-    let posTop = (page - 1) * document.body.clientHeight;
+    let posTop = (page - 1) * window.innerHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
 
     componentHanddler();
