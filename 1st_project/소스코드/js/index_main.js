@@ -109,7 +109,7 @@ function touchStart(e) {
 function touchEnd(e) {
     pos_end = e.changedTouches[0].screenY;
     let result = pos_start - pos_end;
-    if (result == 0) return;
+    if (Math.abs(result) < 100) return;
     mobileSwipeHandler(result > 0 ? 1 : 0);
 }
 
