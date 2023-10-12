@@ -1,12 +1,21 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
 
 /* 기본 설정 */
-body, html, h1, h2, h3, h4, h5, h6, ul, li {
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
     margin: 0;
     padding: 0;
 }
-ul, li{
+ul,
+li {
     list-style: none;
 }
 a {
@@ -14,19 +23,24 @@ a {
 }
 html {
     font-size: 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", "Noto Sans KR", sans-serif;
     color: #111;
 }
-
+.m-r-2p {
+    margin-right: 2%;
+}
+.m-r-4p {
+    margin-right: 4%;
+}
 /* top-banner */
-.top-banner{
+.top-banner {
     width: 100vw;
     height: 35px;
     text-align: center;
     line-height: 35px;
     background: #000;
 }
-.top-banner a{
+.top-banner a {
     color: #fff;
 }
 
@@ -39,7 +53,8 @@ html {
     z-index: 99;
 }
 .gnb {
-    position: relative;
+    display: flex;
+    align-items: center;
     max-width: 1920px;
     min-width: 1440px;
     height: 100%;
@@ -47,11 +62,9 @@ html {
 }
 /* hamburger menu button */
 .hamburger {
-    position: absolute;
+    position: relative;
     width: 40px;
     height: 40px;
-    top: 50%;
-    transform: translate(0, -50%);
     vertical-align: middle;
     cursor: pointer;
 }
@@ -84,23 +97,17 @@ html {
     transition: all 0.5s ease-in-out;
 }
 .top-logo {
-
 }
-.gnb-category{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.gnb-category {
     display: flex;
-    gap: 2%;
-    height: 100%;
+    margin: 0 auto;
 }
 .gnb-category li {
+    padding: 0 20px;
     white-space: nowrap;
-    height: 100%;
 }
-.gnb-category a{
+.gnb-category a {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 400;
     color: #111;
-
 }
