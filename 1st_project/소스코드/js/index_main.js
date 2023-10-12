@@ -112,6 +112,7 @@ function mobileSwipeHandler(dir) {
     }
     // let posTop = (page - 1) * document.body.clientHeight;
     // let posTop = (page - 1) * window.outerHeight;
+    console.log(window.outerHeight - window.innerHeight);
     let posTop = (page - 1) * window.innerHeight;
     html.scrollTo({ top: posTop, behavior: "smooth" });
 
