@@ -21,6 +21,9 @@ li {
 a {
     text-decoration: none;
 }
+img {
+    vertical-align: top;
+}
 html {
     font-size: 12px;
     font-family: "Montserrat", "Noto Sans KR", sans-serif;
@@ -44,7 +47,7 @@ html {
     width: 100vw;
     height: 90px;
     background: #fff;
-    border-bottom: 1px solid black;
+    box-shadow: 0 2px 5px #eee;
     z-index: 99;
 }
 .gnb {
@@ -53,8 +56,10 @@ html {
     max-width: 1920px;
     min-width: 1140px;
     height: 100%;
+    margin: 0 auto;
     padding: 0 50px;
 }
+
 /* hamburger menu button */
 .hamburger {
     position: relative;
@@ -92,12 +97,12 @@ html {
     bottom: -8px;
     transition: all 0.5s ease-in-out;
 }
-.top-logo img{
-    vertical-align: top;
-}
+
+/* top-logo */
 .top-logo a {
     display: block;
 }
+/* gnb-category */
 .gnb-category {
     display: flex;
     margin: 0 auto;
@@ -111,8 +116,8 @@ html {
     font-weight: 400;
     color: #111;
 }
-
-.right-btn-wrap{
+/* right-btn-wrap */
+.right-btn-wrap {
     display: flex;
 }
 .right-btn-wrap li {
@@ -120,4 +125,22 @@ html {
 }
 .right-btn-wrap li:first-child {
     padding-left: 0;
+}
+
+/* quick-menu */
+.quick-menu {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 55px;
+    background-color: #000;
+}
+.plus-btn {
+    padding: 10px 10px 0;
+}
+.up-btn {
+    padding: 5px 10px;
+}
+.down-btn {
+    padding: 0 10px 10px;
 }
