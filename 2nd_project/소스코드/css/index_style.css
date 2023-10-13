@@ -51,9 +51,9 @@ html {
     display: flex;
     align-items: center;
     max-width: 1920px;
-    min-width: 1440px;
+    min-width: 1140px;
     height: 100%;
-    padding: 0 3%;
+    padding: 0 50px;
 }
 /* hamburger menu button */
 .hamburger {
@@ -92,10 +92,6 @@ html {
     bottom: -8px;
     transition: all 0.5s ease-in-out;
 }
-.top-logo {
-    width: auto;
-    height: 40px;
-}
 .top-logo img{
     vertical-align: top;
 }
@@ -118,4 +114,10 @@ html {
 
 .right-btn-wrap{
     display: flex;
+}
+.right-btn-wrap li {
+    padding-left: 35px;
+}
+.right-btn-wrap li:first-child {
+    padding-left: 0;
 }
