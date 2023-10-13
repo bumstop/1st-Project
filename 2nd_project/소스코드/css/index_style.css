@@ -26,12 +26,7 @@ html {
     font-family: "Montserrat", "Noto Sans KR", sans-serif;
     color: #111;
 }
-.m-r-2p {
-    margin-right: 2%;
-}
-.m-r-4p {
-    margin-right: 4%;
-}
+
 /* top-banner */
 .top-banner {
     width: 100vw;
@@ -63,6 +58,7 @@ html {
 /* hamburger menu button */
 .hamburger {
     position: relative;
+    margin-right: 2%;
     width: 40px;
     height: 40px;
     vertical-align: middle;
@@ -97,6 +93,14 @@ html {
     transition: all 0.5s ease-in-out;
 }
 .top-logo {
+    width: auto;
+    height: 40px;
+}
+.top-logo img{
+    vertical-align: top;
+}
+.top-logo a {
+    display: block;
 }
 .gnb-category {
     display: flex;
@@ -110,4 +114,8 @@ html {
     font-size: 15px;
     font-weight: 400;
     color: #111;
+}
+
+.right-btn-wrap{
+    display: flex;
 }

@@ -1,7 +1,7 @@
 function Header() {
     return (
         <div class="gnb">
-            <div class="hamburger m-r-2p">
+            <div class="hamburger">
                 <span class="petty"></span>
             </div>
             <div class="top-logo">
