@@ -2,9 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/index_style.css" />
         <!-- <link
             type="text/css"
@@ -14,9 +12,7 @@
         <title>XEXYMIX</title>
 
         <!-- 1.리액트 기본 라이브러리 -->
-        <script
-            src="https://unpkg.com/react@18/umd/react.production.min.js"
-            crossorigin></script>
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
         <!-- 2.리액트 가상돔 라이브러리 -->
         <script
             src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
@@ -32,8 +28,12 @@
             src="./js/header.jsx"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
-            <script
+        <script
             src="./js/quick_menu.jsx"
+            data-plugins="transform-es2015-modules-umd"
+            type="text/babel"></script>
+        <script
+            src="./js/main_slide_container.jsx"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
     </head>
@@ -49,6 +49,8 @@
             <div class="main-item-container"></div>
             <div class="md-pick-container"></div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+            <!-- class footer 예정 -->
+        </div>
     </body>
 </html>

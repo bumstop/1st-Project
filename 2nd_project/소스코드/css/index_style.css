@@ -19,6 +19,7 @@ li {
     list-style: none;
 }
 a {
+    display: block;
     text-decoration: none;
 }
 img {
@@ -28,6 +29,17 @@ html {
     font-size: 12px;
     font-family: "Montserrat", "Noto Sans KR", sans-serif;
     color: #111;
+}
+.gnb,
+.main-slide-container,
+.circle-banner-container,
+.season-item-container,
+.sub-slide-container,
+.main-item-container,
+.md-pick-container,
+.footer {
+    max-width: 1920px;
+    min-width: 1140px;
 }
 
 /* top-banner */
@@ -47,14 +59,13 @@ html {
     width: 100vw;
     height: 90px;
     background: #fff;
+    box-sizing: border-box;
     box-shadow: 0 2px 5px #eee;
     z-index: 99;
 }
 .gnb {
     display: flex;
     align-items: center;
-    max-width: 1920px;
-    min-width: 1140px;
     height: 100%;
     margin: 0 auto;
     padding: 0 50px;
@@ -144,3 +155,53 @@ html {
 .down-btn {
     padding: 0 10px 10px;
 }
+
+/* main-slide-container */
+.main-slide-container {
+    height: 685px;
+    margin-bottom: 75px;
+}
+.slide-wrapper {
+    height: 100%;
+}
+.slide-item {
+    position: relative;
+    width: 40%;
+    height: 100%;
+    background-color: gray;
+    outline: 2px dashed black;
+}
+.slide-item a {
+    width: 100%;
+    height: 100%;
+}
+.slide-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/* item-txt-box */
+.item-txt-box {
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    color: #000;
+    text-align: center;
+    opacity: 1;
+}
+.category {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.title{
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.desc{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
