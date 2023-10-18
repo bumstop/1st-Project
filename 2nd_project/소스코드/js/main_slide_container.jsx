@@ -1,71 +1,103 @@
 import slideInfo from "./main_slide_info.jsx";
 
-function SlideItem(val) {
-    return (
-        <div class="slide-item" data-index={val.index}>
-            <a href="#">
-                <div class="item-img-box">
-                    <img src={val.src} alt="xexymix" />
-                </div>
-                <div class="item-txt-box">
-                    <div class="category">{val.category}</div>
-                    <div class="title">
-                        <p>
-                            {val.title1}
-                            <br />
-                            {val.title2}
-                        </p>
-                    </div>
-                    <div class="desc">{val.desc}</div>
-                </div>
-            </a>
-        </div>
-    );
-}
+// function SlideItem() {
+//     Object.keys(slideInfo).map((v) => {
+//         console.log(slideInfo[v].index);
+//             <div class="slide-item" data-index={slideInfo[v].index}>
+//                 <a href="#">
+//                     <div class="item-img-box">
+//                         <img src={slideInfo[v].imgSrc} alt="xexymix" />
+//                     </div>
+//                     <div class="item-txt-box">
+//                         <div class="category">{slideInfo[v].category}</div>
+//                         <div class="title">
+//                             <p>
+//                                 {slideInfo[v].title[0]}
+//                                 <br />
+//                                 {slideInfo[v].title[1]}
+//                             </p>
+//                         </div>
+//                         <div class="desc">{slideInfo[v].desc}</div>
+//                     </div>
+//                 </a>
+//             </div>
+//     });
+// }
 
-Object.keys(slideInfo).map((v) => {
-    <SlideItem
-        index={slideInfo[v].index}
-        src={slideInfo[v].src}
-        category={slideInfo[v].category}
-        title1={slideInfo[v].title[0]}
-        title2={slideInfo[v].title[1]}
-        desc={slideInfo[v].desc}
-    />
-    console.log(slideInfo[v].index);
-});
+// Object.keys(slideInfo).map((v) => {
+//         <SlideItem
+//             index={slideInfo[v].index}
+//             imgSrc={slideInfo[v].imgSrc}
+//             category={slideInfo[v].category}
+//             title1={slideInfo[v].title[0]}
+//             title2={slideInfo[v].title[1]}
+//             desc={slideInfo[v].desc}
+//         />
+//         console.log(slideInfo[v]);
+// });
 
+
+let slideInfoKeys = Object.keys(slideInfo);
+console.log(slideInfo[slideInfoKeys[0]].index)
 function MainSlideContainer() {
     return (
         <React.Fragment>
             <div class="slide-wrapper">
-                {Object.keys(slideInfo).map((v) => {
-                    <SlideItem
-                        index={slideInfo[v].index}
-                        src={slideInfo[v].src}
-                        category={slideInfo[v].category}
-                        title1={slideInfo[v].title[0]}
-                        title2={slideInfo[v].title[1]}
-                        desc={slideInfo[v].desc}
-                    />
-                })}
-
-                {/* <SlideItem
-                    index={slideInfoArray[1].index}
-                    src={slideInfoArray[1].src}
-                    category={slideInfoArray[1].category}
-                    title1={slideInfoArray[1].title[0]}
-                    title2={slideInfoArray[1].title[1]}
-                    desc={slideInfoArray[1].desc}
-                />
-                <SlideItem
-                    index={slideInfoArray[2].index}
-                    src={slideInfoArray[2].src}
-                    category={slideInfoArray[2].category}
-                    title1={slideInfoArray[2].title[0]}
-                    title2={slideInfoArray[2].title[1]}
-                    desc={slideInfoArray[2].desc}
-                /> */}
+                {/* <SlideItem /> */}
+                <div class="slide-item" data-index={slideInfo[slideInfoKeys[0]].index}>
+                    <a href="#">
+                        <div class="item-img-box">
+                            <img src={slideInfo[slideInfoKeys[0]].imgSrc} alt="xexymix" />
+                        </div>
+                        <div class="item-txt-box">
+                            <div class="category">{slideInfo[slideInfoKeys[0]].category}</div>
+                            <div class="title">
+                                <p>
+                                    {slideInfo[slideInfoKeys[0]].title[0]}
+                                    <br />
+                                    {slideInfo[slideInfoKeys[0]].title[1]}
+                                </p>
+                            </div>
+                            <div class="desc">{slideInfo[slideInfoKeys[0]].desc}</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="slide-item" data-index={slideInfo[slideInfoKeys[1]].index}>
+                    <a href="#">
+                        <div class="item-img-box">
+                            <img src={slideInfo[slideInfoKeys[1]].imgSrc} alt="xexymix" />
+                        </div>
+                        <div class="item-txt-box">
+                            <div class="category">{slideInfo[slideInfoKeys[1]].category}</div>
+                            <div class="title">
+                                <p>
+                                    {slideInfo[slideInfoKeys[1]].title[0]}
+                                    <br />
+                                    {slideInfo[slideInfoKeys[1]].title[1]}
+                                </p>
+                            </div>
+                            <div class="desc">{slideInfo[slideInfoKeys[1]].desc}</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="slide-item" data-index={slideInfo[slideInfoKeys[2]].index}>
+                    <a href="#">
+                        <div class="item-img-box">
+                            <img src={slideInfo[slideInfoKeys[2]].imgSrc} alt="xexymix" />
+                        </div>
+                        <div class="item-txt-box">
+                            <div class="category">{slideInfo[slideInfoKeys[2]].category}</div>
+                            <div class="title">
+                                <p>
+                                    {slideInfo[slideInfoKeys[2]].title[0]}
+                                    <br />
+                                    {slideInfo[slideInfoKeys[2]].title[1]}
+                                </p>
+                            </div>
+                            <div class="desc">{slideInfo[slideInfoKeys[2]].desc}</div>
+                        </div>
+                    </a>
+                </div>
             </div>
             <div class="slide-btn-prev"></div>
             <div class="slide-btn-next"></div>
