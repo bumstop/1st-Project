@@ -184,6 +184,7 @@ html {
 .slide-item img {
     width: 100%;
     object-fit: contain;
+    /* object-fit: contain 으로 img 크기 기준으로 부모요소 크기 결정 */
 }
 .item-img-box::after {
     content: "";
