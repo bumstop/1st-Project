@@ -143,8 +143,8 @@ html {
 /* quick-menu */
 .quick-menu {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 10px;
+    bottom: 10px;
     width: 55px;
     background-color: #000;
     z-index: 99;
@@ -237,12 +237,21 @@ html {
 
 .slide-pagination {
     position: absolute;
-    bottom: 30px;
+    bottom: 60px;
     right: 100px;
+    color: #fff;
+    font-weight: 500;
 }
 
-.slide-pagination-focus 
+/* .slide-pagination-focus  */
 
-.slide-pagination-total
+/* .slide-pagination-total */
 
-.slide-btn-pause
+.slide-btn-pause {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    background: url('../images/mainBtn_stop.png') no-repeat center/cover;
+}
