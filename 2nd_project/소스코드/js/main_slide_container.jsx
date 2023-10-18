@@ -99,9 +99,18 @@ function MainSlideContainer() {
                     </a>
                 </div>
             </div>
-            <div class="slide-btn-prev"></div>
-            <div class="slide-btn-next"></div>
-            <div class="slide-pagination"></div>
+            
+            <div class="slide-btn-prev">
+                <img src="./images/main_btn_prev.png" alt="btn_prev" />
+            </div>
+            <div class="slide-btn-next">
+                <img src="./images/main_btn_next.png" alt="btn_prev" />
+            </div>
+            <div class="slide-pagination">
+                <span class="slide-pagination-focus">1</span>
+                <span> / </span>
+                <span class="slide-pagination-total">8</span>
+            </div>
             <div class="slide-btn-pause"></div>
         </React.Fragment>
     );
