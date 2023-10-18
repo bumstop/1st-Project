@@ -33,7 +33,7 @@ html {
     color: #111;
 }
 .gnb,
-.main-slide-container,
+/* .main-slide-container, */
 .circle-banner-container,
 .season-item-container,
 .sub-slide-container,
@@ -161,13 +161,14 @@ html {
 
 /* main-slide-container */
 .main-slide-container {
+    width: 100%;
     position: relative;
-    height: 685px;
     margin:0 auto 75px;
 }
 .slide-wrapper {
     display: flex;
     height: 100%;
+    justify-content: center;
 }
 .slide-item {
     position: relative;
@@ -181,9 +182,8 @@ html {
     height: 100%;
 }
 .slide-item img {
-    position: absolute;
     width: 100%;
-    height: 100%;
+    object-fit: contain;
 }
 .item-img-box::after {
     content: "";
