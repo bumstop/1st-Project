@@ -33,7 +33,7 @@ html {
     color: #111;
 }
 .gnb,
-/* .main-slide-container, */
+.main-slide-container,
 .circle-banner-container,
 .season-item-container,
 .sub-slide-container,
@@ -161,9 +161,9 @@ html {
 
 /* main-slide-container */
 .main-slide-container {
-    width: 100%;
+    /* width: 100%; */
     position: relative;
-    margin: 0 auto 75px;
+    margin:0 auto 75px;
     overflow: hidden;
 }
 .slide-wrapper {
@@ -256,4 +256,9 @@ html {
     width: 40px;
     height: 40px;
     background: url('../images/mainBtn_stop.png') no-repeat center/cover;
+}
+
+.circle-banner-container {
+    display: flex;
+    justify-content: center
 }
