@@ -46,7 +46,7 @@ html {
 
 /* top-banner */
 .top-banner {
-    width: 100vw;
+    width: 100%;
     height: 35px;
     text-align: center;
     line-height: 35px;
@@ -58,7 +58,7 @@ html {
 
 /* header */
 #header {
-    width: 100vw;
+    width: 100%;
     height: 90px;
     background: #fff;
     box-sizing: border-box;
@@ -154,7 +154,7 @@ html {
 }
 .up-btn {
     padding: 5px 10px;
-}
+}   
 .down-btn {
     padding: 0 10px 10px;
 }
@@ -166,7 +166,7 @@ html {
     margin:0 auto 75px;
     overflow: hidden;
 }
-.slide-wrapper {
+.main-slide-wrapper {
     display: flex;
     height: 100%;
     justify-content: center;
@@ -260,5 +260,6 @@ html {
 
 .circle-banner-container {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    margin:0 auto 75px;
 }

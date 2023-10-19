@@ -28,7 +28,7 @@ function SlideItem() {
 function MainSlideContainer() {
     return (
         <React.Fragment>
-            <div class="slide-wrapper">
+            <div class="main-slide-wrapper">
                 <SlideItem />
             </div>
             <div class="slide-btn-prev">
