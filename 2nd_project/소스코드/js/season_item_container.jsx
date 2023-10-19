@@ -1,6 +1,6 @@
 import slideInfo from "./season_slide_info.jsx";
 
-function SlideItem() {
+function SlideItem() { // 전체 아이템 박스 컴포넌트로 변경예정
     return (
         <div class="season-slide-item">
             <a href="#">
