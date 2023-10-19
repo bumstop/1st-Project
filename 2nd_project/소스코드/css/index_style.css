@@ -163,7 +163,8 @@ html {
 .main-slide-container {
     width: 100%;
     position: relative;
-    margin:0 auto 75px;
+    margin: 0 auto 75px;
+    overflow: hidden;
 }
 .slide-wrapper {
     display: flex;
