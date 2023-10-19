@@ -207,17 +207,17 @@ html {
     text-align: center;
     opacity: 1;
 }
-.main-slide-category {
+.main-slide-item-category {
     font-size: 19px;
     font-weight: 500;
     margin-bottom: 10px;
 }
-.main-slide-title p{
+.main-slide-item-title p{
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.main-slide-desc{
+.main-slide-item-desc{
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 10px;

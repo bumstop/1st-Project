@@ -7,18 +7,18 @@ function SlideItem() {
         <div class="main-slide-item" data-index={v.index}>
             <a href="#">
                 <div class="main-slide-item-img-box">
-                    <img src={v.imgSrc} alt="xexymix" />
+                    <img src={v.imgSrc} />
                 </div>
                 <div class="main-slide-item-txt-box">
-                    <div class="main-slide-category">{v.category}</div>
-                    <div class="main-slide-title">
+                    <div class="main-slide-item-category">{v.category}</div>
+                    <div class="main-slide-item-title">
                         <p>
                             {v.title[0]}
                             <br />
                             {v.title[1]}
                         </p>
                     </div>
-                    <div class="main-slide-desc">{v.desc}</div>
+                    <div class="main-slide-item-desc">{v.desc}</div>
                 </div>
             </a>
         </div>
