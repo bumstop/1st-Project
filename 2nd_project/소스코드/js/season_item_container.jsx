@@ -1,13 +1,16 @@
 import slideInfo from "./season_slide_info.jsx";
 
+function SlideItem() {
+    return 
+        <div class></div>
+}
 
 
-
-function SeasonItemContainer() {
+function SeasonSlideContainer() {
     return (
         <React.Fragment>
             <div class="season-slide-title"></div>
-            <div class="season-slide-wrapper">
+            <div class="season-slide-box">
                 {/* <SlideItem /> */}
             </div>
             <div class="season-slide-scrollbar"></div>

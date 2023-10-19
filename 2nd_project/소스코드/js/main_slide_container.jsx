@@ -4,21 +4,21 @@ const slideInfoValues = Object.values(slideInfo);
 
 function SlideItem() {
     return slideInfoValues.map((v) => (
-        <div class="slide-item" data-index={v.index}>
+        <div class="main-slide-item" data-index={v.index}>
             <a href="#">
-                <div class="item-img-box">
+                <div class="main-slide-item-img-box">
                     <img src={v.imgSrc} alt="xexymix" />
                 </div>
-                <div class="item-txt-box">
-                    <div class="category">{v.category}</div>
-                    <div class="title">
+                <div class="main-slide-item-txt-box">
+                    <div class="main-slide-category">{v.category}</div>
+                    <div class="main-slide-title">
                         <p>
                             {v.title[0]}
                             <br />
                             {v.title[1]}
                         </p>
                     </div>
-                    <div class="desc">{v.desc}</div>
+                    <div class="main-slide-desc">{v.desc}</div>
                 </div>
             </a>
         </div>
@@ -28,21 +28,21 @@ function SlideItem() {
 function MainSlideContainer() {
     return (
         <React.Fragment>
-            <div class="main-slide-wrapper">
+            <div class="main-slide-box">
                 <SlideItem />
             </div>
-            <div class="slide-btn-prev">
+            <div class="main-slide-btn-prev">
                 <img src="./images/main_btn_prev.png" alt="btn_prev" />
             </div>
-            <div class="slide-btn-next">
+            <div class="main-slide-btn-next">
                 <img src="./images/main_btn_next.png" alt="btn_prev" />
             </div>
-            <div class="slide-pagination">
-                <span class="slide-pagination-focus">1</span>
+            <div class="main-slide-pagination">
+                <span class="main-slide-pagination-focus">1</span>
                 <span> / </span>
-                <span class="slide-pagination-total">8</span>
+                <span class="main-slide-pagination-total">8</span>
             </div>
-            <div class="slide-btn-pause"></div>
+            <div class="main-slide-btn-pause"></div>
         </React.Fragment>
     );
 }
