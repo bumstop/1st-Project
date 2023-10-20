@@ -1,4 +1,4 @@
-function Header() {
+function Gnb() {
     return (
         <div class="gnb">
             <div class="hamburger">
@@ -62,4 +62,4 @@ function Header() {
     );
 }
 
-ReactDOM.render(<Header />, document.querySelector("#header"));
+ReactDOM.render(<Gnb />, document.querySelector(".gnb-wrapper"));

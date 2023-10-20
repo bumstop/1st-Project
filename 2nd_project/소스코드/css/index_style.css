@@ -12,7 +12,7 @@ h6,
 ul,
 li,
 p,
-br   {
+br {
     margin: 0;
     padding: 0;
 }
@@ -32,6 +32,24 @@ html {
     font-family: "Montserrat", "Noto Sans KR", sans-serif;
     color: #111;
 }
+body{
+    position: relative;
+}
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
+}
+
 .gnb,
 .main-slide-container,
 .circle-banner-container,
@@ -44,26 +62,40 @@ html {
     min-width: 1140px;
 }
 
-/* top-banner */
+/* header */
+#header{
+    position: relative;
+}
 .top-banner {
+    position: absolute;
     width: 100%;
     height: 35px;
     text-align: center;
     line-height: 35px;
     background: #000;
+    transition: all 500ms ease;
 }
 .top-banner a {
     color: #fff;
 }
-
-/* header */
-#header {
+.gnb-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 90px;
     background: #fff;
     box-sizing: border-box;
     box-shadow: 0 2px 5px #eee;
+    transition: all 500ms ease;
+    transform: translateY(35px);
     z-index: 99;
+}
+.gnb-wrapper.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
 }
 .gnb {
     display: flex;
@@ -154,16 +186,23 @@ html {
 }
 .up-btn {
     padding: 5px 10px;
-}   
+}
 .down-btn {
     padding: 0 10px 10px;
 }
 
+#main {
+    padding-top: 125px;
+    transition: padding-top 500ms ease;
+}
+#main.active {
+    padding-top: 90px;
+}
 /* main-slide-container */
 .main-slide-container {
     /* width: 100%; */
     position: relative;
-    margin:0 auto 75px;
+    margin: 0 auto 75px;
     overflow: hidden;
 }
 .main-slide-box {
@@ -195,7 +234,7 @@ html {
     width: 100%;
     height: 100%;
     background: #000;
-    opacity: .25;
+    opacity: 0.25;
 }
 
 /* item-txt-box */
@@ -212,12 +251,12 @@ html {
     font-weight: 500;
     margin-bottom: 10px;
 }
-.main-slide-item-title p{
+.main-slide-item-title p {
     font-size: 32px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.main-slide-item-desc{
+.main-slide-item-desc {
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 10px;
@@ -255,11 +294,11 @@ html {
     right: 50px;
     width: 40px;
     height: 40px;
-    background: url('../images/mainBtn_stop.png') no-repeat center/cover;
+    background: url("../images/mainBtn_stop.png") no-repeat center/cover;
 }
 
 .circle-banner-container {
     display: flex;
     justify-content: center;
-    margin:0 auto 75px;
+    margin: 0 auto 75px;
 }

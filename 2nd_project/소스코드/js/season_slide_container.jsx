@@ -1,13 +1,13 @@
 import slideInfo from "./item_info/season_slide_info.jsx";
 
-function SlideItem() { // 전체 아이템 박스 컴포넌트로 변경예정
+function ItemBox() { // 전체 아이템 박스 컴포넌트로 변경예정
     return (
-        <div class="season-slide-item">
+        <div class="item-box">
             <a href="#">
-                <div class="season-slide-item-img-box">
+                <div class="item-img-box">
                     <img src="" />
                 </div>
-                <div class="season-slide-item-txt-box">
+                <div class="item-txt-box">
                     <div class="item-name-box"></div>
                     <div class="item-price-box"></div>
                     <div class="item-icon-box"></div>
@@ -28,4 +28,4 @@ function SeasonSlideContainer() {
     );
 }
 
-ReactDOM.render(<SeasonSlideContainer />, document.querySelector(".season-item-container"));
+ReactDOM.render(<SeasonSlideContainer />, document.querySelector(".season-slide-container"));
