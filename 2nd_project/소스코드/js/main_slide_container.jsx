@@ -16,6 +16,8 @@ function SlideItem() {
                             {v.title[0]}
                             <br />
                             {v.title[1]}
+                            <br />
+                            {v.title.map((v) => v + <br />)}
                         </p>
                     </div>
                     <div class="main-slide-item-desc">{v.desc}</div>
