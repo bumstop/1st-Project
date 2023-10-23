@@ -3,7 +3,7 @@ import mainSlideInfo from "./item_info/main_slide_info.jsx";
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 function SlideItem() {
-    return mainSlideInfoValues.map((v,i) => (
+    return mainSlideInfoValues.map((v, i) => (
         <div class="main-slide-item" data-index={i}>
             <a href="#">
                 <div class="main-slide-item-img-box">
@@ -13,11 +13,12 @@ function SlideItem() {
                     <div class="main-slide-item-category">{v.category}</div>
                     <div class="main-slide-item-title">
                         <p>
-                            {/* {v.title[0]}
-                            <br />
-                            {v.title[1]}
-                            <br /> */}
-                            {v.title.map((v) => v + <br />)}
+                            {v.title.map((v, i, a) =>   
+                                <React.Fragment>
+                                    {v}
+                                    {a.length == 1 ? ("") : (!i ? <br /> : "")}
+                                </React.Fragment>
+                            )}
                         </p>
                     </div>
                     <div class="main-slide-item-desc">{v.desc}</div>
