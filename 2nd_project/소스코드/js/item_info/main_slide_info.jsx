@@ -29,7 +29,7 @@ export default {
     },
     item4: {
         index: 4,
-        title: ["페미닌한 무드, 실키한 터치감의", "활용도 높은 집업 가디건"],
+        title: ["활용도 높은 집업 가디건"],
         category: "WOMEN",
         desc: "골지 텐션 집업 커버 가디건",
         imgSrc: "./images/main_slide/banner_5.jpg",

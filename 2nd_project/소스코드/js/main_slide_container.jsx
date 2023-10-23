@@ -1,9 +1,9 @@
-import slideInfo from "./item_info/main_slide_info.jsx";
+import mainSlideInfo from "./item_info/main_slide_info.jsx";
 
-const slideInfoValues = Object.values(slideInfo);
+const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 function SlideItem() {
-    return slideInfoValues.map((v,i) => (
+    return mainSlideInfoValues.map((v,i) => (
         <div class="main-slide-item" data-index={i}>
             <a href="#">
                 <div class="main-slide-item-img-box">
@@ -13,10 +13,10 @@ function SlideItem() {
                     <div class="main-slide-item-category">{v.category}</div>
                     <div class="main-slide-item-title">
                         <p>
-                            {v.title[0]}
+                            {/* {v.title[0]}
                             <br />
                             {v.title[1]}
-                            <br />
+                            <br /> */}
                             {v.title.map((v) => v + <br />)}
                         </p>
                     </div>
