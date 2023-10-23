@@ -53,7 +53,7 @@ body {
 .gnb,
 .main-slide-container,
 .circle-banner-container,
-.season-item-container,
+.season-slide-container,
 .sub-slide-container,
 .main-item-container,
 .md-pick-container,
@@ -303,4 +303,21 @@ body {
     display: flex;
     justify-content: center;
     margin: 0 auto 75px;
+}
+
+/**************** season-slide-container ****************/
+.season-slide-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto 75px;
+}
+
+.season-slide-title {
+    font-size: 24px;
+    padding-left: 10px;
+}
+.season-slide-box {
+    display: flex;
+    
 }

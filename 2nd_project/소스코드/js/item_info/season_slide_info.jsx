@@ -1,6 +1,6 @@
 export default {
     item0: {
-        imgSrc: ["./images/season_1-1.jpg", "./images/season_1-2.jpg"],
+        imgSrc: ["./images/season_slide/season_1-1.jpg", "./images/season_slide/season_1-2.jpg"],
         name: "쉐르파 하이넥 점퍼 페일오렌지",
         price: "132000",
         sale: "79000",
@@ -9,7 +9,7 @@ export default {
         descSub: "주간 아우터 판매 1위 #품절주의",
     },
     item1: {
-        imgSrc: ["./images/season_2-1.jpg", "./images/season_2-2.jpg"],
+        imgSrc: ["./images/season_slide/season_2-1.jpg", "./images/season_slide/season_2-2.jpg"],
         name: "내핑 후드 집업 밀크베이지",
         price: "64,000",
         sale: "79,000",
@@ -18,7 +18,7 @@ export default {
         descSub: "기모 안감으로 포근하게! #4년 연속 아우터 판매 1위",
     },
     item2: {
-        imgSrc: ["./images/season_3-1.jpg", "./images/season_3-2.jpg"],
+        imgSrc: ["./images/season_slide/season_3-1.jpg", "./images/season_slide/season_3-2.jpg"],
         name: "웜 코튼 루즈핏 스트링 후드 집업 파인그린",
         price: "75,000",
         sale: "89,000",
@@ -27,7 +27,7 @@ export default {
         descSub: "부드러운 기모로 포근하게! #투웨이 핏 조절",
     },
     item3: {
-        imgSrc: ["./images/season_4-1.jpg", "./images/season_4-2.jpg"],
+        imgSrc: ["./images/season_slide/season_4-1.jpg", "./images/season_slide/season_4-2.jpg"],
         name: "하이넥 웰론 패딩 도버크림",
         price: "122,500",
         sale: "139,000",
@@ -36,7 +36,7 @@ export default {
         descSub: "",
     },
     item4: {
-        imgSrc: ["./images/season5-1.jpg", "./images/season5-2.jpg"],
+        imgSrc: ["./images/season_slide/season_5-1.jpg", "./images/season_slide/season_5-2.jpg"],
         name: "하이넥 랩 패딩 자켓 카라멜브라운",
         price: "132,000",
         sale: "149,000",
@@ -45,7 +45,7 @@ export default {
         descSub: "",
     },
     item5: {
-        imgSrc: ["./images/season_6-1.jpg", "./images/season_6-2.jpg"],
+        imgSrc: ["./images/season_slide/season_6-1.jpg", "./images/season_slide/season_6-2.jpg"],
         name: "핑거홀 경량 패딩 저지 자켓 블랙",
         price: "72,200",
         sale: "86,000",
@@ -54,7 +54,7 @@ export default {
         descSub: "",
     },
     item6: {
-        imgSrc: ["./images/season_7-1.jpg", "./images/season_7-2.jpg"],
+        imgSrc: ["./images/season_slide/season_7-1.jpg", "./images/season_slide/season_7-2.jpg"],
         name: "소프트 골지 버튼 롱슬리브 블랙",
         price: "36,000",
         sale: "46,000",
@@ -63,7 +63,7 @@ export default {
         descSub: "",
     },
     item7: {
-        imgSrc: ["./images/season_8-1.jpg", "./images/season_8-2.jpg"],
+        imgSrc: ["./images/season_slide/season_8-1.jpg", "./images/season_slide/season_8-2.jpg"],
         name: "X-하이커 LT 블랙베이지",
         price: "84,500",
         sale: "109,000",
