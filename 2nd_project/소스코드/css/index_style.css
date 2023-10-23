@@ -32,7 +32,7 @@ html {
     font-family: "Montserrat", "Noto Sans KR", sans-serif;
     color: #111;
 }
-body{
+body {
     position: relative;
 }
 ::-webkit-scrollbar {
@@ -62,8 +62,8 @@ body{
     min-width: 1140px;
 }
 
-/* header */
-#header{
+/************************ header ************************/
+#header {
     position: relative;
 }
 .top-banner {
@@ -172,7 +172,7 @@ body{
     padding-left: 0;
 }
 
-/* quick-menu */
+/************************ quick-menu ************************/
 .quick-menu {
     position: fixed;
     right: 10px;
@@ -190,7 +190,7 @@ body{
 .down-btn {
     padding: 0 10px 10px;
 }
-
+/*************************** main ***************************/
 #main {
     padding-top: 125px;
     transition: padding-top 500ms ease;
@@ -198,7 +198,7 @@ body{
 #main.active {
     padding-top: 90px;
 }
-/* main-slide-container */
+/******************* main-slide-container *******************/
 .main-slide-container {
     /* width: 100%; */
     position: relative;
@@ -226,6 +226,8 @@ body{
     object-fit: contain;
     /* object-fit: contain 으로 img 크기 기준으로 부모요소 크기 결정 */
 }
+
+/* 이미지 마스크 */
 .main-slide-item-img-box::after {
     content: "";
     position: absolute;
@@ -296,7 +298,7 @@ body{
     height: 40px;
     background: url("../images/mainBtn_stop.png") no-repeat center/cover;
 }
-
+/******************** circle-banner ********************/
 .circle-banner-container {
     display: flex;
     justify-content: center;

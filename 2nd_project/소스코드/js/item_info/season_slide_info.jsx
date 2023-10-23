@@ -1,8 +1,8 @@
 export default {
     item0: {
-        imgSrc: ,
-        name: ,
-        icon: [],
-        desc:
+        imgSrc: [],
+        name: "",
+        iconContent: [],
+        desc: "",
     },
-}
+};

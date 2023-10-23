@@ -1,8 +1,10 @@
 import slideInfo from "./item_info/season_slide_info.jsx";
 
+const slideInfoValues = Object.values(slideInfo);
+
 function ItemBox() { // 전체 아이템 박스 컴포넌트로 변경예정
-    return (
-        <div class="item-box">
+    return slideInfoValues.map((v, i) => (
+        <div class="item-box" data-index={i}>
             <a href="#">
                 <div class="item-img-box">
                     <img src="" />
@@ -15,7 +17,7 @@ function ItemBox() { // 전체 아이템 박스 컴포넌트로 변경예정
                 </div>
             </a>
         </div>
-    );
+    ));
 }
 
 function SeasonSlideContainer() {

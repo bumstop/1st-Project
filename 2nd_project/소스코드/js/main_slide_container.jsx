@@ -3,8 +3,8 @@ import slideInfo from "./item_info/main_slide_info.jsx";
 const slideInfoValues = Object.values(slideInfo);
 
 function SlideItem() {
-    return slideInfoValues.map((v) => (
-        <div class="main-slide-item" data-index={v.index}>
+    return slideInfoValues.map((v,i) => (
+        <div class="main-slide-item" data-index={i}>
             <a href="#">
                 <div class="main-slide-item-img-box">
                     <img src={v.imgSrc} />
