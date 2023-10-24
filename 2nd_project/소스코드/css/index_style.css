@@ -363,5 +363,9 @@ body {
     margin-top: 7px;
     padding-top: 7px;
     border-top: 1px solid #e5e5e5;
+    font-size: 13px;
     word-break: keep-all;
+}
+.desc-main {
+    margin-bottom: 5px;
 }

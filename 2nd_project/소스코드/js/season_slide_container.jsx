@@ -26,14 +26,12 @@ function ItemBox() {
                         </div>
                         <div class="item-icon-box">
                             {v.iconContent.map((v) => {
-                                return <span class="item-icon">{v}</span>
+                                return <span class="item-icon">{v}</span>;
                             })}
                         </div>
                         <div class="item-desc-box">
-                            
-                            {v.descMain}
-                            <br />
-                            {v.descSub}
+                            <div class="desc-main">{v.descMain}</div>
+                            <div>{v.descSub}</div>
                         </div>
                     </div>
                 </a>
