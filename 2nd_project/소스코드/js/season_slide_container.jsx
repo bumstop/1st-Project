@@ -1,5 +1,8 @@
 import seasonSlideInfo from "./item_info/season_slide_info.jsx";
 
+// 데이터 제이슨 불러오기 : 어서써 타입 제이슨!
+// import mvData from './data_moving.json' assert{type:'json'};
+
 const seasonSlideInfoValues = Object.values(seasonSlideInfo);
 const itemImgBox = document.querySelector(".item-img-box");
 function ItemBox() {
@@ -12,17 +15,22 @@ function ItemBox() {
                         <img src={v.imgSrc[0]} />
                     </div>
                     <div class="item-txt-box">
-                        <div class="item-name-box">
-                            {v.name}
-                        </div>
+                        <div class="item-name-box">{v.name}</div>
                         <div class="item-price-box">
-                        {v.sale}
-                        {v.price}
+                            {v.sale.toLocaleString()}
+                            {v.sale ? (
+                                <strike>{v.price.toLocaleString()}</strike>
+                            ) : (
+                                v.price.toLocaleString()
+                            )}
                         </div>
                         <div class="item-icon-box">
-                            {v.iconContent}
+                            {v.iconContent.map((v) => {
+                                return <span class="item-icon">{v}</span>
+                            })}
                         </div>
                         <div class="item-desc-box">
+                            
                             {v.descMain}
                             <br />
                             {v.descSub}
@@ -38,7 +46,9 @@ function SeasonSlideContainer() {
     return (
         <React.Fragment>
             <div class="season-slide-title">
-                <p><b>실시간 급상승</b>, 많은 분들이 보고있어요.</p>
+                <p>
+                    <b>실시간 급상승</b>, 많은 분들이 보고있어요.
+                </p>
             </div>
             <div class="season-slide-box">
                 <ItemBox />

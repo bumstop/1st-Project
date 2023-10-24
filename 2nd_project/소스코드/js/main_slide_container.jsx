@@ -24,14 +24,12 @@ function SlideItem() {
                 <div class="main-slide-item-txt-box">
                     <div class="main-slide-item-category">{v.category}</div>
                     <div class="main-slide-item-title">
-                        <p>
-                            {v.title.map((v, i, a) => (
-                                <React.Fragment>
-                                    {v}
-                                    {a.length == 1 ? "" : !i ? <br /> : ""}
-                                </React.Fragment>
-                            ))}
-                        </p>
+                        {v.title.map((v, i, a) => (
+                            <React.Fragment>
+                                {v}
+                                {a.length == 1 ? "" : !i ? <br /> : ""}
+                            </React.Fragment>
+                        ))}
                     </div>
                     <div class="main-slide-item-desc">{v.desc}</div>
                 </div>
