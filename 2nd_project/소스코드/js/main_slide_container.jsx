@@ -2,6 +2,18 @@ import mainSlideInfo from "./item_info/main_slide_info.jsx";
 
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 
+function SlideEventItem() {
+    return (
+        <div class="main-slide-item event-item" data-index={i}>
+            <a href="">
+                <div class="main-slide-item-img-box">
+                    <img src="./images/main_slide/banner_0.jpg" />
+                </div>
+            </a>
+        </div>
+    );
+}
+
 function SlideItem() {
     return mainSlideInfoValues.map((v, i) => (
         <div class="main-slide-item" data-index={i}>
@@ -13,12 +25,12 @@ function SlideItem() {
                     <div class="main-slide-item-category">{v.category}</div>
                     <div class="main-slide-item-title">
                         <p>
-                            {v.title.map((v, i, a) =>   
+                            {v.title.map((v, i, a) => (
                                 <React.Fragment>
                                     {v}
-                                    {a.length == 1 ? ("") : (!i ? <br /> : "")}
+                                    {a.length == 1 ? "" : !i ? <br /> : ""}
                                 </React.Fragment>
-                            )}
+                            ))}
                         </p>
                     </div>
                     <div class="main-slide-item-desc">{v.desc}</div>
