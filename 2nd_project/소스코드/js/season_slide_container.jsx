@@ -4,7 +4,7 @@ import seasonSlideInfo from "./item_info/season_slide_info.js";
 // import mvData from './data_moving.json' assert{type:'json'};
 
 const seasonSlideInfoValues = Object.values(seasonSlideInfo);
-const itemImgBox = document.querySelector(".item-img-box");
+
 function ItemBox() {
     // 전체 아이템 박스 컴포넌트로 변경예정
     return seasonSlideInfoValues.map((v, i) => {

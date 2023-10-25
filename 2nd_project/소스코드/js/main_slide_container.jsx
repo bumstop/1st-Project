@@ -14,7 +14,7 @@ function SlideEventItem() {
     );
 }
 
-function SlideItem() {
+function MainSlideItem() {
     return mainSlideInfoValues.map((v, i) => (
         <div class="main-slide-item" data-index={i}>
             <a href="#">
@@ -43,7 +43,7 @@ function MainSlideContainer() {
         <React.Fragment>
             <div class="main-slide-box-wrap">
                 <div class="main-slide-box">
-                    <SlideItem />
+                    <MainSlideItem />
                 </div>
             </div>
             <div class="main-slide-btn-prev">
