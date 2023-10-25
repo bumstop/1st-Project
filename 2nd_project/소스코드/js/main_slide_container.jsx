@@ -1,4 +1,4 @@
-import mainSlideInfo from "./item_info/main_slide_info.jsx";
+import mainSlideInfo from "./item_info/main_slide_info.js";
 
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 

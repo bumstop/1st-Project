@@ -1,4 +1,4 @@
-import seasonSlideInfo from "./item_info/season_slide_info.jsx";
+import seasonSlideInfo from "./item_info/season_slide_info.js";
 
 // 데이터 제이슨 불러오기 : 어서써 타입 제이슨!
 // import mvData from './data_moving.json' assert{type:'json'};
