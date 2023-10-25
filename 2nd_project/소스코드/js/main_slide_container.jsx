@@ -41,8 +41,10 @@ function SlideItem() {
 function MainSlideContainer() {
     return (
         <React.Fragment>
-            <div class="main-slide-box">
-                <SlideItem />
+            <div class="main-slide-box-wrap">
+                <div class="main-slide-box">
+                    <SlideItem />
+                </div>
             </div>
             <div class="main-slide-btn-prev">
                 <img src="./images/main_btn_prev.png" alt="btn_prev" />

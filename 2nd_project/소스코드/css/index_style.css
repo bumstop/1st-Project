@@ -64,8 +64,8 @@ body {
     padding: 0 6%;
     box-sizing: border-box;
 }
-.gnb,
-.main-slide-container {
+.main-slide-container,
+.gnb {
     max-width: 1920px;
     min-width: 1440px;
 }
@@ -313,13 +313,6 @@ body {
 }
 
 /**************** season-slide-container ****************/
-.season-slide-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-}
-
 .season-slide-title {
     font-size: 24px;
     padding-left: 10px;
@@ -328,12 +321,16 @@ body {
 .season-slide-box {
     display: flex;
 }
-
+.season-slide-box-wrap {
+    overflow: hidden;
+}
 .item-box {
-    width: 243.8px;
+    width: 323px;
     margin-right: 15px;
 }
-
+.item-txt-box {
+    word-break: keep-all;
+}
 .item-name-box {
     margin-top: 10px;
     font-size: 14px;
@@ -364,7 +361,6 @@ body {
     padding-top: 7px;
     border-top: 1px solid #e5e5e5;
     font-size: 13px;
-    word-break: keep-all;
 }
 .desc-main {
     margin-bottom: 5px;

@@ -48,8 +48,10 @@ function SeasonSlideContainer() {
                     <b>실시간 급상승</b>, 많은 분들이 보고있어요.
                 </p>
             </div>
-            <div class="season-slide-box">
-                <ItemBox />
+            <div class="season-slide-box-wrap">
+                <div class="season-slide-box">
+                    <ItemBox />
+                </div>
             </div>
             <div class="season-slide-scrollbar"></div>
         </React.Fragment>
