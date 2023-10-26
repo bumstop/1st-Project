@@ -29,9 +29,6 @@ function Gnb() {
                     <a href="#">골프</a>
                 </li>
                 <li>
-                    <a href="#">시즌오프</a>
-                </li>
-                <li>
                     <a href="#">커뮤니티</a>
                 </li>
             </ul>

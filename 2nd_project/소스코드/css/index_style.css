@@ -162,7 +162,7 @@ body {
     margin: 0 auto;
 }
 .gnb-category li {
-    padding: 0 20px;
+    padding: 0 30px;
     white-space: nowrap;
 }
 .gnb-category a {
@@ -378,18 +378,20 @@ body {
     background: #ccc;
 }
 
+/**************** sub-slide-container ****************/
 .sub-slide-box-wrap {
-    overflow: hidden;
+    position: relative;
     width: 100%;
-    height: 100px;
+    overflow: hidden;
 }
 .sub-slide-box {
-    width: 100%;
-    height: 100%;
     display: flex;
 }
 .sub-slide-item{
+    position: relative;
     width: 50%;
-    background-color: gray;
     flex-shrink: 0;
+}
+.sub-slide-item img {
+    width: 100%;
 }

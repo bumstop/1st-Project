@@ -1,9 +1,9 @@
-let myarr = [1, 2, 3, 4];
+const subSlideItems = ["bikershorts", "joggerpants", "newyoga", "tennislook", "windbreaker"];
 
 function SubSlideItem() {
-    return myarr.map((v, i) => (
+    return subSlideItems.map((v, i) => (
         <div class="sub-slide-item" data-index={i}>
-            {v}
+            <img src={"./images/sub_slide/sub_slide_" + v + ".jpg"} alt="" />
         </div>
     ));
 }
