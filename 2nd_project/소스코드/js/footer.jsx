@@ -98,8 +98,10 @@ function FooterRight() {
 function Footer() {
     return (
         <div class="footer">
-            <FooterLeft />
-            <FooterRight />
+            <div class="footer-inbox">
+                <FooterLeft />
+                <FooterRight />
+            </div>
         </div>
     );
 }

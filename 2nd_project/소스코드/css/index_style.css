@@ -410,21 +410,21 @@ body::-webkit-scrollbar-track {
     border-top: 1px solid #999;
 }
 .footer {
-    display: flex;
     color: #999;
+}
+.footer-inbox {
+    position: relative;
+    display: flex;
 }
 .footer a {
     color: #999;
 }
 .footer-left {
     padding-top: 80px;
-    max-width: calc(1920px * 0.4);
-    min-width: calc(1440px * 0.4);
+    
 }
 .footer-right {
     padding-top: 80px;
-    max-width: calc(1920px * 0.6);
-    min-width: calc(1440px * 0.6);
 }
 .footer-left-top span {
     padding-left: 10px;
