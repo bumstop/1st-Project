@@ -6,10 +6,7 @@ function Gnb() {
             </div>
             <div class="top-logo">
                 <a href="#">
-                    <img
-                        src="./images/header_logo_bk.png"
-                        alt="xexymix"
-                    />
+                    <img src="./images/header_logo_bk.png" alt="xexymix" />
                 </a>
             </div>
             <ul class="gnb-category">
@@ -35,18 +32,12 @@ function Gnb() {
             <ul class="right-btn-wrap">
                 <li>
                     <a href="#">
-                        <img
-                            src="./images/menu_view.png"
-                            alt="menu_view"
-                        />
+                        <img src="./images/menu_view.png" alt="menu_view" />
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img
-                            src="./images/menu_cart.png"
-                            alt="menu_cart"
-                        />
+                        <img src="./images/menu_cart.png" alt="menu_cart" />
                     </a>
                 </li>
                 <li>

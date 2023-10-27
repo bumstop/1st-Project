@@ -1,4 +1,12 @@
-const subSlideItems = ["bikershorts", "joggerpants", "newyoga", "tennislook", "windbreaker"];
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+
+const subSlideItems = [
+    "bikershorts",
+    "joggerpants",
+    "newyoga",
+    "tennislook",
+    "windbreaker",
+];
 
 function SubSlideItem() {
     return subSlideItems.map((v, i) => (

@@ -12,13 +12,27 @@
         <title>XEXYMIX</title>
 
         <!-- 1.리액트 기본 라이브러리 -->
-        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script
+            src="https://unpkg.com/react@18/umd/react.production.min.js"
+            crossorigin></script>
         <!-- 2.리액트 가상돔 라이브러리 -->
         <script
             src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
             crossorigin></script>
         <!-- 3.리액트 바벨 라이브러리 -->
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <!-- 오버레이 스크롤 CSS, JS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.4.3/styles/overlayscrollbars.min.css"
+            integrity="sha512-GLjiYEfwRILLhWYLDXvKeusNgvT8pisl8KfJwBDqu2VBNDfJJdNZENDhLLiexD3S1Y0OEMWT+ua/QCsdauNBWw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.4.3/browser/overlayscrollbars.browser.es6.min.js"
+            integrity="sha512-Tw3KKrVPQ1r9lk+1X9et9V7rbzl1CCU63Of91tNdKN9TRrB1s2ELW7oAouspMTMObAPXdZpMvvtSP6WFXQ6x3g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
         <!-- 4. 나의 JSX 파일 -->
         <script
             src="./js/item_info/main_slide_info.js"
@@ -26,6 +40,10 @@
             type="text/babel"></script>
         <script
             src="./js/item_info/season_slide_info.js"
+            data-plugins="transform-es2015-modules-umd"
+            type="text/babel"></script>
+        <script
+            src="./js/item_info/address_info.js"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
         <script
@@ -52,8 +70,12 @@
             src="./js/season_slide_container.jsx"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
-            <script
+        <script
             src="./js/sub_slide_container.jsx"
+            data-plugins="transform-es2015-modules-umd"
+            type="text/babel"></script>
+        <script
+            src="./js/footer.jsx"
             data-plugins="transform-es2015-modules-umd"
             type="text/babel"></script>
     </head>
@@ -71,8 +93,6 @@
             <div class="main-item-container"></div>
             <div class="md-pick-container"></div>
         </div>
-        <div id="footer">
-            <!-- class footer 예정 -->
-        </div>
+        <div id="footer"></div>
     </body>
 </html>
