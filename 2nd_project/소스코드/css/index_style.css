@@ -420,11 +420,14 @@ body::-webkit-scrollbar-track {
     color: #999;
 }
 .footer-left {
-    padding-top: 80px;
+    padding: 80px 10% 0 0;
     
 }
 .footer-right {
     padding-top: 80px;
+}
+.footer-left {
+    width: 650px;
 }
 .footer-left-top span {
     padding-left: 10px;
@@ -441,14 +444,14 @@ body::-webkit-scrollbar-track {
 .info-box {
     display: inline-block;
     margin-bottom: 10px;
+    white-space: nowrap;
 }
 .info-box div {
     display: inline-block;
 }
-.address-value-box {
-    padding-left: 3px;
+.address-key-box {
+    padding-right: 3px;
 }
-
 .divide-bar {
     width: 1px;
     height: 9px;
@@ -470,6 +473,7 @@ body::-webkit-scrollbar-track {
 }
 .bank-info-box, .sns-box, .shop-menu-box {
     padding-left: 15%;
+    white-space: nowrap;
 }
 
 .bank-info-box div {

@@ -34,7 +34,7 @@ function FooterLeft() {
             <address class="footer-left-info">
                 {addressInfoKeys.map((v, i, a) => (
                     <div class="info-box">
-                        <div>{v} :</div>
+                        <div class="address-key-box">{v} :</div>
                         <div class="address-value-box">{addressInfo[v]}</div>
                         {i < a.length - 1 && <div class="divide-bar"></div>}
                     </div>
