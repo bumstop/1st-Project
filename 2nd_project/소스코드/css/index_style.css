@@ -39,10 +39,7 @@ html {
 body {
     position: relative;
 }
-html > *, body > * {
-    
-    -webkit-user-drag: none;
-}
+
 /* body::-webkit-scrollbar {
     width: 14px;
     height: 14px;
