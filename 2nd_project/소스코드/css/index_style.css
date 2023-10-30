@@ -27,6 +27,9 @@ a {
 }
 img {
     vertical-align: top;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 html {
     font-size: 12px;
@@ -36,7 +39,10 @@ html {
 body {
     position: relative;
 }
-
+html > *, body > * {
+    
+    -webkit-user-drag: none;
+}
 /* body::-webkit-scrollbar {
     width: 14px;
     height: 14px;
@@ -318,6 +324,32 @@ body::-webkit-scrollbar-track {
 .circle-banner-container {
     display: flex;
     justify-content: center;
+}
+.circle-item {
+    position: relative;   
+}
+.circle-item:hover .circle-item-txt {
+    opacity: 0.85;
+}
+.circle-item-txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 17px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 900;
+
+    opacity: 0;
+}
+.circle-item img {
+
 }
 
 /**************** season-slide-container ****************/
