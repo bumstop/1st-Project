@@ -10,11 +10,9 @@ function ItemBox(props) {
                         <div class="item-name-box">{v.name}</div>
                         <div class="item-price-box">
                             {v.sale.toLocaleString()}
-                            {v.sale ? (
-                                <strike>{v.price.toLocaleString()}</strike>
-                            ) : (
-                                v.price.toLocaleString()
-                            )}
+                            {v.sale 
+                                ? <strike>{v.price.toLocaleString()}</strike>
+                                : v.price.toLocaleString()}
                         </div>
                         <div class="item-icon-box">
                             {v.iconContent.map((v) => {

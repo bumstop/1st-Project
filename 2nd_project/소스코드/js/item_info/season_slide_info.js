@@ -5,7 +5,7 @@ export default {
             "./images/season_slide/season_1-2.jpg",
         ],
         name: "쉐르파 하이넥 점퍼 페일오렌지",
-        price: "132000",
+        price: 132000,
         sale: "",
         iconContent: ["이벤트특가", "신상"],
         descMain: "[10/23(월) 11AM까지 혜택릴레이특가]",
