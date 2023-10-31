@@ -9,7 +9,7 @@ function ItemBox(props) {
                     <div class="item-txt-box">
                         <div class="item-name-box">{v.name}</div>
                         <div class="item-price-box">
-                            {v.sale.toLocaleString()}
+                            {v.sale && v.sale.toLocaleString()}
                             {v.sale 
                                 ? <strike>{v.price.toLocaleString()}</strike>
                                 : v.price.toLocaleString()}

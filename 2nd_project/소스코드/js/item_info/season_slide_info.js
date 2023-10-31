@@ -6,7 +6,7 @@ export default {
         ],
         name: "쉐르파 하이넥 점퍼 페일오렌지",
         price: 132000,
-        sale: "",
+        sale: null,
         iconContent: ["이벤트특가", "신상"],
         descMain: "[10/23(월) 11AM까지 혜택릴레이특가]",
         descSub: "주간 아우터 판매 1위 #품절주의",
@@ -32,7 +32,7 @@ export default {
         price: 89000,
         sale: 75000,
         iconContent: ["신상"],
-        descMain: "",
+        descMain: null,
         descSub: "부드러운 기모로 포근하게! #투웨이 핏 조절",
     },
     item3: {
@@ -45,7 +45,7 @@ export default {
         sale: 122500,
         iconContent: ["신상"],
         descMain: "[10/27(금) 2PM까지 5% 신상할인]",
-        descSub: "",
+        descSub: null,
     },
     item4: {
         imgSrc: [
@@ -57,7 +57,7 @@ export default {
         sale: 132000,
         iconContent: ["신상"],
         descMain: "[10/24(화) 2PM까지 5% 신상할인]",
-        descSub: "",
+        descSub: null,
     },
     item5: {
         imgSrc: [
@@ -69,7 +69,7 @@ export default {
         sale: 72200,
         iconContent: ["신상"],
         descMain: "[10/27(금) 2PM까지 5% 신상할인]",
-        descSub: "",
+        descSub: null,
     },
     item6: {
         imgSrc: [
@@ -80,8 +80,8 @@ export default {
         price: 46000,
         sale: 36000,
         iconContent: ["신상"],
-        descMain: "",
-        descSub: "",
+        descMain: null,
+        descSub: null,
     },
     item7: {
         imgSrc: [
