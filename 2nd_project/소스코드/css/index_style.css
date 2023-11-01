@@ -389,6 +389,7 @@ body::-webkit-scrollbar-track {
 }
 .item-icon-box {
     margin-top: 7px;
+    height: 18px;
 }
 .item-icon {
     padding: 1px 5px;
