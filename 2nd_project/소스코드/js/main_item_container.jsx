@@ -1,28 +1,19 @@
-import seasonSlideInfo from "./item_info/season_slide_info.js";
+import manInfo from "./item_info/man_info.js";
 import ItemBox from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
 
-const seasonSlideInfoValues = Object.values(seasonSlideInfo); 
+const manInfoValues = Object.values(manInfo); 
 // props 로 import받은 Object의 value를 넘겨준다
+{/* <ItemBox info={manInfoValues}/> */}
 
-function SeasonSlideContainer() {
+function MainItemContainer() {
     return (
         <React.Fragment>
-            <div class="season-slide-title">
-                <p>
-                    <b>실시간 급상승</b>, 많은 분들이 보고있어요.
-                </p>
-            </div>
-            <div class="season-slide-box-wrap">
-                <div class="season-slide-box">
-                    <ItemBox info={seasonSlideInfoValues}/>
-                </div>
-            </div>
-            <div class="season-slide-scrollbar"></div>
+           <ItemBox info={manInfoValues}/>
         </React.Fragment>
     );
 }
 
 ReactDOM.render(
-    <SeasonSlideContainer />,
-    document.querySelector(".season-slide-container")
+    <MainItemContainer />,
+    document.querySelector(".main-item-container")
 );

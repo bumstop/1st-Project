@@ -432,6 +432,10 @@ body::-webkit-scrollbar-track {
 .sub-slide-item img {
     width: 100%;
 }
+/**************** main-item-container ****************/
+.main-item-container {
+    
+}
 
 /********************** footer **********************/
 #footer {
