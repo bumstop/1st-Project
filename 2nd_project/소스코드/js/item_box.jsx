@@ -23,7 +23,9 @@ function ItemBox(props) {
                             })}
                         </div>
                         <div class="item-desc-box">
-                            <div class="desc-main">{v.descMain}</div>
+                            {(v.descSub && v.descMain) 
+                                ? <div class="mb-5">{v.descMain}</div> 
+                                : null}
                             <div>{v.descSub}</div>
                         </div>
                     </div>
