@@ -1,6 +1,6 @@
 export default {
     item0: {
-        imgSrc: ["./images/man/man1.jpg", null],
+        imgSrc: "./images/man/man1.jpg",
         name: "오버핏 리버서블 퍼 자켓 블랙",
         type: ["outer"],
         price: "159000",
@@ -10,7 +10,7 @@ export default {
         descSub: null,
     },
     item2: {
-        imgSrc: ["./images/man/man2.jpg", null],
+        imgSrc: "./images/man/man2.jpg",
         name: "커뮤터 스트레치 라이트 패딩 자켓 애쉬카키",
         type: ["outer"],
         price: "189000",
@@ -20,7 +20,7 @@ export default {
         descSub: null,
     },
     item3: {
-        imgSrc: ["./images/man/man3.jpg", null],
+        imgSrc: "./images/man/man3.jpg",
         name: "맨즈 리버서블 포켓 퀼티드 자켓 사파리카키",
         type: ["outer"],
         price: "139000",
@@ -30,7 +30,7 @@ export default {
         descSub: null,
     },
     item4: {
-        imgSrc: ["./images/man/man4.jpg", null],
+        imgSrc: "./images/man/man4.jpg",
         name: "텍스처드 플리스 집업 자켓 블랙",
         type: ["outer"],
         price: "99000",
@@ -40,7 +40,7 @@ export default {
         descSub: null,
     },
     item5: {
-        imgSrc: ["./images/man/man5.jpg", null],
+        imgSrc: "./images/man/man5.jpg",
         name: "커뮤터 스트레치 라이트 롱 패딩 블랙",
         type: ["outer"],
         price: "199000",
@@ -50,7 +50,7 @@ export default {
         descSub: null,
     },
     item6: {
-        imgSrc: ["./images/man/man6.gif", null],
+        imgSrc: "./images/man/man6.gif", null],
         name: "리버서블 퀼팅 플리스 코트 블랙",
         type: ["outer"],
         price: "169000",
@@ -60,7 +60,7 @@ export default {
         descSub: null,
     },
     item7: {
-        imgSrc: ["./images/man/man7.jpg", null],
+        imgSrc: "./images/man/man7.jpg",
         name: "넥리스 심플 경량 패딩 다크그레이",
         type: ["outer"],
         price: "119000",
@@ -70,7 +70,7 @@ export default {
         descSub: null,
     },
     item8: {
-        imgSrc: ["./images/man/man8.jpg", null],
+        imgSrc: "./images/man/man8.jpg",
         name: "플렉스 집업 후디",
         type: ["outer"],
         price: "72000",
@@ -80,7 +80,7 @@ export default {
         descSub: null,
     },
     item9: {
-        imgSrc: ["./images/man/man9.jpg", null],
+        imgSrc: "./images/man/man9.jpg",
         name: "유틸라이트 포텐셜 롱슬리브 블랙",
         type: ["top"],
         price: "49000",
@@ -90,7 +90,7 @@ export default {
         descSub: null,
     },
     item10: {
-        imgSrc: ["./images/man/man10.jpg", null],
+        imgSrc: "./images/man/man10.jpg",
         name: "프렌치 테리 하프집업 스웨트셔츠 네이비",
         type: ["top"],
         price: "82000",
@@ -100,7 +100,7 @@ export default {
         descSub: "윤성빈's PICK!",
     },
     item11: {
-        imgSrc: ["./images/man/man11.jpg", null],
+        imgSrc: "./images/man/man11.jpg",
         name: "스포츠 윈드 테크 롱슬리브 블랙",
         type: ["top"],
         price: "82000",
@@ -110,7 +110,7 @@ export default {
         descSub: null,
     },
     item12: {
-        imgSrc: ["./images/man/man12.jpg", null],
+        imgSrc: "./images/man/man12.jpg",
         name: "필드 하프집업 롱슬리브 1+1",
         type: ["top"],
         price: "98000",
@@ -120,7 +120,7 @@ export default {
         descSub: null,
     },
     item13: {
-        imgSrc: ["./images/man/man13.jpg", null],
+        imgSrc: "./images/man/man13.jpg",
         name: "트리플 엑스 숏슬리브 1+1",
         type: ["top"],
         price: "58000",
@@ -130,7 +130,7 @@ export default {
         descSub: "맨즈 상의 누적판매 1위 #윤성빈's PICK!",
     },
     item14: {
-        imgSrc: ["./images/man/man14.jpg", null],
+        imgSrc: "./images/man/man14.jpg",
         name: "하이쿨링 테크 숏슬리브 1+1",
         type: ["top"],
         price: "88000",
@@ -140,7 +140,7 @@ export default {
         descSub: "윤성빈's PICK!",
     },
     item15: {
-        imgSrc: ["./images/man/man15.jpg", null],
+        imgSrc: "./images/man/man15.jpg",
         name: "베이직 로고 트랙 SET",
         type: ["top", "bottom"],
         price: "133000",
@@ -150,7 +150,7 @@ export default {
         descSub: null,
     },
     item16: {
-        imgSrc: ["./images/man/man16.jpg", null],
+        imgSrc: "./images/man/man16.jpg",
         name: "우븐 스트레치 버닝 SET",
         type: ["top", "bottom"],
         price: "163000",

@@ -12,7 +12,7 @@ function ItemBox(props) {
         <div class="item-box" data-index={i}>
             <a href="#">
                 <div class="item-img-box">
-                    <img src={v.imgSrc[0]} />
+                    <img src={v.imgSrc} />
                 </div>
                 <div class="item-txt-box">
                     <div class="item-name-box">{v.name}</div>
