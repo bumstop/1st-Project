@@ -8,7 +8,14 @@ const manInfoValues = Object.values(manInfo);
 function MainItemContainer() {
     return (
         <React.Fragment>
-           <ItemBox info={manInfoValues}/>
+            <div class="seeing-box"></div>
+            <div class="main-item-box">
+                <div class="man-item">
+                    <ItemBox info={manInfoValues} width={'calc(95% / 4)'}/>
+                </div>
+                <div class="top-item"></div>
+                <div class="bottom-item"></div>
+            </div>
         </React.Fragment>
     );
 }

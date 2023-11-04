@@ -50,7 +50,7 @@ export default {
         descSub: null,
     },
     item6: {
-        imgSrc: "./images/man/man6.gif", null],
+        imgSrc: "./images/man/man6.gif",
         name: "리버서블 퀼팅 플리스 코트 블랙",
         type: ["outer"],
         price: "169000",

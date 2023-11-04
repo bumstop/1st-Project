@@ -9,10 +9,11 @@ function ItemBox(props) {
             <span>{Number(price).toLocaleString()}</span>
         );
     return props.info.map((v, i) => (
-        <div class="item-box" data-index={i}>
+        <div class="item-box" data-index={i} style={{width: props.width}}>
             <a href="#">
                 <div class="item-img-box">
                     <img src={v.imgSrc} />
+
                 </div>
                 <div class="item-txt-box">
                     <div class="item-name-box">{v.name}</div>
