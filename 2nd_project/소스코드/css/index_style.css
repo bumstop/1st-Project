@@ -363,8 +363,9 @@ body::-webkit-scrollbar-track {
 .season-slide-box-wrap {
     overflow: hidden;
 }
-.item-box {
+.season-slide-box .item-box {
     flex-shrink: 0;
+    width: calc(96% / 5);
 }
 .item-img-box img {
     width: 100%;
@@ -447,6 +448,9 @@ body::-webkit-scrollbar-track {
 .main-item-box {
     padding-left: 2%;
     width: 100%;
+}
+.main-item-box .item-box {
+    width: calc(96% / 4);
 }
 .man-item {
     display: flex;

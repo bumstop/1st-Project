@@ -11,7 +11,7 @@ function MainItemContainer() {
             <div class="seeing-box"></div>
             <div class="main-item-box">
                 <div class="man-item">
-                    <ItemBox info={manInfoValues} width={'calc(95% / 4)'}/>
+                    <ItemBox info={manInfoValues}/>
                 </div>
                 <div class="top-item"></div>
                 <div class="bottom-item"></div>

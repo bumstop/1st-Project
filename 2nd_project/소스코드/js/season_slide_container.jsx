@@ -14,7 +14,7 @@ function SeasonSlideContainer() {
             </div>
             <div class="season-slide-box-wrap">
                 <div class="season-slide-box">
-                    <ItemBox info={seasonSlideInfoValues} width={'calc(96% / 5)'}/>
+                    <ItemBox info={seasonSlideInfoValues}/>
                 </div>
             </div>
             <div class="season-slide-scrollbar"></div>
