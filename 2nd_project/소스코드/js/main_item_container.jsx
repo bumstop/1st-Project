@@ -10,7 +10,7 @@ function MainItemContainer() {
         <React.Fragment>
             <div class="seeing-box"></div>
             <div class="main-item-box">
-                <div class="man-item">
+                <div class="item-box-wrap man-item-box-wrap">
                     <ItemBox info={manInfoValues}/>
                 </div>
                 <div class="top-item"></div>

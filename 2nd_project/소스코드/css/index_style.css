@@ -453,7 +453,7 @@ body::-webkit-scrollbar-track {
 .main-item-box .item-box {
     flex-basis: calc(96% / 4);
 }
-.man-item {
+.man-item-box-wrap {
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
