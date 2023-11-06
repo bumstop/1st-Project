@@ -139,5 +139,24 @@ export default {
         descMain: null,
         descSub: "윤성빈's PICK!",
     },
-    
+    item15: {
+        imgSrc: "./images/man/man15.jpg",
+        name: "베이직 로고 트랙 SET",
+        type: ["top", "bottom"],
+        price: "133000",
+        sale: "89800",
+        iconContent: ["~2XL", "신상"],
+        descMain: "[집업+트랙팬츠 구성]",
+        descSub: null,
+    },
+    item16: {
+        imgSrc: "./images/man/man16.jpg",
+        name: "우븐 스트레치 버닝 SET",
+        type: ["top", "bottom"],
+        price: "163000",
+        sale: "109800",
+        iconContent: ["~2XL", "신상"],
+        descMain: "[집업+트랙팬츠 구성] 운동 효과 극대화 #땀복",
+        descSub: null,
+    },
 };
