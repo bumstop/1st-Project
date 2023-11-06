@@ -457,11 +457,7 @@ body::-webkit-scrollbar-track {
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
-    justify-content: space-between;
-}
-.man-item::after {
-    content: "";
-    flex-basis: calc(96% / 4);
+    column-gap: calc(4% / 3);
 }
 /********************** footer **********************/
 #footer {
