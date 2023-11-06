@@ -34,6 +34,7 @@ img {
 html {
     font-size: 12px;
     font-family: "Montserrat", "Noto Sans KR", sans-serif;
+    letter-spacing: -0.5px;
     color: #111;
 }
 body {
@@ -327,7 +328,7 @@ body::-webkit-scrollbar-track {
     justify-content: center;
 }
 .circle-item {
-    position: relative;   
+    position: relative;
 }
 .circle-item:hover .circle-item-txt {
     opacity: 0.85;
@@ -349,7 +350,6 @@ body::-webkit-scrollbar-track {
     opacity: 0;
 }
 
-
 /**************** season-slide-container ****************/
 .season-slide-title {
     font-size: 24px;
@@ -365,7 +365,7 @@ body::-webkit-scrollbar-track {
 }
 .season-slide-box .item-box {
     flex-shrink: 0;
-    width: calc(96% / 5);
+    flex-basis: calc(96% / 5);
 }
 .item-img-box img {
     width: 100%;
@@ -404,6 +404,7 @@ body::-webkit-scrollbar-track {
     margin-top: 15px;
     padding-top: 7px;
     border-top: 1px solid #e5e5e5;
+    height: 60px;
     font-size: 13px;
 }
 .mb-5 {
@@ -450,13 +451,17 @@ body::-webkit-scrollbar-track {
     width: 100%;
 }
 .main-item-box .item-box {
-    width: calc(96% / 4);
+    flex-basis: calc(96% / 4);
 }
 .man-item {
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
     justify-content: space-between;
+}
+.man-item::after {
+    content: "";
+    flex-basis: calc(96% / 4);
 }
 /********************** footer **********************/
 #footer {
@@ -477,7 +482,6 @@ body::-webkit-scrollbar-track {
 }
 .footer-left {
     padding: 80px 10% 0 0;
-    
 }
 .footer-right {
     padding-top: 80px;
@@ -520,14 +524,16 @@ body::-webkit-scrollbar-track {
 .footer-right {
     display: flex;
 }
-.footer-right span{
+.footer-right span {
     display: block;
     font-size: 18px;
     font-weight: 600;
     color: #111;
     margin-bottom: 10px;
 }
-.bank-info-box, .sns-box, .shop-menu-box {
+.bank-info-box,
+.sns-box,
+.shop-menu-box {
     padding-left: 15%;
     white-space: nowrap;
 }
