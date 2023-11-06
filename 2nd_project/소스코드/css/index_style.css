@@ -437,13 +437,23 @@ body::-webkit-scrollbar-track {
 }
 /**************** main-item-container ****************/
 .main-item-container {
-    display: flex;
+    /* display: flex; */
+    float: left;
+}
+
+/* #main::after {
+    content: '';
+    display: block;
+    clear: both;
+} */
+.md-pick-container {
+    overflow: hidden;
 }
 .seeing-box {
     position: sticky;
     top: 100px;
     width: 33%;
-    height: 40vw;
+    aspect-ratio: 1/1.5;
     background-color: #000;
 }
 .main-item-box {
