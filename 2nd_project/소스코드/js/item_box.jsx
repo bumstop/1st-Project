@@ -1,3 +1,6 @@
+/** 
+ * props.info : 불러올 info.js 데이터 파일의 values
+ */
 function ItemBox(props) {
     const priceFormat = (sale, price) =>
         sale ? (

@@ -464,7 +464,8 @@ video {
 }
 .ranking-box {
     position: relative;
-    flex: 1;
+    flex: 1; 
+    /* 모바일에서 flex-direction이 row -> column으로 바뀜 수정필요 */
     display: flex;
     align-items: center;
     width: 100%;

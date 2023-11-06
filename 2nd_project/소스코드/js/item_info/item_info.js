@@ -2,7 +2,7 @@ export default {
     item0: {
         imgSrc: "./images/man/man1.jpg",
         name: "오버핏 리버서블 퍼 자켓 블랙",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "159000",
         sale: "99000",
         iconContent: ["이벤트특가", "신상"],
@@ -12,7 +12,7 @@ export default {
     item2: {
         imgSrc: "./images/man/man2.jpg",
         name: "커뮤터 스트레치 라이트 패딩 자켓 애쉬카키",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "189000",
         sale: "119000",
         iconContent: ["이벤트특가", "~3XL", "신상"],
@@ -22,7 +22,7 @@ export default {
     item3: {
         imgSrc: "./images/man/man3.jpg",
         name: "맨즈 리버서블 포켓 퀼티드 자켓 사파리카키",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "139000",
         sale: "89000",
         iconContent: ["이벤트특가", "신상"],
@@ -32,7 +32,7 @@ export default {
     item4: {
         imgSrc: "./images/man/man4.jpg",
         name: "텍스처드 플리스 집업 자켓 블랙",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "99000",
         sale: "69000",
         iconContent: ["~2XL", "신상"],
@@ -42,7 +42,7 @@ export default {
     item5: {
         imgSrc: "./images/man/man5.jpg",
         name: "커뮤터 스트레치 라이트 롱 패딩 블랙",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "199000",
         sale: "169000",
         iconContent: ["~3XL", "신상"],
@@ -52,7 +52,7 @@ export default {
     item6: {
         imgSrc: "./images/man/man6.gif",
         name: "리버서블 퀼팅 플리스 코트 블랙",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "169000",
         sale: "119000",
         iconContent: ["이벤트특가", "~2XL", "신상"],
@@ -62,7 +62,7 @@ export default {
     item7: {
         imgSrc: "./images/man/man7.jpg",
         name: "넥리스 심플 경량 패딩 다크그레이",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "119000",
         sale: "99000",
         iconContent: ["~2XL", "신상"],
@@ -72,7 +72,7 @@ export default {
     item8: {
         imgSrc: "./images/man/man8.jpg",
         name: "플렉스 집업 후디",
-        type: ["outer"],
+        type: ["top", "outer"],
         price: "72000",
         sale: "49000",
         iconContent: ["~2XL", "신상"],
@@ -159,4 +159,56 @@ export default {
         descMain: "[집업+트랙팬츠 구성] 운동 효과 극대화 #땀복",
         descSub: null,
     },
+    item17: {
+        imgSrc: "./images/man/man17.jpg",
+        name: "데일리 에코티브 티셔츠 1+1",
+        type: ["top"],
+        price: "78000",
+        sale: "45800",
+        iconContent: ["친환경", "~3XL", "신상"],
+        descMain: null,
+        descSub: "숏슬리브 or 롱슬리브 교차선택 가능",
+    },
+    item18: {
+        imgSrc: "./images/man/man18.jpg",
+        name: "머슬핏 듀얼 롱슬리브 1+1",
+        type: ["top"],
+        price: "88000",
+        sale: "44800",
+        iconContent: ["~3XL"],
+        descMain: null,
+        descSub: null,
+    },
+    item19: {
+        imgSrc: "./images/man/man19.jpg",
+        name: "필드 하프집업 롱슬리브 1+1",
+        type: ["top"],
+        price: "98000",
+        sale: "50000",
+        iconContent: ["이벤트특가","~3XL"],
+        descMain: null,
+        descSub: null,
+    },
+    item20: {
+        imgSrc: "./images/man/man20.jpg",
+        name: "트리플 엑스 숏슬리브 1+1",
+        type: ["top"],
+        price: "58000",
+        sale: "44800",
+        iconContent: ["~3XL"],
+        descMain: "맨즈 상의 누적판매 1위",
+        descSub: "#윤성빈's PICK!",
+    },
+    item21: {
+        imgSrc: "./images/man/man21.jpg",
+        name: "맨즈 아이스페더 숏슬리브 1+1",
+        type: ["top"],
+        price: "70000",
+        sale: "30000",
+        iconContent: ["~3XL"],
+        descMain: null,
+        descSub: "오버핏 or 머슬핏 교차선택 가능",
+    },
 };
+
+
