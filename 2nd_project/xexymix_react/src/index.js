@@ -11,6 +11,7 @@ import { CircleBannerContainer } from "./components/circle_banner_container";
 import { SeasonSlideContainer } from "./components/season_slide_container";
 import { SubSlideContainer } from "./components/sub_slide_container";
 import { MainItemContainer } from "./components/main_item_container";
+import { Footer } from "./components/footer";
 
 function App() {
   <>
@@ -27,7 +28,7 @@ function App() {
       <MainItemContainer />
       <div class="md-pick-container"></div>
     </div>
-    <div id="footer"></div>
+    <Footer />
   </>;
 }
 
