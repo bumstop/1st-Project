@@ -1,13 +1,13 @@
 /** 
  * props.info : 불러올 info.js 데이터 파일의 values
  */
-function ItemBox(props) {
+export function ItemBox(props) {
     const priceFormat = (sale, price) =>
         sale ? (
-            <React.Fragment>
+            <>
                 <span>{Number(sale).toLocaleString()}</span>
                 <strike>{Number(price).toLocaleString()}</strike>
-            </React.Fragment>
+            </>
         ) : (
             <span>{Number(price).toLocaleString()}</span>
         );
@@ -37,5 +37,3 @@ function ItemBox(props) {
         </div>
     ));
 }
-
-export default ItemBox;

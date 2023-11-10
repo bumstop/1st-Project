@@ -23,12 +23,12 @@ function FooterLeft() {
             </div>
             <ul class="footer-left-menu">
                 {footerLeftMenus.map((v, i, a) => (
-                    <React.Fragment>
+                    <>
                         <li>
                             <a href="#">{v}</a>
                         </li>
                         {i < a.length - 1 && <div class="divide-bar"></div>}
-                    </React.Fragment>
+                    </>
                 ))}
             </ul>
             <address class="footer-left-info">
@@ -95,7 +95,7 @@ function FooterRight() {
     );
 }
 
-function Footer() {
+export function Footer() {
     return (
         <div class="footer">
             <div class="footer-inbox">
@@ -105,5 +105,3 @@ function Footer() {
         </div>
     );
 }
-
-ReactDOM.render(<Footer />, document.querySelector("#footer"));

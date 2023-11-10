@@ -15,4 +15,8 @@ function CircleBanner() {
     ));
 }
 
-ReactDOM.render(<CircleBanner />, document.querySelector(".circle-banner-container"));
+export function CircleBannerContainer() {
+    <div class="circle-banner-container">
+        <CircleBanner />
+    </div>
+}
