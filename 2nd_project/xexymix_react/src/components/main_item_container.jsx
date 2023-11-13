@@ -1,22 +1,20 @@
 import { itemInfo } from "../data/item_info";
 import { ItemBox } from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
 
-const manInfoValues = Object.values(itemInfo);
+const itemInfoValues = Object.values(itemInfo);
 // props 로 import받은 Object의 value를 넘겨준다
-{
-  /* <ItemBox info={manInfoValues}/> */
-}
+// <ItemBox info={manInfoValues}/>
 
 export function MainItemContainer() {
   return (
-    <div class="main-item-container">
-      <div class="seeing-box"></div>
-      <div class="main-item-box">
-        <div class="item-box-wrap man-item-box-wrap">
-          <ItemBox info={manInfoValues} />
+    <div className="main-item-container">
+      <div className="seeing-box"></div>
+      <div className="main-item-box">
+        <div className="item-box-wrap man-item-box-wrap">
+          <ItemBox info={itemInfoValues} />
         </div>
-        <div class="top-item"></div>
-        <div class="bottom-item"></div>
+        <div className="top-item"></div>
+        <div className="bottom-item"></div>
       </div>
     </div>
   );

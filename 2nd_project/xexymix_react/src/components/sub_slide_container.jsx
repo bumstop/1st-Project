@@ -8,7 +8,7 @@ const subSlideItems = [
 
 function SubSlideItem() {
   return subSlideItems.map((v, i) => (
-    <div class="sub-slide-item" data-index={i}>
+    <div className="sub-slide-item" data-index={i} key={v}>
       <img src={"./images/sub_slide/sub_slide_" + v + ".jpg"} alt="" />
     </div>
   ));
@@ -16,9 +16,9 @@ function SubSlideItem() {
 
 export function SubSlideContainer() {
   return (
-    <div class="sub-slide-container">
-      <div class="sub-slide-box-wrap">
-        <div class="sub-slide-box">
+    <div className="sub-slide-container">
+      <div className="sub-slide-box-wrap">
+        <div className="sub-slide-box">
           <SubSlideItem />
         </div>
       </div>

@@ -121,7 +121,7 @@ export const itemInfo = {
   },
   item13: {
     imgSrc: "./images/man/man13.jpg",
-    name: "트리플 엑스 숏슬리브 1+1",
+    name: "트리플 엑스 숏슬리브 1+2",
     type: ["top"],
     price: "58000",
     sale: "44800",
@@ -181,7 +181,7 @@ export const itemInfo = {
   },
   item19: {
     imgSrc: "./images/man/man19.jpg",
-    name: "필드 하프집업 롱슬리브 1+1",
+    name: "필드 하프집업 롱슬리브",
     type: ["top"],
     price: "98000",
     sale: "50000",
@@ -191,7 +191,7 @@ export const itemInfo = {
   },
   item20: {
     imgSrc: "./images/man/man20.jpg",
-    name: "트리플 엑스 숏슬리브 1+1",
+    name: "트리플 엑스 숏슬리브",
     type: ["top"],
     price: "58000",
     sale: "44800",

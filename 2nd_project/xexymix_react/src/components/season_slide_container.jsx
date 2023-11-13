@@ -6,18 +6,18 @@ const seasonSlideInfoValues = Object.values(seasonSlideInfo);
 
 export function SeasonSlideContainer() {
   return (
-    <div class="season-slide-container">
-      <div class="season-slide-title">
+    <div className="season-slide-container">
+      <div className="season-slide-title">
         <p>
           <b>실시간 급상승</b>, 많은 분들이 보고있어요.
         </p>
       </div>
-      <div class="season-slide-box-wrap">
-        <div class="season-slide-box">
+      <div className="season-slide-box-wrap">
+        <div className="season-slide-box">
           <ItemBox info={seasonSlideInfoValues} />
         </div>
       </div>
-      <div class="season-slide-scrollbar"></div>
+      <div className="season-slide-scrollbar"></div>
     </div>
   );
 }

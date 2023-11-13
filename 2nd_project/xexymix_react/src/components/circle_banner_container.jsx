@@ -8,15 +8,15 @@ const circleBannerItems = [
 
 function CircleBanner() {
     return circleBannerItems.map((v) => (
-        <div class="circle-item">
-            <img src={"./images/circle_banner/slide_" + v[0] + ".png"} alt="" />
-            <span class="circle-item-txt">{v[1][0]}<br/>{v[1][1]}</span>
+        <div className="circle-item" key={v}>
+            <img src={"./images/circle_banner/slide_" + v[0] + ".png"} alt="이미지" />
+            <span className="circle-item-txt">{v[1][0]}<br/>{v[1][1]}</span>
         </div>
     ));
 }
 
 export function CircleBannerContainer() {
-    <div class="circle-banner-container">
+    <div className="circle-banner-container">
         <CircleBanner />
     </div>
 }

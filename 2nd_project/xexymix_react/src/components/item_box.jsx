@@ -12,23 +12,23 @@ export function ItemBox(props) {
             <span>{Number(price).toLocaleString()}</span>
         );
     return props.info.map((v, i) => (
-        <div class="item-box" data-index={i}>
-            <a href="#">
-                <div class="item-img-box">
-                    <img src={v.imgSrc} />
+        <div className="item-box" data-index={i} key={v.name}>
+            <a href="#!">
+                <div className="item-img-box">
+                    <img src={v.imgSrc} alt="이미지"/>
 
                 </div>
-                <div class="item-txt-box">
-                    <div class="item-name-box">{v.name}</div>
-                    <div class="item-price-box">{priceFormat(v.sale, v.price)}</div>
-                    <div class="item-icon-box">
+                <div className="item-txt-box">
+                    <div className="item-name-box">{v.name}</div>
+                    <div className="item-price-box">{priceFormat(v.sale, v.price)}</div>
+                    <div className="item-icon-box">
                         {v.iconContent.map((v) => {
-                            return <span class="item-icon">{v}</span>;
+                            return <span className="item-icon" key={v}>{v}</span>;
                         })}
                     </div>
-                    <div class="item-desc-box">
+                    <div className="item-desc-box">
                         {v.descSub && v.descMain ? (
-                            <div class="mb-5">{v.descMain}</div>
+                            <div className="mb-5">{v.descMain}</div>
                         ) : null}
                         <div>{v.descSub}</div>
                     </div>

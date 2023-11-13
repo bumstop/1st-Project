@@ -12,25 +12,26 @@ import { SeasonSlideContainer } from "./components/season_slide_container";
 import { SubSlideContainer } from "./components/sub_slide_container";
 import { MainItemContainer } from "./components/main_item_container";
 import { Footer } from "./components/footer";
-
 function App() {
-  <>
-    <div id="header">
-      <TopBanner />
-      <Gnb />
-    </div>
-    <QuickMenu />
-    <div id="main">
-      <MainSlideContainer />
-      <CircleBannerContainer />
-      <SeasonSlideContainer />
-      <SubSlideContainer />
-      <MainItemContainer />
-      <div class="md-pick-container"></div>
-    </div>
-    <Footer />
-  </>;
+  return (
+    <>
+      <div id="header">
+        <TopBanner />
+        <Gnb />
+      </div>
+      <QuickMenu />
+      <div id="main">
+        <MainSlideContainer />
+        <CircleBannerContainer />
+        <SeasonSlideContainer />
+        <SubSlideContainer />
+        <MainItemContainer />
+        <div className="md-pick-container"></div>
+      </div>
+      <Footer />
+    </>
+  );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(<App />);
