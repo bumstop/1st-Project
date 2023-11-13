@@ -1,4 +1,4 @@
-export const itemInfo = {
+export const manItemInfo = {
   item1: {
     imgSrc: "./images/man/man1.jpg",
     name: "오버핏 리버서블 퍼 자켓 블랙",
