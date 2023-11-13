@@ -432,11 +432,12 @@ html {
 .main-item-box .item-box {
     flex-basis: calc(96% / 4);
 }
-.man-item-box-wrap {
+.item-box-wrap {
     display: flex;
     flex-wrap: wrap;
     row-gap: 30px;
     column-gap: calc(4% / 3);
+    margin-bottom: 150px;
 }
 /********************** footer **********************/
 #footer {
