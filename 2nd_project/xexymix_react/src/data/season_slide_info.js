@@ -23,8 +23,8 @@ export const seasonSlideInfo = {
     price: "89000",
     sale: "75000",
     iconContent: ["신상"],
-    descMain: null,
-    descSub: "부드러운 기모로 포근하게! #투웨이 핏 조절",
+    descMain: "부드러운 기모로 포근하게!",
+    descSub: "#투웨이 핏 조절",
   },
   item3: {
     imgSrc: "./images/season_slide/season_4-1.jpg",
