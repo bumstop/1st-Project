@@ -1,4 +1,4 @@
-import addressInfo from "./item_info/address_info";
+import { addressInfo } from "../data/address_info";
 const addressInfoKeys = Object.keys(addressInfo);
 // const addressValues = Object.values(addressInfo);
 const footerLeftMenus = [

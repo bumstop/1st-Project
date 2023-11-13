@@ -1,10 +1,9 @@
-import mainSlideInfo from "./item_info/main_slide_info.js";
-
+import { mainSlideInfo } from "../data/main_slide_info";
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 function SlideEventItem() {
   return (
-    <div class="main-slide-item event-item" data-index={i}>
+    <div class="main-slide-item event-item" data-index="">
       <a href="">
         <div class="main-slide-item-img-box">
           <img src="./images/main_slide/banner_0.jpg" />
@@ -13,7 +12,6 @@ function SlideEventItem() {
     </div>
   );
 }
-
 function MainSlideItem() {
   return mainSlideInfoValues.map((v, i) => (
     <div class="main-slide-item" data-index={i}>

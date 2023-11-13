@@ -1,5 +1,5 @@
-import seasonSlideInfo from "./item_info/season_slide_info.js";
-import ItemBox from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
+import { seasonSlideInfo } from "../data/season_slide_info";
+import { ItemBox } from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
 
 const seasonSlideInfoValues = Object.values(seasonSlideInfo);
 // props 로 import받은 Object의 value를 넘겨준다

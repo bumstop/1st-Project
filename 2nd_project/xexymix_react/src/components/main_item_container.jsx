@@ -1,7 +1,7 @@
-import manInfo from "./item_info/item_info.js";
-import ItemBox from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
+import { itemInfo } from "../data/item_info";
+import { ItemBox } from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
 
-const manInfoValues = Object.values(manInfo);
+const manInfoValues = Object.values(itemInfo);
 // props 로 import받은 Object의 value를 넘겨준다
 {
   /* <ItemBox info={manInfoValues}/> */
