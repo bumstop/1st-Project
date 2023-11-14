@@ -27,7 +27,6 @@ function App() {
         <SeasonSlideContainer />
         <SubSlideContainer />
         <MainItemContainer />
-        <div className="md-pick-container"></div>
       </div>
       <Footer />
     </>
