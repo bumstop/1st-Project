@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 // Import CSS
@@ -14,6 +14,14 @@ import { MainItemContainer } from "./components/main_item_container";
 import { Footer } from "./components/footer";
 
 function App() {
+  const hideTopBanner = () => {
+    const gnb = document.querySelector(".gnb-wrapper");
+    console.log(gnb);
+  };
+  window.onload = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div id="header">

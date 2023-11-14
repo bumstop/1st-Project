@@ -1,4 +1,7 @@
 export function Gnb() {
+  
+  
+  
   return (
     <div className="gnb-wrapper">
       <div className="gnb">
