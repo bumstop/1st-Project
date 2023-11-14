@@ -1,4 +1,6 @@
 import { mainSlideInfo } from "../data/main_slide_info";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 // function SlideEventItem() {
@@ -13,50 +15,39 @@ const mainSlideInfoValues = Object.values(mainSlideInfo);
 //   );
 // }
 
-function MainSlideItem() {
-  return mainSlideInfoValues.map((v, i) => (
-    <div className="main-slide-item" data-index={i} key={v.desc}>
-      <a href="!#">
-        <div className="main-slide-item-img-box">
-          <img src={v.imgSrc} alt="이미지" />
-        </div>
-        <div className="main-slide-item-txt-box">
-          <div className="main-slide-item-category">{v.category}</div>
-          <div className="main-slide-item-title">
-            {v.title.map((v, i, a) => (
-              <span key={v}>
-                {v}
-                {a.length === 1 ? "" : !i ? <br /> : ""}
-              </span>
-            ))}
-          </div>
-          <div className="main-slide-item-desc">{v.desc}</div>
-        </div>
-      </a>
-    </div>
-  ));
-}
-
 export function MainSlideContainer() {
   return (
-    <div className="main-slide-container">
-      <div className="main-slide-box-wrap">
-        <div className="main-slide-box">
-          <MainSlideItem />
-        </div>
-      </div>
-      <div className="main-slide-btn-prev">
-        <img src="./images/main_btn_prev.png" alt="btn_prev" />
-      </div>
-      <div className="main-slide-btn-next">
-        <img src="./images/main_btn_next.png" alt="btn_prev" />
-      </div>
-      <div className="main-slide-pagination">
-        <span className="main-slide-pagination-focus">1</span>
-        <span> / </span>
-        <span className="main-slide-pagination-total">8</span>
-      </div>
-      <div className="main-slide-btn-pause"></div>
-    </div>
+    <>
+      <Swiper
+        slidesPerView={3}
+        spaceBetween={0}
+        pagination={{
+          type: "fraction",
+        }}
+        loop={true}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="main-slide-container">
+        {mainSlideInfoValues.map((v, i) => (
+          <SwiperSlide className="main-slide-item" data-index={i} key={v.desc}>
+            <a href="!#">
+              <img src={v.imgSrc} alt="이미지" />
+              <div className="main-slide-item-txt-box">
+                <div className="main-slide-item-category">{v.category}</div>
+                <div className="main-slide-item-title">
+                  {v.title.map((v, i, a) => (
+                    <span key={v}>
+                      {v}
+                      {a.length === 1 ? "" : !i ? <br /> : ""}
+                    </span>
+                  ))}
+                </div>
+                <div className="main-slide-item-desc">{v.desc}</div>
+              </div>
+            </a>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 }

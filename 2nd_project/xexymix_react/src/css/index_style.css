@@ -203,31 +203,10 @@ html {
   padding-top: 90px;
 }
 /******************* main-slide-container *******************/
-.main-slide-container {
-  position: relative;
+.main-slide-container.swiper {
   margin: 0 auto 75px;
-  overflow: hidden;
 }
-.main-slide-box {
-  display: flex;
-}
-.main-slide-item {
-  position: relative;
-  width: 100%;
-  /* height: 100%; */
-  max-width: 744px;
-  min-width: 650px;
-  flex-shrink: 0;
-}
-.main-slide-item a {
-  width: 100%;
-  height: 100%;
-}
-.main-slide-item-img-box {
-  width: 100%;
-}
-/* 이미지 마스크 */
-.main-slide-item-img-box::after {
+.main-slide-item a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -235,12 +214,10 @@ html {
   width: 100%;
   height: 100%;
   background: #000;
-  opacity: 0.25;
+  opacity: 0.3;
 }
 .main-slide-item img {
   width: 100%;
-  object-fit: contain;
-  /* object-fit: contain 으로 img 크기 기준으로 부모요소 크기 결정 */
 }
 
 /* item-txt-box */
@@ -268,21 +245,21 @@ html {
   margin-bottom: 10px;
 }
 
-.main-slide-btn-prev {
+.main-slide-container .swiper-button-prev {
   position: absolute;
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
 }
 
-.main-slide-btn-next {
+.main-slide-container .swiper-button-next {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
 }
 
-.main-slide-pagination {
+.main-slide-container .swiper-pagination {
   position: absolute;
   bottom: 60px;
   right: 100px;

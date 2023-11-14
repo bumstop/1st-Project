@@ -12,6 +12,9 @@ import { SeasonSlideContainer } from "./components/season_slide_container";
 import { SubSlideContainer } from "./components/sub_slide_container";
 import { MainItemContainer } from "./components/main_item_container";
 import { Footer } from "./components/footer";
+import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 
 function App() {
   const hideTopBanner = () => {
