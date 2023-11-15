@@ -20,7 +20,7 @@ export function MainSlideContainer() {
     <>
       <Swiper
         slidesPerView={3}
-        spaceBetween={0}
+        
         pagination={{
           type: "fraction",
         }}
@@ -30,7 +30,7 @@ export function MainSlideContainer() {
         className="main-slide-container">
         {mainSlideInfoValues.map((v, i) => (
           <SwiperSlide className="main-slide-item" data-index={i} key={v.desc}>
-            <a href="!#">
+            <a href="#!">
               <img src={v.imgSrc} alt="이미지" />
               <div className="main-slide-item-txt-box">
                 <div className="main-slide-item-category">{v.category}</div>

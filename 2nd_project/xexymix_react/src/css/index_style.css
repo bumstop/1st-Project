@@ -506,5 +506,36 @@ html {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1439px) {
+  /* 메인슬라이드 텍스트 박스 미디어쿼리 */
+  .main-slide-item-category {
+    font-size: 16px;
+    margin-bottom: 9px;
+  }
+  .main-slide-item-title {
+    font-size: 26px;
+    margin-bottom: 9px;
+  }
+  .main-slide-item-desc {
+    font-size: 15px;
+    margin-bottom: 9px;
+  }
+}
+@media screen and (max-width: 1239px) {
+  /* 메인슬라이드 텍스트 박스 미디어쿼리 */
+  .main-slide-item-category {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .main-slide-item-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .main-slide-item-desc {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
 }
