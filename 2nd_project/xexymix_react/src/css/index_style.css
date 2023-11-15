@@ -507,7 +507,7 @@ html {
 }
 
 @media screen and (max-width: 1439px) {
-  /* 메인슬라이드 텍스트 박스 미디어쿼리 */
+  /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 16px;
     margin-bottom: 9px;
@@ -520,9 +520,46 @@ html {
     font-size: 15px;
     margin-bottom: 9px;
   }
+
+  /* 시즌슬라이드 미디어쿼리 */
+  .season-slide-title {
+    font-size: 22px;
+    margin-bottom: 28px;
+  }
+
+  /* item-box 텍스트 미디어쿼리 */
+  .item-name-box {
+    margin-top: 10px;
+    min-height: 43px;
+    font-size: 14px;
+  }
+  .item-price-box {
+    margin-top: 7px;
+    font-size: 15px;
+  }
+  .item-price-box strike {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+  .item-icon-box {
+    margin-top: 7px;
+    height: 18px;
+  }
+  .item-icon {
+    padding: 1px 5px;
+    margin-right: 5px;
+    border-radius: 3px;
+    font-size: 11.5px;
+  }
+  .item-desc-box {
+    margin-top: 15px;
+    padding-top: 7px;
+    height: 60px;
+    font-size: 13px;
+  }
 }
 @media screen and (max-width: 1239px) {
-  /* 메인슬라이드 텍스트 박스 미디어쿼리 */
+  /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 13px;
     margin-bottom: 8px;
@@ -534,6 +571,12 @@ html {
   .main-slide-item-desc {
     font-size: 12px;
     margin-bottom: 8px;
+  }
+  
+  /* 시즌슬라이드 미디어쿼리 */
+  .season-slide-title {
+    font-size: 20px;
+    margin-bottom: 26px;
   }
 }
 

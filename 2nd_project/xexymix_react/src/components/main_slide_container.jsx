@@ -20,7 +20,7 @@ export function MainSlideContainer() {
     <>
       <Swiper
         slidesPerView={3}
-        
+        spaceBetween={0}
         pagination={{
           type: "fraction",
         }}
