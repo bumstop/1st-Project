@@ -250,35 +250,42 @@ html {
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: url(../../public/images/main_btn_prev.png);
+  z-index: 1;
 }
-
 .main-slide-container .swiper-button-next {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: url(../../public/images/main_btn_next.png);
+  z-index: 1;
 }
-
 .main-slide-container .swiper-pagination {
   position: absolute;
   bottom: 60px;
   right: 100px;
   color: #fff;
   font-weight: 500;
+  z-index: 1;
 }
-
-/* .main-slide-pagination-focus  */
-
-/* .main-slide-pagination-total */
-
-.main-slide-btn-pause {
+.main-slide-btn {
   position: absolute;
-  bottom: 50px;
-  right: 50px;
-  width: 40px;
-  height: 40px;
-  background: url("../../public/images/mainBtn_stop.png") no-repeat center/cover;
+  bottom: 55px;
+  right: 55px;
+  width: 32px;
+  height: 32px;
+  background: url(../../public/images/mainBtn_stop.png) no-repeat center/cover;
+  z-index: 1;
 }
+.main-slide-btn.on {
+  background: url(../../public/images/mainBtn_play.png) no-repeat center/cover;
+}
+
 /******************** circle-banner ********************/
 .circle-banner-container {
   display: flex;
@@ -531,11 +538,11 @@ html {
   .item-name-box {
     margin-top: 9px;
     min-height: 43px;
-    font-size: 13.3px; 
+    font-size: 13.3px;
   }
   .item-price-box {
     margin-top: 6.3px;
-    font-size: 14.25px; 
+    font-size: 14.25px;
   }
   .item-price-box strike {
     margin-left: 4.5px;
@@ -546,12 +553,12 @@ html {
     height: 16.2px;
   }
   .item-icon {
-    padding: 1px 4.5px; 
-    margin-right: 4.5px; 
-    border-radius: 3px; 
+    padding: 1px 4.5px;
+    margin-right: 4.5px;
+    border-radius: 3px;
   }
   .item-desc-box {
-    margin-top: 13.5px; 
+    margin-top: 13.5px;
     padding-top: 6.3px;
     height: 60px;
     font-size: 12.35px;
@@ -582,11 +589,11 @@ html {
   .item-name-box {
     margin-top: 8px;
     min-height: 43px;
-    font-size: 12.6px; 
+    font-size: 12.6px;
   }
   .item-price-box {
     margin-top: 5.6px;
-    font-size: 13.5px; 
+    font-size: 13.5px;
   }
   .item-price-box strike {
     margin-left: 4px;
@@ -597,12 +604,12 @@ html {
     height: 15.4px;
   }
   .item-icon {
-    padding: 1px 4px; 
-    margin-right: 4px; 
-    border-radius: 2.5px; 
+    padding: 1px 4px;
+    margin-right: 4px;
+    border-radius: 2.5px;
   }
   .item-desc-box {
-    margin-top: 12px; 
+    margin-top: 12px;
     padding-top: 5.6px;
     height: 60px;
     font-size: 11.7px;

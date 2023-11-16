@@ -17,7 +17,9 @@ export function SeasonSlideContainer() {
           <ItemBox info={seasonSlideInfoValues} />
         </div>
       </div>
-      <div className="season-slide-scrollbar"></div>
+      <div className="season-slide-scrollbar">
+        <div className="season-slide-scrollbar-drag"></div>
+      </div>
     </div>
   );
 }

@@ -16,6 +16,8 @@ const mainSlideInfoValues = Object.values(mainSlideInfo);
 // }
 
 export function MainSlideContainer() {
+  let isPlay = 1;
+
   return (
     <>
       <Swiper
@@ -47,6 +49,12 @@ export function MainSlideContainer() {
             </a>
           </SwiperSlide>
         ))}
+        <div
+          className={"main-slide-btn" + (isPlay ? "" : "on")}
+          onClick={() => {
+            isPlay ? isPlay = 0 : isPlay = 1;
+            console.log(isPlay)
+            }}></div>
       </Swiper>
     </>
   );
