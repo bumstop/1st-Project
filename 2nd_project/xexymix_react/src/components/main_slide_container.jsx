@@ -1,7 +1,8 @@
 import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useEffect, useState } from "react";
+import SwiperCore from 'swiper';
+import { useEffect, useRef, useState } from "react";
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 // function SlideEventItem() {
@@ -18,23 +19,25 @@ const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 export function MainSlideContainer() {
   let [isPlay, setIsPlay] = useState(true);
-
+  const mainSwiperRef = useRef(null);
   useEffect(() => {
     const mainSlideSwiper = document.querySelector(".main-slide-container");
     console.log(mainSlideSwiper);
-  }, [isPlay]);
+  }, []);
 
   function toggleIsPlay() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
-    // console.log(mainSlideSwiper);
-    // mainSlideSwiper.autoplay.stop();
     console.log(isPlay);
   }
-  
 
   return (
     <>
+     <div style={{width:"100px",height:"100px"}}
+      onMouseEnter={() => mainSwiperRef.current.swiper.autoplay.stop()}
+      onMouseLeave={() => mainSwiperRef.current.swiper.autoplay.start()}
+    ></div>
       <Swiper
+        ref={mainSwiperRef}
         slidesPerView={3}
         spaceBetween={0}
         pagination={{
@@ -47,6 +50,7 @@ export function MainSlideContainer() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
+        onClick={() => Swiper.autoplay.stop()}
         className="main-slide-container">
         {mainSlideInfoValues.map((v, i) => (
           <SwiperSlide className="main-slide-item" data-index={i} key={v.desc}>
