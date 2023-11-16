@@ -1,6 +1,7 @@
 import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
 const mainSlideInfoValues = Object.values(mainSlideInfo);
 
 // function SlideEventItem() {
@@ -16,7 +17,20 @@ const mainSlideInfoValues = Object.values(mainSlideInfo);
 // }
 
 export function MainSlideContainer() {
-  let isPlay = 1;
+  let [isPlay, setIsPlay] = useState(true);
+
+  useEffect(() => {
+    const mainSlideSwiper = document.querySelector(".main-slide-container");
+    console.log(mainSlideSwiper);
+  }, [isPlay]);
+
+  function toggleIsPlay() {
+    isPlay ? setIsPlay(false) : setIsPlay(true);
+    // console.log(mainSlideSwiper);
+    // mainSlideSwiper.autoplay.stop();
+    console.log(isPlay);
+  }
+  
 
   return (
     <>
@@ -27,8 +41,12 @@ export function MainSlideContainer() {
           type: "fraction",
         }}
         loop={true}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+        }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="main-slide-container">
         {mainSlideInfoValues.map((v, i) => (
           <SwiperSlide className="main-slide-item" data-index={i} key={v.desc}>
@@ -50,11 +68,8 @@ export function MainSlideContainer() {
           </SwiperSlide>
         ))}
         <div
-          className={"main-slide-btn" + (isPlay ? "" : "on")}
-          onClick={() => {
-            isPlay ? isPlay = 0 : isPlay = 1;
-            console.log(isPlay)
-            }}></div>
+          className={"main-slide-btn" + (isPlay ? "" : " on")}
+          onClick={toggleIsPlay}></div>
       </Swiper>
     </>
   );
