@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 // Import CSS
@@ -21,9 +21,10 @@ function App() {
     const gnb = document.querySelector(".gnb-wrapper");
     console.log(gnb);
   };
-  window.onload = () => {
+  useLayoutEffect(() => {
+    // 페이지 이동시 스크롤위치 상단이동
     window.scrollTo(0, 0);
-  };
+  });
 
   return (
     <>

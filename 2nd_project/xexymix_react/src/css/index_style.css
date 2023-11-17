@@ -216,8 +216,20 @@ html {
   background: #000;
   opacity: 0.3;
 }
+.main-slide-container .main-slide-item {
+  width: 35%;
+}
 .main-slide-item img {
   width: 100%;
+  /* object-fit: cover; */
+}
+.event-item {
+  width: 90% !important;
+  height: auto !important;
+  background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat center/contain;
+}
+.event-item a::before{
+  opacity: 0;
 }
 
 /* item-txt-box */
