@@ -2,7 +2,7 @@ export const manItemInfo = {
   item1: {
     imgSrc: "./images/man/man1.jpg",
     name: "오버핏 리버서블 퍼 자켓 블랙",
-    type: ["top", "outer"],
+    type: ["top", "outer", "bottom"],
     price: "159000",
     sale: "99000",
     iconContent: ["이벤트특가", "신상"],

@@ -333,17 +333,6 @@ html {
   padding-left: 10px;
   margin-bottom: 30px;
 }
-.season-slide-box {
-  display: flex;
-  gap: 0 1%;
-}
-.season-slide-box-wrap {
-  overflow: hidden;
-}
-.season-slide-box .item-box {
-  flex-shrink: 0;
-  flex-basis: calc(96% / 5);
-}
 .item-img-box img {
   width: 100%;
 }

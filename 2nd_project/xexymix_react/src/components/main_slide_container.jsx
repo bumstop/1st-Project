@@ -22,10 +22,6 @@ export function MainSlideContainer() {
   let [isPlay, setIsPlay] = useState(true);
   const mainSwiperRef = useRef(null);
 
-  useEffect(() => {
-    console.log(mainSwiperRef);
-  }, []);
-
   function isPlayToggle() {
     const mainSwiperAutoPlay = mainSwiperRef.current.swiper.autoplay;
 

@@ -1,48 +1,52 @@
 /**
- * props.info : 불러올 info.js 데이터 파일의 values
+ *  info: v : 불러올 info.js 데이터 파일의 values 배열객체
+ *  
  */
-export function ItemBox(props) {
-  const priceFormat = (sale, price) =>
-    sale ? (
+export function makeItemBox(v) {
+  /** 가격/할인/콤마 출력 */
+  const priceFormat = v["sale"] ? (
+    <>
+      <span>{Number(v["sale"]).toLocaleString()}</span>
+      <strike>{Number(v["price"]).toLocaleString()}</strike>
+    </>
+  ) : (
+    <span>{Number(v["price"]).toLocaleString()}</span>
+  );
+
+  /** 상품설명 출력 */
+  const descText =
+    v["descSub"] && v["descMain"] ? (
       <>
-        <span>{Number(sale).toLocaleString()}</span>
-        <strike>{Number(price).toLocaleString()}</strike>
+        <div className="mb-5">{v["descMain"]}</div>
+        <div>{v["descSub"]}</div>
       </>
     ) : (
-      <span>{Number(price).toLocaleString()}</span>
+      <>
+        {v["descMain"] && <div>{v["descMain"]}</div>}
+        {v["descSub"] && <div>{v["descSub"]}</div>}
+      </>
     );
-  return props.info.map((v, i) => (
-    <div className="item-box" data-index={i} key={v.name}>
-      <a href="#!">
-        <div className="item-img-box">
-          <img src={v.imgSrc} alt="이미지" />
-        </div>
-        <div className="item-txt-box">
-          <div className="item-name-box">{v.name}</div>
-          <div className="item-price-box">{priceFormat(v.sale, v.price)}</div>
-          <div className="item-icon-box">
-            {v.iconContent &&
-              v.iconContent.map((v) => (
-                <span className="item-icon" key={v}>
-                  {v}
-                </span>
-              ))}
-          </div>
-          <div className="item-desc-box">
-            {v.descSub && v.descMain ? (
-              <>
-                <div className="mb-5">{v.descMain}</div>
-                <div>{v.descSub}</div>
-              </>
-            ) : (
-              <>
-                {v.descMain && <div>{v.descMain}</div>}
-                {v.descSub && <div>{v.descSub}</div>}
-              </>
-            )}
-          </div>
-        </div>
-      </a>
-    </div>
-  ));
+
+  /** 박스 아이콘 출력 */
+  const itemIcon =
+    v["iconContent"] &&
+    v["iconContent"].map((v) => (
+      <span className="item-icon" key={v}>
+        {v}
+      </span>
+    ));
+
+  return (
+    <a href="#!">
+      <div className="item-img-box">
+        <img src={v["imgSrc"]} alt={v["name"]} />
+      </div>
+      <div className="item-txt-box">
+        <div className="item-name-box">{v["name"]}</div>
+        <div className="item-price-box">{priceFormat}</div>
+        <div className="item-icon-box">{itemIcon}</div>
+        <div className="item-desc-box">{descText}</div>
+      </div>
+    </a>
+  );
 }
