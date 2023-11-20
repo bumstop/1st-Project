@@ -181,18 +181,19 @@ html {
   position: fixed;
   right: 10px;
   bottom: 10px;
-  width: 55px;
+  width: 45px;
   background-color: #000;
+  opacity: 0.6;
   z-index: 99;
 }
 .plus-btn {
-  padding: 10px 10px 0;
+  padding: 5px 5px 0;
 }
 .up-btn {
-  padding: 5px 10px;
+  padding: 0 5px;
 }
 .down-btn {
-  padding: 0 10px 10px;
+  padding: 0 5px 5px;
 }
 /*************************** main ***************************/
 #main {
@@ -223,9 +224,9 @@ html {
   width: 100%;
   /* object-fit: cover; */
 }
-.event-item {
-  width: 90% !important;
-  height: auto !important;
+.main-slide-item.event-item {
+  width: 90%;
+  height: auto;
   background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat center/contain;
 }
 .event-item a::before{

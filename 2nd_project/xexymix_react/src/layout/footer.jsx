@@ -112,13 +112,13 @@ function FooterRight() {
 
 export function Footer() {
   return (
-    <div id="footer">
+    <footer id="footer">
       <div className="footer">
         <div className="footer-inbox">
           <FooterLeft />
           <FooterRight />
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
