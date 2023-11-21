@@ -19,7 +19,7 @@ const mainSlideInfoValues = Object.values(mainSlideInfo);
 // }
 
 export function MainSlideContainer() {
-  let [isPlay, setIsPlay] = useState(true);
+  const [isPlay, setIsPlay] = useState(true);
   const mainSwiperRef = useRef(null);
 
   function isPlayToggle() {
@@ -32,7 +32,7 @@ export function MainSlideContainer() {
   }
 
   return (
-    <>
+    <div className="main-slide-container">
       <Swiper
         ref={mainSwiperRef}
         slidesPerView={'auto'}
@@ -80,6 +80,6 @@ export function MainSlideContainer() {
           className={"main-slide-btn" + (isPlay ? "" : " on")}
           onClick={isPlayToggle}></div>
       </Swiper>
-    </>
+    </div>
   );
 }

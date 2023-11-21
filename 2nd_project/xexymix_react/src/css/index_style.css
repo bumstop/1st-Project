@@ -59,8 +59,10 @@ html {
   margin: 0 auto 75px;
   padding: 0 var(--page-padding);
 }
-.main-slide-container,
-.gnb {
+.gnb,
+.dropdown-menu,
+.main-slide-container {
+  width: 100%;
   max-width: var(--page-max-width);
   min-width: var(--page-min-width);
 }
@@ -175,7 +177,21 @@ html {
 .right-btn-wrap li:first-child {
   padding-left: 0;
 }
-
+.dropdown-menu-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background-color: #000;
+}
+.dropdown-menu {
+  position: absolute;
+  margin: 0 auto;
+  padding: 75px 3%;
+  box-sizing: border-box;
+  background-color: #fff;
+}
 /************************ quick-menu ************************/
 .quick-menu {
   position: fixed;
@@ -204,7 +220,7 @@ html {
   padding-top: 90px;
 }
 /******************* main-slide-container *******************/
-.main-slide-container.swiper {
+.main-slide-container {
   margin: 0 auto 75px;
 }
 .main-slide-item a::before {
@@ -227,9 +243,10 @@ html {
 .main-slide-item.event-item {
   width: 90%;
   height: auto;
-  background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat center/contain;
+  background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat
+    center/contain;
 }
-.event-item a::before{
+.event-item a::before {
   opacity: 0;
 }
 
@@ -377,7 +394,9 @@ html {
   margin-bottom: 5px;
 }
 
-.season-slide-scrollbar {
+.season-slide-container .swiper-scrollbar.swiper-scrollbar-horizontal {
+  position: unset;
+
   margin-top: 60px;
   width: 100%;
   height: 2px;
@@ -385,18 +404,25 @@ html {
 }
 
 /**************** sub-slide-container ****************/
-.sub-slide-box-wrap {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+.sub-slide-container .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: url(../../public/images/list_btn_prev.png) no-repeat center;
+  z-index: 1;
 }
-.sub-slide-box {
-  display: flex;
-}
-.sub-slide-item {
-  position: relative;
-  width: 50%;
-  flex-shrink: 0;
+.sub-slide-container .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: url(../../public/images/list_btn_next.png) no-repeat center;
+  z-index: 1;
 }
 .sub-slide-item img {
   width: 100%;
@@ -408,8 +434,73 @@ html {
   top: 100px;
   width: 24%;
   aspect-ratio: 1/1.8;
-  background-color: #000;
   float: left;
+}
+.seeing-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.2;
+}
+.main-item-title {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+.main-item-title.on {
+  opacity: 1;
+}
+.main-item-title a {
+  height: 100%;
+}
+.main-item-title img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tit {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #fff;
+  font-weight: 500;
+  z-index: 1;
+}
+.more {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 30px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  z-index: 1;
+}
+.more::after {
+  content: "";
+  display: inline-block;
+  transform: translate(5px, 1.5px);
+  width: 15px;
+  height: 15px;
+  background: url(../../public/images/title_more.png) no-repeat center;
+  z-index: 1;
+}
+
+.main-item-title-mobile {
+  display: none;
 }
 .main-item-box {
   padding-left: 26%;
@@ -515,6 +606,7 @@ html {
   margin-bottom: 10px;
 }
 
+/******************************* 미디어쿼리 *******************************/
 @media screen and (max-width: 1439px) {
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
@@ -615,6 +707,22 @@ html {
     padding-top: 5.6px;
     height: 60px;
     font-size: 11.7px;
+  }
+  /* 메인아이템 컨테이너 - seeing-box 미디어쿼리 */
+  .tit {
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .more {
+    width: 70px;
+    height: 20px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .more::after {
+    transform: translate(5px, 1px);
+    width: 12px;
+    height: 12px;
   }
 }
 
