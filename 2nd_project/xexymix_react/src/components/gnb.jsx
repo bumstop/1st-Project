@@ -1,4 +1,4 @@
-import { DropdownMenu } from "./dropdown_menu";
+import { DropdownMenuWrap } from "./dropdown_menu_wrap";
 
 export function Gnb() {
   const rightBtnMenu = ["view", "cart", "mypage"];
@@ -17,7 +17,7 @@ export function Gnb() {
   ));
 
   return (
-    <div className="gnb-wrapper">
+    <div className="gnb-wrap">
       <div className="gnb">
         <div className="hamburger">
           <span className="petty"></span>
@@ -30,7 +30,7 @@ export function Gnb() {
         <ul className="gnb-category">{makeGnbCategory}</ul>
         <ul className="right-btn-wrap">{makeRightBtn}</ul>
       </div>
-      <DropdownMenu />
+      <DropdownMenuWrap />
     </div>
   );
 }

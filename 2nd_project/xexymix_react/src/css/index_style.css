@@ -84,7 +84,7 @@ html {
 .top-banner a {
   color: #fff;
 }
-.gnb-wrapper {
+.gnb-wrap {
   position: absolute;
   top: 0;
   left: 0;
@@ -96,7 +96,7 @@ html {
   transition: all 500ms ease;
   transform: translateY(35px);
 }
-.gnb-wrapper.active {
+.gnb-wrap.active {
   position: fixed;
   top: 0;
   left: 0;
@@ -177,20 +177,32 @@ html {
 .right-btn-wrap li:first-child {
   padding-left: 0;
 }
-.dropdown-menu-container {
-  position: absolute;
-  top: 0;
-  left: 0;
+.dropdown-menu-wrap {
   width: 100%;
   height: auto;
+  border-top: 1px solid #ccc;
   background-color: #000;
 }
 .dropdown-menu {
-  position: absolute;
   margin: 0 auto;
-  padding: 75px 3%;
+  padding: 50px 6%;
   box-sizing: border-box;
   background-color: #fff;
+}
+.dropdown-category {
+  display: flex;
+}
+.dropdown-category > li {
+  padding-right: 75px;
+}
+.category-head {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.category-sub {
+  margin-bottom: 15px;
+  font-size: 13px;
 }
 /************************ quick-menu ************************/
 .quick-menu {

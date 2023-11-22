@@ -1,0 +1,38 @@
+export function DropdownMenuWrap() {
+  const dropdownCategory = {
+    신상할인: null,
+    베스트: null,
+    우먼즈: ["레깅스", "조거팬츠", "상의", "하의", "아우터"],
+    맨즈: ["상의", "하의", "아우터"],
+    골프: ["우먼즈", "맨즈", "용품"],
+    커뮤니티: ["이벤트", "공지사항", "고객만족센터", "웹진"],
+  };
+
+  const dropdownCategoryKeys = Object.keys(dropdownCategory);
+
+  const makeDropdownCategory = dropdownCategoryKeys.map((v) => (
+    <li key={v}>
+      <div className="category-head">
+        <a href="#!">{v}</a>
+      </div>
+      {dropdownCategory[v] && (
+        <ul>
+          {dropdownCategory[v].map((v) => (
+            <li className="category-sub" key={v}>
+              <a href="#!">{v}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  ));
+
+  return (
+    <div className="dropdown-menu-wrap">
+      <div className="dropdown-menu">
+        <ul className="dropdown-category">{makeDropdownCategory}</ul>
+        <div className="dropdown-banner"></div>
+      </div>
+    </div>
+  );
+}
