@@ -44,7 +44,7 @@ export function MainItemContainer() {
    * @returns obj를 리턴, key값의 val로 필터링
    */
   const filteredItemOne = (obj, key, val) =>
-    obj.filter((v) => v[key].length == 1 && v[key].includes(val));
+    obj.filter((v) => v[key].length === 1 && v[key].includes(val));
 
   // console.log(filteredItemOnce(manItemInfoValues, "type", "top"));
 

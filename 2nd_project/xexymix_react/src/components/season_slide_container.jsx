@@ -7,15 +7,6 @@ const seasonSlideInfoValues = Object.values(seasonSlideInfo);
 // props 로 import받은 Object의 value를 넘겨준다
 
 export function SeasonSlideContainer() {
-  const scrollbarDragStyle = {
-    width: `calc(100% / ${seasonSlideInfoValues.length})`,
-    height: "100%",
-    backgroundColor: "#000",
-  };
-
-  const scrollbarDrag = () => {};
-
-  console.log(scrollbarDragStyle);
 
   return (
     <div className="season-slide-container">

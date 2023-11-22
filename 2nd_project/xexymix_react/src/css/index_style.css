@@ -148,7 +148,19 @@ html {
   bottom: -8px;
   transition: all 0.5s ease-in-out;
 }
-
+.on .petty {
+  background-color: transparent;
+}
+.on .petty::before {
+  content: "";
+  top: 50%;
+  transform: translate(0, -50%) rotate(45deg);
+}
+.on .petty::after {
+  content: "";
+  top: 50%;
+  transform: translate(0, -50%) rotate(-45deg);
+}
 /* top-logo */
 .top-logo a {
   display: block;
@@ -177,16 +189,45 @@ html {
 .right-btn-wrap li:first-child {
   padding-left: 0;
 }
+/* 서치 박스 */
+.search-menu-wrap {
+  width: 100%;
+  height: 0;
+  border: none;
+  overflow: hidden;
+  /* background-color: #000; */
+  transition: height .3s ease-out;
+}
+.search-menu-wrap.on {
+  height: 100px;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 4px 5px #33333369;
+}
+.search-menu {
+  display: flex;
+  justify-content: center;
+  height: 0;
+  margin: 0 auto;
+  padding: 50px 6%;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow: hidden;
+  transition: height .3s ease-out;
+}
+.on .search-menu {
+  height: 100px;
+}
+/* 드롭다운 메뉴 박스 */
 .dropdown-menu-wrap {
   width: 100%;
   height: 0;
   border: none;
   overflow: hidden;
   /* background-color: #000; */
-  transition: height .5s ease-out;
+  transition: height .3s ease-out;
 }
 .dropdown-menu-wrap.on {
-  height: 500px;
+  height: 400px;
   border-top: 1px solid #ccc;
   box-shadow: 0 4px 5px #33333369;
 }
@@ -199,10 +240,10 @@ html {
   box-sizing: border-box;
   background-color: #fff;
   overflow: hidden;
-  transition: height .5s ease-out;
+  transition: height .3s ease-out;
 }
 .on .dropdown-menu {
-  height: 500px;
+  height: 400px;
 }
 
 .dropdown-category {
@@ -224,6 +265,7 @@ html {
   display: flex;
   gap: 10px;
 }
+
 /************************ quick-menu ************************/
 .quick-menu {
   position: fixed;

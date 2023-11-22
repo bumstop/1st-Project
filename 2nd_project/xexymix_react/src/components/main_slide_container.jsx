@@ -1,22 +1,8 @@
 import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 const mainSlideInfoValues = Object.values(mainSlideInfo);
-
-
-
-// function SlideEventItem() {
-//   return (
-//     <div className="main-slide-item event-item" data-index="">
-//       <a href="#!">
-//         <div className="main-slide-item-img-box">
-//           <img src="./images/main_slide/banner_0.jpg" />
-//         </div>
-//       </a>
-//     </div>
-//   );
-// }
 
 export function MainSlideContainer() {
   const [isPlay, setIsPlay] = useState(true);
@@ -27,8 +13,6 @@ export function MainSlideContainer() {
 
     isPlay ? setIsPlay(false) : setIsPlay(true);
     isPlay ? mainSwiperAutoPlay.stop() : mainSwiperAutoPlay.start();
-
-    console.log(isPlay);
   }
 
   return (

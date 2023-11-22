@@ -1,4 +1,7 @@
-export function DropdownMenuWrap() {
+/** 드롭다운메뉴
+ *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
+ */
+export function DropdownMenu(props) {
   const dropdownCategory = {
     신상할인: null,
     베스트: null,
@@ -35,7 +38,7 @@ export function DropdownMenuWrap() {
   ));
 
   return (
-    <div className="dropdown-menu-wrap">
+    <div className={"dropdown-menu-wrap" + (props.state ? " on" : "")}>
       <div className="dropdown-menu">
         <ul className="dropdown-category">{makeDropdownCategory}</ul>
         <div className="dropdown-banner">{makeDropdownBanner}</div>
