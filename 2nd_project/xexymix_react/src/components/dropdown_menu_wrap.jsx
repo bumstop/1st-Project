@@ -7,8 +7,8 @@ export function DropdownMenuWrap() {
     골프: ["우먼즈", "맨즈", "용품"],
     커뮤니티: ["이벤트", "공지사항", "고객만족센터", "웹진"],
   };
-
   const dropdownCategoryKeys = Object.keys(dropdownCategory);
+  const dropdownBanner = ["kids", "review"];
 
   const makeDropdownCategory = dropdownCategoryKeys.map((v) => (
     <li key={v}>
@@ -26,12 +26,19 @@ export function DropdownMenuWrap() {
       )}
     </li>
   ));
+  const makeDropdownBanner = dropdownBanner.map((v) => (
+    <div key={v}>
+      <a href="#!">
+        <img src={"./images/menu_banner_" + v + ".jpg"} alt={v} />
+      </a>
+    </div>
+  ));
 
   return (
     <div className="dropdown-menu-wrap">
       <div className="dropdown-menu">
         <ul className="dropdown-category">{makeDropdownCategory}</ul>
-        <div className="dropdown-banner"></div>
+        <div className="dropdown-banner">{makeDropdownBanner}</div>
       </div>
     </div>
   );

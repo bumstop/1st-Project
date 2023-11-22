@@ -51,7 +51,6 @@ export function MainItemContainer() {
   return (
     <div className="main-item-container">
       <div className="seeing-box">
-
         <div className="main-item-title outer-title on">
           <a href="#!">
             <img src="./images/woman/mainitem_woman_outer_title.jpg" alt="아우터" />
@@ -80,7 +79,6 @@ export function MainItemContainer() {
             <div className="more">더보기</div>
           </a>
         </div>
-
       </div>
       <div className="main-item-box">
         {/* 여성 아우터 */}

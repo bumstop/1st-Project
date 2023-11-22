@@ -3,6 +3,7 @@ import { DropdownMenuWrap } from "./dropdown_menu_wrap";
 export function Gnb() {
   const rightBtnMenu = ["view", "cart", "mypage"];
   const gnbCategory = ["신상할인", "베스트", "우먼즈", "맨즈", "골프", "커뮤니티"];
+
   const makeRightBtn = rightBtnMenu.map((v) => (
     <li key={v}>
       <a href="#!">
