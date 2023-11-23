@@ -18,15 +18,7 @@ export function Gnb() {
     v === "search" ? (
       <li className={v + "-icon"} key={v} onClick={searchToggle}>
         <a href="#!">
-          {isSearch ? (
-            <img
-              style={{ width: "20px" }}
-              src="./images/m_close_btn_black.png"
-              alt={v + " close"}
-            />
-          ) : (
-            <img src={"./images/menu_" + v + ".png"} alt={v} />
-          )}
+          <img src={"./images/menu_" + v + ".png"} alt={v} />
         </a>
       </li>
     ) : (

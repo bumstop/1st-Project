@@ -5,8 +5,10 @@ export function SearchMenu(props) {
   return (
     <div className={"search-menu-wrap" + (props.state ? " on" : "")}>
       <div className="search-menu">
-        살려줘
-        <input></input>
+        <div className="search-box-wrap">
+          <input className="search-box" type="text" />
+          <button className="search-btn"></button>
+        </div>
       </div>
     </div>
   );
