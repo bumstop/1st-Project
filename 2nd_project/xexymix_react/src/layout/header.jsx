@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Gnb } from "../components/gnb";
 import { TopBanner } from "../components/top_banner";
 
@@ -12,7 +12,7 @@ export function Header() {
     if (scTop >= 100 && isScrollTop) {
       setIsScrollTop(false);
       console.log("함수구역 Y값:", window.scrollY, "100 미만이냐? ", isScrollTop);
-    } else if(scTop < 100 && !isScrollTop) {
+    } else if (scTop < 100 && !isScrollTop) {
       setIsScrollTop(true);
       console.log("함수구역 Y값:", window.scrollY, "100 미만이냐? ", isScrollTop);
     }

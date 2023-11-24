@@ -97,6 +97,7 @@ html {
   background: #fff;
   box-sizing: border-box;
   box-shadow: 0 4px 5px #33333369;
+  white-space: nowrap;
   transition: all .5s ease;
 }
 .non-top .gnb-wrap {
@@ -173,7 +174,6 @@ html {
 }
 .gnb-category li {
   padding: 0 30px;
-  white-space: nowrap;
 }
 .gnb-category a {
   font-size: 15px;
@@ -192,6 +192,7 @@ html {
 }
 /* 서치 박스 */
 .search-menu-wrap {
+  
   width: 100%;
   height: 0;
   border: none;
@@ -284,12 +285,12 @@ html {
 }
 .category-head {
   margin-bottom: 20px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
 }
 .category-sub {
   margin-bottom: 15px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .dropdown-banner {
   display: flex;
@@ -705,6 +706,16 @@ html {
 
 /******************************* 미디어쿼리 *******************************/
 @media screen and (max-width: 1439px) {
+  /* 드롭다운 메뉴 미디어쿼리 */
+  .dropdown-category > li {
+    padding-right: 55px;
+  }
+  .category-head {
+    font-size: 16px;
+  }
+  .category-sub {
+    font-size: 13px;
+  }
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 16px;
@@ -756,6 +767,11 @@ html {
   }
 }
 @media screen and (max-width: 1239px) {
+  /* 드롭다운 메뉴 미디어쿼리 */
+  .dropdown-category > li {
+    padding-right: 35px;
+  }
+ 
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 13px;
