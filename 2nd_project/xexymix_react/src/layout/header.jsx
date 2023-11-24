@@ -1,33 +1,33 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Gnb } from "../components/gnb";
 import { TopBanner } from "../components/top_banner";
 
 export function Header() {
-  const [isScrollTop, setIsScrollTop] = useState(true);
   const headerRef = useRef();
 
-  useEffect(() => { 
+  const [isScrollTop, setIsScrollTop] = useState(true);
 
-    const checkTop = () => {
-      if (window.scrollY > 100) {
-        setIsScrollTop(false);
-        console.log('false');
-      } else {
-        setIsScrollTop(true);
-        console.log('true');
-      }
-      console.log(window.scrollY, isScrollTop);
+  const checkTop = () => {
+    let scTop = window.scrollY;
+    if (scTop >= 100 && isScrollTop) {
+      setIsScrollTop(false);
+      console.log("함수구역 Y값:", window.scrollY, "100 미만이냐? ", isScrollTop);
+    } else if(scTop < 100 && !isScrollTop) {
+      setIsScrollTop(true);
+      console.log("함수구역 Y값:", window.scrollY, "100 미만이냐? ", isScrollTop);
     }
+  };
 
-    window.addEventListener("wheel", checkTop);
+  useEffect(() => {
+    console.log("USE구역 Y값:", window.scrollY, "100 미만이냐? ", isScrollTop);
 
+    window.addEventListener("scroll", checkTop);
     return () => {
-      window.removeEventListener("wheel", checkTop);
+      window.removeEventListener("scroll", checkTop);
     };
-  }, [isScrollTop]); // 감시변수 빼면 왜 동작안하는지, 그리고 왜 동작 한번씩 밀리는지
-
+  });
   return (
-    <header id="header" ref={headerRef}>
+    <header id="header" className={isScrollTop ? "" : "non-top"} ref={headerRef}>
       <TopBanner />
       <Gnb />
     </header>

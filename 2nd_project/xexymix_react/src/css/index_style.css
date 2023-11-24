@@ -73,7 +73,7 @@ html {
 }
 /************************ header ************************/
 #header {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 99;
@@ -86,9 +86,6 @@ html {
   line-height: 35px;
   background: #000;
   transition: all .5s ease;
-}
-.non-top .top-banner {
-  height: 0;
 }
 .top-banner a {
   color: #fff;
@@ -104,6 +101,7 @@ html {
 }
 .non-top .gnb-wrap {
   height: 70px;
+  transform: translateY(-35px);
 }
 .gnb {
   display: flex;
@@ -315,7 +313,9 @@ html {
   padding: 0 5px 5px;
 }
 /*************************** main ***************************/
-
+#main {
+  padding-top: 125px;
+}
 /******************* main-slide-container *******************/
 .main-slide-container {
   margin: 0 auto 75px;
