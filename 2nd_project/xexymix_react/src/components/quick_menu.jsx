@@ -1,5 +1,3 @@
-import { useEffect, useLayoutEffect } from "react";
-
 export function QuickMenu() {
   function scrollTop() {
     window.scrollTo(0, 0);
