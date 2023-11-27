@@ -81,6 +81,7 @@ export function MainItemContainer() {
     };
 
     observeIntersection(observeTargets);
+    
   }, []);
 
   return (

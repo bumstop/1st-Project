@@ -1,6 +1,6 @@
 /**
  *  info: v : 불러올 info.js 데이터 파일의 values 배열객체
- *  
+ *
  */
 export function makeItemBox(v) {
   /** 가격/할인/콤마 출력 */
@@ -31,7 +31,7 @@ export function makeItemBox(v) {
   const itemIcon =
     v["iconContent"] &&
     v["iconContent"].map((v) => (
-      <span className="item-icon" key={v}>
+      <span className={"item-icon" + (v === "주문폭주" ? " hot" : "")} key={v}>
         {v}
       </span>
     ));

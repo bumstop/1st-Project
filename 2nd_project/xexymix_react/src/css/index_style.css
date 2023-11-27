@@ -515,6 +515,11 @@ html {
   font-weight: 600;
   background-color: #efefef;
 }
+.hot {
+  color: #bd3455;
+  background-color: #fff;
+  border: 1px solid #bd3455;
+}
 .item-desc-box {
   margin-top: 15px;
   padding-top: 7px;
