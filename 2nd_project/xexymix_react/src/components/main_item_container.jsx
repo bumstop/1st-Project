@@ -25,8 +25,8 @@ export function MainItemContainer() {
    * @param {Array} val 필터링 기준이 되는 value를 담은 배열
    * @returns obj를 리턴, key값의 val로 필터링
    */
-  // const filteredItemSome = (obj, key, val) =>
-  //   obj.filter((v) => v[key].some((i) => val.includes(i)));
+  const filteredItemSome = (obj, key, val) =>
+    obj.filter((v) => v[key].some((i) => val.includes(i)));
   /**
    * val값을 가지고 있는 객체를 리턴
    * @param {object} obj 필터 대상 객체
@@ -49,27 +49,44 @@ export function MainItemContainer() {
   // console.log(filteredItemOnce(manItemInfoValues, "type", "top"));
 
   useEffect(() => {
-    /** 화면에 targets요소가 보이면 callback 함수 실행 */
-    const observeIntersection = (targets, callback) => {
+    const observeTargets = document.querySelectorAll(".item-box-wrap");
+    const eventTargets = document.querySelectorAll(".main-item-title");
+
+    /** 화면에 targets요소가 보이면 seeing 요소 class 'on' toggle */
+    const observeIntersection = (targets) => {
+      const targetsArr = Array.from(targets);
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((v) => {
           if (v.isIntersecting) {
-            callback();
+            const seeing = targetsArr.indexOf(v.target);
+            eventTargets.forEach((v) => v.classList.remove("on"));
+            eventTargets[seeing].classList.add("on");
+
+            console.log(v);
+          }
+          if (v.boundingClientRect.top > 0 && !v.isIntersecting) {
+            console.log("안보인다", v);
+            const beforeSeeing =
+              targetsArr.indexOf(v.target) - 1 >= 0
+                ? targetsArr.indexOf(v.target) - 1
+                : 0;
+
+            eventTargets.forEach((v) => v.classList.remove("on"));
+            eventTargets[beforeSeeing].classList.add("on");
           }
         });
       });
       targets.forEach((v) => observer.observe(v));
     };
 
-    const targets = document.querySelectorAll(".item-box-wrap");
-    const sayHello = () => console.log("Hello");
-    observeIntersection(targets, sayHello);
+    observeIntersection(observeTargets);
   }, []);
 
   return (
     <div className="main-item-container">
       <div className="seeing-box">
-        <div className="main-item-title outer-title on">
+        <div className="main-item-title outer-title">
           <a href="#!">
             <img src="./images/woman/mainitem_woman_outer_title.jpg" alt="아우터" />
             <div className="tit">아우터</div>
@@ -99,41 +116,49 @@ export function MainItemContainer() {
         </div>
       </div>
       <div className="main-item-box">
-        {/* 여성 아우터 */}
+        {/* 여성 아우터 (12개 까지만 노출) */}
         <div className="item-box-wrap outer-item-box-wrap">
           <h2 className="main-item-title-mobile">아우터</h2>
-          {filteredItem(womanItemInfoValues, "type", "outer").map((v, i) => (
-            <div className="item-box" data-index={i} key={v.name}>
-              {makeItemBox(v)}
-            </div>
-          ))}
+          {filteredItem(womanItemInfoValues, "type", "outer")
+            .filter((v, i) => i < 12)
+            .map((v, i) => (
+              <div className="item-box" data-index={i} key={v.name}>
+                {makeItemBox(v)}
+              </div>
+            ))}
         </div>
-        {/* 남성 */}
+        {/* 남성 (12개 까지만 노출)*/}
         <div className="item-box-wrap man-item-box-wrap">
           <h2 className="main-item-title-mobile">맨즈</h2>
-          {manItemInfoValues.map((v, i) => (
-            <div className="item-box" data-index={i} key={v.name}>
-              {makeItemBox(v)}
-            </div>
-          ))}
+          {manItemInfoValues
+            .filter((v, i) => i < 12)
+            .map((v, i) => (
+              <div className="item-box" data-index={i} key={v.name}>
+                {makeItemBox(v)}
+              </div>
+            ))}
         </div>
-        {/* 여성 상의 */}
+        {/* 여성 상의 (12개 까지만 노출)*/}
         <div className="item-box-wrap woman-top-item-box-wrap">
           <h2 className="main-item-title-mobile">상의</h2>
-          {filteredItemOne(womanItemInfoValues, "type", "top").map((v, i) => (
-            <div className="item-box" data-index={i} key={v.name}>
-              {makeItemBox(v)}
-            </div>
-          ))}
+          {filteredItemOne(womanItemInfoValues, "type", "top")
+            .filter((v, i) => i < 12)
+            .map((v, i) => (
+              <div className="item-box" data-index={i} key={v.name}>
+                {makeItemBox(v)}
+              </div>
+            ))}
         </div>
-        {/* 여성 하의 */}
+        {/* 여성 하의 (12개 까지만 노출)*/}
         <div className="item-box-wrap woman-bottom-item-box-wrap">
           <h2 className="main-item-title-mobile">하의</h2>
-          {filteredItemOne(womanItemInfoValues, "type", "bottom").map((v, i) => (
-            <div className="item-box" data-index={i} key={v.name}>
-              {makeItemBox(v)}
-            </div>
-          ))}
+          {filteredItemSome(womanItemInfoValues, "type", "bottom")
+            .filter((v, i) => i < 12)
+            .map((v, i) => (
+              <div className="item-box" data-index={i} key={v.name}>
+                {makeItemBox(v)}
+              </div>
+            ))}
         </div>
       </div>
     </div>
