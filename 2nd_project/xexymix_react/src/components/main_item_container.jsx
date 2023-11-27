@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { manItemInfo } from "../data/man_item_info";
 import { womanItemInfo } from "../data/woman_item_info";
 
@@ -46,6 +47,24 @@ export function MainItemContainer() {
     obj.filter((v) => v[key].length === 1 && v[key].includes(val));
 
   // console.log(filteredItemOnce(manItemInfoValues, "type", "top"));
+
+  useEffect(() => {
+    /** 화면에 targets요소가 보이면 callback 함수 실행 */
+    const observeIntersection = (targets, callback) => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((v) => {
+          if (v.isIntersecting) {
+            callback();
+          }
+        });
+      });
+      targets.forEach((v) => observer.observe(v));
+    };
+
+    const targets = document.querySelectorAll(".item-box-wrap");
+    const sayHello = () => console.log("Hello");
+    observeIntersection(targets, sayHello);
+  }, []);
 
   return (
     <div className="main-item-container">

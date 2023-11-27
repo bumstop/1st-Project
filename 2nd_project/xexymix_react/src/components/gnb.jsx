@@ -51,7 +51,7 @@ export function Gnb() {
         <ul className="gnb-category">{makeGnbCategory}</ul>
         <ul className="right-btn-wrap">{makeRightBtn}</ul>
       </div>
-      <SearchMenu state={isSearch} func={searchToggle}/>
+      <SearchMenu state={isSearch} searchToggleFunc={searchToggle}/>
       <DropdownMenu state={isDropdown} />
     </div>
   );

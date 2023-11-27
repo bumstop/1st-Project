@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { seasonSlideInfo } from "../data/season_slide_info";
 import { makeItemBox } from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
-import { Navigation, Scrollbar } from "swiper/modules";
+import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css/scrollbar";
 const seasonSlideInfoValues = Object.values(seasonSlideInfo);
 // props 로 import받은 Object의 value를 넘겨준다
@@ -32,11 +32,17 @@ export function SeasonSlideContainer() {
           },
         }}
         loop={true}
+        speed={3000}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         scrollbar={{
           draggable: true,
           snapOnRelease: true,
         }}
-        modules={[Navigation, Scrollbar]}
+        modules={[Navigation, Scrollbar, Autoplay]}
         className="season-slide-box">
         {seasonSlideInfoValues.map((v, i) => (
           <SwiperSlide className="item-box" data-index={i} key={v.name}>

@@ -19,7 +19,9 @@ export function SubSlideContainer() {
         modules={[Navigation]}>
         {subSlideItems.map((v, i) => (
           <SwiperSlide className="sub-slide-item" key={v}>
-            <img src={"./images/sub_slide/sub_slide_" + v + ".jpg"} alt="" />
+            <a href="#!">
+              <img src={"./images/sub_slide/sub_slide_" + v + ".jpg"} alt="" />
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>

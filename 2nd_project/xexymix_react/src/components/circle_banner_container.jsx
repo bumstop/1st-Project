@@ -11,12 +11,14 @@ export function CircleBannerContainer() {
     <div className="circle-banner-container">
       {circleBannerItems.map((v) => (
         <div className="circle-item" key={v}>
-          <img src={"./images/circle_banner/slide_" + v[0] + ".png"} alt="이미지" />
-          <span className="circle-item-txt">
-            {v[1][0]}
-            <br />
-            {v[1][1]}
-          </span>
+          <a href="#!">
+            <img src={"./images/circle_banner/slide_" + v[0] + ".png"} alt="이미지" />
+            <span className="circle-item-txt">
+              {v[1][0]}
+              <br />
+              {v[1][1]}
+            </span>
+          </a>
         </div>
       ))}
     </div>

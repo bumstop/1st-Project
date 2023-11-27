@@ -18,11 +18,11 @@ const popularSearchWord = [
 
 /** 서치메뉴
  *  @param props.state 서치 버튼 클릭시 useState를 가져와 on classToggle
- *  @param props.func  state 를 toggle 해주는 함수
+ *  @param props.searchToggleFunc  state 를 toggle 해주는 함수
  */
 export function SearchMenu(props) {
   function searchToggle() {
-    props.func();
+    props.searchToggleFunc();
   }
 
   return (
