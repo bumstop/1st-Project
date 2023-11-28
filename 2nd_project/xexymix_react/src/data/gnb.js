@@ -6,11 +6,11 @@ export const gnbMenu = {
       txt: "우먼즈",
       link: "/woman",
       sub: [
-        { txt: "레깅스", link: "" },
-        { txt: "조거팬츠", link: "" },
-        { txt: "상의", link: "" },
-        { txt: "하의", link: "" },
-        { txt: "아우터", link: "" },
+        { txt: "레깅스", link: "/woman" },
+        { txt: "조거팬츠", link: "/woman" },
+        { txt: "상의", link: "/womantop" },
+        { txt: "하의", link: "/womanbottom" },
+        { txt: "아우터", link: "/womanouter" },
       ],
     },
     {
@@ -19,7 +19,7 @@ export const gnbMenu = {
       sub: [
         { txt: "상의", link: "" },
         { txt: "하의", link: "" },
-        { txt: "아우터", link: "" },
+        { txt: "아우터", link: "outer" },
       ],
     },
     {

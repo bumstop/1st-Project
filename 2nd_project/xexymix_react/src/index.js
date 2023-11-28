@@ -11,19 +11,32 @@ import { Woman } from "./pages/woman";
 import { Man } from "./pages/man";
 import { Golf } from "./pages/golf";
 import { Community } from "./pages/community";
+// Import sub pages
+import { WomanOuter } from "./pages/woman_outer";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          {/* 신상할인 */}
           <Route path="new" element={<New />} />
+
+          {/* 베스트 */}
           <Route path="best" element={<Best />} />
+
+          {/* 우먼즈 */}
           <Route path="woman" element={<Woman />} />
+          <Route path="womanouter" element={<WomanOuter />} />
+
+          {/* 맨즈 */}
           <Route path="man" element={<Man />} />
+
+          {/* 골프 */}
           <Route path="golf" element={<Golf />} />
+
+          {/* 커뮤니티 */}
           <Route path="community" element={<Community />} />
         </Route>
       </Routes>

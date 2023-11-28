@@ -1,8 +1,14 @@
+// Import react
 import { useEffect } from "react";
+// Import react-router
+import { Link } from "react-router-dom";
+// Import item info
 import { manItemInfo } from "../data/man_item_info";
 import { womanItemInfo } from "../data/woman_item_info";
 
+// Import components
 import { makeItemBox } from "./item_box.jsx";
+
 
 const manItemInfoValues = Object.values(manItemInfo);
 const womanItemInfoValues = Object.values(womanItemInfo);
@@ -88,32 +94,32 @@ export function MainItemContainer() {
     <div className="main-item-container">
       <div className="seeing-box">
         <div className="main-item-title outer-title">
-          <a href="#!">
+          <Link to={"/womanouter"}>
             <img src="./images/woman/mainitem_woman_outer_title.jpg" alt="아우터" />
             <div className="tit">아우터</div>
             <div className="more">더보기</div>
-          </a>
+          </Link>
         </div>
         <div className="main-item-title man-title">
-          <a href="#!">
+          <Link to={"/man"}>
             <img src="./images/man/mainitem_man_title.jpg" alt="맨즈" />
             <div className="tit">맨즈</div>
             <div className="more">더보기</div>
-          </a>
+          </Link>
         </div>
         <div className="main-item-title top-title">
-          <a href="#!">
+          <Link to={"/womantop"}>
             <img src="./images/woman/mainitem_woman_top_title.jpg" alt="상의" />
             <div className="tit">상의</div>
             <div className="more">더보기</div>
-          </a>
+          </Link>
         </div>
         <div className="main-item-title bottom-title">
-          <a href="#!">
+          <Link to={"/womanbottom"}>
             <img src="./images/woman/mainitem_woman_bottom_title.jpg" alt="하의" />
             <div className="tit">하의</div>
             <div className="more">더보기</div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="main-item-box">

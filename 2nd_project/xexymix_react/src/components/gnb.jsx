@@ -6,8 +6,6 @@ import { gnbMenu } from "../data/gnb";
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
 export function DropdownMenu(props) {
-  
-
   const dropdownBanner = ["kids", "review"];
 
   const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
@@ -94,6 +92,7 @@ export function SearchMenu(props) {
     </div>
   );
 }
+
 /******************** GNB ********************/
 export function Gnb() {
   const [isDropdown, setIsDropdown] = useState(false);
