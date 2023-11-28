@@ -1,30 +1,25 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { gnbMenu } from "../data/gnb";
 
 /** 드롭다운메뉴
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
 export function DropdownMenu(props) {
-  const dropdownCategory = {
-    신상할인: null,
-    베스트: null,
-    우먼즈: ["레깅스", "조거팬츠", "상의", "하의", "아우터"],
-    맨즈: ["상의", "하의", "아우터"],
-    골프: ["우먼즈", "맨즈", "용품"],
-    커뮤니티: ["이벤트", "공지사항", "고객만족센터", "웹진"],
-  };
-  const dropdownCategoryKeys = Object.keys(dropdownCategory);
+  
+
   const dropdownBanner = ["kids", "review"];
 
-  const makeDropdownCategory = dropdownCategoryKeys.map((v) => (
-    <li key={v}>
+  const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
+    <li key={v.txt}>
       <div className="category-head">
-        <a href="#!">{v}</a>
+        <Link to={v.link}>{v.txt}</Link>
       </div>
-      {dropdownCategory[v] && (
+      {v.sub && (
         <ul>
-          {dropdownCategory[v].map((v) => (
-            <li className="category-sub" key={v}>
-              <a href="#!">{v}</a>
+          {v.sub.map((subV) => (
+            <li className="category-sub" key={subV.txt}>
+              <Link to={subV.link}>{subV.txt}</Link>
             </li>
           ))}
         </ul>
@@ -99,6 +94,7 @@ export function SearchMenu(props) {
     </div>
   );
 }
+/******************** GNB ********************/
 export function Gnb() {
   const [isDropdown, setIsDropdown] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
@@ -108,29 +104,28 @@ export function Gnb() {
   function searchToggle() {
     isSearch ? setIsSearch(false) : setIsSearch(true);
   }
-  const rightBtnMenu = ["search", "cart", "mypage"];
-  const gnbCategory = ["신상할인", "베스트", "우먼즈", "맨즈", "골프", "커뮤니티"];
 
-  const makeRightBtn = rightBtnMenu.map((v) =>
-    v === "search" ? (
-      <li className={v + "-icon"} key={v} onClick={searchToggle}>
-        <a href="#!">
-          <img src={"./images/menu_" + v + ".png"} alt={v} />
-        </a>
+  const makeGnbCategory = gnbMenu.gnbCategory.map((v) => (
+    <li key={v.txt}>
+      <Link to={v.link}>{v.txt}</Link>
+    </li>
+  ));
+
+  const makeRightBtn = gnbMenu.rightBtnMenu.map((v) =>
+    v.txt === "search" ? (
+      <li className={v.txt + "-icon"} key={v.txt} onClick={searchToggle}>
+        <button>
+          <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} />
+        </button>
       </li>
     ) : (
-      <li className={v + "-icon"} key={v}>
-        <a href="#!">
-          <img src={"./images/menu_" + v + ".png"} alt={v} />
-        </a>
+      <li className={v.txt + "-icon"} key={v.txt}>
+        <Link to={v.link}>
+          <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} />
+        </Link>
       </li>
     )
   );
-  const makeGnbCategory = gnbCategory.map((v) => (
-    <li key={v}>
-      <a href="#!">{v}</a>
-    </li>
-  ));
 
   return (
     <div className="gnb-wrap">
@@ -141,9 +136,9 @@ export function Gnb() {
           <span className="petty"></span>
         </div>
         <div className="top-logo">
-          <a href="#!">
+          <Link to={"/"}>
             <img src="./images/header_logo_bk.png" alt="xexymix" />
-          </a>
+          </Link>
         </div>
         <ul className="gnb-category">{makeGnbCategory}</ul>
         <ul className="right-btn-wrap">{makeRightBtn}</ul>

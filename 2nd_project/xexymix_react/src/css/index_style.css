@@ -29,6 +29,7 @@ a {
   width: 100%;
 }
 button {
+  cursor: pointer;
   background-color: transparent;
 }
 img {
@@ -289,11 +290,10 @@ html {
   height: 0;
   border: none;
   overflow: hidden;
-  /* background-color: #000; */
   transition: height 0.3s ease-out;
 }
 .dropdown-menu-wrap.on {
-  height: 400px;
+  height:330px;
   border-top: 1px solid #ccc;
   box-shadow: 0 4px 5px #33333369;
 }
@@ -309,7 +309,7 @@ html {
   transition: height 0.3s ease-out;
 }
 .on .dropdown-menu {
-  height: 400px;
+  height: 330px;
 }
 
 .dropdown-category {
