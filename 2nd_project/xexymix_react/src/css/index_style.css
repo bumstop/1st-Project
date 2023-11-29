@@ -3,6 +3,8 @@
 @import url(footer_style.css);
 @import url(community_style.css);
 
+
+/* container layout */
 .circle-banner-container,
 .season-slide-container,
 .sub-slide-container,
@@ -67,7 +69,8 @@
 .main-slide-item.event-item {
   width: 90%;
   height: auto;
-  background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat center/contain;
+  background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat
+    center/contain;
 }
 .event-item a::before {
   opacity: 0;
@@ -345,7 +348,6 @@
   column-gap: calc(4% / 3);
   margin-bottom: 150px;
 }
-
 
 /******************************* 미디어쿼리 *******************************/
 @media screen and (max-width: 1439px) {
