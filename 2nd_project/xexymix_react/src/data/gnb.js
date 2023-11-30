@@ -27,9 +27,9 @@ export const gnbMenu = {
       link: "/community",
       sub: [
         { txt: "이벤트", link: "/community/event" },
-        { txt: "공지사항", link: "/community/" },
-        { txt: "고객만족센터", link: "" },
-        { txt: "웹진", link: "" },
+        { txt: "공지사항", link: "/community/notice" },
+        { txt: "고객만족센터", link: "/community/cscenter" },
+        { txt: "웹진", link: "/community/webzine" },
       ],
     },
   ],
