@@ -19,7 +19,7 @@ export function MainSlideContainer() {
     <div className="main-slide-container">
       <Swiper
         ref={mainSwiperRef}
-        slidesPerView={'auto'}
+        slidesPerView={"auto"}
         // slidesPerView={'auto'} 사용시 CSS width 지정해줘야함
         centeredSlides={true}
         initialSlide={1}
@@ -35,11 +35,8 @@ export function MainSlideContainer() {
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="main-slide-container">
-        
         <SwiperSlide className="main-slide-item event-item">
-          <a href="#!">
-            {/* <img "./images/main_slide/banner_0.jpg" alt="이미지" /> */}
-          </a>
+          <a href="#!">{/* <img "./images/main_slide/banner_0.jpg" alt="이미지" /> */}</a>
         </SwiperSlide>
         {mainSlideInfoValues.map((v) => (
           <SwiperSlide className="main-slide-item" key={v.imgSrc}>
