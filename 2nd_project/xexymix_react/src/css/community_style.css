@@ -109,7 +109,7 @@
 }
 .faq-category {
   display: flex;
-	border-bottom: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 .faq-category li {
   flex-basis: 110px;
@@ -127,20 +127,63 @@
   border-right: 1px solid #c6c6c6;
 }
 .faq-list {
-	font-size: 14px;
-	letter-spacing: 0.5px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 .faq-list li {
-	display: flex;
-	border-bottom: 1px solid #c6c6c6;
+  display: flex;
+  border-bottom: 1px solid #c6c6c6;
 }
+/* faq 카테고리 */
 .faq-list-category {
-	padding: 16px;
+  padding: 17px 0;
+  text-align: center;
+  width: 110px;
+  box-sizing: border-box;
 }
+/* faq 질문 */
 .faq-list-question {
-	padding: 16px;
-	flex-grow: 1;
+  padding: 17px;
+  flex-grow: 1;
 }
+.faq-list-question::before {
+  content: "Q";
+  background: #000;
+  color: #fff;
+  border-radius: 30px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* faq 답변 */
+.faq-list .faq-list-answer {
+	border: none;
+	display: none;
+}
+.faq-list .faq-list-answer.on {
+	display: flex;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.faq-list-answer div{
+  padding: 27px 17px 27px 130px;
+}
+.faq-list-answer div::before {
+  content: "A";
+  background: #ff6d44;
+  color: #fff;
+  border-radius: 30px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  display: inline-block;
+}
+
 /* 오른쪽 박스 */
 .right-box {
   width: 40%;
@@ -153,15 +196,35 @@
   border-bottom: 1px solid #111;
   font-size: 21px;
 }
-
+.notice-list-item {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 17px;
+  border-bottom: 1px solid #c6c6c6;
+  box-sizing: border-box;
+}
 /* 이벤트 박스 */
 .event-box-title {
   padding-bottom: 3px;
-	margin-top: 44px;
+  margin-top: 44px;
   border-bottom: 1px solid #111;
   font-size: 21px;
 }
+.event-list {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.event-list-item {
+  flex: 1;
 
+  /* flex: 1 과 동일
+	 flex-basis: 0;
+	flex-shrink: 1; */
+}
+.event-list-item img {
+  width: 100%;
+}
 .cs-info {
   width: 30%;
   height: 150px;

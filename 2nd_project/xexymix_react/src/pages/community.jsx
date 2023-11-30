@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
 import { faqList } from "../data/faq_list";
+import { noticeList } from "../data/notice_list";
+import { Fragment } from "react";
 export function Community() {
   const CommuSub = gnbMenu.gnbCategory.filter((v) => v.txt === "커뮤니티")[0].sub;
 
@@ -13,7 +15,6 @@ export function Community() {
   console.log(
     faqList["주문/결제"].map((v) => (
       <>
-        
         <li>
           <div></div>
           <div>{v.q}</div>
@@ -21,12 +22,44 @@ export function Community() {
       </>
     ))
   );
-
+  // 자주찾는질문 리스트 생성 변수
   const makeFaqList1 = faqList["주문/결제"].map((v) => (
-    <li>
-      <div className="faq-list-category">주문/결제</div>
+    <Fragment key={v.q}>
+      <li>
+        <div className="faq-list-category">주문/결제</div>
+        <div className="faq-list-question">{v.q}</div>
+      </li>
+      <li className="faq-list-answer">
+        <div>
+          {v.a.split("^").map((v) => (
+            <p>
+              {v}
+              <br />
+							<br />
+            </p>
+          ))}
+        </div>
+      </li>
+    </Fragment>
+  ));
+  const makeFaqList2 = faqList["배송"].map((v) => (
+    <li key={v.q}>
+      <div className="faq-list-category">배송</div>
       <div className="faq-list-question">{v.q}</div>
     </li>
+  ));
+  const makeFaqList3 = faqList["교환/반품"].map((v) => (
+    <li key={v.q}>
+      <div className="faq-list-category">교환/반품</div>
+      <div className="faq-list-question">{v.q}</div>
+    </li>
+  ));
+
+  // 공지사항 리스트 생성 변수
+  const makeNoticeList = noticeList.map((v) => (
+    <Link to={v.link} className="notice-list-item" key={v.txt}>
+      <span>{v.txt}</span>
+    </Link>
   ));
 
   return (
@@ -70,18 +103,26 @@ export function Community() {
             <li>배송</li>
             <li>교환/반품</li>
           </ul>
-          <ul className="faq-list">
-						{makeFaqList1}
-					</ul>
+          <ul className="faq-list">{makeFaqList1}</ul>
         </div>
         <div className="right-box">
           <div className="notice-box">
             <div className="notice-box-title">공지사항</div>
-            <div className="notice-list">{}</div>
+            <div className="notice-list">{makeNoticeList}</div>
           </div>
           <div className="event-box">
             <div className="event-box-title">이벤트</div>
-            <div className="event-list">{}</div>
+            <div className="event-list">
+              <div className="event-list-item">
+                <img src="/images/event_thumb1.jpg" alt="event_thumb1" />
+              </div>
+              <div className="event-list-item">
+                <img src="/images/event_thumb2.jpg" alt="event_thumb2" />
+              </div>
+              <div className="event-list-item">
+                <img src="/images/event_thumb3.jpg" alt="event_thumb3" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
