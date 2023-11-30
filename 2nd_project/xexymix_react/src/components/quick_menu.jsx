@@ -9,10 +9,10 @@ export function QuickMenu() {
   return (
     <div className="quick-menu">
       <button className="up-btn" onClick={scrollTop}>
-        <img src="./images/quick_btn_top.png" alt="up-btn" />
+        <img src="/images/quick_btn_top.png" alt="up-btn" />
       </button>
       <button className="down-btn" onClick={scrollBottom}>
-        <img src="./images/quick_btn_bottom.png" alt="down-btn" />
+        <img src="/images/quick_btn_bottom.png" alt="down-btn" />
       </button>
     </div>
   );

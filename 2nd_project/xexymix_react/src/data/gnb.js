@@ -8,35 +8,26 @@ export const gnbMenu = {
       sub: [
         { txt: "레깅스", link: "/woman" },
         { txt: "조거팬츠", link: "/woman" },
-        { txt: "상의", link: "/womantop" },
-        { txt: "하의", link: "/womanbottom" },
-        { txt: "아우터", link: "/womanouter" },
+        { txt: "상의", link: "/woman/top" },
+        { txt: "하의", link: "/woman/bottom" },
+        { txt: "아우터", link: "/woman/outer" },
       ],
     },
     {
       txt: "맨즈",
       link: "/man",
       sub: [
-        { txt: "상의", link: "" },
-        { txt: "하의", link: "" },
-        { txt: "아우터", link: "outer" },
-      ],
-    },
-    {
-      txt: "골프",
-      link: "/golf",
-      sub: [
-        { txt: "우먼즈", link: "" },
-        { txt: "맨즈", link: "" },
-        { txt: "용품", link: "" },
+        { txt: "상의", link: "/man/top" },
+        { txt: "하의", link: "/man/bottom" },
+        { txt: "아우터", link: "/man/outer" },
       ],
     },
     {
       txt: "커뮤니티",
       link: "/community",
       sub: [
-        { txt: "이벤트", link: "" },
-        { txt: "공지사항", link: "" },
+        { txt: "이벤트", link: "/community/event" },
+        { txt: "공지사항", link: "/community/" },
         { txt: "고객만족센터", link: "" },
         { txt: "웹진", link: "" },
       ],

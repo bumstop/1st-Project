@@ -9,7 +9,6 @@ import { New } from "./pages/new";
 import { Best } from "./pages/best";
 import { Woman } from "./pages/woman";
 import { Man } from "./pages/man";
-import { Golf } from "./pages/golf";
 import { Community } from "./pages/community";
 // Import sub pages
 import { WomanOuter } from "./pages/woman_outer";
@@ -28,13 +27,10 @@ function App() {
 
           {/* 우먼즈 */}
           <Route path="woman" element={<Woman />} />
-          <Route path="womanouter" element={<WomanOuter />} />
+          <Route path="woman/outer" element={<WomanOuter />} />
 
           {/* 맨즈 */}
           <Route path="man" element={<Man />} />
-
-          {/* 골프 */}
-          <Route path="golf" element={<Golf />} />
 
           {/* 커뮤니티 */}
           <Route path="community" element={<Community />} />

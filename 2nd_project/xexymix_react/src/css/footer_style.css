@@ -18,6 +18,9 @@
   width: 650px;
   padding: 80px 0 0 0;
 }
+.footer-left-top a {
+  display: inline;
+}
 .footer-left-top span {
   padding-left: 10px;
   font-size: 14px;

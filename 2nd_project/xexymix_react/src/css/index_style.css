@@ -3,7 +3,6 @@
 @import url(footer_style.css);
 @import url(community_style.css);
 
-
 /* container layout */
 .circle-banner-container,
 .season-slide-container,
@@ -410,6 +409,12 @@
     height: 60px;
     font-size: 12.35px;
   }
+  /* footer-right 미디어쿼리 */
+  .bank-info-box,
+  .sns-box,
+  .shop-menu-box {
+    padding-left: 10%;
+  }
 }
 @media screen and (max-width: 1239px) {
   /* 드롭다운 메뉴 미디어쿼리 */
@@ -481,6 +486,12 @@
     transform: translate(5px, 1px);
     width: 12px;
     height: 12px;
+  }
+  /* footer-right 미디어쿼리 */
+  .bank-info-box,
+  .sns-box,
+  .shop-menu-box {
+    padding-left: 3%;
   }
 }
 
