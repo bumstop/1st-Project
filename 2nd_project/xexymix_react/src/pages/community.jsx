@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
-
+import { faqList } from "../data/faq_list";
 export function Community() {
   const CommuSub = gnbMenu.gnbCategory.filter((v) => v.txt === "커뮤니티")[0].sub;
 
@@ -9,6 +9,13 @@ export function Community() {
       <Link to={v.link}>{v.txt}</Link>
     </li>
   ));
+  
+	const makeFaqList = faqList.map((v) => (
+		<li>
+			<div>1</div>
+			<div>2</div>
+		</li>
+	));
 
   return (
     <>
@@ -17,18 +24,21 @@ export function Community() {
       <div className="commu-top">
         <div className="faq-search-box">
           <fieldset>
-            <label for="faq-search">
+            <label htmlFor="faq-search">
               FAQ
               <br />
               SEARCH
             </label>
             <select>
-                <option>전체검색</option>
-                <option>주문/결제</option>
-                <option>배송</option>
-                <option>교환/반품</option>
+              <option value="1" selected>
+                전체검색
+              </option>
+              <option value="2">주문/결제</option>
+              <option value="3">배송</option>
+              <option value="4">교환/반품</option>
             </select>
-            <input id="faq-search"></input>
+            <input id="faq-search" type="text"></input>
+            <button></button>
           </fieldset>
         </div>
         <div className="cs-info">
@@ -42,10 +52,31 @@ export function Community() {
         </div>
       </div>
       <div className="commu-bottom">
-        <div className="faq-box"></div>
+        <div className="faq-box">
+          <div className="faq-box-title">자주 찾는 질문</div>
+          <ul className="faq-category">
+            <li>전체보기</li>
+            <li>주문/결제</li>
+            <li>배송</li>
+            <li>교환/반품</li>
+          </ul>
+          <ul className="faq-table">
+            {makeFaqList}
+          </ul>
+        </div>
         <div className="right-box">
-          <div className="notice-box"></div>
-          <div className="event-box"></div>
+          <div className="notice-box">
+            <div className="notice-box-title">공지사항</div>
+            <div className="notice-list">
+                {}
+            </div>
+          </div>
+          <div className="event-box">
+            <div className="event-box-title">이벤트</div>
+            <div className="event-list">
+                {}
+            </div>
+          </div>
         </div>
       </div>
     </>
