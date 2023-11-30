@@ -9,13 +9,25 @@ export function Community() {
       <Link to={v.link}>{v.txt}</Link>
     </li>
   ));
-  
-	const makeFaqList = faqList.map((v) => (
-		<li>
-			<div>1</div>
-			<div>2</div>
-		</li>
-	));
+
+  console.log(
+    faqList["주문/결제"].map((v) => (
+      <>
+        
+        <li>
+          <div></div>
+          <div>{v.q}</div>
+        </li>
+      </>
+    ))
+  );
+
+  const makeFaqList1 = faqList["주문/결제"].map((v) => (
+    <li>
+      <div className="faq-list-category">주문/결제</div>
+      <div className="faq-list-question">{v.q}</div>
+    </li>
+  ));
 
   return (
     <>
@@ -30,12 +42,10 @@ export function Community() {
               SEARCH
             </label>
             <select>
-              <option value="1" selected>
-                전체검색
-              </option>
-              <option value="2">주문/결제</option>
-              <option value="3">배송</option>
-              <option value="4">교환/반품</option>
+              <option defaultValue="1">전체검색</option>
+              <option defaultValue="2">주문/결제</option>
+              <option defaultValue="3">배송</option>
+              <option defaultValue="4">교환/반품</option>
             </select>
             <input id="faq-search" type="text"></input>
             <button></button>
@@ -60,22 +70,18 @@ export function Community() {
             <li>배송</li>
             <li>교환/반품</li>
           </ul>
-          <ul className="faq-table">
-            {makeFaqList}
-          </ul>
+          <ul className="faq-list">
+						{makeFaqList1}
+					</ul>
         </div>
         <div className="right-box">
           <div className="notice-box">
             <div className="notice-box-title">공지사항</div>
-            <div className="notice-list">
-                {}
-            </div>
+            <div className="notice-list">{}</div>
           </div>
           <div className="event-box">
             <div className="event-box-title">이벤트</div>
-            <div className="event-list">
-                {}
-            </div>
+            <div className="event-list">{}</div>
           </div>
         </div>
       </div>
