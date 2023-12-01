@@ -2,9 +2,8 @@ import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useRef, useState } from "react";
-const mainSlideInfoValues = Object.values(mainSlideInfo);
-
-export function MainSlideContainer() {
+/** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
+export function MainSlideContainer(props) {
   const [isPlay, setIsPlay] = useState(true);
   const mainSwiperRef = useRef(null);
 
@@ -14,6 +13,7 @@ export function MainSlideContainer() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
     isPlay ? mainSwiperAutoPlay.stop() : mainSwiperAutoPlay.start();
   }
+  const filteredItem = (obj, key, val) => obj.filter((v) => val.includes(v[key]));
 
   return (
     <div className="main-slide-container">
@@ -22,23 +22,25 @@ export function MainSlideContainer() {
         slidesPerView={"auto"}
         // slidesPerView={'auto'} 사용시 CSS width 지정해줘야함
         centeredSlides={true}
-        initialSlide={1}
+        initialSlide={0}
         spaceBetween={0}
         pagination={{
           type: "fraction",
         }}
         loop={true}
         autoplay={{
-          delay: 1000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="main-slide-container">
-        <SwiperSlide className="main-slide-item event-item">
-          <a href="#!">{/* <img "./images/main_slide/banner_0.jpg" alt="이미지" /> */}</a>
-        </SwiperSlide>
-        {mainSlideInfoValues.map((v) => (
+        {Array.isArray(props.category) && (
+          <SwiperSlide className="main-slide-item event-item">
+            <a href="#!"></a>
+          </SwiperSlide>
+        )}
+        {filteredItem(mainSlideInfo, "category", props.category).map((v) => (
           <SwiperSlide className="main-slide-item" key={v.imgSrc}>
             <a href="#!">
               <img src={v.imgSrc} alt="이미지" />

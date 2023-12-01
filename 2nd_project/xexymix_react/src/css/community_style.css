@@ -163,6 +163,7 @@
 .faq-list .faq-list-answer {
 	border: none;
 	display: none;
+  background-color: #f6f6f6;
 }
 .faq-list .faq-list-answer.on {
 	display: flex;

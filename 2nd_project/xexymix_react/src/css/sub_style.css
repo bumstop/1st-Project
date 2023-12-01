@@ -1,0 +1,12 @@
+/* Man, Woman page CSS */
+
+/* container layout */
+.category-title {
+  width: calc(100% - var(--page-padding) * 2);
+  max-width: calc(var(--page-max-width) - var(--page-padding) * 2);
+  min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
+  margin: 0 auto 25px;
+  padding: 0 var(--page-padding);
+  text-align: center;
+  font-size: 24px;
+}

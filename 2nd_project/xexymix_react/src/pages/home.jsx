@@ -12,7 +12,7 @@ export function Home() {
 
   return (
     <>
-      <MainSlideContainer />
+      <MainSlideContainer category={["WOMEN", "MENS"]}/>
       <CircleBannerContainer />
       <SeasonSlideContainer />
       <SubSlideContainer />

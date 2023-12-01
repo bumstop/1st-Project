@@ -1,5 +1,8 @@
+import { MainSlideContainer } from "../components/main_slide_container";
+
 export function Woman() {
     return <>
-        <h1>우먼즈</h1>
+        <MainSlideContainer category="WOMEN" />
+        <h2 className="category-title">WOMENS</h2>
     </>
 }

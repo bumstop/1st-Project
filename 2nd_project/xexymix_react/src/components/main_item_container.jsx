@@ -52,8 +52,6 @@ export function MainItemContainer() {
   const filteredItemOne = (obj, key, val) =>
     obj.filter((v) => v[key].length === 1 && v[key].includes(val));
 
-  // console.log(filteredItemOnce(manItemInfoValues, "type", "top"));
-
   useEffect(() => {
     const observeTargets = document.querySelectorAll(".item-box-wrap");
     const eventTargets = document.querySelectorAll(".main-item-title");

@@ -4,6 +4,11 @@ import { faqList } from "../data/faq_list";
 import { noticeList } from "../data/notice_list";
 import { Fragment } from "react";
 export function Community() {
+
+  const toggleShowFaqAnswer = (e) => {
+    const nextEle = e.currentTarget.nextElementSibling;
+    nextEle.classList.toggle('on');
+  }
   const CommuSub = gnbMenu.gnbCategory.filter((v) => v.txt === "커뮤니티")[0].sub;
 
   const makeCommuCate = CommuSub.map((v) => (
@@ -12,27 +17,17 @@ export function Community() {
     </li>
   ));
 
-  console.log(
-    faqList["주문/결제"].map((v) => (
-      <>
-        <li>
-          <div></div>
-          <div>{v.q}</div>
-        </li>
-      </>
-    ))
-  );
   // 자주찾는질문 리스트 생성 변수
   const makeFaqList1 = faqList["주문/결제"].map((v) => (
     <Fragment key={v.q}>
-      <li>
+      <li onClick={toggleShowFaqAnswer}>
         <div className="faq-list-category">주문/결제</div>
         <div className="faq-list-question">{v.q}</div>
       </li>
       <li className="faq-list-answer">
         <div>
           {v.a.split("^").map((v) => (
-            <p>
+            <p key={v}>
               {v}
               <br />
 							<br />
