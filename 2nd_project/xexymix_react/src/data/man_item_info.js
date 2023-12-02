@@ -1,5 +1,5 @@
-export const manItemInfo = {
-  item1: {
+export const manItemInfo = [
+  {
     imgSrc: "./images/man/man1.jpg",
     name: "오버핏 리버서블 퍼 자켓 블랙",
     type: ["top", "outer", "bottom"],
@@ -9,7 +9,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item2: {
+  {
     imgSrc: "./images/man/man2.jpg",
     name: "커뮤터 스트레치 라이트 패딩 자켓 애쉬카키",
     type: ["top", "outer"],
@@ -19,7 +19,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item3: {
+  {
     imgSrc: "./images/man/man3.jpg",
     name: "맨즈 리버서블 포켓 퀼티드 자켓 사파리카키",
     type: ["top", "outer"],
@@ -29,7 +29,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item4: {
+  {
     imgSrc: "./images/man/man4.jpg",
     name: "텍스처드 플리스 집업 자켓 블랙",
     type: ["top", "outer"],
@@ -39,7 +39,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item5: {
+  {
     imgSrc: "./images/man/man5.jpg",
     name: "커뮤터 스트레치 라이트 롱 패딩 블랙",
     type: ["top", "outer"],
@@ -49,7 +49,7 @@ export const manItemInfo = {
     descMain: "[맨즈] 경량 충전재로 모든 일상을 가볍고 따뜻하게!",
     descSub: null,
   },
-  item6: {
+  {
     imgSrc: "./images/man/man6.gif",
     name: "리버서블 퀼팅 플리스 코트 블랙",
     type: ["top", "outer"],
@@ -59,7 +59,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item7: {
+  {
     imgSrc: "./images/man/man7.jpg",
     name: "넥리스 심플 경량 패딩 다크그레이",
     type: ["top", "outer"],
@@ -69,7 +69,7 @@ export const manItemInfo = {
     descMain: "[맨즈] 가볍고 따뜻한 마이크로 볼 충전재 #품절주의",
     descSub: null,
   },
-  item8: {
+  {
     imgSrc: "./images/man/man8.jpg",
     name: "플렉스 집업 후디",
     type: ["top", "outer"],
@@ -79,7 +79,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item9: {
+  {
     imgSrc: "./images/man/man9.jpg",
     name: "유틸라이트 포텐셜 롱슬리브 블랙",
     type: ["top"],
@@ -89,7 +89,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item10: {
+  {
     imgSrc: "./images/man/man10.jpg",
     name: "프렌치 테리 하프집업 스웨트셔츠 네이비",
     type: ["top"],
@@ -99,7 +99,7 @@ export const manItemInfo = {
     descMain: "편안한 루즈 핏 #셋업 스타일링",
     descSub: "윤성빈's PICK!",
   },
-  item11: {
+  {
     imgSrc: "./images/man/man11.jpg",
     name: "스포츠 윈드 테크 롱슬리브 블랙",
     type: ["top"],
@@ -109,7 +109,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item12: {
+  {
     imgSrc: "./images/man/man12.jpg",
     name: "필드 하프집업 롱슬리브 1+1",
     type: ["top"],
@@ -119,7 +119,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item13: {
+  {
     imgSrc: "./images/man/man13.jpg",
     name: "트리플 엑스 숏슬리브 1+2",
     type: ["top"],
@@ -129,7 +129,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: "맨즈 상의 누적판매 1위 #윤성빈's PICK!",
   },
-  item14: {
+  {
     imgSrc: "./images/man/man14.jpg",
     name: "하이쿨링 테크 숏슬리브 1+1",
     type: ["top"],
@@ -139,7 +139,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: "윤성빈's PICK!",
   },
-  item15: {
+  {
     imgSrc: "./images/man/man15.jpg",
     name: "베이직 로고 트랙 SET",
     type: ["top", "bottom"],
@@ -149,7 +149,7 @@ export const manItemInfo = {
     descMain: "[집업+트랙팬츠 구성]",
     descSub: null,
   },
-  item16: {
+  {
     imgSrc: "./images/man/man16.jpg",
     name: "우븐 스트레치 버닝 SET",
     type: ["top", "bottom"],
@@ -159,7 +159,7 @@ export const manItemInfo = {
     descMain: "[집업+트랙팬츠 구성] 운동 효과 극대화 #땀복",
     descSub: null,
   },
-  item17: {
+  {
     imgSrc: "./images/man/man17.jpg",
     name: "데일리 에코티브 티셔츠 1+1",
     type: ["top"],
@@ -169,7 +169,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: "숏슬리브 or 롱슬리브 교차선택 가능",
   },
-  item18: {
+  {
     imgSrc: "./images/man/man18.jpg",
     name: "머슬핏 듀얼 롱슬리브 1+1",
     type: ["top"],
@@ -179,7 +179,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item19: {
+  {
     imgSrc: "./images/man/man19.jpg",
     name: "필드 하프집업 롱슬리브",
     type: ["top"],
@@ -189,7 +189,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item20: {
+  {
     imgSrc: "./images/man/man20.jpg",
     name: "트리플 엑스 숏슬리브",
     type: ["top"],
@@ -199,7 +199,7 @@ export const manItemInfo = {
     descMain: "맨즈 상의 누적판매 1위",
     descSub: "#윤성빈's PICK!",
   },
-  item21: {
+  {
     imgSrc: "./images/man/man21.jpg",
     name: "맨즈 아이스페더 숏슬리브 1+1",
     type: ["top"],
@@ -209,7 +209,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: "오버핏 or 머슬핏 교차선택 가능",
   },
-  item22: {
+  {
     imgSrc: "./images/man/man22.jpg",
     name: "액티브 플레이어 조거팬츠 SET",
     type: ["top", "bottom"],
@@ -219,7 +219,7 @@ export const manItemInfo = {
     descMain: "[트랙자켓+조거팬츠 구성]",
     descSub: null,
   },
-  item23: {
+  {
     imgSrc: "./images/man/man23.jpg",
     name: "프렌치 테리 SET",
     type: ["top", "bottom"],
@@ -229,7 +229,7 @@ export const manItemInfo = {
     descMain: "[트랙자켓+조거팬츠 구성]",
     descSub: null,
   },
-  item24: {
+  {
     imgSrc: "./images/man/man24.jpg",
     name: "액티브 플레이어 쇼츠 SET",
     type: ["top", "bottom"],
@@ -239,7 +239,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item25: {
+  {
     imgSrc: "./images/man/man25.jpg",
     name: "사이드라인 조깅스 블랙",
     type: ["bottom"],
@@ -249,7 +249,7 @@ export const manItemInfo = {
     descMain: null,
     descSub: null,
   },
-  item26: {
+  {
     imgSrc: "./images/man/man26.jpg",
     name: "올데이 기모 슬랙스 블랙",
     type: ["bottom"],
@@ -259,7 +259,7 @@ export const manItemInfo = {
     descMain: "한겨울까지 따뜻한 도톰 기모 슬랙스",
     descSub: null,
   },
-  item27: {
+  {
     imgSrc: "./images/man/man27.jpg",
     name: "올데이 기모 슬랙스 베이지",
     type: ["bottom"],
@@ -269,7 +269,7 @@ export const manItemInfo = {
     descMain: "한겨울까지 따뜻한 도톰 기모 슬랙스",
     descSub: null,
   },
-  item28: {
+  {
     imgSrc: "./images/man/man28.jpg",
     name: "올데이 기모 슬랙스 라이트그레이",
     type: ["bottom"],
@@ -279,7 +279,7 @@ export const manItemInfo = {
     descMain: "한겨울까지 따뜻한 도톰 기모 슬랙스",
     descSub: null,
   },
-  item29: {
+  {
     imgSrc: "./images/man/man29.jpg",
     name: "올데이 기모 슬랙스 다크그레이",
     type: ["bottom"],
@@ -289,7 +289,7 @@ export const manItemInfo = {
     descMain: "한겨울까지 따뜻한 도톰 기모 슬랙스",
     descSub: null,
   },
-  item30: {
+  {
     imgSrc: "./images/man/man30.jpg",
     name: "에센셜 스트레치 기모 슬랙스 블랙",
     type: ["bottom"],
@@ -299,7 +299,7 @@ export const manItemInfo = {
     descMain: "일상부터 필드까지 입는 다재다능 기모 슬랙스",
     descSub: null,
   },
-  item31: {
+  {
     imgSrc: "./images/man/man31.jpg",
     name: "에센셜 스트레치 기모 슬랙스 베이지",
     type: ["bottom"],
@@ -309,7 +309,7 @@ export const manItemInfo = {
     descMain: "일상부터 필드까지 입는 다재다능 기모 슬랙스",
     descSub: "new color",
   },
-  item32: {
+  {
     imgSrc: "./images/man/man32.jpg",
     name: "에센셜 스트레치 기모 슬랙스 템퍼그레이",
     type: ["bottom"],
@@ -319,7 +319,7 @@ export const manItemInfo = {
     descMain: "일상부터 필드까지 입는 다재다능 기모 슬랙스",
     descSub: null,
   },
-  item33: {
+  {
     imgSrc: "./images/man/man33.jpg",
     name: "에센셜 스트레치 기모 슬랙스 템퍼네이비",
     type: ["bottom"],
@@ -329,4 +329,4 @@ export const manItemInfo = {
     descMain: "일상부터 필드까지 입는 다재다능 기모 슬랙스",
     descSub: null,
   },
-};
+];
