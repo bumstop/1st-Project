@@ -17,10 +17,7 @@ import { Footer } from "./footer";
 import { QuickMenu } from "../components/quick_menu";
 
 export function Layout() {
-    useLayoutEffect(() => {
-        // 페이지 이동시 스크롤위치 상단이동
-        window.scrollTo(0, 0);
-      });
+    
     
       return (
         <>

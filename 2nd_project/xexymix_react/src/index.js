@@ -1,7 +1,8 @@
 // Import react
 import ReactDOM from "react-dom/client";
+import { useEffect } from "react";
 // Import react-router
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 // Import pages
 import { Layout } from "./layout/layout";
 import { Home } from "./pages/home";
@@ -11,10 +12,23 @@ import { Woman } from "./pages/woman";
 import { Man } from "./pages/man";
 import { Community } from "./pages/community";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
+  useEffect(() => {
+    window.onbeforeunload = () => window.scrollTo(0, 0);
+  }, []);
+
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
