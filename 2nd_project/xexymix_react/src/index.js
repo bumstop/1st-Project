@@ -10,8 +10,7 @@ import { Best } from "./pages/best";
 import { Woman } from "./pages/woman";
 import { Man } from "./pages/man";
 import { Community } from "./pages/community";
-// Import sub pages
-import { WomanOuter } from "./pages/woman_outer";
+
 
 function App() {
   return (
@@ -27,7 +26,6 @@ function App() {
 
           {/* 우먼즈 */}
           <Route path="woman" element={<Woman />} />
-          <Route path="woman/outer" element={<WomanOuter />} />
 
           {/* 맨즈 */}
           <Route path="man" element={<Man />} />

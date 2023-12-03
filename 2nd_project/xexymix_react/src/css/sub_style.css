@@ -14,21 +14,28 @@
   font-size: 24px;
 }
 .category-list {
-  margin: 25px 0 50px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
-.category-list a {
-  display: inline;
+.category-list div {
+  display: inline-block;
   padding: 10px 15px;
   margin-right: 20px;
   border: 1px solid #dfdfdf;
   border-radius: 20px;
+  box-sizing: border-box;
   background-color: #f8f8f8;
   font-size: 14px;
   color: #777;
+  cursor: pointer;
 }
 
+.category-list div.on {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+} 
 .category-container .item-box-wrap {
   display: flex;
   flex-wrap: wrap;

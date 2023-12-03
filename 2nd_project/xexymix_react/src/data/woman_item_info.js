@@ -252,7 +252,7 @@ export const womanItemInfo = [
   {
     imgSrc: "./images/woman/woman26.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 블랙",
-    type: ["bottom"],
+    type: ["bottom", "tapered"],
     price: "69000",
     sale: "49000",
     iconContent: ["신상"],
@@ -262,7 +262,7 @@ export const womanItemInfo = [
   {
     imgSrc: "./images/woman/woman27.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 타이니크림",
-    type: ["bottom"],
+    type: ["bottom", "tapered"],
     price: "69000",
     sale: "49000",
     iconContent: ["신상"],
@@ -272,7 +272,7 @@ export const womanItemInfo = [
   {
     imgSrc: "./images/woman/woman28.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 오크베이지",
-    type: ["bottom"],
+    type: ["bottom", "tapered"],
     price: "69000",
     sale: "49000",
     iconContent: ["신상"],
@@ -282,7 +282,7 @@ export const womanItemInfo = [
   {
     imgSrc: "./images/woman/woman29.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 뮤트그레이",
-    type: ["bottom"],
+    type: ["bottom", "tapered"],
     price: "69000",
     sale: "49000",
     iconContent: ["신상"],
@@ -292,7 +292,7 @@ export const womanItemInfo = [
   {
     imgSrc: "./images/woman/woman30.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 로드네이비",
-    type: ["bottom"],
+    type: ["bottom", "tapered"],
     price: "69000",
     sale: "49000",
     iconContent: ["신상"],

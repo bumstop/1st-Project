@@ -7,7 +7,7 @@ export const gnbMenu = {
       link: "/woman",
       sub: [
         { txt: "레깅스", link: "/woman" },
-        { txt: "조거팬츠", link: "/woman" },
+        { txt: "테이퍼드팬츠", link: "/woman" },
         { txt: "상의", link: "/woman/top" },
         { txt: "하의", link: "/woman/bottom" },
         { txt: "아우터", link: "/woman/outer" },
