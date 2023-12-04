@@ -1,12 +1,11 @@
 // Import react
-import React, { useLayoutEffect } from "react";
-
+import React from "react";
 
 // Import CSS
 import "../css/index_style.css";
 
 // Import swiper css (기본 스와이퍼 CSS)
-import 'swiper/css';
+import "swiper/css";
 
 // Import layout
 import { Header } from "./header";
@@ -17,14 +16,12 @@ import { Footer } from "./footer";
 import { QuickMenu } from "../components/quick_menu";
 
 export function Layout() {
-    
-    
-      return (
-        <>
-          <Header />
-          <QuickMenu />
-          <Main />
-          <Footer />
-        </>
-      );
+  return (
+    <>
+      <Header />
+      <QuickMenu />
+      <Main />
+      <Footer />
+    </>
+  );
 }
