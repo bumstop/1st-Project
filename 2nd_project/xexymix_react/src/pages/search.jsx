@@ -7,21 +7,27 @@ export function Search() {
   const location = useLocation();
   const searchkeyword = location.state.keyword;
   console.log(searchkeyword);
-
+  const searchItems = filteredItem(itemInfo, "name", searchkeyword);
+  const searchEa = searchItems.length;
   return (
     <>
       <div className="search-head-container">
         <div className="search-head">
-          <span style={{ fontWeight: 500, fontSize: "30px" }}>
-            &quot;{searchkeyword}&quot;
-          </span>{" "}
-          에 대한 {0}
-          개의 통합 검색결과입니다.
+          <div className="search-txt">
+            <span style={{ fontWeight: 500, fontSize: "30px" }}>
+              &quot;{searchkeyword}&quot;
+            </span>
+            에 대한 {searchEa}
+            개의 통합 검색결과입니다.
+          </div>
+          <div className="search-box-wrap">
+            <input className="search-box" type="text" />
+          </div>
         </div>
       </div>
       <div className="search-item-container">
         <div className="item-box-wrap">
-          {filteredItem(itemInfo, "name", searchkeyword).map((v) => (
+          {searchItems.map((v) => (
             <div className="item-box" key={v.name}>
               {makeItemBox(v)}
             </div>

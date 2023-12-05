@@ -1,22 +1,37 @@
 .search-head-container {
   width: 100%;
   min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
-  padding: 200px 50px;
+  padding: 100px 50px;
   box-sizing: border-box;
   margin: 0 auto 75px;
   background-color: #fafafa;
 }
 .search-head {
-    margin-bottom: 30px;
-    font-size: 26px;
-    text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+  text-align: center;
+}
+.search-head .search-box-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid #000;
+}
+
+.search-head .search-box {
+  background-color: transparent;
 }
 .search-item-container {
-    width: calc(100% - var(--page-padding) * 2);
-    max-width: calc(var(--page-max-width) - var(--page-padding) * 2);
-    min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
-    margin: 0 auto 25px;
-    padding: 0 var(--page-padding);
+  width: calc(100% - var(--page-padding) * 2);
+  max-width: calc(var(--page-max-width) - var(--page-padding) * 2);
+  min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
+  margin: 0 auto 25px;
+  padding: 0 var(--page-padding);
 }
 .search-item-container .item-box-wrap {
   display: flex;
@@ -26,5 +41,5 @@
   margin-bottom: 150px;
 }
 .search-item-container .item-box {
-    flex-basis: calc(95% / 5);
+  flex-basis: calc(95% / 5);
 }

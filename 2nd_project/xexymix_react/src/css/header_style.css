@@ -156,7 +156,7 @@
   .search-box-wrap {
     position: relative;
     margin: 20px auto;
-    width: 50%;
+    width: 40%;
     height: 50px;
     border: 2px solid #000;
     border-radius: 3px;
@@ -186,7 +186,7 @@
     opacity: 1;
   }
   .popular-search {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
   }
   .hashtag-box-wrap {
