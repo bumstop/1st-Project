@@ -8,7 +8,7 @@ export function Best() {
     <>
       <MainBannerContainer page="best" />
       <CategoryItemContainer
-        page="베스트"
+        condition="주문폭주"
         category="BEST"
         filterType="iconContent"
         info={[...manItemInfo, ...womanItemInfo]}

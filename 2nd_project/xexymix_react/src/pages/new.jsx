@@ -8,7 +8,7 @@ export function New() {
     <>
       <MainBannerContainer page="new" />
       <CategoryItemContainer
-        page="신상할인"
+        condition="신상"
         category="NEW"
         filterType="iconContent"
         info={[...manItemInfo, ...womanItemInfo]}

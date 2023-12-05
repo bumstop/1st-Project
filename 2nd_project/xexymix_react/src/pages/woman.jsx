@@ -7,7 +7,7 @@ export function Woman() {
       <MainSlideContainer category="WOMENS" />
 
       <CategoryItemContainer
-        page="우먼즈"
+        condition="우먼즈"
         category="WOMENS"
         filterType="type"
         info={womanItemInfo}
