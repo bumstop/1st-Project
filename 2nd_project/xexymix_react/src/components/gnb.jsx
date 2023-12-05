@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
-
 /** 드롭다운메뉴
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
@@ -42,20 +41,17 @@ export function DropdownMenu(props) {
   );
 }
 const popularSearchWord = [
+  "블랙라벨",
   "기모",
-  "양말",
+  "자켓",
+  "패딩",
   "쉐르파",
-  "벨로아",
   "조거",
   "부츠컷",
   "플리스",
-  "가방",
   "집업",
   "브라탑",
-  "운동화",
-  "기모레깅스",
-  "모자",
-  "땀복",
+  "레깅스",
   "후드",
 ];
 
@@ -64,17 +60,35 @@ const popularSearchWord = [
  *  @param props.searchToggleFunc  state 를 toggle 해주는 함수
  */
 export function SearchMenu(props) {
-  function searchToggle() {
+  const searchToggle = () => {
     props.searchToggleFunc();
-  }
+  };
+  const searchRef = useRef();
+  const navigate = useNavigate();
+
+  // 검색어를 가지고 search 페이지로 이동
+  const goSearch = (searchValue) => {
+    searchToggle();
+    console.log("검색 입력값:", searchValue);
+    navigate("/search", { state: { keyword: searchValue } });
+  };
 
   return (
     <div className={"search-menu-wrap" + (props.state ? " on" : "")}>
       <div className="search-menu">
         <div className="close-btn" onClick={searchToggle}></div>
         <div className="search-box-wrap">
-          <input className="search-box" type="text" />
-          <button className="search-btn"></button>
+          <input
+            ref={searchRef}
+            className="search-box"
+            type="text"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") goSearch(searchRef.current.value);
+            }}
+          />
+          <button
+            className="search-btn"
+            onClick={() => goSearch(searchRef.current.value)}></button>
         </div>
         <div className="popular-search">
           <div style={{ fontSize: "20px", fontWeight: "600", marginBottom: "10px" }}>
@@ -82,9 +96,12 @@ export function SearchMenu(props) {
           </div>
           <div className="hashtag-box-wrap">
             {popularSearchWord.map((v) => (
-              <a className="hashtag-box" key={v} href="#!">
+              <button
+                className="hashtag-box"
+                onClick={(e) => goSearch(e.target.innerText)}
+                key={v}>
                 {v}
-              </a>
+              </button>
             ))}
           </div>
         </div>

@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { gnbMenu } from "../data/gnb";
 import { makeItemBox } from "../components/item_box";
-import { filteredItem } from "../func/filter_func";
-import { manItemInfo } from "../data/man_item_info";
-import { womanItemInfo } from "../data/woman_item_info";
+import { filteredItem, filteredItemSame } from "../func/filter_func";
+import { itemInfo } from "../data/item_info";
 
 export function CategoryItemContainer(props) {
   const [itemCategory, setItemCategory] = useState("전체");
@@ -19,11 +18,10 @@ export function CategoryItemContainer(props) {
     console.log("선택 카테고리:", itemCategory);
   }, [itemCategory]);
 
-
   // 아이템 카테고리 데이터
   const defCategory = [
-    { txt: "우먼즈", type: "woman" },
-    { txt: "맨즈", type: "man" },
+    { txt: "우먼즈", type: "WOMENS" },
+    { txt: "맨즈", type: "MENS" },
   ];
   const categoryData =
     props.filterType === "type"
@@ -45,20 +43,21 @@ export function CategoryItemContainer(props) {
       ));
     // 맨즈, 우먼즈 페이지 아이템 필터링 조건
     if (props.filterType === "type" && filterState === "all") {
-      filterData = props.info;
+      filterData = filteredItemSame(itemInfo, "category", props.category);
       return categoryItem(filterData);
     }
     if (props.filterType === "type" && filterState !== "all") {
-      filterData = filteredItem(props.info, props.filterType, filterState);
+      const info = filteredItemSame(itemInfo, "category", props.category);
+      filterData = filteredItem(info, props.filterType, filterState);
       return categoryItem(filterData);
     }
     // 신상할인, 베스트 페이지 아이템 필터링 조건
     if (props.filterType === "iconContent" && filterState === "all") {
-      filterData = filteredItem(props.info, props.filterType, props.condition);
+      filterData = filteredItem(itemInfo, props.filterType, props.condition);
       return categoryItem(filterData);
     }
     if (props.filterType === "iconContent" && filterState !== "all") {
-      const info = filterState === "woman" ? womanItemInfo : manItemInfo;
+      const info = filteredItemSame(itemInfo, "category", filterState);
       filterData = filteredItem(info, props.filterType, props.condition);
       return categoryItem(filterData);
     }

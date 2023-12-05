@@ -3,21 +3,15 @@ import { useEffect } from "react";
 // Import react-router
 import { Link } from "react-router-dom";
 // Import item info
-import { manItemInfo } from "../data/man_item_info";
-import { womanItemInfo } from "../data/woman_item_info";
+import { itemInfo } from "../data/item_info";
 
 // Import components
 import { makeItemBox } from "./item_box.jsx";
 
 // Import function
-import { filteredItem, filteredItemOne } from "../func/filter_func.js";
-
-const manItemInfoValues = Object.values(manItemInfo);
-const womanItemInfoValues = Object.values(womanItemInfo);
+import { filteredItem, filteredItemOne, filteredItemSame } from "../func/filter_func.js";
 
 export function MainItemContainer() {
-  
-
   useEffect(() => {
     const observeTargets = document.querySelectorAll(".item-box-wrap");
     const eventTargets = document.querySelectorAll(".main-item-title");
@@ -51,7 +45,6 @@ export function MainItemContainer() {
     };
 
     observeIntersection(observeTargets);
-    
   }, []);
 
   return (
@@ -90,7 +83,7 @@ export function MainItemContainer() {
         {/* 여성 아우터 (12개 까지만 노출) */}
         <div className="item-box-wrap outer-item-box-wrap">
           <h2 className="main-item-title-mobile">아우터</h2>
-          {filteredItem(womanItemInfoValues, "type", "outer")
+          {filteredItem(itemInfo, "type", "outer")
             .filter((v, i) => i < 12)
             .map((v, i) => (
               <div className="item-box" data-index={i} key={v.name}>
@@ -101,7 +94,7 @@ export function MainItemContainer() {
         {/* 남성 (12개 까지만 노출)*/}
         <div className="item-box-wrap man-item-box-wrap">
           <h2 className="main-item-title-mobile">맨즈</h2>
-          {manItemInfoValues
+          {filteredItemSame(itemInfo, "category", "MENS")
             .filter((v, i) => i < 12)
             .map((v, i) => (
               <div className="item-box" data-index={i} key={v.name}>
@@ -112,7 +105,7 @@ export function MainItemContainer() {
         {/* 여성 상의 (12개 까지만 노출)*/}
         <div className="item-box-wrap woman-top-item-box-wrap">
           <h2 className="main-item-title-mobile">상의</h2>
-          {filteredItemOne(womanItemInfoValues, "type", "top")
+          {filteredItemOne(filteredItemSame(itemInfo, "category", "WOMENS"), "type", "top")
             .filter((v, i) => i < 12)
             .map((v, i) => (
               <div className="item-box" data-index={i} key={v.name}>
@@ -123,7 +116,7 @@ export function MainItemContainer() {
         {/* 여성 하의 (12개 까지만 노출)*/}
         <div className="item-box-wrap woman-bottom-item-box-wrap">
           <h2 className="main-item-title-mobile">하의</h2>
-          {filteredItem(womanItemInfoValues, "type", "bottom")
+          {filteredItem(filteredItemSame(itemInfo, "category", "WOMENS"), "type", "bottom")
             .filter((v, i) => i < 12)
             .map((v, i) => (
               <div className="item-box" data-index={i} key={v.name}>

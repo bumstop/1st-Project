@@ -207,9 +207,7 @@
     color: #fff;
     background-color: #000;
   }
-  .hashtag-box:hover a {
-    color: #fff;
-  }
+
   /* 드롭다운 메뉴 박스 */
   .dropdown-menu-wrap {
     width: 100%;

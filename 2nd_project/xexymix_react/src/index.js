@@ -11,6 +11,7 @@ import { Best } from "./pages/best";
 import { Woman } from "./pages/woman";
 import { Man } from "./pages/man";
 import { Community } from "./pages/community";
+import { Search } from "./pages/search";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,6 +47,9 @@ function App() {
 
           {/* 커뮤니티 */}
           <Route path="community" element={<Community />} />
+
+          {/* 검색 페이지 */}
+          <Route path="search" element={<Search />} />
         </Route>
       </Routes>
     </BrowserRouter>

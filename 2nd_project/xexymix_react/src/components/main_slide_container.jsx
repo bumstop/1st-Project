@@ -2,7 +2,7 @@ import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useRef, useState } from "react";
-import { filteredItem, filteredItemSame } from "../func/filter_func";
+import { filteredItemSame } from "../func/filter_func";
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
 export function MainSlideContainer(props) {
   const [isPlay, setIsPlay] = useState(true);
