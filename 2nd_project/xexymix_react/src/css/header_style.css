@@ -174,12 +174,12 @@
   .search-btn {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 2%;
     transform: translate(0, -50%);
     width: 35px;
     height: 35px;
     border: none;
-    background: url(../../public/images/aside_search_btn.png) no-repeat center;
+    background: url(../../public/images/aside_search_btn.png) no-repeat center/cover;
     opacity: 0;
   }
   .on .search-btn {

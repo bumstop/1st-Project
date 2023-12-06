@@ -26,6 +26,7 @@ function App() {
   useEffect(() => {
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
+  
 
   return (
     <BrowserRouter>

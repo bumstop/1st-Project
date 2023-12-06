@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
+
 /** 드롭다운메뉴
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
@@ -64,15 +65,15 @@ export function SearchMenu(props) {
     props.searchToggleFunc();
   };
   const searchRef = useRef();
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   // 검색어를 가지고 search 페이지로 이동
   const goSearch = (searchValue) => {
     searchToggle();
     console.log("검색 입력값:", searchValue);
     navigate("/search", { state: { keyword: searchValue } });
+    searchRef.current.value = "";
   };
-
   return (
     <div className={"search-menu-wrap" + (props.state ? " on" : "")}>
       <div className="search-menu">

@@ -1,7 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
 import { filteredItem } from "../func/filter_func";
 import { makeItemBox } from "../components/item_box";
+import { useRef } from "react";
 
 export function Search() {
   const location = useLocation();
@@ -9,6 +10,16 @@ export function Search() {
   console.log(searchkeyword);
   const searchItems = filteredItem(itemInfo, "name", searchkeyword);
   const searchEa = searchItems.length;
+
+  const searchRef = useRef();
+
+  const navigate = useNavigate();
+  // 검색어를 가지고 search 페이지로 이동
+  const goSearch = (searchValue) => {
+    console.log("검색 입력값:", searchValue);
+    navigate("/search", { state: { keyword: searchValue } });
+  };
+
   return (
     <>
       <div className="search-head-container">
@@ -21,7 +32,17 @@ export function Search() {
             개의 통합 검색결과입니다.
           </div>
           <div className="search-box-wrap">
-            <input className="search-box" type="text" />
+            <input
+              ref={searchRef}
+              className="search-box"
+              type="text"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") goSearch(searchRef.current.value);
+              }}
+            />
+            <button
+              className="search-btn"
+              onClick={() => goSearch(searchRef.current.value)}></button>
           </div>
         </div>
       </div>
