@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { addressInfo } from "../data/address_info";
 const addressInfoKeys = Object.keys(addressInfo);
 // const addressValues = Object.values(addressInfo);
@@ -22,7 +23,7 @@ function FooterLeft() {
       </div>
       <ul className="footer-left-menu">
         {footerLeftMenus.map((v, i, a) => (
-          <li key={v} style={{display:"contents"}}>
+          <li key={v} style={{ display: "contents" }}>
             <span>
               <a href="#!">{v}</a>
             </span>

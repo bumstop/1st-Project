@@ -80,11 +80,8 @@ export function Community() {
   ));
 
   // 검색기능
-  const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const searchFaq = (searchValue) => {
-    setSearchInput(searchValue);
-
     const filteredData = faqListAll.filter((item) => {
       return Object.values(item).join("").includes(searchValue);
     });
