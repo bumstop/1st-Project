@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /**
  *  info: v : 불러올 info.js 데이터 파일의 values 배열객체
  *
@@ -37,7 +39,7 @@ export function makeItemBox(v) {
     ));
 
   return (
-    <a href="#!">
+    <Link to={''}  state={{ keyword: "" }}>
       <div className="item-img-box">
         <img src={v.imgSrc} alt={v.name} />
       </div>
@@ -47,6 +49,6 @@ export function makeItemBox(v) {
         <div className="item-icon-box">{itemIcon}</div>
         <div className="item-desc-box">{descText}</div>
       </div>
-    </a>
+    </Link>
   );
 }
