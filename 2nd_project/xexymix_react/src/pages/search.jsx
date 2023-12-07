@@ -114,17 +114,6 @@ export function Search() {
         </div>
         <div ref={ItemBoxWrapRef} className="item-box-wrap">
           {makeItemBoxWrap()}
-          {/* {filteredItem(itemInfo, "descMain", searchkeyword).map((v) => (
-            <div className="item-box" key={v.name}>
-              {makeItemBox(v)}
-            </div>
-          ))}
-          {filteredItem(itemInfo, "descSub", searchkeyword).map((v) => (
-            <div className="item-box" key={v.name}>
-              {makeItemBox(v)}
-            </div>
-          ))} */}
-          {/* 겹치는 데이터 삭제 필요함 */}
         </div>
       </div>
     </>
