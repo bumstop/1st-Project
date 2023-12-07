@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
 import { faqList } from "../data/faq_list";
 import { noticeList } from "../data/notice_list";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 export function Community() {
+  const [categoryNow, setCategoryNow] = useState("전체보기");
 
   const toggleShowFaqAnswer = (e) => {
     const nextEle = e.currentTarget.nextElementSibling;
-    nextEle.classList.toggle('on');
-  }
+    nextEle.classList.toggle("on");
+  };
   const CommuSub = gnbMenu.gnbCategory.filter((v) => v.txt === "커뮤니티")[0].sub;
 
   const makeCommuCate = CommuSub.map((v) => (
@@ -30,7 +31,7 @@ export function Community() {
             <p key={v}>
               {v}
               <br />
-							<br />
+              <br />
             </p>
           ))}
         </div>
@@ -38,16 +39,42 @@ export function Community() {
     </Fragment>
   ));
   const makeFaqList2 = faqList["배송"].map((v) => (
-    <li key={v.q}>
-      <div className="faq-list-category">배송</div>
-      <div className="faq-list-question">{v.q}</div>
-    </li>
+    <Fragment key={v.q}>
+      <li onClick={toggleShowFaqAnswer}>
+        <div className="faq-list-category">배송</div>
+        <div className="faq-list-question">{v.q}</div>
+      </li>
+      <li className="faq-list-answer">
+        <div>
+          {v.a.split("^").map((v) => (
+            <p key={v}>
+              {v}
+              <br />
+              <br />
+            </p>
+          ))}
+        </div>
+      </li>
+    </Fragment>
   ));
   const makeFaqList3 = faqList["교환/반품"].map((v) => (
-    <li key={v.q}>
-      <div className="faq-list-category">교환/반품</div>
-      <div className="faq-list-question">{v.q}</div>
-    </li>
+    <Fragment key={v.q}>
+      <li onClick={toggleShowFaqAnswer}>
+        <div className="faq-list-category">교환/반품</div>
+        <div className="faq-list-question">{v.q}</div>
+      </li>
+      <li className="faq-list-answer">
+        <div>
+          {v.a.split("^").map((v) => (
+            <p key={v}>
+              {v}
+              <br />
+              <br />
+            </p>
+          ))}
+        </div>
+      </li>
+    </Fragment>
   ));
 
   // 공지사항 리스트 생성 변수
@@ -93,12 +120,37 @@ export function Community() {
         <div className="faq-box">
           <div className="faq-box-title">자주 찾는 질문</div>
           <ul className="faq-category">
-            <li>전체보기</li>
-            <li>주문/결제</li>
-            <li>배송</li>
-            <li>교환/반품</li>
+            <li
+              className={categoryNow === "전체보기" ? "on" : ""}
+              onClick={() => setCategoryNow("전체보기")}>
+              전체보기
+            </li>
+            <li
+              className={categoryNow === "주문/결제" ? "on" : ""}
+              onClick={() => setCategoryNow("주문/결제")}>
+              주문/결제
+            </li>
+            <li
+              className={categoryNow === "배송" ? "on" : ""}
+              onClick={() => setCategoryNow("배송")}>
+              배송
+            </li>
+            <li
+              className={categoryNow === "교환/반품" ? "on" : ""}
+              onClick={() => setCategoryNow("교환/반품")}>
+              교환/반품
+            </li>
           </ul>
-          <ul className="faq-list">{makeFaqList1}</ul>
+          <ul className="faq-list">
+            {categoryNow === "전체보기" && [
+              ...makeFaqList1,
+              ...makeFaqList2,
+              ...makeFaqList3,
+            ]}
+            {categoryNow === "주문/결제" && makeFaqList1}
+            {categoryNow === "배송" && makeFaqList2}
+            {categoryNow === "교환/반품" && makeFaqList3}
+          </ul>
         </div>
         <div className="right-box">
           <div className="notice-box">

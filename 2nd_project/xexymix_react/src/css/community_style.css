@@ -105,12 +105,14 @@
 }
 .faq-box-title {
   font-size: 22px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 .faq-category {
   display: flex;
+  box-sizing: border-box;
   border-bottom: 2px solid #000;
 }
+
 .faq-category li {
   flex-basis: 110px;
   height: 35px;
@@ -122,9 +124,16 @@
   line-height: 35px;
   font-size: 13px;
   letter-spacing: 1px;
+  cursor: pointer;
 }
+
 .faq-category li:last-child {
   border-right: 1px solid #c6c6c6;
+}
+.faq-category li.on {
+  border: 2px solid #000;
+  border-bottom: 2px solid #fff;
+
 }
 .faq-list {
   font-size: 14px;
@@ -140,10 +149,12 @@
   text-align: center;
   width: 110px;
   box-sizing: border-box;
+  cursor: pointer;  
 }
 /* faq 질문 */
 .faq-list-question {
   padding: 17px;
+  cursor: pointer;
   flex-grow: 1;
 }
 .faq-list-question::before {
@@ -193,7 +204,7 @@
 
 /* 공지사항 박스 */
 .notice-box-title {
-  padding-bottom: 3px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #111;
   font-size: 21px;
 }
@@ -206,7 +217,7 @@
 }
 /* 이벤트 박스 */
 .event-box-title {
-  padding-bottom: 3px;
+  padding-bottom: 10px;
   margin-top: 44px;
   border-bottom: 1px solid #111;
   font-size: 21px;
