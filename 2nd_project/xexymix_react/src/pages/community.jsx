@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
 import { faqList } from "../data/faq_list";
 import { noticeList } from "../data/notice_list";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { filteredItem } from "../func/filter_func";
 export function Community() {
   const [categoryNow, setCategoryNow] = useState("전체보기");
-
+  const faqSearchRef = useRef();
+  const faqListAll = faqList["주문/결제"].concat(faqList["배송"], faqList["교환/반품"]);
   const toggleShowFaqAnswer = (e) => {
     const nextEle = e.currentTarget.nextElementSibling;
     nextEle.classList.toggle("on");
@@ -77,6 +79,19 @@ export function Community() {
     </Fragment>
   ));
 
+  // 검색기능
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredResults, setFilteredResults] = useState([]);
+  const searchFaq = (searchValue) => {
+    setSearchInput(searchValue);
+
+    const filteredData = faqListAll.filter((item) => {
+      return Object.values(item).join("").includes(searchValue);
+    });
+    console.log(searchValue, filteredData);
+    setFilteredResults(filteredData);
+  };
+
   // 공지사항 리스트 생성 변수
   const makeNoticeList = noticeList.map((v) => (
     <Link to={v.link} className="notice-list-item" key={v.txt}>
@@ -102,8 +117,21 @@ export function Community() {
               <option defaultValue="3">배송</option>
               <option defaultValue="4">교환/반품</option>
             </select>
-            <input id="faq-search" type="text"></input>
-            <button></button>
+            <input
+              ref={faqSearchRef}
+              id="faq-search"
+              type="text"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  searchFaq(faqSearchRef.current.value);
+                  setCategoryNow("검색");
+                }
+              }}></input>
+            <button
+              onClick={() => {
+                searchFaq(faqSearchRef.current.value);
+                setCategoryNow("검색");
+              }}></button>
           </fieldset>
         </div>
         <div className="cs-info">
@@ -150,6 +178,26 @@ export function Community() {
             {categoryNow === "주문/결제" && makeFaqList1}
             {categoryNow === "배송" && makeFaqList2}
             {categoryNow === "교환/반품" && makeFaqList3}
+            {categoryNow === "검색" &&
+              filteredResults.map((v) => (
+                <Fragment key={v.q}>
+                  <li onClick={toggleShowFaqAnswer}>
+                    <div className="faq-list-category">{v.cat}</div>
+                    <div className="faq-list-question">{v.q}</div>
+                  </li>
+                  <li className="faq-list-answer">
+                    <div>
+                      {v.a.split("^").map((v) => (
+                        <p key={v}>
+                          {v}
+                          <br />
+                          <br />
+                        </p>
+                      ))}
+                    </div>
+                  </li>
+                </Fragment>
+              ))}
           </ul>
         </div>
         <div className="right-box">
