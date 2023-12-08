@@ -29,7 +29,7 @@ function App() {
   
   // "homepage": "https://bumstop.github.io/react_xexymix_clone/",
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -55,7 +55,7 @@ function App() {
           <Route path="search" element={<Search />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

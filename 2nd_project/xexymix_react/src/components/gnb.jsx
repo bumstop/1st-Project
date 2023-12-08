@@ -132,13 +132,14 @@ export function Gnb() {
     v.txt === "search" ? (
       <li className={v.txt + "-icon"} key={v.txt} onClick={searchToggle}>
         <button>
-          <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} />
+          <img src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`} alt={v.txt} />
         </button>
       </li>
     ) : (
       <li className={v.txt + "-icon"} key={v.txt}>
         <Link to={v.link}>
-          <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} />
+          <img src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`} alt={v.txt} />
+          {/* <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} /> */}
         </Link>
       </li>
     )
