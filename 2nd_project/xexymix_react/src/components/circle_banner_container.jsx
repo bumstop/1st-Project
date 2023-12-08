@@ -12,7 +12,7 @@ export function CircleBannerContainer() {
       {circleBannerItems.map((v) => (
         <div className="circle-item" key={v}>
           <a href="#!">
-            <img src={"./images/circle_banner/slide_" + v[0] + ".png"} alt="이미지" />
+            <img src={`${process.env.PUBLIC_URL}/images/circle_banner/slide_${v[0]}.png`} alt="이미지" />
             <span className="circle-item-txt">
               {v[1][0]}
               <br />

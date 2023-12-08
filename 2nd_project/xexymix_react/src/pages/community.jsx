@@ -207,13 +207,13 @@ export function Community() {
             <div className="event-box-title">이벤트</div>
             <div className="event-list">
               <div className="event-list-item">
-                <img src="./images/event_thumb1.jpg" alt="event_thumb1" />
+                <img src={`${process.env.PUBLIC_URL}/images/event_thumb1.jpg`} alt="event_thumb1" />
               </div>
               <div className="event-list-item">
-                <img src="./images/event_thumb2.jpg" alt="event_thumb2" />
+                <img src={`${process.env.PUBLIC_URL}/images/event_thumb2.jpg`} alt="event_thumb2" />
               </div>
               <div className="event-list-item">
-                <img src="./images/event_thumb3.jpg" alt="event_thumb3" />
+                <img src={`${process.env.PUBLIC_URL}/images/event_thumb3.jpg`} alt="event_thumb3" />
               </div>
             </div>
           </div>

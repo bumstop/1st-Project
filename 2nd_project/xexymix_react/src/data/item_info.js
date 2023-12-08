@@ -1,6 +1,6 @@
 export const itemInfo = [
   {
-    imgSrc: "./images/woman/woman1.jpg",
+    imgSrc: "/images/woman/woman1.jpg",
     name: "V업 3D 플러스 레깅스 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -11,7 +11,7 @@ export const itemInfo = [
     descSub: "#국민레깅스 1위",
   },
   {
-    imgSrc: "./images/woman/woman2.jpg",
+    imgSrc: "/images/woman/woman2.jpg",
     name: "블랙라벨 시그니처 360N 레깅스 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -22,7 +22,7 @@ export const itemInfo = [
     descSub: "#360N 시리즈 #쫀득 텍스처",
   },
   {
-    imgSrc: "./images/woman/woman3.jpg",
+    imgSrc: "/images/woman/woman3.jpg",
     name: "블랙라벨 시그니처 380N 레깅스 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -33,7 +33,7 @@ export const itemInfo = [
     descSub: "#누적판매 100만",
   },
   {
-    imgSrc: "./images/woman/woman4.jpg",
+    imgSrc: "/images/woman/woman4.jpg",
     name: "젤라 인텐션 기모 와이드 레깅스 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -44,7 +44,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman5.jpg",
+    imgSrc: "/images/woman/woman5.jpg",
     name: "블랙라벨 시그니처 360N 더블플러피 기모 레깅스 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -55,7 +55,7 @@ export const itemInfo = [
     descSub: "#기모 레깅스 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman6.jpg",
+    imgSrc: "/images/woman/woman6.jpg",
     name: "젤라 인텐션 부츠컷 팬츠 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -66,7 +66,7 @@ export const itemInfo = [
     descSub: "기본 or 트임 디자인 교차선택 가능",
   },
   {
-    imgSrc: "./images/woman/woman7.jpg",
+    imgSrc: "/images/woman/woman7.jpg",
     name: "멜팅 터치 릴랙스 부츠컷 팬츠 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -77,7 +77,7 @@ export const itemInfo = [
     descSub: "9부 or 10부 교차선택 가능",
   },
   {
-    imgSrc: "./images/woman/woman8.jpg",
+    imgSrc: "/images/woman/woman8.jpg",
     name: "[전문가용] 블랙라벨 380N SET",
     type: ["top", "bottom", "leggings"],
     category: "WOMENS",
@@ -88,7 +88,7 @@ export const itemInfo = [
     descSub: "고강도 퍼포먼스 최적화",
   },
   {
-    imgSrc: "./images/woman/woman9.jpg",
+    imgSrc: "/images/woman/woman9.jpg",
     name: "블랙라벨 시그니처 360N 레깅스 4.5부 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -99,7 +99,7 @@ export const itemInfo = [
     descSub: "#기모 레깅스 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman10.jpg",
+    imgSrc: "/images/woman/woman10.jpg",
     name: "블랙라벨 시그니처 360N 로고 밴딩 SET",
     type: ["top", "bottom", "leggings"],
     category: "WOMENS",
@@ -110,7 +110,7 @@ export const itemInfo = [
     descSub: "#360N 시리즈",
   },
   {
-    imgSrc: "./images/woman/woman11.jpg",
+    imgSrc: "/images/woman/woman11.jpg",
     name: "아이스페더 컴포트 숏슬리브 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -121,7 +121,7 @@ export const itemInfo = [
     descSub: "레귤러핏 아이스페더",
   },
   {
-    imgSrc: "./images/woman/woman12.jpg",
+    imgSrc: "/images/woman/woman12.jpg",
     name: "에어센트 숏슬리브 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -132,7 +132,7 @@ export const itemInfo = [
     descSub: "#흡한속건 #쿨링",
   },
   {
-    imgSrc: "./images/woman/woman13.jpg",
+    imgSrc: "/images/woman/woman13.jpg",
     name: "필리퍼 오버핏 티셔츠 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -143,7 +143,7 @@ export const itemInfo = [
     descSub: "#오버핏 티셔츠 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman14.jpg",
+    imgSrc: "/images/woman/woman14.jpg",
     name: "헤바 크롭탑 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -154,7 +154,7 @@ export const itemInfo = [
     descSub: "#국민크롭탑",
   },
   {
-    imgSrc: "./images/woman/woman15.jpg",
+    imgSrc: "/images/woman/woman15.jpg",
     name: "젤라라이트 라운드 슬리브리스 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -165,7 +165,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman16.jpg",
+    imgSrc: "/images/woman/woman16.jpg",
     name: "필리퍼 오버핏 티셔츠 블랙",
     type: ["top"],
     category: "WOMENS",
@@ -176,7 +176,7 @@ export const itemInfo = [
     descSub: "#오버핏 티셔츠 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman17.jpg",
+    imgSrc: "/images/woman/woman17.jpg",
     name: "필리퍼 오버핏 티셔츠 피치크림",
     type: ["top"],
     category: "WOMENS",
@@ -187,7 +187,7 @@ export const itemInfo = [
     descSub: "#오버핏 티셔츠 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman18.jpg",
+    imgSrc: "/images/woman/woman18.jpg",
     name: "XXMX 세미 루즈핏 티셔츠 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -198,7 +198,7 @@ export const itemInfo = [
     descSub: "#오버핏 티셔츠 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman19.jpg",
+    imgSrc: "/images/woman/woman19.jpg",
     name: "헤바 크롭탑 블랙",
     type: ["top"],
     category: "WOMENS",
@@ -209,7 +209,7 @@ export const itemInfo = [
     descSub: "#국민크롭탑",
   },
   {
-    imgSrc: "./images/woman/woman20.jpg",
+    imgSrc: "/images/woman/woman20.jpg",
     name: "스파키 숏슬리브 백아이보리",
     type: ["top"],
     category: "WOMENS",
@@ -220,7 +220,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman21.jpg",
+    imgSrc: "/images/woman/woman21.jpg",
     name: "프레쉬페더 트위스트 크롭 숏슬리브 블랙",
     type: ["top"],
     category: "WOMENS",
@@ -231,7 +231,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman22.jpg",
+    imgSrc: "/images/woman/woman22.jpg",
     name: "프레쉬페더 트위스트 크롭 숏슬리브 백아이보리",
     type: ["top"],
     category: "WOMENS",
@@ -242,7 +242,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman23.jpg",
+    imgSrc: "/images/woman/woman23.jpg",
     name: "언밸런스 트임 숏슬리브 1+1",
     type: ["top"],
     category: "WOMENS",
@@ -253,7 +253,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman24.jpg",
+    imgSrc: "/images/woman/woman24.jpg",
     name: "젤라라이트 라운드 크롭탑 멜로우그레이",
     type: ["top"],
     category: "WOMENS",
@@ -264,7 +264,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman25.jpg",
+    imgSrc: "/images/woman/woman25.jpg",
     name: "사이드 슬릿 숏슬리브",
     type: ["top"],
     category: "WOMENS",
@@ -275,7 +275,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman26.jpg",
+    imgSrc: "/images/woman/woman26.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 블랙",
     type: ["bottom", "tapered"],
     category: "WOMENS",
@@ -286,7 +286,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman27.jpg",
+    imgSrc: "/images/woman/woman27.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 타이니크림",
     type: ["bottom", "tapered"],
     category: "WOMENS",
@@ -297,7 +297,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman28.jpg",
+    imgSrc: "/images/woman/woman28.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 오크베이지",
     type: ["bottom", "tapered"],
     category: "WOMENS",
@@ -308,7 +308,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman29.jpg",
+    imgSrc: "/images/woman/woman29.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 뮤트그레이",
     type: ["bottom", "tapered"],
     category: "WOMENS",
@@ -319,7 +319,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman30.jpg",
+    imgSrc: "/images/woman/woman30.jpg",
     name: "우븐 스트레치 기모 테이퍼드 팬츠 로드네이비",
     type: ["bottom", "tapered"],
     category: "WOMENS",
@@ -330,7 +330,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman31.jpg",
+    imgSrc: "/images/woman/woman31.jpg",
     name: "젝시믹스 라인 트랙 팬츠 쉬머크림",
     type: ["bottom"],
     category: "WOMENS",
@@ -341,7 +341,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman32.jpg",
+    imgSrc: "/images/woman/woman32.jpg",
     name: "젝시믹스 라인 트랙 팬츠 뮤즈라벤더",
     type: ["bottom"],
     category: "WOMENS",
@@ -352,7 +352,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman33.jpg",
+    imgSrc: "/images/woman/woman33.jpg",
     name: "젝시믹스 라인 트랙 팬츠 피스타치오",
     type: ["bottom"],
     category: "WOMENS",
@@ -363,7 +363,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman34.jpg",
+    imgSrc: "/images/woman/woman34.jpg",
     name: "젝시믹스 라인 트랙 팬츠 클라우드핑크",
     type: ["bottom"],
     category: "WOMENS",
@@ -374,7 +374,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman35.jpg",
+    imgSrc: "/images/woman/woman35.jpg",
     name: "하이넥 웰론 패딩 블랙",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -385,7 +385,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman36.jpg",
+    imgSrc: "/images/woman/woman36.jpg",
     name: "하이넥 웰론 패딩 도버크림",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -396,7 +396,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman37.jpg",
+    imgSrc: "/images/woman/woman37.jpg",
     name: "하이넥 웰론 패딩 브라이드핑크",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -407,7 +407,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman38.jpg",
+    imgSrc: "/images/woman/woman38.jpg",
     name: "하이넥 오버핏 패딩 베스트 블랙",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -418,7 +418,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman39.jpg",
+    imgSrc: "/images/woman/woman39.jpg",
     name: "루즈핏 에코 퍼 자켓 블랙",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -429,7 +429,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman40.jpg",
+    imgSrc: "/images/woman/woman40.jpg",
     name: "루즈핏 에코 퍼 자켓 베어하프",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -440,7 +440,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman41.jpg",
+    imgSrc: "/images/woman/woman41.jpg",
     name: "루즈핏 에코 퍼 자켓 스노우크림",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -451,7 +451,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman42.jpg",
+    imgSrc: "/images/woman/woman42.jpg",
     name: "우먼즈 체커보드 플리스 리버서블 베스트 라이트베이지",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -462,7 +462,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman43.jpg",
+    imgSrc: "/images/woman/woman43.jpg",
     name: "내핑 후드 집업 멜란지그레이",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -473,7 +473,7 @@ export const itemInfo = [
     descSub: "#4년 연속 아우터 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman44.jpg",
+    imgSrc: "/images/woman/woman44.jpg",
     name: "젤라 인텐션 슬림핏 집업자켓 1+1",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -484,7 +484,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman45.jpg",
+    imgSrc: "/images/woman/woman45.jpg",
     name: "내핑 후드 집업 블랙",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -495,7 +495,7 @@ export const itemInfo = [
     descSub: "#4년 연속 아우터 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman46.jpg",
+    imgSrc: "/images/woman/woman46.jpg",
     name: "내핑 후드 집업 크림",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -506,7 +506,7 @@ export const itemInfo = [
     descSub: "#4년 연속 아우터 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman47.jpg",
+    imgSrc: "/images/woman/woman47.jpg",
     name: "하이커 크롭 바람막이 블랙",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -517,7 +517,7 @@ export const itemInfo = [
     descSub: "#4년 연속 아우터 판매 1위",
   },
   {
-    imgSrc: "./images/woman/woman48.jpg",
+    imgSrc: "/images/woman/woman48.jpg",
     name: "슬림핏 크롭 집업자켓 1+1",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -528,7 +528,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman49.jpg",
+    imgSrc: "/images/woman/woman49.jpg",
     name: "쉐르파 하이넥 점퍼 스모크베이지",
     type: ["top", "outer"],
     category: "WOMENS",
@@ -539,7 +539,7 @@ export const itemInfo = [
     descSub: "#품절주의",
   },
   {
-    imgSrc: "./images/woman/woman50.jpg",
+    imgSrc: "/images/woman/woman50.jpg",
     name: "블랙라벨 시그니처 360N 라이트 조거레깅스 모스올리브",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -550,7 +550,7 @@ export const itemInfo = [
     descSub: "#품절주의",
   },
   {
-    imgSrc: "./images/woman/woman51.jpg",
+    imgSrc: "/images/woman/woman51.jpg",
     name: "V업 3D 플러스 레깅스 카본네이비",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -561,7 +561,7 @@ export const itemInfo = [
     descSub: "#국민레깅스 1위",
   },
   {
-    imgSrc: "./images/woman/woman52.jpg",
+    imgSrc: "/images/woman/woman52.jpg",
     name: "젤라 인텐션 하드플러피 기모 레깅스 애쉬네이비",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -572,7 +572,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman53.jpg",
+    imgSrc: "/images/woman/woman53.jpg",
     name: "젤라 인텐션 하드플러피 기모 레깅스 포레스트나잇",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -583,7 +583,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman54.jpg",
+    imgSrc: "/images/woman/woman54.jpg",
     name: "블랙라벨 시그니처 360N 라이트 조거레깅스 실키핑크",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -594,7 +594,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman55.jpg",
+    imgSrc: "/images/woman/woman55.jpg",
     name: "젤라 인텐션 바이커 쇼츠 5부 1+1",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -605,7 +605,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman56.jpg",
+    imgSrc: "/images/woman/woman56.jpg",
     name: "젤라 인텐션 바이커 쇼츠 3부 블랙",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -616,7 +616,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman57.jpg",
+    imgSrc: "/images/woman/woman57.jpg",
     name: "젤라 인텐션 바이커 쇼츠 5부 블랙",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -627,7 +627,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/woman/woman58.jpg",
+    imgSrc: "/images/woman/woman58.jpg",
     name: "블랙라벨 시그니처 360N 트랙라인 4부 쇼츠 블랙",
     type: ["bottom", "leggings"],
     category: "WOMENS",
@@ -638,7 +638,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man1.jpg",
+    imgSrc: "/images/man/man1.jpg",
     name: "오버핏 리버서블 퍼 자켓 블랙",
     type: ["top", "outer", "bottom"],
     category: "MENS",
@@ -649,7 +649,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man2.jpg",
+    imgSrc: "/images/man/man2.jpg",
     name: "커뮤터 스트레치 라이트 패딩 자켓 애쉬카키",
     type: ["top", "outer"],
     category: "MENS",
@@ -660,7 +660,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man3.jpg",
+    imgSrc: "/images/man/man3.jpg",
     name: "맨즈 리버서블 포켓 퀼티드 자켓 사파리카키",
     type: ["top", "outer"],
     category: "MENS",
@@ -671,7 +671,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man4.jpg",
+    imgSrc: "/images/man/man4.jpg",
     name: "텍스처드 플리스 집업 자켓 블랙",
     type: ["top", "outer"],
     category: "MENS",
@@ -682,7 +682,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man5.jpg",
+    imgSrc: "/images/man/man5.jpg",
     name: "커뮤터 스트레치 라이트 롱 패딩 블랙",
     type: ["top", "outer"],
     category: "MENS",
@@ -693,7 +693,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man6.gif",
+    imgSrc: "/images/man/man6.gif",
     name: "리버서블 퀼팅 플리스 코트 블랙",
     type: ["top", "outer"],
     category: "MENS",
@@ -704,7 +704,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man7.jpg",
+    imgSrc: "/images/man/man7.jpg",
     name: "넥리스 심플 경량 패딩 다크그레이",
     type: ["top", "outer"],
     category: "MENS",
@@ -715,7 +715,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man8.jpg",
+    imgSrc: "/images/man/man8.jpg",
     name: "플렉스 집업 후디",
     type: ["top", "outer"],
     category: "MENS",
@@ -726,7 +726,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man9.jpg",
+    imgSrc: "/images/man/man9.jpg",
     name: "유틸라이트 포텐셜 롱슬리브 블랙",
     type: ["top"],
     category: "MENS",
@@ -737,7 +737,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man10.jpg",
+    imgSrc: "/images/man/man10.jpg",
     name: "프렌치 테리 하프집업 스웨트셔츠 네이비",
     type: ["top"],
     category: "MENS",
@@ -748,7 +748,7 @@ export const itemInfo = [
     descSub: "윤성빈's PICK!",
   },
   {
-    imgSrc: "./images/man/man11.jpg",
+    imgSrc: "/images/man/man11.jpg",
     name: "스포츠 윈드 테크 롱슬리브 블랙",
     type: ["top"],
     category: "MENS",
@@ -759,7 +759,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man12.jpg",
+    imgSrc: "/images/man/man12.jpg",
     name: "필드 하프집업 롱슬리브 1+1",
     type: ["top"],
     category: "MENS",
@@ -770,7 +770,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man13.jpg",
+    imgSrc: "/images/man/man13.jpg",
     name: "트리플 엑스 숏슬리브 1+2",
     type: ["top"],
     category: "MENS",
@@ -781,7 +781,7 @@ export const itemInfo = [
     descSub: "맨즈 상의 누적판매 1위 #윤성빈's PICK!",
   },
   {
-    imgSrc: "./images/man/man14.jpg",
+    imgSrc: "/images/man/man14.jpg",
     name: "하이쿨링 테크 숏슬리브 1+1",
     type: ["top"],
     category: "MENS",
@@ -792,7 +792,7 @@ export const itemInfo = [
     descSub: "윤성빈's PICK!",
   },
   {
-    imgSrc: "./images/man/man15.jpg",
+    imgSrc: "/images/man/man15.jpg",
     name: "베이직 로고 트랙 SET",
     type: ["top", "bottom"],
     category: "MENS",
@@ -803,7 +803,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man16.jpg",
+    imgSrc: "/images/man/man16.jpg",
     name: "우븐 스트레치 버닝 SET",
     type: ["top", "bottom"],
     category: "MENS",
@@ -814,7 +814,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man17.jpg",
+    imgSrc: "/images/man/man17.jpg",
     name: "데일리 에코티브 티셔츠 1+1",
     type: ["top"],
     category: "MENS",
@@ -825,7 +825,7 @@ export const itemInfo = [
     descSub: "숏슬리브 or 롱슬리브 교차선택 가능",
   },
   {
-    imgSrc: "./images/man/man18.jpg",
+    imgSrc: "/images/man/man18.jpg",
     name: "머슬핏 듀얼 롱슬리브 1+1",
     type: ["top"],
     category: "MENS",
@@ -836,7 +836,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man19.jpg",
+    imgSrc: "/images/man/man19.jpg",
     name: "필드 하프집업 롱슬리브",
     type: ["top"],
     category: "MENS",
@@ -847,7 +847,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man20.jpg",
+    imgSrc: "/images/man/man20.jpg",
     name: "트리플 엑스 숏슬리브",
     type: ["top"],
     category: "MENS",
@@ -858,7 +858,7 @@ export const itemInfo = [
     descSub: "#윤성빈's PICK!",
   },
   {
-    imgSrc: "./images/man/man21.jpg",
+    imgSrc: "/images/man/man21.jpg",
     name: "맨즈 아이스페더 숏슬리브 1+1",
     type: ["top"],
     category: "MENS",
@@ -869,7 +869,7 @@ export const itemInfo = [
     descSub: "오버핏 or 머슬핏 교차선택 가능",
   },
   {
-    imgSrc: "./images/man/man22.jpg",
+    imgSrc: "/images/man/man22.jpg",
     name: "액티브 플레이어 조거팬츠 SET",
     type: ["top", "bottom"],
     category: "MENS",
@@ -880,7 +880,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man23.jpg",
+    imgSrc: "/images/man/man23.jpg",
     name: "프렌치 테리 SET",
     type: ["top", "bottom"],
     category: "MENS",
@@ -891,7 +891,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man24.jpg",
+    imgSrc: "/images/man/man24.jpg",
     name: "액티브 플레이어 쇼츠 SET",
     type: ["top", "bottom"],
     category: "MENS",
@@ -902,7 +902,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man25.jpg",
+    imgSrc: "/images/man/man25.jpg",
     name: "사이드라인 조깅스 블랙",
     type: ["bottom"],
     category: "MENS",
@@ -913,7 +913,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man26.jpg",
+    imgSrc: "/images/man/man26.jpg",
     name: "올데이 기모 슬랙스 블랙",
     type: ["bottom"],
     category: "MENS",
@@ -924,7 +924,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man27.jpg",
+    imgSrc: "/images/man/man27.jpg",
     name: "올데이 기모 슬랙스 베이지",
     type: ["bottom"],
     category: "MENS",
@@ -935,7 +935,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man28.jpg",
+    imgSrc: "/images/man/man28.jpg",
     name: "올데이 기모 슬랙스 라이트그레이",
     type: ["bottom"],
     category: "MENS",
@@ -946,7 +946,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man29.jpg",
+    imgSrc: "/images/man/man29.jpg",
     name: "올데이 기모 슬랙스 다크그레이",
     type: ["bottom"],
     category: "MENS",
@@ -957,7 +957,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man30.jpg",
+    imgSrc: "/images/man/man30.jpg",
     name: "에센셜 스트레치 기모 슬랙스 블랙",
     type: ["bottom"],
     category: "MENS",
@@ -968,7 +968,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man31.jpg",
+    imgSrc: "/images/man/man31.jpg",
     name: "에센셜 스트레치 기모 슬랙스 베이지",
     type: ["bottom"],
     category: "MENS",
@@ -979,7 +979,7 @@ export const itemInfo = [
     descSub: "new color",
   },
   {
-    imgSrc: "./images/man/man32.jpg",
+    imgSrc: "/images/man/man32.jpg",
     name: "에센셜 스트레치 기모 슬랙스 템퍼그레이",
     type: ["bottom"],
     category: "MENS",
@@ -990,7 +990,7 @@ export const itemInfo = [
     descSub: null,
   },
   {
-    imgSrc: "./images/man/man33.jpg",
+    imgSrc: "/images/man/man33.jpg",
     name: "에센셜 스트레치 기모 슬랙스 템퍼네이비",
     type: ["bottom"],
     category: "MENS",

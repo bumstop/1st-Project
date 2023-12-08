@@ -38,7 +38,7 @@ export function makeItemBox(v) {
   return (
     <Link to={""} state={{ keyword: "" }}>
       <div className="item-img-box">
-        <img src={v.imgSrc} alt={v.name} />
+        <img src={process.env.PUBLIC_URL + v.imgSrc} alt={v.name} />
       </div>
       <div className="item-txt-box">
         <div className="item-name-box">{v.name}</div>

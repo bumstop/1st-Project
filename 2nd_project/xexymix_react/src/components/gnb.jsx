@@ -27,7 +27,7 @@ export function DropdownMenu(props) {
   const makeDropdownBanner = dropdownBanner.map((v) => (
     <div key={v}>
       <a href="#!">
-        <img src={"./images/menu_banner_" + v + ".jpg"} alt={v} />
+        <img src={`${process.env.PUBLIC_URL}/images/menu_banner_${v}.jpg`} alt={v} />
       </a>
     </div>
   ));
@@ -155,7 +155,7 @@ export function Gnb() {
         </div>
         <div className="top-logo">
           <Link to={"/home"}>
-            <img src="./images/header_logo_bk.png" alt="xexymix" />
+            <img src={`${process.env.PUBLIC_URL}/images/header_logo_bk.png`} alt="xexymix" />
           </Link>
         </div>
         <ul className="gnb-category">{makeGnbCategory}</ul>

@@ -20,7 +20,7 @@ export function SubSlideContainer() {
         {subSlideItems.map((v, i) => (
           <SwiperSlide className="sub-slide-item" key={v}>
             <a href="#!">
-              <img src={"./images/sub_slide/sub_slide_" + v + ".jpg"} alt="" />
+              <img src={`${process.env.PUBLIC_URL}/images/sub_slide/sub_slide_${v}.jpg`} alt="" />
             </a>
           </SwiperSlide>
         ))}
