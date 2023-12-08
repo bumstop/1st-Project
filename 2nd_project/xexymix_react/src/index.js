@@ -2,7 +2,7 @@
 import ReactDOM from "react-dom/client";
 import { useEffect } from "react";
 // Import react-router
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes, useLocation } from "react-router-dom";
 // Import pages
 import { Layout } from "./layout/layout";
 import { Home } from "./pages/home";
@@ -27,13 +27,15 @@ function App() {
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
   
-
+  // "homepage": "https://bumstop.github.io/react_xexymix_clone/",
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+
+          <Route path="home" element={<Home />} />
           {/* 신상할인 */}
           <Route path="new" element={<New />} />
 

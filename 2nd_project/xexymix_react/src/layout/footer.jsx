@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { addressInfo } from "../data/address_info";
+import { Link } from "react-router-dom";
 const addressInfoKeys = Object.keys(addressInfo);
 // const addressValues = Object.values(addressInfo);
 const footerLeftMenus = [
@@ -14,9 +15,9 @@ function FooterLeft() {
   return (
     <div className="footer-left">
       <div className="footer-left-top">
-        <a href="#!">
-          <img src="/images/header_logo_bk.png" alt="xexymix" />
-        </a>
+        <Link to={"/home"}>
+          <img src="./images/header_logo_bk.png" alt="xexymix" />
+        </Link>
         <span>
           애슬레저 1위, 브랜드 고객충성도 애슬레저룩 부문 3년 연속 대상 [2021. 2022. 2023]
         </span>
@@ -68,7 +69,7 @@ function FooterRight() {
               href="https://www.facebook.com/xexymix/"
               target="_blank"
               rel="noreferrer noopener">
-              <img src="/images/footer_fb.png" alt="xexymix-facebook" />
+              <img src="./images/footer_fb.png" alt="xexymix-facebook" />
             </a>
           </div>
           <div>
@@ -76,7 +77,7 @@ function FooterRight() {
               href="https://www.instagram.com/xexymix/"
               target="_blank"
               rel="noreferrer noopener">
-              <img src="/images/footer_insta.png" alt="xexymix-instagram" />
+              <img src="./images/footer_insta.png" alt="xexymix-instagram" />
             </a>
           </div>
           <div>
@@ -84,7 +85,7 @@ function FooterRight() {
               href="https://www.youtube.com/channel/UC24_5gTJkc-hDaEuG4DNbeQ"
               target="_blank"
               rel="noreferrer noopener">
-              <img src="/images/footer_youtube.png" alt="xexymix-youtube" />
+              <img src="./images/footer_youtube.png" alt="xexymix-youtube" />
             </a>
           </div>
         </div>

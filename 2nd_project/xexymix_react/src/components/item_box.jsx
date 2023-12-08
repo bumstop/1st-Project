@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
-/**
- *  info: v : 불러올 info.js 데이터 파일의 values 배열객체
- *
- */
+/** info: v : 불러올 info.js 데이터 파일의 values 배열객체 */
 export function makeItemBox(v) {
   /** 가격/할인/콤마 출력 */
   const priceFormat = v.sale ? (
@@ -39,7 +36,7 @@ export function makeItemBox(v) {
     ));
 
   return (
-    <Link to={''}  state={{ keyword: "" }}>
+    <Link to={""} state={{ keyword: "" }}>
       <div className="item-img-box">
         <img src={v.imgSrc} alt={v.name} />
       </div>

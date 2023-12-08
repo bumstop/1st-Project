@@ -3,11 +3,12 @@ import { gnbMenu } from "../data/gnb";
 import { faqList } from "../data/faq_list";
 import { noticeList } from "../data/notice_list";
 import { Fragment, useEffect, useRef, useState } from "react";
-import { filteredItem } from "../func/filter_func";
+
 export function Community() {
   const [categoryNow, setCategoryNow] = useState("전체보기");
   const faqSearchRef = useRef();
   const faqListAll = faqList["주문/결제"].concat(faqList["배송"], faqList["교환/반품"]);
+
   const toggleShowFaqAnswer = (e) => {
     const nextEle = e.currentTarget.nextElementSibling;
     nextEle.classList.toggle("on");
@@ -206,13 +207,13 @@ export function Community() {
             <div className="event-box-title">이벤트</div>
             <div className="event-list">
               <div className="event-list-item">
-                <img src="/images/event_thumb1.jpg" alt="event_thumb1" />
+                <img src="./images/event_thumb1.jpg" alt="event_thumb1" />
               </div>
               <div className="event-list-item">
-                <img src="/images/event_thumb2.jpg" alt="event_thumb2" />
+                <img src="./images/event_thumb2.jpg" alt="event_thumb2" />
               </div>
               <div className="event-list-item">
-                <img src="/images/event_thumb3.jpg" alt="event_thumb3" />
+                <img src="./images/event_thumb3.jpg" alt="event_thumb3" />
               </div>
             </div>
           </div>
