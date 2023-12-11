@@ -52,28 +52,28 @@ export function MainItemContainer() {
       <div className="seeing-box">
         <div className="main-item-title outer-title">
           <Link to={"/woman"}>
-            <img src="./images/woman/mainitem_woman_outer_title.jpg" alt="아우터" />
+            <img src={`${process.env.PUBLIC_URL}/images/woman/mainitem_woman_outer_title.jpg`} alt="아우터" />
             <div className="tit">아우터</div>
             <div className="more">더보기</div>
           </Link>
         </div>
         <div className="main-item-title man-title">
           <Link to={"/man"}>
-            <img src="./images/man/mainitem_man_title.jpg" alt="맨즈" />
+            <img src={`${process.env.PUBLIC_URL}/images/man/mainitem_man_title.jpg`} alt="맨즈" />
             <div className="tit">맨즈</div>
             <div className="more">더보기</div>
           </Link>
         </div>
         <div className="main-item-title top-title">
           <Link to={"/woman"}>
-            <img src="./images/woman/mainitem_woman_top_title.jpg" alt="상의" />
+            <img src={`${process.env.PUBLIC_URL}/images/woman/mainitem_woman_top_title.jpg`} alt="상의" />
             <div className="tit">상의</div>
             <div className="more">더보기</div>
           </Link>
         </div>
         <div className="main-item-title bottom-title">
           <Link to={"/woman"}>
-            <img src="./images/woman/mainitem_woman_bottom_title.jpg" alt="하의" />
+            <img src={`${process.env.PUBLIC_URL}/images/woman/mainitem_woman_bottom_title.jpg`} alt="하의" />
             <div className="tit">하의</div>
             <div className="more">더보기</div>
           </Link>

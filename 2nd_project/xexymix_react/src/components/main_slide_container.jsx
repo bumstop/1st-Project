@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useRef, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
+import { Link } from "react-router-dom";
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
 export function MainSlideContainer(props) {
   const [isPlay, setIsPlay] = useState(true);
@@ -41,27 +42,25 @@ export function MainSlideContainer(props) {
         className="main-slide-container">
         {Array.isArray(props.category) && (
           <SwiperSlide className="main-slide-item event-item">
-            <a href="#!"></a>
+            <Link to={"/"}></Link>
           </SwiperSlide>
         )}
 
         {filterData.map((v) => (
           <SwiperSlide className="main-slide-item" key={v.imgSrc}>
-            <a href="#!">
-              <img src={v.imgSrc} alt="이미지" />
-              <div className="main-slide-item-txt-box">
-                <div className="main-slide-item-category">{v.category}</div>
-                <div className="main-slide-item-title">
-                  {v.title.map((v, i, a) => (
-                    <span key={i}>
-                      {v}
-                      {a.length === 1 ? "" : !i ? <br /> : ""}
-                    </span>
-                  ))}
-                </div>
-                <div className="main-slide-item-desc">{v.desc}</div>
+            <img src={process.env.PUBLIC_URL + v.imgSrc} alt="이미지" />
+            <div className="main-slide-item-txt-box">
+              <div className="main-slide-item-category">{v.category}</div>
+              <div className="main-slide-item-title">
+                {v.title.map((v, i, a) => (
+                  <span key={i}>
+                    {v}
+                    {a.length === 1 ? "" : !i ? <br /> : ""}
+                  </span>
+                ))}
               </div>
-            </a>
+              <div className="main-slide-item-desc">{v.desc}</div>
+            </div>
           </SwiperSlide>
         ))}
         <div

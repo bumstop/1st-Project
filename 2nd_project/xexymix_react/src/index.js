@@ -12,6 +12,7 @@ import { Woman } from "./pages/woman";
 import { Man } from "./pages/man";
 import { Community } from "./pages/community";
 import { Search } from "./pages/search";
+import { Product } from "./pages/product";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -26,7 +27,7 @@ function App() {
   useEffect(() => {
     window.onbeforeunload = () => window.scrollTo(0, 0);
   }, []);
-  
+
   // "homepage": "https://bumstop.github.io/react_xexymix_clone/",
   return (
     <HashRouter>
@@ -53,6 +54,9 @@ function App() {
 
           {/* 검색 페이지 */}
           <Route path="search" element={<Search />} />
+
+          {/* 상품 상세 페이지 */}
+          <Route path="product/:productId" element={<Product />} />
         </Route>
       </Routes>
     </HashRouter>
