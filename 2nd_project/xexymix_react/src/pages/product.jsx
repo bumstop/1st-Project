@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDidMountEffect } from "../func/useDidMountEffect";
 import { useParams } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
@@ -8,7 +8,6 @@ export function Product() {
   const params = useParams();
   const product = itemInfo.filter((v) => v.id === params.productId)[0];
   const productOrderedBoxRef = useRef();
-  const counterRef = useRef();
   const [selectText, setSelectText] = useState();
   const selectProductOptionRef = useRef();
 
@@ -21,6 +20,7 @@ export function Product() {
   ) : (
     <span>{Number(product.price).toLocaleString()}원</span>
   );
+
   /** 상품 옵션 선택 출력 */
   const makeProductOption = (
     <>
@@ -35,25 +35,43 @@ export function Product() {
     </>
   );
 
+  /** 상품 수량 및 가격 표시 박스 컴포넌트 */
   const ProductOrderedList = () => {
-    const countInputValueRef = useRef(1);
-    console.log(countInputValueRef.current)
+    const [count, setCount] = useState(1);
+    const price = product.sale
+      ? (Number(product.sale) * count).toLocaleString()
+      : (Number(product.price) * count).toLocaleString();
+
+    const [optionPrice, setOptionPrice] = useState(count);
+    
+    const countInputRef = useRef();
+
+    const changeCount = (state) => {
+      state === "minus" && setCount(count - 1);
+      state === "plus" && setCount(count + 1);
+    };
+
+    useDidMountEffect(() => {
+      console.log(count);
+      countInputRef.current.value = count;
+    });
+
     return (
       <div className="product-ordered-list">
         <span className="option-name">{selectText}</span>
         <div className="option-counter">
-          <div className="minus-btn" onClick={() => countInputValueRef.current = countInputValueRef.current -1}></div>
+          <div className="minus-btn" onClick={() => changeCount("minus")}></div>
           <div className="count-box">
-            <input className="count-input" type="text" defaultValue={countInputValueRef.current} />
+            <input
+              ref={countInputRef}
+              className="count-input"
+              type="text"
+              defaultValue={count}
+            />
           </div>
-          <div className="plus-btn"></div>
+          <div className="plus-btn" onClick={() => changeCount("plus")}></div>
         </div>
-        <span className="option-price">
-          {product.sale
-            ? Number(product.sale).toLocaleString()
-            : Number(product.price).toLocaleString()}
-          원
-        </span>
+        <span className="option-price">원</span>
       </div>
     );
   };
@@ -117,7 +135,7 @@ export function Product() {
           </div>
           <div ref={productOrderedBoxRef} className="product-ordered-box">
             {/* 상품 옵션 선택시 박스 추가 */}
-            {<ProductOrderedList />}
+            {selectText && <ProductOrderedList />}
           </div>
         </div>
       </div>
