@@ -1,4 +1,5 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
+import { useDidMountEffect } from "../func/useDidMountEffect";
 import { useParams } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
 import { descText, itemIcon } from "../components/item_box_detail";
@@ -34,38 +35,43 @@ export function Product() {
     </>
   );
 
-  const productOrderedList = (name) => `
-    <div class="product-ordered-list">
-      <span class="option-name">${name}</span>
-      <div class="option-counter">
-        <div class="minus-btn">빼</div>
-        <div class="count-box">
-          <input class="count-input" type="text"/>
+  const ProductOrderedList = () => {
+    const countInputValueRef = useRef(1);
+    console.log(countInputValueRef.current)
+    return (
+      <div className="product-ordered-list">
+        <span className="option-name">{selectText}</span>
+        <div className="option-counter">
+          <div className="minus-btn" onClick={() => countInputValueRef.current = countInputValueRef.current -1}></div>
+          <div className="count-box">
+            <input className="count-input" type="text" defaultValue={countInputValueRef.current} />
+          </div>
+          <div className="plus-btn"></div>
         </div>
-        <div class="plus-btn">더</div>
+        <span className="option-price">
+          {product.sale
+            ? Number(product.sale).toLocaleString()
+            : Number(product.price).toLocaleString()}
+          원
+        </span>
       </div>
-      <span class="option-price">${
-        product.sale
-          ? Number(product.sale).toLocaleString()
-          : Number(product.price).toLocaleString()
-      }원</span>
-    </div>
-  `;
-  const totalOrderedList = () => `<div class="total-price-box">${1}</div>`;
-
-  const resetSelectText = () => {
-    const selectCurrent = selectProductOptionRef.current;
-    setSelectText(selectCurrent.options[selectCurrent.selectedIndex].text);
-
-    selectCurrent.options[0].selected = true; // select "옵션 선택" 으로 초기화
-    productOrderedBoxRef.current.innerHTML += productOrderedList(selectText);
+    );
   };
 
-  useLayoutEffect(() => {
+  // const totalOrderedList = () => `<div class="total-price-box">${1}</div>`;
+
+  const resetSelectText = () => {
+    setSelectText(
+      selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
+        .text
+    );
+    selectProductOptionRef.current.options[0].selected = true; // select "옵션 선택" 으로 초기화
+  };
+
+  // custom useEffect (첫 렌더링시 이벤트 발생 안함)
+  useDidMountEffect(() => {
     console.log(selectText);
     console.log("추가된 선택 옵션 구역", productOrderedBoxRef.current);
-
-    // productOrderedBoxRef.current.innerHTML = productOrderedList();
   }, [selectText]);
 
   return (
@@ -111,6 +117,7 @@ export function Product() {
           </div>
           <div ref={productOrderedBoxRef} className="product-ordered-box">
             {/* 상품 옵션 선택시 박스 추가 */}
+            {<ProductOrderedList />}
           </div>
         </div>
       </div>

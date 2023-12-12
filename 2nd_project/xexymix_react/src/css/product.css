@@ -98,22 +98,28 @@
   border-top: 1px solid #e5e5e5;
   height: 50px;
   font-size: 14px;
-
 }
+.option-name {
+  font-weight: 300;
+}
+
 .option-counter {
   position: absolute;
   right: 30%;
   display: flex;
   height: 33px;
+  font-weight: 300;
   border: 1px solid #e5e5e5;
 }
 .minus-btn {
   width: 33px;
   border-right: 1px solid #e5e5e5;
+  background: url(../../public/images/ea_dw.gif) no-repeat center;
 }
 .plus-btn {
   width: 33px;
   border-left: 1px solid #e5e5e5;
+  background: url(../../public/images/ea_up.gif) no-repeat center;
 }
 .count-box {
   width: 46px;
@@ -124,6 +130,8 @@
   outline: none;
   border: none;
   box-sizing: border-box;
+  text-align: center;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
 }
 .option-price {
   font-weight: 600;
