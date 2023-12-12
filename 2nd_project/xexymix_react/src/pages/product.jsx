@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
 import { descText, itemIcon } from "../components/item_box_detail";
@@ -6,11 +6,10 @@ import { descText, itemIcon } from "../components/item_box_detail";
 export function Product() {
   const params = useParams();
   const product = itemInfo.filter((v) => v.id === params.productId)[0];
-  const selectProductOptionRef = useRef();
   const productOrderedBoxRef = useRef();
   const counterRef = useRef();
   const [selectText, setSelectText] = useState();
-  const select = selectProductOptionRef.current;
+  const selectProductOptionRef = useRef();
 
   /** 가격/할인/콤마 출력 */
   const priceFormat = product.sale ? (
@@ -35,24 +34,39 @@ export function Product() {
     </>
   );
 
-  const ProductOrderedList = (
+  const productOrderedList = (name) => `
     <div class="product-ordered-list">
-      <div class="option-name">{}</div>
-      <div className="option-counter">
-        <div className="minus-btn"></div>
-        <div ref={counterRef}></div>
-        <div className="plus-btn"></div>
-        <div class="option-price">{1}</div>
+      <span class="option-name">${name}</span>
+      <div class="option-counter">
+        <div class="minus-btn">빼</div>
+        <div class="count-box">
+          <input class="count-input" type="text"/>
+        </div>
+        <div class="plus-btn">더</div>
       </div>
-      <div class="total-price-box">{1}</div>
+      <span class="option-price">${
+        product.sale
+          ? Number(product.sale).toLocaleString()
+          : Number(product.price).toLocaleString()
+      }원</span>
     </div>
-  );
+  `;
+  const totalOrderedList = () => `<div class="total-price-box">${1}</div>`;
 
-  useEffect(() => {
-    console.log(select.options[select.selectedIndex])
-    // setSelectText = select.options[select.selectedIndex].text;
-    // select.options[0].selected = true;
-  });
+  const resetSelectText = () => {
+    const selectCurrent = selectProductOptionRef.current;
+    setSelectText(selectCurrent.options[selectCurrent.selectedIndex].text);
+
+    selectCurrent.options[0].selected = true; // select "옵션 선택" 으로 초기화
+    productOrderedBoxRef.current.innerHTML += productOrderedList(selectText);
+  };
+
+  useLayoutEffect(() => {
+    console.log(selectText);
+    console.log("추가된 선택 옵션 구역", productOrderedBoxRef.current);
+
+    // productOrderedBoxRef.current.innerHTML = productOrderedList();
+  }, [selectText]);
 
   return (
     <div className="product-container">
@@ -62,7 +76,7 @@ export function Product() {
           style={{
             background: `url(${
               process.env.PUBLIC_URL + product.imgSrc
-            }) no-repeat center/cover`,
+            }) center/cover no-repeat`,
           }}>
           <img src={process.env.PUBLIC_URL + product.imgSrc} alt="thumbnail image" />
         </div>
@@ -86,7 +100,8 @@ export function Product() {
               <select
                 ref={selectProductOptionRef}
                 name="product-option"
-                id="select-product-option">
+                id="select-product-option"
+                onChange={resetSelectText}>
                 {makeProductOption}
               </select>
             </div>
