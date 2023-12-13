@@ -50,7 +50,7 @@
 .main-slide-container {
   margin: 0 auto 75px;
 }
-.main-slide-item a::before {
+.main-slide-item::before {
   content: "";
   position: absolute;
   top: 0;
@@ -73,7 +73,7 @@
   background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat
     center/contain;
 }
-.event-item a::before {
+.event-item::before {
   opacity: 0;
 }
 

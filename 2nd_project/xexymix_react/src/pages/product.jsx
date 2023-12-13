@@ -10,7 +10,9 @@ export function Product() {
   const productOrderedBoxRef = useRef();
   const [selectText, setSelectText] = useState();
   const selectProductOptionRef = useRef();
-
+  const [productOrderedListArr, setProductOrderedListArr] = useState([]);
+  const [priceArr, setPriceArr] = useState([]);
+  const totalPrice = "";
   /** 가격/할인/콤마 출력 */
   const priceFormat = product.sale ? (
     <>
@@ -36,62 +38,72 @@ export function Product() {
   );
 
   /** 상품 수량 및 가격 표시 박스 컴포넌트 */
-  const ProductOrderedList = () => {
+  const ProductOrderedList = (props) => {
+    const price = product.sale ? Number(product.sale) : Number(product.price);
     const [count, setCount] = useState(1);
-    const price = product.sale
-      ? (Number(product.sale) * count).toLocaleString()
-      : (Number(product.price) * count).toLocaleString();
-
-    const [optionPrice, setOptionPrice] = useState(count);
-    
+    const optionPrice = price * count;
     const countInputRef = useRef();
+    
 
-    const changeCount = (state) => {
-      state === "minus" && setCount(count - 1);
-      state === "plus" && setCount(count + 1);
-    };
-
+    useEffect(() => {
+      setPriceArr([optionPrice]);
+      console.log(priceArr);
+    }, [count]);
+    
     useDidMountEffect(() => {
-      console.log(count);
       countInputRef.current.value = count;
     });
 
     return (
       <div className="product-ordered-list">
-        <span className="option-name">{selectText}</span>
+        <span className="option-name">{props.selectRefText}</span>
         <div className="option-counter">
-          <div className="minus-btn" onClick={() => changeCount("minus")}></div>
+          <div className="minus-btn" onClick={() => setCount(count - 1)}></div>
           <div className="count-box">
             <input
               ref={countInputRef}
               className="count-input"
               type="text"
               defaultValue={count}
+              onChange={(e) => setCount(e.target.value)}
             />
           </div>
-          <div className="plus-btn" onClick={() => changeCount("plus")}></div>
+          <div className="plus-btn" onClick={() => setCount(count + 1)}></div>
         </div>
-        <span className="option-price">원</span>
+        <span className="option-price">{optionPrice.toLocaleString()}원</span>
       </div>
     );
   };
 
-  // const totalOrderedList = () => `<div class="total-price-box">${1}</div>`;
+  // const totalOrderedList = () => `<div class="total-price-box">${1}</div>`; 최종 계산 컴포넌트 필요함
 
-  const resetSelectText = () => {
-    setSelectText(
+  const setSelectState = () => {
+    const selectRefText =
       selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
-        .text
-    );
-    selectProductOptionRef.current.options[0].selected = true; // select "옵션 선택" 으로 초기화
+        .text;
+    setSelectText(selectRefText);
   };
 
   // custom useEffect (첫 렌더링시 이벤트 발생 안함)
   useDidMountEffect(() => {
-    console.log(selectText);
-    console.log("추가된 선택 옵션 구역", productOrderedBoxRef.current);
+    setProductOrderedListArr([
+      ...productOrderedListArr,
+      <ProductOrderedList
+        selectRefText={
+          selectProductOptionRef.current.options[
+            selectProductOptionRef.current.selectedIndex
+          ].text
+        }
+        key={productOrderedListArr.length}
+      />,
+    ]);
+
+    selectProductOptionRef.current.options[0].selected = true; // select "옵션 선택" 으로 초기화
   }, [selectText]);
 
+  useDidMountEffect(() => {
+    console.log(productOrderedListArr);
+  }, [productOrderedListArr]);
   return (
     <div className="product-container">
       <div className="product-top">
@@ -125,7 +137,7 @@ export function Product() {
                 ref={selectProductOptionRef}
                 name="product-option"
                 id="select-product-option"
-                onChange={resetSelectText}>
+                onChange={setSelectState}>
                 {makeProductOption}
               </select>
             </div>
@@ -135,7 +147,7 @@ export function Product() {
           </div>
           <div ref={productOrderedBoxRef} className="product-ordered-box">
             {/* 상품 옵션 선택시 박스 추가 */}
-            {selectText && <ProductOrderedList />}
+            {productOrderedListArr.map((v) => v)}
           </div>
         </div>
       </div>
