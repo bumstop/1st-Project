@@ -43,13 +43,13 @@ export function Product() {
     const [count, setCount] = useState(1);
     const optionPrice = price * count;
     const countInputRef = useRef();
-    
 
     useEffect(() => {
-      setPriceArr([optionPrice]);
+      
+      setPriceArr([...priceArr, optionPrice]);
       console.log(priceArr);
     }, [count]);
-    
+
     useDidMountEffect(() => {
       countInputRef.current.value = count;
     });
