@@ -2,19 +2,41 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDidMountEffect } from "../func/useDidMountEffect";
 import { useParams } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
+import { seasonSlideInfo } from "../data/season_slide_info";
 import { descText, itemIcon } from "../components/item_box_detail";
-
+import { ProductOrderedList } from "../components/product_ordered_list";
 export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
 
   const params = useParams();
-  const product = itemInfo.filter((v) => v.id === params.productId)[0];
+  const product = [...itemInfo, ...seasonSlideInfo].filter(
+    (v) => v.id === params.productId
+  )[0];
+  const price = product.sale ? Number(product.sale) : Number(product.price);
+  let initCountArr = [];
+  product.option.forEach((v,i) => initCountArr[i] = [v,0]);
+  console.log(initCountArr)
+  const [countArr, setCountArr] = useState([]);
+
+  const changeCountArr = (key, value) => {
+    setCountArr((countArr[key] = value));
+  };
+
+  // product.option.map((v) => (countArr[v] = 0))
+
+  // const totalPrice = countArr.reduce((acc, cur) => acc + cur, 0);
+
+  useEffect(() => {
+    // product.option.map((v) => changeCountArr(v, 0));
+    // setCountArr(countArr.push({...optionCount}));
+  }, []);
+
+  useEffect(() => {
+    console.log(countArr, initCountArr);
+  });
+
   const selectProductOptionRef = useRef();
   const [productOrderedListArr, setProductOrderedListArr] = useState([]);
-  const [priceArr, setPriceArr] = useState([]);
-  const totalPrice = priceArr.reduce((acc, cur) => {
-    return acc + cur;
-  }, 0);
 
   /** 가격/할인/콤마 출력 함수 */
   const priceFormat = product.sale ? (
@@ -40,59 +62,6 @@ export function Product() {
     </>
   ); // const makeProductOption
 
-  /** 가격 모음 배열 업데이트 함수 */
-  function addPriceArr(arr) {
-    setPriceArr(arr);
-  }; // const addPriceArr
-
-  /** 상품 수량 및 가격 표시 박스 컴포넌트 */
-  const ProductOrderedList = (props) => {
-    console.log(props.value + "번째 ProductOrderedList 랜더링됨");
-
-    const countInputRef = useRef();
-    const price = product.sale ? Number(product.sale) : Number(product.price);
-    const [count, setCount] = useState(1);
-    const optionPrice = price * count;
-    let addOptionPriceArr = priceArr; // 원본 옵션가격모음 배열 State 복사
-    addOptionPriceArr[props.value] = optionPrice; // 업데이트
-
-    // setPriceArr을 담은 함수를 복사한 함수
-    const copiedAddPriceArr = () => {
-      props.addPriceArr(addOptionPriceArr);
-    };
-    useEffect(() => {
-      copiedAddPriceArr(); // 원본 State 업데이트(복사한 함수를 통해 업데이트)
-      console.log("자식컴포넌트", priceArr)
-    }); 
-
-    useDidMountEffect(() => {
-      countInputRef.current.value = count;
-      // count가 0보다 작거나 숫자가 아니거나 정수가 아니면 1로 변경
-      (count <= 0 || isNaN(count) || Number.isInteger(count) === false) && setCount(1);
-    });
-
-    return (
-      <div className="product-ordered-list">
-        <span className="option-name">{props.selectRefText}</span>
-        <div className="option-counter">
-          <div className="minus-btn" onClick={() => setCount(count - 1)}></div>
-          <div className="count-box">
-            <input
-              ref={countInputRef}
-              className="count-input"
-              type="text"
-              defaultValue={count}
-              onChange={(e) => setCount(Number(e.target.value))}
-            />
-          </div>
-          <div className="plus-btn" onClick={() => setCount(count + 1)}></div>
-        </div>
-        <span className="option-price">{optionPrice.toLocaleString()}원</span>
-        <div className="product-close-btn"></div>
-      </div>
-    );
-  }; // const ProductOrderedList
-
   // const totalOrderedList = () => `<div class="total-price-box">${1}</div>`; 최종 계산 컴포넌트 필요함
 
   /**
@@ -103,26 +72,28 @@ export function Product() {
     const selectRefText =
       selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
         .text;
+    const alreadySelected =
+      productOrderedListArr.find((v) => v.selectRefText === selectRefText) !== undefined;
 
     // 1. ProductOrderedListArr에 선택한 옵션을 추가함
-    setProductOrderedListArr([
-      ...productOrderedListArr,
-      <ProductOrderedList
-        selectRefText={selectRefText}
-        key={productOrderedListArr.length}
-        value={productOrderedListArr.length}
-        addPriceArr={addPriceArr}
-      />,
-    ]);
+    if (alreadySelected) {
+      window.alert("이미 추가된 상품입니다.");
+    } else {
+      changeCountArr(selectRefText, 1);
 
+      setProductOrderedListArr([
+        ...productOrderedListArr,
+        {
+          selectRefText: selectRefText,
+          price: price,
+          countArr: countArr,
+          changeCountArr: changeCountArr,
+        },
+      ]);
+    }
     // 2. selectProductOptionRef를 "옵션 선택" 으로 초기화함
     selectProductOptionRef.current.options[0].selected = true;
   };
-
-  // custom useEffect (첫 렌더링시 이벤트 발생 안함)
-  useDidMountEffect(() => {
-    console.log("옵션가격모음 배열", priceArr);
-  });
 
   return (
     <div className="product-container">
@@ -167,12 +138,20 @@ export function Product() {
           </div>
           <div className="product-ordered-box">
             {/* 상품 옵션 선택시 박스 추가 */}
-            {productOrderedListArr.map((v) => v)}
+            {productOrderedListArr.map((v, i) => (
+              <ProductOrderedList
+                selectRefText={v.selectRefText}
+                key={v.selectRefText}
+                price={v.price}
+                countArr={v.countArr}
+                changeCountArr={v.changeCountArr}
+              />
+            ))}
           </div>
           <div className="total-price-box">
             <span>총 합계</span>
             <span>
-              {totalPrice}
+              {/* {totalPrice} */}
               <span style={{ fontSize: "14px", fontWeight: "400", paddingLeft: "5px" }}>
                 원
               </span>
