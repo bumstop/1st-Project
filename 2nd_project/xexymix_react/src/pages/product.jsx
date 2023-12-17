@@ -5,35 +5,31 @@ import { itemInfo } from "../data/item_info";
 import { seasonSlideInfo } from "../data/season_slide_info";
 import { descText, itemIcon } from "../components/item_box_detail";
 import { ProductOrderedList } from "../components/product_ordered_list";
+
 export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
 
   const params = useParams();
-  const product = [...itemInfo, ...seasonSlideInfo].filter(
-    (v) => v.id === params.productId
-  )[0];
-  const price = product.sale ? Number(product.sale) : Number(product.price);
-  let initCountArr = [];
-  product.option.forEach((v,i) => initCountArr[i] = [v,0]);
-  console.log(initCountArr)
-  const [countArr, setCountArr] = useState([]);
+  const product = useCallback(
+    [...itemInfo, ...seasonSlideInfo].filter((v) => v.id === params.productId)[0]
+  );
+  const price = useCallback(product.sale ? Number(product.sale) : Number(product.price));
 
-  const changeCountArr = (key, value) => {
-    setCountArr((countArr[key] = value));
+  let countObjectInitialValue = [];
+  product.option.forEach((v, i) => (countObjectInitialValue[i] = [v, 0]));
+  countObjectInitialValue = Object.fromEntries(countObjectInitialValue);
+
+  const [countObject, setCountObject] = useState(countObjectInitialValue);
+  console.log(countObject);
+
+  const changeCountObject = (key, value) => {
+    setCountObject((prevState) => {
+      return { ...prevState, [key]: value };
+    });
   };
 
-  // product.option.map((v) => (countArr[v] = 0))
-
-  // const totalPrice = countArr.reduce((acc, cur) => acc + cur, 0);
-
-  useEffect(() => {
-    // product.option.map((v) => changeCountArr(v, 0));
-    // setCountArr(countArr.push({...optionCount}));
-  }, []);
-
-  useEffect(() => {
-    console.log(countArr, initCountArr);
-  });
+  const totalPrice =
+    Object.values(countObject).reduce((acc, cur) => acc + cur, 0) * price;
 
   const selectProductOptionRef = useRef();
   const [productOrderedListArr, setProductOrderedListArr] = useState([]);
@@ -72,6 +68,7 @@ export function Product() {
     const selectRefText =
       selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
         .text;
+
     const alreadySelected =
       productOrderedListArr.find((v) => v.selectRefText === selectRefText) !== undefined;
 
@@ -79,22 +76,33 @@ export function Product() {
     if (alreadySelected) {
       window.alert("이미 추가된 상품입니다.");
     } else {
-      changeCountArr(selectRefText, 1);
-
+      changeCountObject(selectRefText, 1);
       setProductOrderedListArr([
         ...productOrderedListArr,
         {
           selectRefText: selectRefText,
           price: price,
-          countArr: countArr,
-          changeCountArr: changeCountArr,
+          // countObject: countObject, 이거 넘겨주니까 초기화되네?
+          // state 넘겨서 쓰니까 값이 그전값으로 바뀜
+          changeCountObject: changeCountObject,
         },
       ]);
     }
+
     // 2. selectProductOptionRef를 "옵션 선택" 으로 초기화함
     selectProductOptionRef.current.options[0].selected = true;
   };
 
+  // useDidMountEffect(() => {
+  //   changeCountObject(
+  //     selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
+  //       .text,
+  //     1
+  //   );
+  // }, [productOrderedListArr]);
+  // useEffect(() => {
+  //   selectProductOptionRef.current.options[0].selected = true;
+  // });
   return (
     <div className="product-container">
       <div className="product-top">
@@ -143,8 +151,8 @@ export function Product() {
                 selectRefText={v.selectRefText}
                 key={v.selectRefText}
                 price={v.price}
-                countArr={v.countArr}
-                changeCountArr={v.changeCountArr}
+                countObject={v.countObject}
+                changeCountObject={v.changeCountObject}
               />
             ))}
           </div>
