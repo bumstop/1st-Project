@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useDidMountEffect } from "../func/useDidMountEffect";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
 import { seasonSlideInfo } from "../data/season_slide_info";
@@ -10,10 +9,10 @@ export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
 
   const params = useParams();
-  const product = useCallback(
-    [...itemInfo, ...seasonSlideInfo].filter((v) => v.id === params.productId)[0]
-  );
-  const price = useCallback(product.sale ? Number(product.sale) : Number(product.price));
+  const product = [...itemInfo, ...seasonSlideInfo].filter(
+    (v) => v.id === params.productId
+  )[0];
+  const price = product.sale ? Number(product.sale) : Number(product.price);
 
   let countObjectInitialValue = [];
   product.option.forEach((v, i) => (countObjectInitialValue[i] = [v, 0]));
@@ -57,7 +56,6 @@ export function Product() {
     </>
   ); // const makeProductOption
 
-
   /**
    * 1. ProductOrderedListArr에 선택한 옵션을 추가함
    * 2. selectProductOptionRef를 "옵션 선택" 으로 초기화함
@@ -81,8 +79,7 @@ export function Product() {
         {
           selectRefText: selectRefText,
           price: price,
-          countObject: countObject, //이거 넘겨주니까 초기화되네?
-          // state 넘겨서 쓰니까 값이 그전값으로 바뀜
+          countObject: countObject,
           changeCountObject: changeCountObject,
         },
       ]);
@@ -102,7 +99,7 @@ export function Product() {
               process.env.PUBLIC_URL + product.imgSrc
             }) center/cover no-repeat`,
           }}>
-          <img src={process.env.PUBLIC_URL + product.imgSrc} alt="thumbnail image" />
+          <img src={process.env.PUBLIC_URL + product.imgSrc} alt="thumbnail" />
         </div>
         <div className="product-box">
           <div className="product-tit-box">

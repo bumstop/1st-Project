@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { useDidMountEffect } from "../func/useDidMountEffect";
 
 /** 상품 수량 및 가격 표시 박스 컴포넌트 */
@@ -14,7 +14,6 @@ export const ProductOrderedList = (props) => {
     const isWrongCount =
       count <= 0 || isNaN(count) || Number.isInteger(Number(count)) === false;
 
-    // count가 0보다 작거나 숫자가 아니거나 정수가 아니면 1로 변경
     if (isWrongCount) {
       changeCountObject(props.selectRefText, (countInputRef.current.value = 1));
     }
