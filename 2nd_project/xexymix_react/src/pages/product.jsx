@@ -5,6 +5,9 @@ import { seasonSlideInfo } from "../data/season_slide_info";
 import { descText, itemIcon } from "../components/item_box_detail";
 import { ProductOrderedList } from "../components/product_ordered_list";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+
 export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
 
@@ -150,6 +153,12 @@ export function Product() {
                 원
               </span>
             </span>
+          </div>
+          <div className="product-btns">
+            <div className="buy-btn">구매하기</div>
+            <div className="wish-btn">
+              <FontAwesomeIcon icon={faHeart} size="xl" />
+            </div>
           </div>
         </div>
       </div>
