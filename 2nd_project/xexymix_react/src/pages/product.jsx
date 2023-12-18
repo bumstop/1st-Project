@@ -20,7 +20,6 @@ export function Product() {
   countObjectInitialValue = Object.fromEntries(countObjectInitialValue);
 
   const [countObject, setCountObject] = useState(countObjectInitialValue);
-  console.log(countObject);
 
   const changeCountObject = (key, value) => {
     setCountObject((prevState) => {
@@ -77,12 +76,13 @@ export function Product() {
       window.alert("이미 추가된 상품입니다.");
     } else {
       changeCountObject(selectRefText, 1);
+
       setProductOrderedListArr([
         ...productOrderedListArr,
         {
           selectRefText: selectRefText,
           price: price,
-          // countObject: countObject, 이거 넘겨주니까 초기화되네?
+          countObject: countObject, //이거 넘겨주니까 초기화되네?
           // state 넘겨서 쓰니까 값이 그전값으로 바뀜
           changeCountObject: changeCountObject,
         },
@@ -100,9 +100,9 @@ export function Product() {
   //     1
   //   );
   // }, [productOrderedListArr]);
-  // useEffect(() => {
-  //   selectProductOptionRef.current.options[0].selected = true;
-  // });
+  useEffect(() => {
+    console.log(countObject)
+  });
   return (
     <div className="product-container">
       <div className="product-top">
