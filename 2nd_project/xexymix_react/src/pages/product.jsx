@@ -57,7 +57,6 @@ export function Product() {
     </>
   ); // const makeProductOption
 
-  // const totalOrderedList = () => `<div class="total-price-box">${1}</div>`; 최종 계산 컴포넌트 필요함
 
   /**
    * 1. ProductOrderedListArr에 선택한 옵션을 추가함
@@ -68,11 +67,11 @@ export function Product() {
       selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
         .text;
 
-    const alreadySelected =
+    const isAlreadySelected =
       productOrderedListArr.find((v) => v.selectRefText === selectRefText) !== undefined;
 
     // 1. ProductOrderedListArr에 선택한 옵션을 추가함
-    if (alreadySelected) {
+    if (isAlreadySelected) {
       window.alert("이미 추가된 상품입니다.");
     } else {
       changeCountObject(selectRefText, 1);
@@ -93,16 +92,6 @@ export function Product() {
     selectProductOptionRef.current.options[0].selected = true;
   };
 
-  // useDidMountEffect(() => {
-  //   changeCountObject(
-  //     selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
-  //       .text,
-  //     1
-  //   );
-  // }, [productOrderedListArr]);
-  useEffect(() => {
-    console.log(countObject)
-  });
   return (
     <div className="product-container">
       <div className="product-top">
@@ -159,7 +148,7 @@ export function Product() {
           <div className="total-price-box">
             <span>총 합계</span>
             <span>
-              {/* {totalPrice} */}
+              {totalPrice.toLocaleString()}
               <span style={{ fontSize: "14px", fontWeight: "400", paddingLeft: "5px" }}>
                 원
               </span>

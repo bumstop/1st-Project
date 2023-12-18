@@ -10,9 +10,14 @@ export const ProductOrderedList = (props) => {
   const price = (countInputRef.current?.value || 1) * props.price;
 
   useDidMountEffect(() => {
+    const count = countInputRef.current.value;
+    const isWrongCount =
+      count <= 0 || isNaN(count) || Number.isInteger(Number(count)) === false;
+
     // count가 0보다 작거나 숫자가 아니거나 정수가 아니면 1로 변경
-    // (count <= 0 || isNaN(count) || Number.isInteger(count) === false) &&
-    //   changeCountObject(props.selectRefText, 1);
+    if (isWrongCount) {
+      changeCountObject(props.selectRefText, (countInputRef.current.value = 1));
+    }
   });
 
   return (
