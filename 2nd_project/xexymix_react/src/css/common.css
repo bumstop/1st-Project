@@ -55,3 +55,8 @@ html {
   --page-min-width: 1024px;
   --page-padding: 6%;
 }
+
+/********************** 모바일 미디어 쿼리 **********************/
+@media screen and (max-width: 767px) {
+
+}

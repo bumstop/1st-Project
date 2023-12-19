@@ -16,6 +16,7 @@ export const ProductOrderedList = (props) => {
 
     if (isWrongCount) {
       changeCountObject(props.selectRefText, (countInputRef.current.value = 1));
+      window.alert("똑바로 입력하세요 ^^.");
     }
   });
 

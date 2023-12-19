@@ -14,7 +14,6 @@
 .footer {
   width: calc(100% - var(--page-padding) * 2);
   max-width: calc(var(--page-max-width) - var(--page-padding) * 2);
-  min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
   margin: 0 auto 75px;
   padding: 0 var(--page-padding);
 }
@@ -23,7 +22,6 @@
 .main-slide-container {
   width: 100%;
   max-width: var(--page-max-width);
-  min-width: var(--page-min-width);
 }
 
 /************************ quick-menu ************************/
@@ -358,16 +356,7 @@
 
 /******************************* 미디어쿼리 *******************************/
 @media screen and (max-width: 1439px) {
-  /* 드롭다운 메뉴 미디어쿼리 */
-  .dropdown-category > li {
-    padding-right: 55px;
-  }
-  .category-head {
-    font-size: 16px;
-  }
-  .category-sub {
-    font-size: 13px;
-  }
+  
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 16px;
@@ -425,10 +414,7 @@
   }
 }
 @media screen and (max-width: 1239px) {
-  /* 드롭다운 메뉴 미디어쿼리 */
-  .dropdown-category > li {
-    padding-right: 35px;
-  }
+
 
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {

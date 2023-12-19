@@ -157,7 +157,7 @@ export function Product() {
           <div className="product-btns">
             <div className="buy-btn">구매하기</div>
             <div className="wish-btn">
-              <FontAwesomeIcon icon={faHeart} size="xl" />
+              <FontAwesomeIcon icon={faHeart} />
             </div>
           </div>
         </div>
