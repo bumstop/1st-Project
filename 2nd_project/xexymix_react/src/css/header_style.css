@@ -136,7 +136,7 @@
   transition: opacity 0.3s ease-out;
 }
 .search-menu-wrap.on {
-  height: 300px;
+  height: 350px;
   opacity: 1;
   border-top: 1px solid #ccc;
   box-shadow: 0 4px 5px #33333369;
@@ -151,12 +151,12 @@
   transition: opacity 0.3s ease-out;
 }
 .on .search-menu {
-  height: 300px;
+  height: 350px;
 }
 .search-box-wrap {
   position: relative;
   margin: 20px auto;
-  width: 40%;
+  width: 50%;
   height: 50px;
   border: 2px solid #000;
   border-radius: 3px;
@@ -186,7 +186,7 @@
   opacity: 1;
 }
 .popular-search {
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
 }
 .hashtag-box-wrap {
@@ -254,6 +254,7 @@
 .dropdown-banner {
   display: flex;
   gap: 10px;
+  align-items: flex-start;
 }
 
 /********************** 미디어 쿼리 **********************/
@@ -342,15 +343,84 @@
   }
   .gnb-category li:last-child {
     border-right: none;
-   }
+  }
   .gnb-category a {
     font-size: 15px;
     font-weight: 400;
     color: #fff;
   }
-
   .non-top .gnb-category {
     height: 35px;
     line-height: 35px;
   }
+
+  /* 서치 박스 */
+  .close-btn {
+    top: 15px;
+    right: 2.5%;
+    width: 20px;
+    height: 20px;
+  }
+  .search-box-wrap {
+    width: 85%;
+  }
+  .search-btn {
+    width: 25px;
+    height: 25px;
+  }
+  .popular-search {
+    width: 85%;
+  }
+
+  /* 드롭다운 메뉴 박스 */
+  .dropdown-menu-wrap {
+    width: 80%;
+    height: 100vh;
+    border: none;
+    overflow: hidden;
+    transition: 0.3s ease-out;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 5px #33333369;
+  }
+  .dropdown-menu-wrap.on {
+    width: 80%;
+    height: 100vh;
+    border-top: none;
+    box-shadow: 0 4px 5px #33333369;
+  }
+
+  .dropdown-menu {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 50px 6%;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+  }
+  .on .dropdown-menu {
+    height: 600px;
+  }
+
+  .dropdown-category {
+    display: flex;
+  }
+  .dropdown-category > li {
+    padding-right: 75px;
+  }
+  .category-head {
+    margin-bottom: 20px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .category-sub {
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+
 }
