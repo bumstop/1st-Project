@@ -26,9 +26,9 @@ export function DropdownMenu(props) {
   ));
   const makeDropdownBanner = dropdownBanner.map((v) => (
     <div key={v}>
-      <a href="#!">
+      <Link to={'/'}>
         <img src={`${process.env.PUBLIC_URL}/images/menu_banner_${v}.jpg`} alt={v} />
-      </a>
+      </Link>
     </div>
   ));
 
