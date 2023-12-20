@@ -52,7 +52,6 @@ html {
 }
 :root {
   --page-max-width: 1920px;
-  --page-min-width: 1024px;
   --page-padding: 6%;
 }
 

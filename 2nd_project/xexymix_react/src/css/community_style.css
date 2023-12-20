@@ -3,7 +3,7 @@
 .commu-title {
   width: 100%;
   max-width: var(--page-max-width);
-  min-width: var(--page-min-width);
+
   height: 40px;
   padding: 40px 0;
   font-size: 30px;
@@ -16,7 +16,7 @@
 .commu-category {
   width: 100%;
   max-width: var(--page-max-width);
-  min-width: var(--page-min-width);
+
   margin-bottom: 75px;
   display: flex;
   justify-content: center;
@@ -40,7 +40,6 @@
 .commu-top {
   width: calc(100% - var(--page-padding) * 2);
   max-width: calc(var(--page-max-width) - var(--page-padding) * 2);
-  min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
   margin-bottom: 30px;
   padding: 0 var(--page-padding);
   display: flex;
@@ -93,7 +92,6 @@
 .commu-bottom {
   width: calc(100% - var(--page-padding) * 2);
   max-width: calc(var(--page-max-width) - var(--page-padding) * 2);
-  min-width: calc(var(--page-min-width) - var(--page-padding) * 2);
 
   padding: 0 var(--page-padding);
   display: flex;
@@ -156,18 +154,22 @@
 .faq-list-category {
   padding: 17px 0;
   text-align: center;
-  width: 110px;
+  flex-basis: 110px;
+  flex-shrink: 0;
   box-sizing: border-box;
   cursor: pointer;
 }
 /* faq 질문 */
 .faq-list-question {
+  position: relative;
   padding: 17px;
   cursor: pointer;
   flex-grow: 1;
 }
 .faq-list-question::before {
   content: "Q";
+  position: absolute;
+  left: -10px;
   background: #000;
   color: #fff;
   border-radius: 30px;
@@ -191,7 +193,7 @@
 }
 
 .faq-list-answer div {
-  padding: 27px 17px 27px 130px;
+  padding: 27px 50px;
 }
 .faq-list-answer div::before {
   content: "A";
