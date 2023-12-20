@@ -37,7 +37,6 @@ function FooterLeft() {
           <div className="info-box" key={v}>
             <div className="address-key-box">{v} :</div>
             <div className="address-value-box">{addressInfo[v]}</div>
-            {i < a.length - 1 && <div className="divide-bar"></div>}
           </div>
         ))}
         <div className="cr">

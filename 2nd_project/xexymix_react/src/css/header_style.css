@@ -110,13 +110,9 @@
 /* right-btn-wrap */
 .right-btn-wrap {
   display: flex;
+  gap: 35px;
 }
-.right-btn-wrap li {
-  padding-left: 35px;
-}
-.right-btn-wrap li:first-child {
-  padding-left: 0;
-}
+
 /* 서치 박스 */
 .close-btn {
   position: absolute;
@@ -133,7 +129,7 @@
   border: none;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 .search-menu-wrap.on {
   height: 350px;
@@ -148,7 +144,7 @@
   box-sizing: border-box;
   background-color: #fff;
   overflow: hidden;
-  transition: opacity 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 .on .search-menu {
   height: 350px;
@@ -326,13 +322,11 @@
   /* right-btn-wrap */
   .right-btn-wrap {
     display: flex;
+    gap: 20px;
     position: absolute;
     right: 3%;
     top: 25%;
     transform: translateY(-50%);
-  }
-  .right-btn-wrap li {
-    padding-left: 20px;
   }
 
   /* gnb-category */
@@ -418,5 +412,10 @@
   }
   .dropdown-banner {
     flex-direction: column;
+  }
 }
+@media screen and (max-width: 399px) {
+  .right-btn-wrap {
+    gap: 7px;
+  }
 }

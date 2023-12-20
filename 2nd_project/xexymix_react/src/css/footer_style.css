@@ -3,6 +3,7 @@
   width: 100%;
   margin-top: 100px;
   border-top: 1px solid #999;
+  word-break: keep-all;
 }
 .footer {
   color: #999;
@@ -15,7 +16,7 @@
   color: #999;
 }
 .footer-left {
-  width: 650px;
+  flex-basis: 100%;
   padding: 80px 0 0 0;
 }
 .footer-left-top a {
@@ -30,13 +31,14 @@
   margin-top: 20px;
 }
 .footer-left-info {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   font-style: normal;
 }
 .info-box {
   display: inline-block;
   margin-bottom: 10px;
-  white-space: nowrap;
 }
 .info-box div {
   display: inline-block;
@@ -88,4 +90,32 @@
 }
 .shop-menu-box div {
   margin-bottom: 10px;
+}
+
+/******************************* 미디어쿼리 *******************************/
+@media screen and (max-width: 1439px) {
+  /* footer-right 미디어쿼리 */
+  .bank-info-box,
+  .sns-box,
+  .shop-menu-box {
+    padding-left: 5%;
+  }
+}
+@media screen and (max-width: 1239px) {
+  .footer-inbox {
+    flex-direction: column;
+  }
+}
+/**************** 모바일 미디어 쿼리 ****************/
+@media screen and (max-width: 767px) {
+  .footer-right {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .bank-info-box,
+  .sns-box,
+  .shop-menu-box {
+    padding: 0;
+  }
 }

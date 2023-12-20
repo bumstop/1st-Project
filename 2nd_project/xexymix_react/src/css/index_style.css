@@ -76,7 +76,7 @@
 }
 
 /* item-txt-box */
- .main-slide-item-txt-box {
+.main-slide-item-txt-box {
   position: absolute;
   top: 42%;
   width: 100%;
@@ -85,7 +85,7 @@
   opacity: 0;
   transition: opacity 1.5s;
 }
-.swiper-slide-active .main-slide-item-txt-box{
+.swiper-slide-active .main-slide-item-txt-box {
   opacity: 1;
 }
 .main-slide-item-category {
@@ -353,10 +353,8 @@
   flex-basis: calc(96% / 4);
 }
 
-
 /******************************* 미디어쿼리 *******************************/
 @media screen and (max-width: 1439px) {
-  
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 16px;
@@ -406,16 +404,8 @@
     height: 60px;
     font-size: 12.35px;
   }
-  /* footer-right 미디어쿼리 */
-  .bank-info-box,
-  .sns-box,
-  .shop-menu-box {
-    padding-left: 10%;
-  }
 }
 @media screen and (max-width: 1239px) {
-
-
   /* 메인슬라이드 미디어쿼리 */
   .main-slide-item-category {
     font-size: 13px;
@@ -480,12 +470,6 @@
     transform: translate(5px, 1px);
     width: 12px;
     height: 12px;
-  }
-  /* footer-right 미디어쿼리 */
-  .bank-info-box,
-  .sns-box,
-  .shop-menu-box {
-    padding-left: 3%;
   }
 }
 

@@ -20,7 +20,7 @@ export function Layout() {
     <>
       <Header />
       <QuickMenu />
-      <Main />
+      {/* <Main /> */}
       <Footer />
     </>
   );
