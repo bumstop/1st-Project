@@ -27,19 +27,15 @@
 /************************ quick-menu ************************/
 .quick-menu {
   position: fixed;
-  right: 10px;
-  bottom: 10px;
-  width: 45px;
+  right: 5px;
+  bottom: 30px;
+  width: 40px;
   background-color: #000;
   opacity: 0.6;
   z-index: 99;
+  box-sizing: border-box;
 }
-.up-btn {
-  padding: 5px 5px 0;
-}
-.down-btn {
-  padding: 0 5px 5px;
-}
+
 /*************************** main ***************************/
 #main {
   padding-top: 125px;
@@ -356,19 +352,12 @@
 /******************************* 미디어쿼리 *******************************/
 @media screen and (max-width: 1439px) {
   /* 메인슬라이드 미디어쿼리 */
-  .main-slide-item-category {
-    font-size: 16px;
-    margin-bottom: 9px;
+  .main-slide-container .main-slide-item {
+    width: 40%;
   }
-  .main-slide-item-title {
-    font-size: 26px;
-    margin-bottom: 9px;
+  .main-slide-item.event-item {
+    width: 90%;
   }
-  .main-slide-item-desc {
-    font-size: 15px;
-    margin-bottom: 9px;
-  }
-
   /* 시즌슬라이드 미디어쿼리 */
   .season-slide-title {
     font-size: 22px;
@@ -407,19 +396,12 @@
 }
 @media screen and (max-width: 1239px) {
   /* 메인슬라이드 미디어쿼리 */
-  .main-slide-item-category {
-    font-size: 13px;
-    margin-bottom: 8px;
+  .main-slide-container .main-slide-item {
+    width: 45%;
   }
-  .main-slide-item-title {
-    font-size: 22px;
-    margin-bottom: 8px;
+  .main-slide-item.event-item {
+    width: 90%;
   }
-  .main-slide-item-desc {
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-
   /* 시즌슬라이드 미디어쿼리 */
   .season-slide-title {
     font-size: 20px;
@@ -474,4 +456,63 @@
 }
 
 @media screen and (max-width: 1023px) {
+  /* 메인 슬라이드 미디어쿼리 */
+  .main-slide-container .main-slide-item {
+    width: 50%;
+  }
+  .main-slide-item.event-item {
+    width: 90%;
+  }
+  .main-slide-item-category {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .main-slide-item-title {
+    font-size: 25px;
+    margin-bottom: 8px;
+  }
+  .main-slide-item-desc {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+/**************** 모바일 미디어 쿼리 ****************/
+@media screen and (max-width: 767px) {
+  /* 메인 슬라이드 미디어쿼리 */
+  .main-slide-container .main-slide-item {
+    width: 100%;
+  }
+  .main-slide-item.event-item {
+    background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat
+    center/cover;
+  }
+  
+}
+@media screen and (max-width: 559px) {
+  /* 메인 슬라이드 미디어쿼리 */
+  .main-slide-container .swiper-button-prev {
+    top: 50%;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background: url(../../public/images/main_btn_prev.png) center/cover
+      no-repeat;
+  }
+  .main-slide-container .swiper-button-next {
+    top: 50%;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background: url(../../public/images/main_btn_next.png) center/cover no-repeat;
+  }
+  .main-slide-container .swiper-pagination {
+    bottom: 30px;
+    right: 70px;
+  }
+  .main-slide-btn {
+    bottom: 25px;
+    right: 25px;
+    width: 32px;
+    height: 32px;
+  }
 }

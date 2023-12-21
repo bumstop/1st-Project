@@ -39,7 +39,8 @@ export function MainSlideContainer(props) {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="main-slide-container">
+        className="main-slide-container"
+      >
         {Array.isArray(props.category) && (
           <SwiperSlide className="main-slide-item event-item">
             <Link to={"/"}></Link>
@@ -65,7 +66,8 @@ export function MainSlideContainer(props) {
         ))}
         <div
           className={"main-slide-btn" + (isPlay ? "" : " on")}
-          onClick={isPlayToggle}></div>
+          onClick={isPlayToggle}
+        ></div>
       </Swiper>
     </div>
   );

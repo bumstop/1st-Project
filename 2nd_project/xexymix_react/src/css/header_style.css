@@ -124,6 +124,7 @@
 }
 
 .search-menu-wrap {
+  position: absolute;
   width: 100%;
   height: 0;
   border: none;

@@ -92,7 +92,7 @@ export function SearchMenu(props) {
             onClick={() => goSearch(searchRef.current.value)}></button>
         </div>
         <div className="popular-search">
-          <div style={{ fontSize: "20px", fontWeight: "600", marginBottom: "10px" }}>
+          <div style={{ fontSize: "2rem", fontWeight: "600", marginBottom: "10px" }}>
             인기검색어
           </div>
           <div className="hashtag-box-wrap">
