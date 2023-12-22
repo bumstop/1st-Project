@@ -28,14 +28,15 @@
 .quick-menu {
   position: fixed;
   right: 5px;
-  bottom: 30px;
-  width: 40px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3px;
   background-color: #000;
   opacity: 0.6;
   z-index: 99;
   box-sizing: border-box;
 }
-
 /*************************** main ***************************/
 #main {
   padding-top: 125px;
@@ -107,7 +108,7 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: url(../../public/images/main_btn_prev.png);
+  background: url(../../public/images/main_btn_prev.png) no-repeat center/cover;
   z-index: 1;
 }
 .main-slide-container .swiper-button-next {
@@ -117,7 +118,7 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: url(../../public/images/main_btn_next.png);
+  background: url(../../public/images/main_btn_next.png) no-repeat center/cover;
   z-index: 1;
 }
 .main-slide-container .swiper-pagination {
@@ -134,11 +135,11 @@
   right: 55px;
   width: 32px;
   height: 32px;
-  background: url(../../public/images/mainBtn_stop.png) no-repeat center/cover;
+  background: url(../../public/images/mainBtn_stop.png);
   z-index: 1;
 }
 .main-slide-btn.on {
-  background: url(../../public/images/mainBtn_play.png) no-repeat center/cover;
+  background: url(../../public/images/mainBtn_play.png);
 }
 
 /******************** circle-banner ********************/
@@ -247,7 +248,8 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: url(../../public/images/list_btn_prev.png) no-repeat center;
+  background: url(../../public/images/list_btn_prev.png) no-repeat
+    center/contain;
   z-index: 1;
 }
 .sub-slide-container .swiper-button-next {
@@ -257,7 +259,8 @@
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  background: url(../../public/images/list_btn_next.png) no-repeat center;
+  background: url(../../public/images/list_btn_next.png) no-repeat
+    center/contain;
   z-index: 1;
 }
 .sub-slide-item img {
@@ -347,12 +350,12 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 30px;
-  column-gap: calc(4% / 3);
+  column-gap: 1%;
   margin-bottom: 150px;
 }
 
 .main-item-box .item-box {
-  flex-basis: calc(96% / 4);
+  flex-basis: calc(97% / 4);
 }
 
 /******************************* 미디어쿼리 *******************************/
@@ -363,11 +366,6 @@
   }
   .main-slide-item.event-item {
     width: 90%;
-  }
-  /* 시즌슬라이드 미디어쿼리 */
-  .season-slide-title {
-    font-size: 22px;
-    margin-bottom: 28px;
   }
 
   /* item-box 미디어쿼리 */
@@ -399,6 +397,17 @@
     height: 60px;
     font-size: 12.35px;
   }
+  /* 서브슬라이드 컨테이너 */
+  .sub-slide-container .swiper-button-prev {
+    left: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .sub-slide-container .swiper-button-next {
+    right: 5px;
+    width: 40px;
+    height: 40px;
+  }
 }
 @media screen and (max-width: 1239px) {
   /* 메인슬라이드 미디어쿼리 */
@@ -410,8 +419,8 @@
   }
   /* 시즌슬라이드 미디어쿼리 */
   .season-slide-title {
-    font-size: 20px;
-    margin-bottom: 26px;
+    font-size: 22px;
+    margin-bottom: 28px;
   }
 
   /* item-box 미디어쿼리 */
@@ -443,6 +452,17 @@
     height: 60px;
     font-size: 11.7px;
   }
+  /* 서브슬라이드 컨테이너 */
+  .sub-slide-container .swiper-button-prev {
+    left: 0;
+    width: 35px;
+    height: 35px;
+  }
+  .sub-slide-container .swiper-button-next {
+    right: 0;
+    width: 35px;
+    height: 35px;
+  }
   /* 메인아이템 컨테이너 - seeing-box 미디어쿼리 */
   .tit {
     font-size: 30px;
@@ -458,6 +478,13 @@
     transform: translate(5px, 1px);
     width: 12px;
     height: 12px;
+  }
+  /* 메인아이템 컨테이너 미디어쿼리 */
+  .main-item-box .item-box-wrap {
+    margin-bottom: 120px;
+  }
+  .main-item-box .item-box {
+    flex-basis: calc(98% / 3);
   }
 }
 
@@ -489,10 +516,44 @@
     font-size: 15px;
     font-weight: 900;
   }
+  /* 시즌슬라이드 미디어쿼리 */
+  .season-slide-title {
+    font-size: 20px;
+    margin-bottom: 26px;
+  }
+  /* 서브슬라이드 컨테이너 */
+  .sub-slide-container .swiper-button-prev {
+    left: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .sub-slide-container .swiper-button-next {
+    right: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  /* 메인아이템 컨테이너 미디어쿼리 */
+  .main-item-box .item-box-wrap {
+    margin-bottom: 120px;
+  }
+  .main-item-box .item-box {
+    flex-basis: calc(99% / 2);
+  }
 }
 /**************** 모바일 미디어 쿼리 ****************/
 @media screen and (max-width: 767px) {
+  .circle-banner-container,
+  .season-slide-container,
+  .sub-slide-container,
+  .main-item-container,
+  .md-pick-container,
+  .footer {
+    margin: 0 auto 60px;
+  }
   /* 메인 슬라이드 미디어쿼리 */
+  .main-slide-container {
+    margin: 0 auto 60px;
+  }
   .main-slide-container .main-slide-item {
     width: 100%;
   }
@@ -507,6 +568,35 @@
   .circle-item-txt {
     font-size: 14px;
     font-weight: 900;
+  }
+  /* 시즌슬라이드 미디어쿼리 */
+  .season-slide-title {
+    font-size: 19px;
+    margin-bottom: 24px;
+  }
+  /* 서브슬라이드 컨테이너 미디어쿼리*/
+  .sub-slide-container .swiper-button-prev {
+    left: 0;
+    width: 35px;
+    height: 35px;
+  }
+  .sub-slide-container .swiper-button-next {
+    right: 0;
+    width: 35px;
+    height: 35px;
+  }
+  /* 메인아이템 컨테이너 미디어쿼리 */
+  .seeing-box {
+    display: none;
+  }
+  .main-item-box {
+    padding-left: 0;
+  }
+  .main-item-title-mobile {
+    display: block;
+    font-size: 20px;
+    padding-left: 8px;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 559px) {
@@ -544,6 +634,17 @@
   .circle-item-txt {
     font-size: 11px;
   }
+  /* 서브슬라이드 컨테이너 */
+  .sub-slide-container .swiper-button-prev {
+    left: 0;
+    width: 30px;
+    height: 30px;
+  }
+  .sub-slide-container .swiper-button-next {
+    right: 0;
+    width: 30px;
+    height: 30px;
+  }
 }
 @media screen and (max-width: 399px) {
   .circle-banner-container,
@@ -565,5 +666,21 @@
   }
   .circle-item-txt {
     font-size: 8px;
+  }
+  /* 시즌슬라이드 미디어쿼리 */
+  .season-slide-title {
+    font-size: 17px;
+    margin-bottom: 22px;
+  }
+  /* 서브슬라이드 컨테이너 */
+  .sub-slide-container .swiper-button-prev {
+    left: -2px;
+    width: 30px;
+    height: 30px;
+  }
+  .sub-slide-container .swiper-button-next {
+    right: -2px;
+    width: 30px;
+    height: 30px;
   }
 }

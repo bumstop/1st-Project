@@ -14,9 +14,9 @@ export function Home() {
     <>
       <MainSlideContainer category={["MENS", "WOMENS"]}/>
       <CircleBannerContainer />
-      {/* <SeasonSlideContainer />
+      <SeasonSlideContainer />
       <SubSlideContainer />
-      <MainItemContainer /> */}
+      <MainItemContainer />
     </>
   );
 }

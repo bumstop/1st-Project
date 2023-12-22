@@ -19,6 +19,10 @@ export function SeasonSlideContainer() {
         breakpoints={{
           // 지정 브레이크포인트 px 이상일때 적용
           0: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          768: {
             slidesPerView: 3,
             spaceBetween: 10,
           },

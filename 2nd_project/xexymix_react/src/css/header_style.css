@@ -4,6 +4,11 @@
   top: 0;
   width: 100%;
   z-index: 99;
+  transition: all 0.5s ease;
+}
+#header.non-top {
+  transform: translateY(-35px);
+  
 }
 /* 탑 배너 */
 .top-banner {
@@ -12,11 +17,12 @@
   text-align: center;
   line-height: 35px;
   background: #000;
-  transition: all 0.5s ease;
+
 }
 .top-banner a {
   color: #fff;
 }
+
 /* GNB */
 .gnb-wrap {
   width: 100%;
@@ -29,7 +35,6 @@
 }
 .non-top .gnb-wrap {
   height: 70px;
-  transform: translateY(-35px);
 }
 .gnb {
   display: flex;
@@ -294,9 +299,6 @@
   /* GNB */
   .gnb-wrap {
     box-shadow: 0 2px 3px #33333369;
-  }
-  .non-top .gnb-wrap {
-    transform: translateY(-35px);
   }
   .gnb {
     position: relative;
