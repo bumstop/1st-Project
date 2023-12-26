@@ -6,28 +6,42 @@ import { gnbMenu } from "../data/gnb";
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
 export function DropdownMenu(props) {
+  const navigate = useNavigate();
   const dropdownBanner = ["kids", "review"];
+
+  const goSubPage = (link, category) => {
+    props.hambergerToggleFunc();
+    navigate(link, { state: { keyword: category } });
+  };
 
   const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
     <li key={v.txt}>
-      <div className="category-head">
-        <Link to={v.link}>{v.txt}</Link>
+      <div className="category-head" onClick={() => goSubPage(v.link, '전체')}>
+        {v.txt}
       </div>
       {v.sub && (
         <ul>
           {v.sub.map((subV) => (
-            <li className="category-sub" key={subV.txt}>
-              <Link to={subV.link}>{subV.txt}</Link>
+            <li
+              className="category-sub"
+              key={subV.txt}
+              onClick={() => goSubPage(subV.link, subV.txt)}
+            >
+              {subV.txt}
             </li>
           ))}
         </ul>
       )}
     </li>
   ));
+
   const makeDropdownBanner = dropdownBanner.map((v) => (
     <div key={v}>
-      <Link to={'/'}>
-        <img src={`${process.env.PUBLIC_URL}/images/menu_banner_${v}.jpg`} alt={v} />
+      <Link to={"/"}>
+        <img
+          src={`${process.env.PUBLIC_URL}/images/menu_banner_${v}.jpg`}
+          alt={v}
+        />
       </Link>
     </div>
   ));
@@ -41,6 +55,7 @@ export function DropdownMenu(props) {
     </div>
   );
 }
+
 const popularSearchWord = [
   "블랙라벨",
   "기모",
@@ -89,10 +104,17 @@ export function SearchMenu(props) {
           />
           <button
             className="search-btn"
-            onClick={() => goSearch(searchRef.current.value)}></button>
+            onClick={() => goSearch(searchRef.current.value)}
+          ></button>
         </div>
         <div className="popular-search">
-          <div style={{ fontSize: "2rem", fontWeight: "600", marginBottom: "10px" }}>
+          <div
+            style={{
+              fontSize: "2rem",
+              fontWeight: "600",
+              marginBottom: "10px",
+            }}
+          >
             인기검색어
           </div>
           <div className="hashtag-box-wrap">
@@ -100,7 +122,8 @@ export function SearchMenu(props) {
               <button
                 className="hashtag-box"
                 onClick={(e) => goSearch(e.target.innerText)}
-                key={v}>
+                key={v}
+              >
                 {v}
               </button>
             ))}
@@ -132,13 +155,19 @@ export function Gnb() {
     v.txt === "search" ? (
       <li className={v.txt + "-icon"} key={v.txt} onClick={searchToggle}>
         <button>
-          <img src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`} alt={v.txt} />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`}
+            alt={v.txt}
+          />
         </button>
       </li>
     ) : (
       <li className={v.txt + "-icon"} key={v.txt}>
         <Link to={v.link}>
-          <img src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`} alt={v.txt} />
+          <img
+            src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`}
+            alt={v.txt}
+          />
           {/* <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} /> */}
         </Link>
       </li>
@@ -150,19 +179,23 @@ export function Gnb() {
       <div className="gnb">
         <div
           className={"hamburger" + (isDropdown ? " on" : "")}
-          onClick={hambergerToggle}>
+          onClick={hambergerToggle}
+        >
           <span className="petty"></span>
         </div>
         <div className="top-logo">
           <Link to={"/home"}>
-            <img src={`${process.env.PUBLIC_URL}/images/header_logo_bk.png`} alt="xexymix" />
+            <img
+              src={`${process.env.PUBLIC_URL}/images/header_logo_bk.png`}
+              alt="xexymix"
+            />
           </Link>
         </div>
         <ul className="gnb-category">{makeGnbCategory}</ul>
         <ul className="right-btn-wrap">{makeRightBtn}</ul>
       </div>
       <SearchMenu state={isSearch} searchToggleFunc={searchToggle} />
-      <DropdownMenu state={isDropdown} />
+      <DropdownMenu state={isDropdown} hambergerToggleFunc={hambergerToggle} />
     </div>
   );
 }

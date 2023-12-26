@@ -6,20 +6,20 @@ export const gnbMenu = {
       txt: "우먼즈",
       link: "/woman",
       sub: [
-        { txt: "레깅스", type: "leggings", link: "/woman/leggings" },
-        { txt: "테이퍼드팬츠", type: "tapered", link: "/woman/tapered" },
-        { txt: "상의", type: "top", link: "/woman/top" },
-        { txt: "하의", type: "bottom", link: "/woman/bottom" },
-        { txt: "아우터", type: "outer", link: "/woman/outer" },
+        { txt: "레깅스", type: "leggings", link: "/woman" },
+        { txt: "테이퍼드팬츠", type: "tapered", link: "/woman" },
+        { txt: "상의", type: "top", link: "/woman" },
+        { txt: "하의", type: "bottom", link: "/woman" },
+        { txt: "아우터", type: "outer", link: "/woman" },
       ],
     },
     {
       txt: "맨즈",
       link: "/man",
       sub: [
-        { txt: "상의", type: "top", link: "/man/top" },
-        { txt: "하의", type: "bottom", link: "/man/bottom" },
-        { txt: "아우터", type: "outer", link: "/man/outer" },
+        { txt: "상의", type: "top", link: "/man" },
+        { txt: "하의", type: "bottom", link: "/man" },
+        { txt: "아우터", type: "outer", link: "/man" },
       ],
     },
     {

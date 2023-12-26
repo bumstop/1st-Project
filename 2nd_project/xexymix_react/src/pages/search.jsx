@@ -8,7 +8,8 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export function Search() {
   const location = useLocation();
-  const [searchkeyword, setSearchkeyword] = useState(location.state.keyword);
+  const keyword = location.state?.keyword || "";
+  const [searchkeyword, setSearchkeyword] = useState(keyword);
   const searchItems = filteredItem(itemInfo, "name", searchkeyword);
   const searchCount = searchItems.length;
   const sortTxtRef = useRef();
@@ -48,9 +49,9 @@ export function Search() {
 
 
   useEffect(() => {
-    setSearchkeyword(location.state.keyword);
+    setSearchkeyword(keyword);
     setSortType("상품 정렬");
-  }, [location]);
+  }, [keyword]);
 
   return (
     <>

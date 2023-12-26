@@ -239,7 +239,9 @@
   height: 2px;
   background: #ccc;
 }
-
+.swiper-scrollbar-drag {
+  width: 300px;
+}
 /**************** sub-slide-container ****************/
 .sub-slide-container .swiper-button-prev {
   position: absolute;

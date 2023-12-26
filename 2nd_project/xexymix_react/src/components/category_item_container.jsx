@@ -5,18 +5,18 @@ import { filteredItem, filteredItemSame } from "../func/filter_func";
 import { itemInfo } from "../data/item_info";
 
 export function CategoryItemContainer(props) {
-  const [itemCategory, setItemCategory] = useState("전체");
-
   const chgItemCategory = (target) => {
-    setItemCategory(target.innerText);
+    props.setItemCategory(target.innerText);
+  };
+  const chgFilterState = (type) => {
+    props.setFilterState(type);
   };
 
-  const [filterState, setFilterState] = useState("all");
-
   useEffect(() => {
-    categoryListArr.forEach((v) => itemCategory === v.txt && setFilterState(v.type));
-    console.log("선택 카테고리:", itemCategory);
-  }, [itemCategory]);
+    categoryListArr.forEach(
+      (v) => props.itemCategory === v.txt && chgFilterState(v.type)
+    );
+  }, [props.itemCategory]);
 
   // 아이템 카테고리 데이터
   const defCategory = [
@@ -42,22 +42,22 @@ export function CategoryItemContainer(props) {
         </div>
       ));
     // 맨즈, 우먼즈 페이지 아이템 필터링 조건
-    if (props.filterType === "type" && filterState === "all") {
+    if (props.filterType === "type" && props.filterState === "all") {
       filterData = filteredItemSame(itemInfo, "category", props.category);
       return categoryItem(filterData);
     }
-    if (props.filterType === "type" && filterState !== "all") {
+    if (props.filterType === "type" && props.filterState !== "all") {
       const info = filteredItemSame(itemInfo, "category", props.category);
-      filterData = filteredItem(info, props.filterType, filterState);
+      filterData = filteredItem(info, props.filterType, props.filterState);
       return categoryItem(filterData);
     }
     // 신상할인, 베스트 페이지 아이템 필터링 조건
-    if (props.filterType === "iconContent" && filterState === "all") {
+    if (props.filterType === "iconContent" && props.filterState === "all") {
       filterData = filteredItem(itemInfo, props.filterType, props.condition);
       return categoryItem(filterData);
     }
-    if (props.filterType === "iconContent" && filterState !== "all") {
-      const info = filteredItemSame(itemInfo, "category", filterState);
+    if (props.filterType === "iconContent" && props.filterState !== "all") {
+      const info = filteredItemSame(itemInfo, "category", props.filterState);
       filterData = filteredItem(info, props.filterType, props.condition);
       return categoryItem(filterData);
     }
@@ -70,8 +70,9 @@ export function CategoryItemContainer(props) {
         {categoryListArr.map((v) => (
           <div
             key={v.txt}
-            className={itemCategory === v.txt ? "on" : ""}
-            onClick={(e) => chgItemCategory(e.target)}>
+            className={props.itemCategory === v.txt ? "on" : ""}
+            onClick={(e) => chgItemCategory(e.target)}
+          >
             {v.txt}
           </div>
         ))}
