@@ -16,7 +16,7 @@ export function DropdownMenu(props) {
 
   const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
     <li key={v.txt}>
-      <div className="category-head" onClick={() => goSubPage(v.link, '전체')}>
+      <div className="category-head" onClick={() => goSubPage(v.link, "전체")}>
         {v.txt}
       </div>
       {v.sub && (

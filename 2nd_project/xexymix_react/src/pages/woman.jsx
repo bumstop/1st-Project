@@ -9,7 +9,7 @@ export function Woman() {
   const [itemCategory, setItemCategory] = useState(keyword);
   const [filterState, setFilterState] = useState("all");
 
-  // location이 변경됐을때만 실행
+  // keyword가 변경됐을때만 실행
   useEffect(() => {
     setItemCategory(keyword);
   }, [keyword]);

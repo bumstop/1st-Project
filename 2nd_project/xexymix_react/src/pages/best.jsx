@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 export function Best() {
   const location = useLocation();
   const keyword = location.state?.keyword || "전체";
-
   const [itemCategory, setItemCategory] = useState(keyword);
+  const [filterState, setFilterState] = useState("all");
 
-  // location(keyword)이 변경됐을때만 실행
+  // keyword가 변경됐을때만 실행
   useEffect(() => {
     setItemCategory(keyword);
   }, [keyword]);
+  
   return (
     <>
       <MainBannerContainer page="best" />
@@ -21,6 +22,8 @@ export function Best() {
         category="BEST"
         itemCategory={itemCategory}
         setItemCategory={setItemCategory}
+        filterState={filterState}
+        setFilterState={setFilterState}
         filterType="iconContent"
       />
     </>
