@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 export function Best() {
   const location = useLocation();
   const keyword = location.state?.keyword || "전체";
-  const [itemCategory, setItemCategory] = useState(keyword);
+  const [itemCategory, setItemCategory] = useState();
   const [filterState, setFilterState] = useState("all");
 
   // keyword가 변경됐을때만 실행
   useEffect(() => {
     setItemCategory(keyword);
-  }, [keyword]);
+    
+  }, [location, keyword]);
   
   return (
     <>

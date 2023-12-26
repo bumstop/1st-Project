@@ -12,8 +12,11 @@ export function Woman() {
   // keyword가 변경됐을때만 실행
   useEffect(() => {
     setItemCategory(keyword);
-  }, [keyword]);
-
+    console.log(keyword, location);
+  }, [location, keyword]);
+  // React Hook useEffect has a missing dependency: 'keyword'.
+  // Either include it or remove the dependency array
+  // 위 오류문구 공부하기 keyword로만 감시하면 gnb메뉴로 들어올시 가끔씩 안바뀌는 문제 있음.
   return (
     <>
       <MainSlideContainer category="WOMENS" />

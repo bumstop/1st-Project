@@ -13,7 +13,7 @@ export function Man() {
   // keyword가 변경됐을때만 실행
   useEffect(() => {
     setItemCategory(keyword);
-  }, [keyword]);
+  }, [location, keyword]);
 
   return (
     <>
