@@ -87,7 +87,7 @@ export function CategoryItemContainer(props) {
       if (num > max) return max;
       return num;
     };
-    // const dragPosX = e.clientX || e.touches[0].screenX;
+    // const dragPosX = e.clientX || e.touches[0].screenX; 모바일 추가해야됨
     const dragPosX = e.screenX;
     const deltaX = dragPosX - FirstPositionRef.current;
     const maxPosX =
