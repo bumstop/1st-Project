@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gnbMenu } from "../data/gnb";
 import { makeItemBox } from "../components/item_box";
 import { filteredItem, filteredItemSame } from "../func/filter_func";
@@ -63,19 +63,67 @@ export function CategoryItemContainer(props) {
     }
   };
 
+  const [isDrag, setIsDrag] = useState(false);
+  const [dragPosition, setDragPosition] = useState(0);
+  const FirstPositionRef = useRef();
+
+  const dragStart = (e) => {
+    const maxPosX =
+      e.currentTarget.clientWidth - e.currentTarget.parentElement.clientWidth;
+
+    // 부모박스가 자식박스보다 작을때만 드래그 허용
+    if (maxPosX > 0) { 
+      setIsDrag(true);
+    }
+
+    FirstPositionRef.current = e.screenX - dragPosition;
+  };
+  // 두번째 드래그부터 deltaX가 0보다 커져 드래그가 초기화 되는 현상 발생.
+  // -dragPosition 을 추가해서 보정해줌 -> 문제해결.
+
+  const dragging = (e) => {
+    const inRange = (num, min, max) => {
+      if (num < min) return min;
+      if (num > max) return max;
+      return num;
+    };
+    // const dragPosX = e.clientX || e.touches[0].screenX;
+    const dragPosX = e.screenX;
+    const deltaX = dragPosX - FirstPositionRef.current;
+    const maxPosX =
+      e.currentTarget.clientWidth - e.currentTarget.parentElement.clientWidth;
+
+    setDragPosition(inRange(deltaX, -maxPosX, 0));
+
+    e.currentTarget.style.transform = `translateX(${dragPosition}px)`;
+
+    console.log(FirstPositionRef, dragPosition, deltaX);
+  };
+
+  const dragEnd = () => {
+    setIsDrag(false);
+  };
+
   return (
     <div className="category-item-container">
       <h2 className="category-title">{props.category}</h2>
       <div className="category-list">
-        {categoryListArr.map((v) => (
-          <div
-            key={v.txt}
-            className={props.itemCategory === v.txt ? "on" : ""}
-            onClick={(e) => chgItemCategory(e.target)}
-          >
-            {v.txt}
-          </div>
-        ))}
+        <div
+          className="drag-box"
+          onMouseDown={dragStart}
+          onMouseMove={(e) => isDrag && dragging(e)}
+          onMouseUp={dragEnd}
+        >
+          {categoryListArr.map((v) => (
+            <div
+              key={v.txt}
+              className={props.itemCategory === v.txt ? "on" : ""}
+              onClick={(e) => chgItemCategory(e.target)}
+            >
+              {v.txt}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="category-item item-box-wrap">{makeCategoryItem()}</div>
     </div>

@@ -16,9 +16,16 @@
 .category-list {
   margin-bottom: 50px;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.category-list div {
+.drag-box {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+}
+.drag-box div {
   display: inline-block;
   padding: 10px 15px;
   margin-right: 20px;
@@ -30,7 +37,9 @@
   color: #777;
   cursor: pointer;
 }
-
+.drag-box div:last-child {
+  margin-right: 0;
+}
 .category-list div.on {
   color: #fff;
   background-color: #000;
@@ -40,26 +49,28 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 30px;
-  column-gap: calc(5% / 4);
+  column-gap: calc(4% / 4);
   margin-bottom: 150px;
 }
 .category-item-container .item-box {
-  flex-basis: calc(95% / 5);
+  flex-basis: calc(96% / 5);
 }
 
 /* new, best page CSS */
 /* 메인배너 컨테이너 */
 .main-banner-container {
   position: relative;
-
   width: 100%;
-  max-width: var(--page-max-width);
-  min-width: var(--page-min-width);
+  height: 550px;
   margin: 0 auto 75px;
 }
 
 .main-banner-container img {
+  position: absolute;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% center;
 }
 
 .tit-box {
@@ -69,20 +80,70 @@
   transform: translate(0, -50%);
   color: #fff;
 }
-.first-tit{
+.first-tit {
   display: inline-block;
   padding: 7px 35px;
   margin-bottom: 25px;
   border: 1px solid #fff;
-  background-color: rgba(255, 255, 255 ,0.3);
+  background-color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
   font-weight: 500;
 }
-.second-tit{
+.second-tit {
   font-size: 50px;
   font-weight: 600;
   margin-bottom: 25px;
 }
-.third-tit{
-font-size: 20px;
+.third-tit {
+  font-size: 20px;
+}
+
+/******************************* 미디어쿼리 *******************************/
+@media screen and (max-width: 1239px) {
+  .category-item-container .item-box-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: calc(3% / 3);
+    margin-bottom: 150px;
+  }
+  .category-item-container .item-box {
+    flex-basis: calc(97% / 4);
+  }
+}
+@media screen and (max-width: 1023px) {
+  .main-banner-container img {
+    object-position: 90% center;
+  }
+  .category-item-container .item-box-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: calc(2% / 2);
+    margin-bottom: 150px;
+  }
+  .category-item-container .item-box {
+    flex-basis: calc(98% / 3);
+  }
+}
+/**************** 모바일 미디어 쿼리 ****************/
+@media screen and (max-width: 767px) {
+  .main-banner-container img {
+    object-position: 85% center;
+  }
+}
+@media screen and (max-width: 559px) {
+  .main-banner-container img {
+    object-position: 78% center;
+  }
+  .category-item-container .item-box-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: calc(1% / 1);
+    margin-bottom: 150px;
+  }
+  .category-item-container .item-box {
+    flex-basis: calc(99% / 2);
+  }
 }

@@ -12,7 +12,6 @@ export function Best() {
   // keyword가 변경됐을때만 실행
   useEffect(() => {
     setItemCategory(keyword);
-    
   }, [location, keyword]);
   
   return (
