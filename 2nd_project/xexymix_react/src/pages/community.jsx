@@ -7,13 +7,17 @@ import { Fragment, useEffect, useRef, useState } from "react";
 export function Community() {
   const [categoryNow, setCategoryNow] = useState("전체보기");
   const faqSearchRef = useRef();
-  const faqListAll = faqList["주문/결제"].concat(faqList["배송"], faqList["교환/반품"]);
+  const faqListAll = faqList["주문/결제"].concat(
+    faqList["배송"],
+    faqList["교환/반품"]
+  );
 
   const toggleShowFaqAnswer = (e) => {
     const nextEle = e.currentTarget.nextElementSibling;
     nextEle.classList.toggle("on");
   };
-  const CommuSub = gnbMenu.gnbCategory.filter((v) => v.txt === "커뮤니티")[0].sub;
+  const CommuSub = gnbMenu.gnbCategory.filter((v) => v.txt === "커뮤니티")[0]
+    .sub;
 
   const makeCommuCate = CommuSub.map((v) => (
     <li key={v.txt}>
@@ -41,6 +45,7 @@ export function Community() {
       </li>
     </Fragment>
   ));
+
   const makeFaqList2 = faqList["배송"].map((v) => (
     <Fragment key={v.q}>
       <li onClick={toggleShowFaqAnswer}>
@@ -60,6 +65,7 @@ export function Community() {
       </li>
     </Fragment>
   ));
+
   const makeFaqList3 = faqList["교환/반품"].map((v) => (
     <Fragment key={v.q}>
       <li onClick={toggleShowFaqAnswer}>
@@ -89,6 +95,46 @@ export function Community() {
     console.log(searchValue, filteredData);
     setFilteredResults(filteredData);
   };
+
+  const makeFaqList4 = filteredResults.map((v) => (
+    <Fragment key={v.q}>
+      <li onClick={toggleShowFaqAnswer}>
+        <div className="faq-list-category">{v.cat}</div>
+        <div className="faq-list-question">{v.q}</div>
+      </li>
+      <li className="faq-list-answer">
+        <div>
+          {v.a.split("^").map((v) => (
+            <p key={v}>
+              {v}
+              <br />
+              <br />
+            </p>
+          ))}
+        </div>
+      </li>
+    </Fragment>
+  ));
+
+  let makeFaqList;
+
+  switch (categoryNow) {
+    case "전체보기":
+      makeFaqList = [...makeFaqList1, ...makeFaqList2, ...makeFaqList3];
+      break;
+    case "주문/결제":
+      makeFaqList = makeFaqList1;
+      break;
+    case "배송":
+      makeFaqList = makeFaqList2;
+      break;
+    case "교환/반품":
+      makeFaqList = makeFaqList3;
+      break;
+    case "검색":
+      makeFaqList = makeFaqList4;
+      break;
+  }
 
   // 공지사항 리스트 생성 변수
   const makeNoticeList = noticeList.map((v) => (
@@ -124,12 +170,14 @@ export function Community() {
                   searchFaq(faqSearchRef.current.value);
                   setCategoryNow("검색");
                 }
-              }}></input>
+              }}
+            ></input>
             <button
               onClick={() => {
                 searchFaq(faqSearchRef.current.value);
                 setCategoryNow("검색");
-              }}></button>
+              }}
+            ></button>
           </fieldset>
         </div>
         <div className="cs-info">
@@ -148,55 +196,31 @@ export function Community() {
           <ul className="faq-category">
             <li
               className={categoryNow === "전체보기" ? "on" : ""}
-              onClick={() => setCategoryNow("전체보기")}>
+              onClick={() => setCategoryNow("전체보기")}
+            >
               전체보기
             </li>
             <li
               className={categoryNow === "주문/결제" ? "on" : ""}
-              onClick={() => setCategoryNow("주문/결제")}>
+              onClick={() => setCategoryNow("주문/결제")}
+            >
               주문/결제
             </li>
             <li
               className={categoryNow === "배송" ? "on" : ""}
-              onClick={() => setCategoryNow("배송")}>
+              onClick={() => setCategoryNow("배송")}
+            >
               배송
             </li>
             <li
               className={categoryNow === "교환/반품" ? "on" : ""}
-              onClick={() => setCategoryNow("교환/반품")}>
+              onClick={() => setCategoryNow("교환/반품")}
+            >
               교환/반품
             </li>
           </ul>
-          <ul className="faq-list">
-            {categoryNow === "전체보기" && [
-              ...makeFaqList1,
-              ...makeFaqList2,
-              ...makeFaqList3,
-            ]}
-            {categoryNow === "주문/결제" && makeFaqList1}
-            {categoryNow === "배송" && makeFaqList2}
-            {categoryNow === "교환/반품" && makeFaqList3}
-            {categoryNow === "검색" &&
-              filteredResults.map((v) => (
-                <Fragment key={v.q}>
-                  <li onClick={toggleShowFaqAnswer}>
-                    <div className="faq-list-category">{v.cat}</div>
-                    <div className="faq-list-question">{v.q}</div>
-                  </li>
-                  <li className="faq-list-answer">
-                    <div>
-                      {v.a.split("^").map((v) => (
-                        <p key={v}>
-                          {v}
-                          <br />
-                          <br />
-                        </p>
-                      ))}
-                    </div>
-                  </li>
-                </Fragment>
-              ))}
-          </ul>
+          <ul className="faq-list">{makeFaqList}</ul>
+          <div className="more-btn">더보기</div>
         </div>
         <div className="right-box">
           <div className="notice-box">
@@ -207,13 +231,22 @@ export function Community() {
             <div className="event-box-title">이벤트</div>
             <div className="event-list">
               <div className="event-list-item">
-                <img src={`${process.env.PUBLIC_URL}/images/event_thumb1.jpg`} alt="event_thumb1" />
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/event_thumb1.jpg`}
+                  alt="event_thumb1"
+                />
               </div>
               <div className="event-list-item">
-                <img src={`${process.env.PUBLIC_URL}/images/event_thumb2.jpg`} alt="event_thumb2" />
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/event_thumb2.jpg`}
+                  alt="event_thumb2"
+                />
               </div>
               <div className="event-list-item">
-                <img src={`${process.env.PUBLIC_URL}/images/event_thumb3.jpg`} alt="event_thumb3" />
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/event_thumb3.jpg`}
+                  alt="event_thumb3"
+                />
               </div>
             </div>
           </div>

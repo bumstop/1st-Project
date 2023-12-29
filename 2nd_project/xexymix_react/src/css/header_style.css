@@ -408,6 +408,7 @@
   }
   .dropdown-category {
     flex-wrap: wrap;
+    row-gap: 10px;
   }
   .dropdown-category > li {
     flex-basis: 120px;

@@ -2,7 +2,11 @@
 export function MainBannerContainer(props) {
   return (
     <div className="main-banner-container">
-      <img src={`${process.env.PUBLIC_URL}/images/${props.page}_main_banner.jpg`} alt="메인배너" />
+      <img
+        className={props.page === "best" ? "best-banner-img" : "new-banner-img"}
+        src={`${process.env.PUBLIC_URL}/images/${props.page}_main_banner.jpg`}
+        alt="메인배너"
+      />
       {props.page === "new" && (
         <div className="tit-box">
           <p className="first-tit">NEW</p>

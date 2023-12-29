@@ -16,7 +16,7 @@
 .commu-category {
   width: 100%;
   max-width: var(--page-max-width);
-
+  white-space: nowrap;
   margin-bottom: 75px;
   display: flex;
   justify-content: center;
@@ -30,7 +30,6 @@
   line-height: 50px;
   letter-spacing: 0.4px;
   flex-basis: 150px;
-  padding: 0 25px;
 }
 .commu-category li:hover {
   font-weight: 500;
@@ -75,6 +74,7 @@
 }
 #faq-search {
   flex-grow: 1; /* 남은공간 채우기 */
+  width: 1%;
   height: 25px;
   padding-left: 10px;
   box-sizing: border-box;
@@ -99,6 +99,7 @@
 }
 /* 자주 찾는 질문 박스 */
 .faq-box {
+  position: relative;
   width: 55%;
 }
 .faq-box-title {
@@ -206,6 +207,20 @@
   text-align: center;
   display: inline-block;
 }
+.more-btn {
+  position: absolute;
+  right: 8px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 5px 7px;
+  border: 1px solid #222;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #4b4b4b;
+  cursor: pointer;
+}
 
 /* 오른쪽 박스 */
 .right-box {
@@ -268,4 +283,109 @@
 .cs-info p:nth-child(3) {
   font-size: 12px;
   color: #bbb;
+}
+/******************************* 미디어쿼리 *******************************/
+@media screen and (max-width: 1239px) {
+  .faq-search-box {
+    padding: 40px 50px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* 커뮤니티 상단 */
+  .commu-top {
+    margin-bottom: 15px;
+    padding: 0 var(--page-padding);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .faq-search-box {
+    width: 100%;
+  }
+  .cs-info {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+  .cs-info p:last-child {
+    position: absolute;
+    top: 20px;
+    right: 10%;
+    font-size: 17px;
+    text-align: right;
+  }
+  .commu-bottom {
+    flex-direction: column;
+  }
+  .faq-box {
+    width: 100%;
+  }
+  .right-box {
+    width: 100%;
+    margin-top: 120px;
+  }
+  .event-box {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .faq-search-box {
+    padding: 20px 30px;
+    height: 100px;
+  }
+  .faq-search-box label {
+    font-size: 18px;
+    padding: 0 15px 0 0;
+  }
+  .faq-search-box select {
+    width: 80px;
+    height: 20px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  .faq-category li {
+    flex-basis: 80px;
+  }
+  .faq-category li.on::after {
+    width: 76px;
+  }
+}
+@media screen and (max-width: 559px) {
+  .commu-category {
+    font-size: 13px;
+  }
+  .commu-category li {
+    flex-basis: 100px;
+  }
+  .cs-info {
+    height: 74px;
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  .cs-info p:last-child {
+    top: 10px;
+    right: 10px;
+  }
+  .faq-search-box {
+    padding: 10px 10px;
+    height: 80px;
+  }
+  .cs-info p:first-child {
+    font-size: 15px;
+  }
+  .cs-info p:nth-child(2) {
+    font-size: 25px;
+  }
+  .cs-info p:last-child {
+    font-size: 12px;
+  }
+  .faq-category li {
+    flex-basis: 64px;
+  }
+  .faq-category li.on::after {
+    width: 60px;
+  }
 }

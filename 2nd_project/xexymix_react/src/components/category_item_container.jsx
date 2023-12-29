@@ -66,17 +66,26 @@ export function CategoryItemContainer(props) {
   const [isDrag, setIsDrag] = useState(false);
   const [dragPosition, setDragPosition] = useState(0);
   const FirstPositionRef = useRef();
+  const maxPosX = useRef();
+
+  useEffect(() => {
+    maxPosX.current =
+      document.querySelector(".drag-box").clientWidth -
+      document.querySelector(".category-list").clientWidth;
+
+    maxPosX.current < 0 &&
+      document
+        .querySelector(".category-list")
+        .setAttribute("class", "category-list max");
+  }, []);
 
   const dragStart = (e) => {
-    const maxPosX =
-      e.currentTarget.clientWidth - e.currentTarget.parentElement.clientWidth;
-
     // 부모박스가 자식박스보다 작을때만 드래그 허용
-    if (maxPosX > 0) { 
+    if (maxPosX.current > 0) {
       setIsDrag(true);
     }
-
-    FirstPositionRef.current = e.screenX - dragPosition;
+    FirstPositionRef.current =
+      (e.screenX || e.touches[0].screenX) - dragPosition;
   };
   // 두번째 드래그부터 deltaX가 0보다 커져 드래그가 초기화 되는 현상 발생.
   // -dragPosition 을 추가해서 보정해줌 -> 문제해결.
@@ -87,17 +96,13 @@ export function CategoryItemContainer(props) {
       if (num > max) return max;
       return num;
     };
-    // const dragPosX = e.clientX || e.touches[0].screenX; 모바일 추가해야됨
-    const dragPosX = e.screenX;
-    const deltaX = dragPosX - FirstPositionRef.current;
-    const maxPosX =
-      e.currentTarget.clientWidth - e.currentTarget.parentElement.clientWidth;
 
-    setDragPosition(inRange(deltaX, -maxPosX, 0));
+    const dragPosX = e.screenX || e.touches[0].screenX;
+    const deltaX = dragPosX - FirstPositionRef.current;
+
+    setDragPosition(inRange(deltaX, -maxPosX.current, 0));
 
     e.currentTarget.style.transform = `translateX(${dragPosition}px)`;
-
-    console.log(FirstPositionRef, dragPosition, deltaX);
   };
 
   const dragEnd = () => {
@@ -107,12 +112,23 @@ export function CategoryItemContainer(props) {
   return (
     <div className="category-item-container">
       <h2 className="category-title">{props.category}</h2>
-      <div className="category-list">
+      <div
+        className={
+          "category-list" +
+          (dragPosition < 0 ? " active" : "") +
+          (dragPosition === -maxPosX.current ? " max" : "")
+        }
+      >
         <div
           className="drag-box"
           onMouseDown={dragStart}
           onMouseMove={(e) => isDrag && dragging(e)}
           onMouseUp={dragEnd}
+          onMouseEnter={() => setIsDrag(true)}
+          onMouseLeave={dragEnd}
+          onTouchStart={dragStart}
+          onTouchMove={(e) => isDrag && dragging(e)}
+          onTouchEnd={dragEnd}
         >
           {categoryListArr.map((v) => (
             <div
