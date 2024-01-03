@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
 
@@ -6,6 +6,24 @@ import { gnbMenu } from "../data/gnb";
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
 export function DropdownMenu(props) {
+  const scrollY = useRef(0);
+  // 모달 오버레이에서 스크롤 방지
+  useEffect(() => {
+    if (props.state) {
+      scrollY.current = window.scrollY;
+      document.body.style.cssText = `
+      position: fixed; 
+      top: -${scrollY.current}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    }
+
+    if (!props.state) {
+      document.body.style.cssText = "";
+      window.scrollTo(0, parseInt(scrollY.current, 10));
+    }
+  }, [props.state]);
+
   const navigate = useNavigate();
   const dropdownBanner = ["kids", "review"];
 
@@ -46,8 +64,18 @@ export function DropdownMenu(props) {
     </div>
   ));
 
+  const dropdownMenuWrapRef = useRef();
+  const checkDimmed = (e) => {
+    console.log(e.target, e.currentTarget);
+    if (dropdownMenuWrapRef.current === e.target) props.hambergerToggleFunc();
+  };
+  
   return (
-    <div className={"dropdown-menu-wrap" + (props.state ? " on" : "")}>
+    <div
+      ref={dropdownMenuWrapRef}
+      className={"dropdown-menu-wrap" + (props.state ? " on" : "")}
+      onClick={checkDimmed}
+    >
       <div className="dropdown-menu">
         <ul className="dropdown-category">{makeDropdownCategory}</ul>
         <div className="dropdown-banner">{makeDropdownBanner}</div>
@@ -76,12 +104,31 @@ const popularSearchWord = [
  *  @param props.searchToggleFunc  state 를 toggle 해주는 함수
  */
 export function SearchMenu(props) {
+  const scrollY = useRef(0);
+
+  // 모달 오버레이에서 스크롤 방지
+  useEffect(() => {
+    if (props.state) {
+      scrollY.current = window.scrollY;
+      document.body.style.cssText = `
+      position: fixed; 
+      top: -${scrollY.current}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    }
+
+    if (!props.state) {
+      document.body.style.cssText = "";
+      window.scrollTo(0, parseInt(scrollY.current, 10));
+    }
+  }, [props.state]);
+
   const searchToggle = () => {
     props.searchToggleFunc();
   };
   const searchRef = useRef();
-
   const navigate = useNavigate();
+
   // 검색어를 가지고 search 페이지로 이동
   const goSearch = (searchValue) => {
     searchToggle();
@@ -89,8 +136,19 @@ export function SearchMenu(props) {
     navigate("/search", { state: { keyword: searchValue } });
     searchRef.current.value = "";
   };
+
+  const searchMenuWrapRef = useRef();
+  const checkDimmed = (e) => {
+    console.log(e.target, e.currentTarget);
+    if (searchMenuWrapRef.current === e.target) searchToggle();
+  };
+
   return (
-    <div className={"search-menu-wrap" + (props.state ? " on" : "")}>
+    <div
+      ref={searchMenuWrapRef}
+      className={"search-menu-wrap" + (props.state ? " on" : "")}
+      onClick={checkDimmed}
+    >
       <div className="search-menu">
         <div className="close-btn" onClick={searchToggle}></div>
         <div className="search-box-wrap">
@@ -138,11 +196,21 @@ export function SearchMenu(props) {
 export function Gnb() {
   const [isDropdown, setIsDropdown] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
+
+  const openDropdownAndCloseSearch = () => {
+    setIsDropdown(true);
+    if (isSearch) setIsSearch(false);
+  };
+  const openSearchAndCloseDropdown = () => {
+    setIsSearch(true);
+    if (isDropdown) setIsDropdown(false);
+  };
+
   function hambergerToggle() {
-    isDropdown ? setIsDropdown(false) : setIsDropdown(true);
+    isDropdown ? setIsDropdown(false) : openDropdownAndCloseSearch();
   }
   function searchToggle() {
-    isSearch ? setIsSearch(false) : setIsSearch(true);
+    isSearch ? setIsSearch(false) : openSearchAndCloseDropdown();
   }
 
   const makeGnbCategory = gnbMenu.gnbCategory.map((v) => (

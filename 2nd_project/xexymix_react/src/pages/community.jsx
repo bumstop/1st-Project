@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
 import { faqList } from "../data/faq_list";
 import { noticeList } from "../data/notice_list";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 
 export function Community() {
   const [categoryNow, setCategoryNow] = useState("전체보기");
@@ -134,6 +134,8 @@ export function Community() {
     case "검색":
       makeFaqList = makeFaqList4;
       break;
+    default:
+    //do nothing
   }
 
   // 공지사항 리스트 생성 변수

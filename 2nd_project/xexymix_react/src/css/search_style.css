@@ -100,3 +100,16 @@
 .search-item-container .item-box {
   flex-basis: calc(95% / 5);
 }
+
+/********************** 미디어 쿼리 **********************/
+@media screen and (max-width: 1439px) {
+  .search-head .search-box-wrap {
+    width: 80%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    outline: none;
+    box-sizing: border-box;
+  }
+}

@@ -18,7 +18,6 @@
   padding: 0 var(--page-padding);
 }
 .gnb,
-.dropdown-menu,
 .main-slide-container {
   width: 100%;
   max-width: var(--page-max-width);
