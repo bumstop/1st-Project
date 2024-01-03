@@ -1,7 +1,7 @@
 import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
 import { Link } from "react-router-dom";
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
@@ -19,6 +19,7 @@ export function MainSlideContainer(props) {
   const filterData = Array.isArray(props.category)
     ? mainSlideInfo
     : filteredItemSame(mainSlideInfo, "category", props.category);
+
 
   return (
     <div className="main-slide-container">
@@ -41,11 +42,11 @@ export function MainSlideContainer(props) {
         modules={[Autoplay, Pagination, Navigation]}
         className="main-slide-container"
       >
-        {Array.isArray(props.category) && (
+        {/* {Array.isArray(props.category) && (
           <SwiperSlide className="main-slide-item event-item">
             <Link to={"/"}></Link>
           </SwiperSlide>
-        )}
+        )} */}
 
         {filterData.map((v) => (
           <SwiperSlide className="main-slide-item" key={v.imgSrc}>

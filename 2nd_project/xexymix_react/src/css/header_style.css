@@ -409,10 +409,12 @@
   .dropdown-menu-wrap {
     position: absolute;
     height: calc(100vh - 70px);
+    visibility: hidden;
   }
   .dropdown-menu-wrap.on {
     height: calc(100vh - 70px);
     border-top: none;
+    visibility: visible;
     transition: 0.3s ease-out ;
   }
   .dropdown-menu {
