@@ -65,11 +65,13 @@ export function Product() {
    */
   const addProductOrderedList = () => {
     const selectRefText =
-      selectProductOptionRef.current.options[selectProductOptionRef.current.selectedIndex]
-        .text;
+      selectProductOptionRef.current.options[
+        selectProductOptionRef.current.selectedIndex
+      ].text;
 
     const isAlreadySelected =
-      productOrderedListArr.find((v) => v.selectRefText === selectRefText) !== undefined;
+      productOrderedListArr.find((v) => v.selectRefText === selectRefText) !==
+      undefined;
 
     // 1. ProductOrderedListArr에 선택한 옵션을 추가함
     if (isAlreadySelected) {
@@ -82,8 +84,6 @@ export function Product() {
         {
           selectRefText: selectRefText,
           price: price,
-          countObject: countObject,
-          changeCountObject: changeCountObject,
         },
       ]);
     }
@@ -91,6 +91,18 @@ export function Product() {
     // 2. selectProductOptionRef를 "옵션 선택" 으로 초기화함
     selectProductOptionRef.current.options[0].selected = true;
   };
+
+  // 삭제버튼 클릭시 해당 리스트를 삭제하는 함수 -> 자식컴포넌트에 props로 넘겨준 후 사용 
+  const removeProductOrderedList = (selectRefText) => {
+    setProductOrderedListArr(
+      productOrderedListArr.filter((v) => v.selectRefText !== selectRefText)
+    );
+    changeCountObject(selectRefText, 0);
+  };
+
+  // useEffect(() => {
+  //   console.log(countObject, productOrderedListArr);
+  // }, [countObject]);
 
   return (
     <div className="product-container">
@@ -101,7 +113,8 @@ export function Product() {
             background: `url(${
               process.env.PUBLIC_URL + product.imgSrc
             }) center/cover no-repeat`,
-          }}>
+          }}
+        >
           <img src={process.env.PUBLIC_URL + product.imgSrc} alt="thumbnail" />
         </div>
         <div className="product-box">
@@ -125,7 +138,8 @@ export function Product() {
                 ref={selectProductOptionRef}
                 name="product-option"
                 id="select-product-option"
-                onChange={addProductOrderedList}>
+                onChange={addProductOrderedList}
+              >
                 {makeProductOption}
               </select>
             </div>
@@ -140,8 +154,8 @@ export function Product() {
                 selectRefText={v.selectRefText}
                 key={v.selectRefText}
                 price={v.price}
-                countObject={v.countObject}
-                changeCountObject={v.changeCountObject}
+                changeCountObject={changeCountObject}
+                removeProductOrderedList={removeProductOrderedList}
               />
             ))}
           </div>
@@ -149,7 +163,13 @@ export function Product() {
             <span>총 합계</span>
             <span>
               {totalPrice.toLocaleString()}
-              <span style={{ fontSize: "14px", fontWeight: "400", paddingLeft: "5px" }}>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  paddingLeft: "5px",
+                }}
+              >
                 원
               </span>
             </span>

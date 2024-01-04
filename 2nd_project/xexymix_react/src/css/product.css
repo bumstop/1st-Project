@@ -1,9 +1,6 @@
 .product-container {
-  width: calc(100%);
-  max-width: calc(var(--page-max-width));
-  min-width: calc(var(--page-min-width));
+  width: 1200px;
   margin: 50px auto 75px;
-  padding: 0 var(--page-padding);
   box-sizing: border-box;
 }
 
@@ -11,7 +8,9 @@
   display: flex;
   align-items: flex-start;
   gap: 100px;
+  width: 100%;
 }
+
 .thumbnail-box {
   flex-basis: 55%;
   aspect-ratio: 1/1;
@@ -143,6 +142,7 @@
   right: 0.5%;
   width: 12px;
   height: 12px;
+  cursor: pointer;
   background: url(../../public/images/m_close_btn_black.png) center/cover no-repeat;
 }
 .total-price-box {
@@ -174,4 +174,70 @@
   border: 1px solid #000;
   text-align: center;
   line-height: 65px;
+}
+
+/********************** 미디어 쿼리 **********************/
+@media screen and (max-width: 1239px) {
+  .product-container {
+    width: 1000px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .product-container {
+    width: 750px;
+  }
+}
+
+/**************** 모바일 미디어 쿼리 ****************/
+@media screen and (max-width: 767px) {
+  .product-container {
+    width: 100%;
+  }
+  .product-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .thumbnail-box {
+    width: 70%;
+  }
+  .product-box {
+    width: 95%;
+  }
+  /* 여기글자크기부터 미디어쿼리 시작 */
+}
+
+@media screen and (max-width: 559px) {
+  .product-container {
+    margin-top: 0;
+  }
+  .thumbnail-box {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 399px) {
+  .product-name {
+    font-size: 25px;
+  }
+  .product-btns {
+    height: 50px;
+    gap: 15px;
+  }
+  .price-right {
+    font-size: 16.5px;
+  }
+  .fit-size-btn {
+    font-size: 14px;
+  }
+  .point-right {
+    font-size: 16.5px;
+}
+  .buy-btn {
+    line-height: 50px;
+  }
+  .wish-btn {
+    flex-basis: 50px;
+    line-height: 50px;
+    font-size: 20px;
+  }
 }

@@ -36,6 +36,6 @@ export const gnbMenu = {
   rightBtnMenu: [
     { txt: "search", link: null },
     { txt: "cart", link: "/cart" },
-    { txt: "mypage", link: "/mypage" },
+    { txt: "login", link: "/login" },
   ],
 };

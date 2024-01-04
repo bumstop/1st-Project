@@ -13,6 +13,7 @@ import { Man } from "./pages/man";
 import { Community } from "./pages/community";
 import { Search } from "./pages/search";
 import { Product } from "./pages/product";
+import { Login } from "./pages/login";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,23 +38,23 @@ function App() {
           <Route index element={<Home />} />
 
           <Route path="home" element={<Home />} />
+
           {/* 신상할인 */}
           <Route path="new" element={<New />} />
-
           {/* 베스트 */}
           <Route path="best" element={<Best />} />
-
           {/* 우먼즈 */}
           <Route path="woman" element={<Woman />} />
-
           {/* 맨즈 */}
           <Route path="man" element={<Man />} />
-
           {/* 커뮤니티 */}
           <Route path="community" element={<Community />} />
 
           {/* 검색 페이지 */}
           <Route path="search" element={<Search />} />
+
+          {/* 로그인 페이지 */}
+          <Route path="login" element={<Login />} />
 
           {/* 상품 상세 페이지 */}
           <Route path="product/:productId" element={<Product />} />

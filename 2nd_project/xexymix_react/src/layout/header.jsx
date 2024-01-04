@@ -7,9 +7,9 @@ export function Header() {
 
   const checkTop = () => {
     let scTop = window.scrollY;
-    if (scTop >= 200 && isScrollTop) {
+    if (scTop >= 100 && isScrollTop) {
       setIsScrollTop(false);
-    } else if (scTop < 200 && !isScrollTop) {
+    } else if (scTop < 100 && !isScrollTop) {
       setIsScrollTop(true);
     }
   };

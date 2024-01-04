@@ -16,7 +16,7 @@ export const ProductOrderedList = (props) => {
 
     if (isWrongCount) {
       changeCountObject(props.selectRefText, (countInputRef.current.value = 1));
-      window.alert("똑바로 입력하세요 ^^.");
+      window.alert("올바른 주문수량을 입력해주세요.");
     }
   });
 
@@ -27,8 +27,12 @@ export const ProductOrderedList = (props) => {
         <div
           className="minus-btn"
           onClick={() =>
-            changeCountObject(props.selectRefText, --countInputRef.current.value)
-          }></div>
+            changeCountObject(
+              props.selectRefText,
+              --countInputRef.current.value
+            )
+          }
+        ></div>
         <div className="count-box">
           <input
             ref={countInputRef}
@@ -36,18 +40,28 @@ export const ProductOrderedList = (props) => {
             type="text"
             defaultValue={1}
             onChange={() =>
-              changeCountObject(props.selectRefText, Number(countInputRef.current.value))
+              changeCountObject(
+                props.selectRefText,
+                Number(countInputRef.current.value)
+              )
             }
           />
         </div>
         <div
           className="plus-btn"
           onClick={() =>
-            changeCountObject(props.selectRefText, ++countInputRef.current.value)
-          }></div>
+            changeCountObject(
+              props.selectRefText,
+              ++countInputRef.current.value
+            )
+          }
+        ></div>
       </div>
       <span className="option-price">{price.toLocaleString()}원</span>
-      <div className="product-close-btn"></div>
+      <div
+        className="product-close-btn"
+        onClick={() => props.removeProductOrderedList(props.selectRefText)}
+      ></div>
     </div>
   );
 }; // const ProductOrderedList
