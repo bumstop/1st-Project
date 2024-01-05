@@ -14,7 +14,7 @@ export function KakaoLogin() {
         src={`${process.env.PUBLIC_URL}/images/kakao_logo.svg`}
         alt="카카오 로고"
       />
-      카카오 1초 로그인/회원가입
+      카카오 로그인
     </div>
   );
 }
