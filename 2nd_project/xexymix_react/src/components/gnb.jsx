@@ -139,7 +139,6 @@ export function SearchMenu(props) {
 
   const searchMenuWrapRef = useRef();
   const checkDimmed = (e) => {
-    console.log(e.target, e.currentTarget);
     if (searchMenuWrapRef.current === e.target) searchToggle();
   };
 
