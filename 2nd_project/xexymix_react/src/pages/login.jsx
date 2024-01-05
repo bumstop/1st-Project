@@ -8,6 +8,10 @@ export function KakaoLogin() {
   const handleLogin = () => {
     window.location.href = kakaoURL;
   };
+
+  // 인가 코드 추출 이라고 함. 여기부터 시작
+  const code = new URL(window.location.href).searchParams.get("code");
+
   return (
     <div className="kakao-login-btn" onClick={handleLogin}>
       <img
