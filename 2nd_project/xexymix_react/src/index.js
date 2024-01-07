@@ -2,7 +2,7 @@
 import ReactDOM from "react-dom/client";
 import { useEffect } from "react";
 // Import react-router
-import { BrowserRouter, HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 // Import pages
 import { Layout } from "./layout/layout";
 import { Home } from "./pages/home";

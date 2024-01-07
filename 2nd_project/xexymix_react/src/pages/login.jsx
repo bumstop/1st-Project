@@ -9,6 +9,8 @@ export function KakaoLogin() {
   const [accessTokenFetching, setAccessTokenFetching] = useState(false);
 
   // Access Token 받아오기
+  // async 를 함수 앞에 선언해주면 비동기 함수가 됨. 
+  // (promise 객체를 반환하지 않아도 자동으로 반환함)
   const getAccessToken = async () => {
     if (accessTokenFetching) return; // Return early if fetching
 
@@ -17,6 +19,7 @@ export function KakaoLogin() {
     try {
       setAccessTokenFetching(true); // Set fetching to true
 
+      // await는 promise를 반환하는
       const response = await axios.post(
         "~~~/api/auth/kakao",
         {
@@ -47,6 +50,8 @@ export function KakaoLogin() {
   const handleLogin = () => {
     window.location.href = kakaoURL;
   };
+
+
 
   return (
     <div className="kakao-login-btn" onClick={handleLogin}>

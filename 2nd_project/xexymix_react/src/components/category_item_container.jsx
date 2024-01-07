@@ -12,12 +12,6 @@ export function CategoryItemContainer(props) {
     props.setFilterState(type);
   };
 
-  useEffect(() => {
-    categoryListArr.forEach(
-      (v) => props.itemCategory === v.txt && chgFilterState(v.type)
-    );
-  }, [props.itemCategory]);
-
   // 아이템 카테고리 데이터
   const defCategory = [
     { txt: "우먼즈", type: "WOMENS" },
@@ -30,6 +24,12 @@ export function CategoryItemContainer(props) {
 
   // 필터기준에 따라 들어갈 데이터 변경
   const categoryListArr = [{ txt: "전체", type: "all" }, ...categoryData];
+
+  useEffect(() => {
+    categoryListArr.forEach(
+      (v) => props.itemCategory === v.txt && chgFilterState(v.type)
+    );
+  }, [props.itemCategory]);
 
   // 아이템 카테고리 생성
   const makeCategoryItem = () => {
