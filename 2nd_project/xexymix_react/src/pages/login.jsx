@@ -19,7 +19,7 @@ export function KakaoLogin() {
     try {
       setAccessTokenFetching(true); // Set fetching to true
 
-      // await는 promise를 반환하는
+      // await는 promise의 상태가 바뀌면 실행됨(then 과 비슷함).
       const response = await axios.post(
         "~~~/api/auth/kakao",
         {
