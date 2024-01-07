@@ -1,16 +1,52 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import axios from "axios";
 
 export function KakaoLogin() {
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
   const REDIRECT_URI = "http://localhost:3000";
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+  const KAKAO_CODE = new URL(window.location.href).searchParams.get("code");
+  const [accessTokenFetching, setAccessTokenFetching] = useState(false);
+
+  // Access Token 받아오기
+  const getAccessToken = async () => {
+    if (accessTokenFetching) return; // Return early if fetching
+
+    console.log("getAccessToken 호출");
+
+    try {
+      setAccessTokenFetching(true); // Set fetching to true
+
+      const response = await axios.post(
+        "~~~/api/auth/kakao",
+        {
+          authorizationCode: KAKAO_CODE,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const accessToken = response.data.accessToken;
+      console.log("accessToken:", accessToken);
+
+      // setUserInfo({
+      //   ...userInfo,
+      //   accessToken: accessToken,
+      // });
+
+      setAccessTokenFetching(false); // Reset fetching to false
+      // getProfile();
+    } catch (error) {
+      console.error("Error:", error);
+      setAccessTokenFetching(false); // Reset fetching even in case of error
+    }
+  };
 
   const handleLogin = () => {
     window.location.href = kakaoURL;
   };
-
-  // 인가 코드 추출 이라고 함. 여기부터 시작
-  const code = new URL(window.location.href).searchParams.get("code");
 
   return (
     <div className="kakao-login-btn" onClick={handleLogin}>
