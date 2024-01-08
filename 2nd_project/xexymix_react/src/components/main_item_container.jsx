@@ -34,7 +34,7 @@ export function MainItemContainer() {
             console.log(v);
           }
           if (v.boundingClientRect.top > 0 && !v.isIntersecting) {
-            console.log("안보인다", v);
+            // console.log("안보인다", v);
             const beforeSeeing =
               targetsArr.indexOf(v.target) - 1 >= 0
                 ? targetsArr.indexOf(v.target) - 1

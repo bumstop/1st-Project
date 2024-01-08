@@ -1,5 +1,5 @@
 // Import react
-import React from "react";
+import React, { useEffect } from "react";
 
 // Import CSS
 import "../css/index_style.css";
@@ -14,8 +14,19 @@ import { Footer } from "./footer";
 
 // Import components
 import { QuickMenu } from "../components/quick_menu";
+import { useNavigate } from "react-router-dom";
 
 export function Layout() {
+  const navigate = useNavigate();
+  const code = new URL(window.location.href).searchParams.get("code");
+
+  useEffect(() => {
+    if (code?.length > 1) {
+      console.log(code);
+      navigate("login");
+    }
+  }, []);
+
   return (
     <>
       <Header />

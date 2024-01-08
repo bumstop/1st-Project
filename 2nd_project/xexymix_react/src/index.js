@@ -17,6 +17,7 @@ import { Search } from "./pages/search";
 import { Product } from "./pages/product";
 import { Login } from "./pages/login";
 import { MyPage } from "./pages/mypage";
+import { OAuth } from "./pages/oauth";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -59,6 +60,8 @@ function App() {
 
             {/* 로그인 페이지 */}
             <Route path="login" element={<Login />} />
+            {/* OAuth 페이지 */}
+            <Route path="oauth" element={<OAuth />} />
 
             {/* 마이페이지 */}
             <Route path="mypage" element={<MyPage />} />
