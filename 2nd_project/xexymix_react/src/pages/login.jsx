@@ -7,7 +7,9 @@ import { Navigate } from "react-router-dom";
 export function KakaoLogin() {
   const userInfo = useRef();
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
-  const REDIRECT_URI = "http://localhost:3000";
+  // const REDIRECT_URI = "http://localhost:3000"; //${process.env.PUBLIC_URL}
+  // const REDIRECT_URI = `${process.env.PUBLIC_URL}`;
+  const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
   const RESPONSE_TYPE_PARAMS = "response_type=code";
   const CLIENT_ID_PARAMS = `client_id=${REST_API_KEY}`;
   const REDIRECT_URI_PARAMS = `redirect_uri=${REDIRECT_URI}`;
@@ -20,6 +22,8 @@ export function KakaoLogin() {
     const searchParams = new URLSearchParams();
     Object.keys(params).forEach((key) => {
       searchParams.append(key, params[key]);
+
+
     });
 
     return searchParams;
@@ -90,9 +94,9 @@ export function KakaoLogin() {
           headers: {
             Authorization: `Bearer ${userInfo.current.accessToken}`,
           },
-          url: "http://kapi.kakao.com/v2/user/me",
+          url: "https://kapi.kakao.com/v2/user/me",
         });
-
+        console.log(response)
         // setUserInfo({
         //   ...userInfo,
         //   id: response.data.id,
@@ -101,14 +105,14 @@ export function KakaoLogin() {
         //   profileImage: response.data.profile_image_url,
         //   isLogin: true,
         // });
-        userInfo.current = {
-          ...userInfo,
-          id: response.data.result.id,
-          name: response.data.result.name,
-          nickname: response.data.result.nickname,
-          profileImage: response.data.result.profile_image_url,
-          isLogin: true,
-        };
+        // userInfo.current = {
+        //   ...userInfo,
+        //   id: response.data.result.id,
+        //   name: response.data.result.name,
+        //   nickname: response.data.result.nickname,
+        //   profileImage: response.data.result.profile_image_url,
+        //   isLogin: true,
+        // };
 
         // Navigate("/");
       } else {
