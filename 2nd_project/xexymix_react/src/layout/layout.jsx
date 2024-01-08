@@ -22,7 +22,6 @@ export function Layout() {
 
   useEffect(() => {
     if (code?.length > 1) {
-      console.log(code);
       navigate("login");
     }
   }, []);

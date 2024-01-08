@@ -5,7 +5,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 export function KakaoLogin() {
-  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const userInfo = useRef();
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
   const REDIRECT_URI = "http://localhost:3000";
   const RESPONSE_TYPE_PARAMS = "response_type=code";
@@ -14,7 +14,7 @@ export function KakaoLogin() {
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?${CLIENT_ID_PARAMS}&${REDIRECT_URI_PARAMS}&${RESPONSE_TYPE_PARAMS}`;
 
   const KAKAO_CODE = new URL(window.location.href).searchParams.get("code");
-  // const [accessTokenFetching, setAccessTokenFetching] = useState(false);
+  const [accessTokenFetching, setAccessTokenFetching] = useState(false);
 
   const makeFormData = (params) => {
     const searchParams = new URLSearchParams();
@@ -34,7 +34,7 @@ export function KakaoLogin() {
     console.log("getAccessToken 호출");
 
     try {
-      // setAccessTokenFetching(true);
+      setAccessTokenFetching(true);
 
       // await는 promise의 상태가 바뀌면 실행됨(then 과 비슷함).
 
@@ -49,24 +49,29 @@ export function KakaoLogin() {
           grant_type: "authorization_code",
           client_id: REST_API_KEY,
           redirect_uri: REDIRECT_URI,
-          KAKAO_CODE,
+          code: KAKAO_CODE,
         }),
       });
 
-      const accessToken = response.data.accessToken;
+      const accessToken = response.data.access_token;
+      const idToken = response.data.id_token;
+      console.log(response);
+      console.log(idToken);
+      console.log(decodeURIComponent(idToken));
 
       window.localStorage.setItem("accessToken", accessToken);
+      window.localStorage.setItem("idToken", idToken);
 
-      setUserInfo({
-        ...userInfo,
+      userInfo.current = {
         accessToken: accessToken,
-      });
+        idToken: idToken,
+      };
 
-      // setAccessTokenFetching(false);
+      setAccessTokenFetching(false);
       getProfile();
     } catch (error) {
       console.error("Error:", error);
-      // setAccessTokenFetching(false);
+      setAccessTokenFetching(false);
     }
   };
 
@@ -75,11 +80,15 @@ export function KakaoLogin() {
       console.log("getProfile 호출");
 
       // Check if accessToken is available
-      if (userInfo.accessToken) {
+      if (userInfo.current.accessToken) {
+        console.log("accessToken:", userInfo.current.accessToken);
+        console.log("idToken:", userInfo.current.idToken);
+
+        // 여기서 두번째 에러 발생 (Access-Control-Allow-Origin ?)
         const response = await axios({
           method: "GET",
           headers: {
-            Authorization: `Bearer ${userInfo.accessToken}`,
+            Authorization: `Bearer ${userInfo.current.accessToken}`,
           },
           url: "http://kapi.kakao.com/v2/user/me",
         });
@@ -92,16 +101,16 @@ export function KakaoLogin() {
         //   profileImage: response.data.profile_image_url,
         //   isLogin: true,
         // });
-        setUserInfo({
+        userInfo.current = {
           ...userInfo,
           id: response.data.result.id,
           name: response.data.result.name,
           nickname: response.data.result.nickname,
           profileImage: response.data.result.profile_image_url,
           isLogin: true,
-        });
+        };
 
-        Navigate("/");
+        // Navigate("/");
       } else {
         console.log("No accessToken available");
       }
@@ -110,9 +119,9 @@ export function KakaoLogin() {
     }
   };
 
-  const handleLogin = () => {
-    window.location.href = kakaoURL;
-  };
+  // const handleLogin = () => {
+  //   window.location.href = kakaoURL;
+  // };
 
   useEffect(() => {
     if (KAKAO_CODE && !userInfo.accessToken) {
@@ -127,13 +136,13 @@ export function KakaoLogin() {
   }, [userInfo]);
 
   return (
-    <div className="kakao-login-btn" onClick={handleLogin}>
+    <a className="kakao-login-btn" href={kakaoURL}>
       <img
         src={`${process.env.PUBLIC_URL}/images/kakao_logo.svg`}
         alt="카카오 로고"
       />
       카카오 로그인
-    </div>
+    </a>
   );
 }
 
