@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
+import { useRecoilState } from "recoil";
+import { userInfoState } from "../recoil/atoms";
 import axios from "axios";
 
 export function KakaoLogin() {
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  console.log(userInfoState.key)
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
   const REDIRECT_URI = "http://localhost:3000";
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
@@ -9,7 +13,7 @@ export function KakaoLogin() {
   const [accessTokenFetching, setAccessTokenFetching] = useState(false);
 
   // Access Token 받아오기
-  // async 를 함수 앞에 선언해주면 비동기 함수가 됨. 
+  // async 를 함수 앞에 선언해주면 비동기 함수가 됨.
   // (promise 객체를 반환하지 않아도 자동으로 반환함)
   const getAccessToken = async () => {
     if (accessTokenFetching) return; // Return early if fetching
@@ -34,10 +38,10 @@ export function KakaoLogin() {
       const accessToken = response.data.accessToken;
       console.log("accessToken:", accessToken);
 
-      // setUserInfo({
-      //   ...userInfo,
-      //   accessToken: accessToken,
-      // });
+      setUserInfo({
+        ...userInfo,
+        accessToken: accessToken,
+      });
 
       setAccessTokenFetching(false); // Reset fetching to false
       // getProfile();
@@ -50,8 +54,6 @@ export function KakaoLogin() {
   const handleLogin = () => {
     window.location.href = kakaoURL;
   };
-
-
 
   return (
     <div className="kakao-login-btn" onClick={handleLogin}>
