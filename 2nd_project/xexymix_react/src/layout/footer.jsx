@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { addressInfo } from "../data/address_info";
 import { Link } from "react-router-dom";
 const addressInfoKeys = Object.keys(addressInfo);

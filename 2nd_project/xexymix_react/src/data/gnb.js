@@ -37,5 +37,6 @@ export const gnbMenu = {
     { txt: "search", link: null },
     { txt: "cart", link: "/cart" },
     { txt: "login", link: "/login" },
+    { txt: "mypage", link: "/mypage" },
   ],
 };

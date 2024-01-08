@@ -5,8 +5,8 @@
  * @param {Array} val 필터링 기준이 되는 value를 담은 배열
  * @returns obj를 리턴, key값의 val로 필터링
  */
-const filteredItemEvery = (obj, key, val) =>
-  obj.filter((v) => val.every((i) => v[key].includes(i)));
+// const filteredItemEvery = (obj, key, val) =>
+//   obj.filter((v) => val.every((i) => v[key].includes(i)));
 
 /**
  * val값을 가지고 있는 객체를 리턴

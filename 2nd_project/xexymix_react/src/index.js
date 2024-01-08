@@ -2,7 +2,7 @@
 import ReactDOM from "react-dom/client";
 import { useEffect } from "react";
 // Import react-router
-import { BrowserRouter, HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 // Import pages
 import { Layout } from "./layout/layout";
 import { Home } from "./pages/home";
@@ -14,6 +14,7 @@ import { Community } from "./pages/community";
 import { Search } from "./pages/search";
 import { Product } from "./pages/product";
 import { Login } from "./pages/login";
+import { MyPage } from "./pages/mypage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -56,6 +57,8 @@ function App() {
           {/* 로그인 페이지 */}
           <Route path="login" element={<Login />} />
 
+          {/* 마이페이지 */}
+          <Route path="mypage" element={<MyPage />} />
           {/* 상품 상세 페이지 */}
           <Route path="product/:productId" element={<Product />} />
         </Route>

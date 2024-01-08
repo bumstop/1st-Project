@@ -1,9 +1,9 @@
 import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
-import { Link } from "react-router-dom";
+
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
 export function MainSlideContainer(props) {
   const [isPlay, setIsPlay] = useState(true);
@@ -20,28 +20,27 @@ export function MainSlideContainer(props) {
     ? mainSlideInfo
     : filteredItemSame(mainSlideInfo, "category", props.category);
 
+  const swiperSettings = {
+    ref: mainSwiperRef,
+    slidesPerView: "auto",
+    centeredSlides: true,
+    initialSlide: 0,
+    spaceBetween: 0,
+    pagination: {
+      type: "fraction",
+    },
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    navigation: true,
+    modules: [Autoplay, Pagination, Navigation],
+  };
 
   return (
     <div className="main-slide-container">
-      <Swiper
-        ref={mainSwiperRef}
-        slidesPerView={"auto"}
-        // slidesPerView={'auto'} 사용시 CSS width 지정해줘야함
-        centeredSlides={true}
-        initialSlide={0}
-        spaceBetween={0}
-        pagination={{
-          type: "fraction",
-        }}
-        loop={true}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="main-slide-container"
-      >
+      <Swiper {...swiperSettings} className="main-slide-container">
         {/* {Array.isArray(props.category) && (
           <SwiperSlide className="main-slide-item event-item">
             <Link to={"/"}></Link>

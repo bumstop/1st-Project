@@ -69,7 +69,7 @@ export function DropdownMenu(props) {
     console.log(e.target, e.currentTarget);
     if (dropdownMenuWrapRef.current === e.target) props.hambergerToggleFunc();
   };
-  
+
   return (
     <div
       ref={dropdownMenuWrapRef}
@@ -218,29 +218,34 @@ export function Gnb() {
     </li>
   ));
 
-  const makeRightBtn = gnbMenu.rightBtnMenu.map((v) =>
-    v.txt === "search" ? (
-      <li className={v.txt + "-icon"} key={v.txt} onClick={searchToggle}>
+  const makeRightBtn = (
+    <>
+      <li className="search-icon" onClick={searchToggle}>
         <button>
           <img
-            src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`}
-            alt={v.txt}
+            src={`${process.env.PUBLIC_URL}/images/menu_search.png`}
+            alt="검색"
           />
         </button>
       </li>
-    ) : (
-      <li className={v.txt + "-icon"} key={v.txt}>
-        <Link to={v.link}>
+      <li className="cart-icon">
+        <Link to="/cart">
           <img
-            src={`${process.env.PUBLIC_URL}/images/menu_${v.txt}.png`}
-            alt={v.txt}
+            src={`${process.env.PUBLIC_URL}/images/menu_cart.png`}
+            alt="카트"
           />
-          {/* <img src={"./images/menu_" + v.txt + ".png"} alt={v.txt} /> */}
         </Link>
       </li>
-    )
+      <li className="login-icon">
+        <Link to="/login">
+          <img
+            src={`${process.env.PUBLIC_URL}/images/menu_login.png`}
+            alt="로그인"
+          />
+        </Link>
+      </li>
+    </>
   );
-
   return (
     <div className="gnb-wrap">
       <div className="gnb">
