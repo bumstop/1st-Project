@@ -9,7 +9,7 @@ export function KakaoLogin() {
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
 
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
-  const REDIRECT_URI = "http://localhost:3000"; //${process.env.PUBLIC_URL}
+  const REDIRECT_URI = "http://localhost:3000"; // 빌드시 아래와 스위치 할것
   // const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
 
   const RESPONSE_TYPE_PARAMS = "response_type=code";
@@ -36,15 +36,10 @@ export function KakaoLogin() {
   // (promise 객체를 반환하지 않아도 자동으로 반환함)
   const getAccessToken = async () => {
     if (accessTokenFetching) return;
-
     console.log("getAccessToken 호출");
-
     try {
       setAccessTokenFetching(true);
-
       // await는 promise의 상태가 바뀌면 실행됨(then 과 비슷함).
-
-      // 여기서 오류발생 400 (Bad Request)
       const response = await axios({
         method: "POST",
         headers: {
@@ -91,7 +86,8 @@ export function KakaoLogin() {
           id: response.data.id,
           nickname: response.data.kakao_account.profile.nickname,
           profileImage: response.data.kakao_account.profile.profile_image_url,
-          thumbnailImage: response.data.kakao_account.profile.thumbnail_image_url,
+          thumbnailImage:
+            response.data.kakao_account.profile.thumbnail_image_url,
           isLogin: true,
         });
 
@@ -102,7 +98,8 @@ export function KakaoLogin() {
             id: response.data.id,
             nickname: response.data.kakao_account.profile.nickname,
             profileImage: response.data.kakao_account.profile.profile_image_url,
-            thumbnailImage: response.data.kakao_account.profile.thumbnail_image_url,
+            thumbnailImage:
+              response.data.kakao_account.profile.thumbnail_image_url,
             isLogin: true,
           })
         );
