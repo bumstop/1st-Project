@@ -31,7 +31,7 @@ export function MainItemContainer() {
             eventTargets.forEach((v) => v.classList.remove("on"));
             eventTargets[seeing].classList.add("on");
 
-            console.log(v);
+            // console.log(v);
           }
           if (v.boundingClientRect.top > 0 && !v.isIntersecting) {
             // console.log("안보인다", v);

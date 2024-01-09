@@ -41,6 +41,9 @@
   width: 100%;
   margin: 5px 0;
 }
+.kakao_benefit img {
+  width: 100%;
+}
 .divide-line {
   position: relative;
   width: 100%;
@@ -181,3 +184,23 @@
   font-size: 15px;
   letter-spacing: 0;
 }
+/******************************* 미디어쿼리 *******************************/
+
+/******************************* 모바일 미디어쿼리 *******************************/
+@media screen and (max-width: 767px) {
+  .login-container {
+    width: 90%;
+  }
+  .divide-line::before {
+    width: 40%;
+  }
+  .divide-line::after {
+    width: 40%;
+  }
+}
+
+/* @media screen and (max-width: 559px) { 
+  .login-container {
+    width: 300px;
+  }
+} */

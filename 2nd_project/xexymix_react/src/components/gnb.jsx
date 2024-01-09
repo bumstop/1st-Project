@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { gnbMenu } from "../data/gnb";
+import { userInfoState } from "../recoil/atoms";
+import { useRecoilValue } from "recoil";
 
 /** 드롭다운메뉴
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
@@ -193,6 +195,7 @@ export function SearchMenu(props) {
 
 /******************** GNB ********************/
 export function Gnb() {
+  const userInfo = useRecoilValue(userInfoState);
   const [isDropdown, setIsDropdown] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
 
@@ -237,12 +240,21 @@ export function Gnb() {
         </Link>
       </li>
       <li className="login-icon">
-        <Link to="/login">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/menu_login.png`}
-            alt="로그인"
-          />
-        </Link>
+        {localStorage.userInfo === undefined ? (
+          <Link to="/login">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/menu_login.png`}
+              alt="로그인"
+            />
+          </Link>
+        ) : (
+          <Link to="/mypage">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/menu_login.png`}
+              alt="마이페이지"
+            />
+          </Link>
+        )}
       </li>
     </>
   );

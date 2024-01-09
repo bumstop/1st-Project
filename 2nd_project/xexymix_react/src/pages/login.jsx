@@ -2,28 +2,30 @@ import React, { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userInfoState } from "../recoil/atoms";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function KakaoLogin() {
-  const userInfo = useRef();
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
-  // const REDIRECT_URI = "http://localhost:3000"; //${process.env.PUBLIC_URL}
-  // const REDIRECT_URI = `${process.env.PUBLIC_URL}`;
-  const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
+  const REDIRECT_URI = "http://localhost:3000"; //${process.env.PUBLIC_URL}
+  // const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
+
   const RESPONSE_TYPE_PARAMS = "response_type=code";
   const CLIENT_ID_PARAMS = `client_id=${REST_API_KEY}`;
   const REDIRECT_URI_PARAMS = `redirect_uri=${REDIRECT_URI}`;
   const kakaoURL = `https://kauth.kakao.com/oauth/authorize?${CLIENT_ID_PARAMS}&${REDIRECT_URI_PARAMS}&${RESPONSE_TYPE_PARAMS}`;
 
   const KAKAO_CODE = new URL(window.location.href).searchParams.get("code");
+  const ORIGINAL_URL = new URL(window.location.href).origin;
+
   const [accessTokenFetching, setAccessTokenFetching] = useState(false);
 
   const makeFormData = (params) => {
     const searchParams = new URLSearchParams();
     Object.keys(params).forEach((key) => {
       searchParams.append(key, params[key]);
-
-
     });
 
     return searchParams;
@@ -33,7 +35,7 @@ export function KakaoLogin() {
   // async 를 함수 앞에 선언해주면 비동기 함수가 됨.
   // (promise 객체를 반환하지 않아도 자동으로 반환함)
   const getAccessToken = async () => {
-    // if (accessTokenFetching) return;
+    if (accessTokenFetching) return;
 
     console.log("getAccessToken 호출");
 
@@ -58,63 +60,57 @@ export function KakaoLogin() {
       });
 
       const accessToken = response.data.access_token;
-      const idToken = response.data.id_token;
       console.log(response);
-      console.log(idToken);
-      console.log(decodeURIComponent(idToken));
-
-      window.localStorage.setItem("accessToken", accessToken);
-      window.localStorage.setItem("idToken", idToken);
-
-      userInfo.current = {
-        accessToken: accessToken,
-        idToken: idToken,
-      };
 
       setAccessTokenFetching(false);
-      getProfile();
+      getProfile(accessToken);
     } catch (error) {
       console.error("Error:", error);
       setAccessTokenFetching(false);
     }
   };
 
-  const getProfile = async () => {
+  const getProfile = async (accessToken) => {
     try {
       console.log("getProfile 호출");
 
       // Check if accessToken is available
-      if (userInfo.current.accessToken) {
-        console.log("accessToken:", userInfo.current.accessToken);
-        console.log("idToken:", userInfo.current.idToken);
-
+      if (accessToken.length > 1) {
         // 여기서 두번째 에러 발생 (Access-Control-Allow-Origin ?)
         const response = await axios({
           method: "GET",
           headers: {
-            Authorization: `Bearer ${userInfo.current.accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
           url: "https://kapi.kakao.com/v2/user/me",
         });
-        console.log(response)
-        // setUserInfo({
-        //   ...userInfo,
-        //   id: response.data.id,
-        //   name: response.data.name,
-        //   nickname: response.data.nickname,
-        //   profileImage: response.data.profile_image_url,
-        //   isLogin: true,
-        // });
-        // userInfo.current = {
-        //   ...userInfo,
-        //   id: response.data.result.id,
-        //   name: response.data.result.name,
-        //   nickname: response.data.result.nickname,
-        //   profileImage: response.data.result.profile_image_url,
-        //   isLogin: true,
-        // };
+        console.log(response);
 
-        // Navigate("/");
+        setUserInfo({
+          accessToken: accessToken,
+          id: response.data.id,
+          nickname: response.data.kakao_account.profile.nickname,
+          profileImage: response.data.kakao_account.profile.profile_image_url,
+          thumbnailImage: response.data.kakao_account.profile.thumbnail_image_url,
+          isLogin: true,
+        });
+
+        localStorage.setItem(
+          "userInfo",
+          JSON.stringify({
+            accessToken: accessToken,
+            id: response.data.id,
+            nickname: response.data.kakao_account.profile.nickname,
+            profileImage: response.data.kakao_account.profile.profile_image_url,
+            thumbnailImage: response.data.kakao_account.profile.thumbnail_image_url,
+            isLogin: true,
+          })
+        );
+
+        console.log(JSON.parse(localStorage.userInfo));
+
+        // window.location.href = ORIGINAL_URL;
+        navigate("/home");
       } else {
         console.log("No accessToken available");
       }
@@ -123,21 +119,11 @@ export function KakaoLogin() {
     }
   };
 
-  // const handleLogin = () => {
-  //   window.location.href = kakaoURL;
-  // };
-
   useEffect(() => {
     if (KAKAO_CODE && !userInfo.accessToken) {
       getAccessToken();
     }
   }, [KAKAO_CODE, userInfo]);
-
-  useEffect(() => {
-    if (userInfo.accessToken) {
-      getProfile();
-    }
-  }, [userInfo]);
 
   return (
     <a className="kakao-login-btn" href={kakaoURL}>
