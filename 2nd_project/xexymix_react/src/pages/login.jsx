@@ -80,7 +80,7 @@ export function KakaoLogin() {
           url: "https://kapi.kakao.com/v2/user/me",
         });
         console.log(response);
-
+   
         setUserInfo({
           accessToken: accessToken,
           id: response.data.id,
