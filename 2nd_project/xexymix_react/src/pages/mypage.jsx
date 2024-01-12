@@ -21,8 +21,8 @@ export function MyPage() {
 
   return (
     <>
+      <h2 className="mypage-title">마이페이지</h2>
       <div className="mypage-container">
-        <h2 className="mypage-title">마이페이지</h2>
         <div className="my-menu">
           {myMenuList.map((v) => (
             <li key={v}>{v}</li>
@@ -38,7 +38,13 @@ export function MyPage() {
             ></div>
             <div className="nickname-box">
               {userNickname}
-              <span style={{ fontSize: "12px", fontWeight: "400",marginLeft: "5px" }}>
+              <span
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  marginLeft: "5px",
+                }}
+              >
                 회원님
               </span>
             </div>

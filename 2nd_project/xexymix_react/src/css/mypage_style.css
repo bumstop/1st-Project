@@ -1,25 +1,23 @@
+.mypage-title {
+  padding-top: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+}
 .mypage-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-top: 50px;
   margin: 0 auto;
 }
-
-.mypage-title {
-  padding-bottom: 40px;
-  font-size: 30px;
-  font-weight: 500;
-  text-align: center;
-}
-
 .my-menu {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
   padding: 5px 40px;
+  margin-top: 50px;
   border: 1px solid #e6e6e6;
   font-size: 14px;
 }
@@ -114,6 +112,9 @@
 }
 /******************************* 모바일 미디어쿼리 *******************************/
 @media screen and (max-width: 767px) {
+  .mypage-container {
+    flex-direction: column-reverse;
+  }
   .my-menu li {
     flex-basis: calc(100% / 4);
   }
