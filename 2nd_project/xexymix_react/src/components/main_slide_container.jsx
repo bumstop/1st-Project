@@ -1,13 +1,13 @@
 import { mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
 
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
 export function MainSlideContainer(props) {
   const [isPlay, setIsPlay] = useState(true);
-  const mainSwiperRef = useRef(null);
+  const mainSwiperRef = useRef();
 
   function isPlayToggle() {
     const mainSwiperAutoPlay = mainSwiperRef.current.swiper.autoplay;
@@ -20,6 +20,14 @@ export function MainSlideContainer(props) {
     ? mainSlideInfo
     : filteredItemSame(mainSlideInfo, "category", props.category);
 
+  const isEventItem = (v) => {
+    let bool;
+    v.imgSrc === "/images/main_slide/banner_0.jpg"
+      ? (bool = true)
+      : (bool = false);
+    return bool;
+  };
+
   const swiperSettings = {
     ref: mainSwiperRef,
     slidesPerView: "auto",
@@ -31,24 +39,34 @@ export function MainSlideContainer(props) {
     },
     loop: true,
     autoplay: {
-      delay: 2000,
+      delay: 4000,
       disableOnInteraction: false,
     },
     navigation: true,
     modules: [Autoplay, Pagination, Navigation],
   };
 
+  // 메인페이지 스와이퍼 initialSlide가 인식되지 않는 문제 발생
+  // 다른 페이지는 정상인데 이벤트 아이템(크기 다름)이 들어간 스와이퍼에서
+  // centeredSlides를 설정하니 이벤트 아이템(크기 다름)이 initialSlide에서 제외당함.
+  // 아래 useEffect를 사용해 해결함 (이벤트아이템이 있는 슬라이드면 1번 슬라이드로 이동)
+  useEffect(() => {
+    if (filterData === mainSlideInfo) {
+      mainSwiperRef.current.swiper.slideTo(2, 0);
+      // slideTo(index, duration) (1번 슬라이드의 index는 2)
+    }
+  }, []);
+
   return (
     <div className="main-slide-container">
       <Swiper {...swiperSettings} className="main-slide-container">
-        {/* {Array.isArray(props.category) && (
-          <SwiperSlide className="main-slide-item event-item">
-            <Link to={"/"}></Link>
-          </SwiperSlide>
-        )} */}
-
         {filterData.map((v) => (
-          <SwiperSlide className="main-slide-item" key={v.imgSrc}>
+          <SwiperSlide
+            className={
+              "main-slide-item" + (isEventItem(v) ? " event-item" : "")
+            }
+            key={v.imgSrc}
+          >
             <img src={process.env.PUBLIC_URL + v.imgSrc} alt="이미지" />
             <div className="main-slide-item-txt-box">
               <div className="main-slide-item-category">{v.category}</div>

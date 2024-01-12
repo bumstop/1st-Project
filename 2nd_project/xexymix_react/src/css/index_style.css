@@ -62,13 +62,17 @@
 }
 .main-slide-item img {
   width: 100%;
-  /* object-fit: cover; */
+  object-fit: cover;
 }
 .main-slide-item.event-item {
   width: 90%;
   height: auto;
-  background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat
-    center/contain;
+  background: #000;
+}
+.main-slide-item.event-item img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .event-item::before {
   opacity: 0;
@@ -371,7 +375,7 @@
   .main-slide-item.event-item {
     width: 90%;
   }
-
+ 
   /* item-box 미디어쿼리 */
   .item-name-box {
     margin-top: 9px;
@@ -561,9 +565,8 @@
   .main-slide-container .main-slide-item {
     width: 100%;
   }
-  .main-slide-item.event-item {
-    background: #000 url(../../public/images/main_slide/banner_0.jpg) no-repeat
-      center/cover;
+  .main-slide-item.event-item img {
+   height: 100%;
   }
   /* circle 배너 미디어쿼리 */
   .circle-item {

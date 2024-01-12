@@ -1,5 +1,11 @@
 export const mainSlideInfo = [
   {
+    title: [],
+    category: "",
+    desc: "",
+    imgSrc: "/images/main_slide/banner_0.jpg",
+  },
+  {
     title: ["완벽한 방수 원단으로", "거센비에도 걱정 없는 라운딩"],
     category: "WOMENS",
     desc: "디테처블 후드 레인코트",
