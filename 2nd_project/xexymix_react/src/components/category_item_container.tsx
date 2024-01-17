@@ -1,23 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 import { gnbMenu } from "../data/gnb";
-import { makeItemBox } from "../components/item_box";
+import { makeItemBox } from "./item_box";
 import { filteredItem, filteredItemSame } from "../func/filter_func";
 import { itemInfo } from "../data/item_info";
 
-export function CategoryItemContainer(props) {
-  const chgItemCategory = (target) => {
+export function CategoryItemContainer(props: any) {
+  const chgItemCategory = (target: any) => {
     props.setItemCategory(target.innerText);
   };
-  const chgFilterState = (type) => {
+  const chgFilterState = (type: any) => {
     props.setFilterState(type);
   };
 
   // 아이템 카테고리 데이터
-  const defCategory = [
+  interface DefCategory {
+    txt: string;
+    type: string;
+  }
+  // interface CategoryData extends DefCategory {
+  //   link?: string;
+  // }
+
+  const defCategory: DefCategory[]  = [
     { txt: "우먼즈", type: "WOMENS" },
     { txt: "맨즈", type: "MENS" },
   ];
-  const categoryData =
+
+  const categoryData: any =
     props.filterType === "type"
       ? gnbMenu.gnbCategory.filter((v) => v.txt === props.condition)[0].sub
       : defCategory;
@@ -33,10 +42,10 @@ export function CategoryItemContainer(props) {
 
   // 아이템 카테고리 생성
   const makeCategoryItem = () => {
-    let filterData;
+    let filterData: any;
 
-    const categoryItem = (data) =>
-      data.map((v, i) => (
+    const categoryItem = (data: any) =>
+      data.map((v: any, i: any) => (
         <div className="item-box" key={i}>
           {makeItemBox(v)}
         </div>
