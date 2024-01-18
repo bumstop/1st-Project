@@ -1,4 +1,26 @@
-export const gnbMenu = {
+interface Sub {
+  txt: string;
+  type?: string;
+  link: string;
+}
+
+interface GnbCategory {
+  txt: string;
+  link: string;
+  sub?: Sub[];
+}
+
+interface RightBtnMenu {
+  txt: string;
+  link: string | null;
+}
+
+interface GnbMenu {
+  gnbCategory: GnbCategory[];
+  rightBtnMenu: RightBtnMenu[];
+}
+
+export const gnbMenu: GnbMenu = {
   gnbCategory: [
     { txt: "신상할인", link: "/new" },
     { txt: "베스트", link: "/best" },

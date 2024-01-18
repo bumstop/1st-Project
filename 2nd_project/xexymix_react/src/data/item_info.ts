@@ -1,4 +1,18 @@
-export const itemInfo = [
+export interface ItemInfo {
+  id: string;
+  imgSrc: string;
+  name: string;
+  type: Array<string>;
+  option: Array<string>;
+  category: string;
+  price: string;
+  sale: string | null;
+  iconContent: Array<string> | null;
+  descMain: string | null;
+  descSub: string | null;
+}
+
+export const itemInfo: ItemInfo[] = [
   {
     id: "1",
     imgSrc: "/images/woman/woman1.jpg",

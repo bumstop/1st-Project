@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { gnbMenu } from "../data/gnb";
 import { makeItemBox } from "./item_box";
 import { filteredItem, filteredItemSame } from "../func/filter_func";
-import { itemInfo } from "../data/item_info";
+import { ItemInfo, itemInfo } from "../data/item_info";
 
 export function CategoryItemContainer(props: any) {
+  const myItemInfo: ItemInfo[] = itemInfo;
+
   const chgItemCategory = (target: any) => {
     props.setItemCategory(target.innerText);
   };
@@ -21,7 +23,7 @@ export function CategoryItemContainer(props: any) {
   //   link?: string;
   // }
 
-  const defCategory: DefCategory[]  = [
+  const defCategory: DefCategory[] = [
     { txt: "우먼즈", type: "WOMENS" },
     { txt: "맨즈", type: "MENS" },
   ];
@@ -52,60 +54,58 @@ export function CategoryItemContainer(props: any) {
       ));
     // 맨즈, 우먼즈 페이지 아이템 필터링 조건
     if (props.filterType === "type" && props.filterState === "all") {
-      filterData = filteredItemSame(itemInfo, "category", props.category);
+      filterData = filteredItemSame(myItemInfo, "category", props.category);
       return categoryItem(filterData);
     }
     if (props.filterType === "type" && props.filterState !== "all") {
-      const info = filteredItemSame(itemInfo, "category", props.category);
+      const info = filteredItemSame(myItemInfo, "category", props.category);
       filterData = filteredItem(info, props.filterType, props.filterState);
       return categoryItem(filterData);
     }
     // 신상할인, 베스트 페이지 아이템 필터링 조건
     if (props.filterType === "iconContent" && props.filterState === "all") {
-      filterData = filteredItem(itemInfo, props.filterType, props.condition);
+      filterData = filteredItem(myItemInfo, props.filterType, props.condition);
       return categoryItem(filterData);
     }
     if (props.filterType === "iconContent" && props.filterState !== "all") {
-      const info = filteredItemSame(itemInfo, "category", props.filterState);
+      const info = filteredItemSame(myItemInfo, "category", props.filterState);
       filterData = filteredItem(info, props.filterType, props.condition);
       return categoryItem(filterData);
     }
   };
 
-  const [isDrag, setIsDrag] = useState(false);
-  const [dragPosition, setDragPosition] = useState(0);
-  const FirstPositionRef = useRef();
-  const maxPosX = useRef();
+  const [isDrag, setIsDrag] = useState<boolean>(false);
+  const [dragPosition, setDragPosition] = useState<number>(0);
+  const FirstPositionRef = useRef<number>(0);
+  const maxPosX = useRef<number>(0);
 
   useEffect(() => {
-    maxPosX.current =
-      document.querySelector(".drag-box").clientWidth -
-      document.querySelector(".category-list").clientWidth;
+    const dragBox = document.querySelector<HTMLDivElement>(".drag-box");
+    const categoryList =
+      document.querySelector<HTMLDivElement>(".category-list");
 
-    maxPosX.current < 0 &&
-      document
-        .querySelector(".category-list")
-        .setAttribute("class", "category-list max");
+    if (dragBox && categoryList) {
+      maxPosX.current = dragBox.clientWidth - categoryList.clientWidth;
+
+      if (maxPosX.current < 0) {
+        categoryList.setAttribute("class", "category-list max");
+      }
+    }
   }, []);
 
-  const dragStart = (e) => {
-    // if (e.type === "mousedown") {
-    //   e.preventDefault();
-    //   console.log(e);
-    // }
+  const dragStart = (e: any) => {
     // 부모박스가 자식박스보다 작을때만 드래그 허용
     if (maxPosX.current > 0) {
       setIsDrag(true);
     }
-
-    FirstPositionRef.current =
-      (e.screenX || e.touches[0].screenX) - dragPosition;
+    const screenX = e.screenX || (e.touches && e.touches[0].screenX);
+    FirstPositionRef.current = screenX - dragPosition;
   };
   // 두번째 드래그부터 deltaX가 0보다 커져 드래그가 초기화 되는 현상 발생.
   // -dragPosition 을 추가해서 보정해줌 -> 문제해결.
 
-  const dragging = (e) => {
-    const inRange = (num, min, max) => {
+  const dragging = (e: any) => {
+    const inRange = (num: number, min: number, max: number): number => {
       if (num < min) return min;
       if (num > max) return max;
       return num;

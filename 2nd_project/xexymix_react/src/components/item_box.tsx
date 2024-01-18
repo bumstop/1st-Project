@@ -2,20 +2,16 @@ import { Link } from "react-router-dom";
 import { itemIcon, descText } from "./item_box_detail";
 
 /** info: v : 불러올 info.js 데이터 파일의 values 배열객체 */
-export function makeItemBox(v) {
+export function makeItemBox(v: any) {
   /** 가격/할인/콤마 출력 */
   const priceFormat = v.sale ? (
     <>
       <span>{Number(v.sale).toLocaleString()}</span>
-      <strike>{Number(v.price).toLocaleString()}</strike>
+      <span style={{ textDecoration: 'line-through' }}>{Number(v.price).toLocaleString()}</span>
     </>
   ) : (
     <span>{Number(v.price).toLocaleString()}</span>
   );
-
-  
-
- 
 
   return (
     <Link to={`/product/${v.id}`}>

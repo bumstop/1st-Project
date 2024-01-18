@@ -1,14 +1,14 @@
 /** 박스 아이콘 출력 */
-const itemIcon = (v) =>
+const itemIcon = (v: any) =>
   v.iconContent &&
-  v.iconContent.map((v) => (
+  v.iconContent.map((v: any) => (
     <span className={"item-icon" + (v === "주문폭주" ? " hot" : "")} key={v}>
       {v}
     </span>
   ));
 
 /** 상품설명 출력 */
-const descText = (v) =>
+const descText = (v: any) =>
   v.descSub && v.descMain ? (
     <>
       <div className="mb-5">{v.descMain}</div>

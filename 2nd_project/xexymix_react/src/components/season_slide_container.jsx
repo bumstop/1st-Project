@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { seasonSlideInfo } from "../data/season_slide_info";
-import { makeItemBox } from "./item_box.jsx"; // props 로 import받은 Object의 value를 넘겨준다
+import { makeItemBox } from "./item_box"; // props 로 import받은 Object의 value를 넘겨준다
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css/scrollbar";
 

@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 import { itemInfo } from "../data/item_info";
 
 // Import components
-import { makeItemBox } from "./item_box.jsx";
+import { makeItemBox } from "./item_box";
 
 // Import function
 import {
   filteredItem,
   filteredItemOne,
   filteredItemSame,
-} from "../func/filter_func.js";
+} from "../func/filter_func";
 
 export function MainItemContainer() {
   useEffect(() => {
