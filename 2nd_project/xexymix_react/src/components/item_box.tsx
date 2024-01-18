@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { itemIcon, descText } from "./item_box_detail";
 
@@ -16,7 +17,7 @@ export function makeItemBox(v: any) {
   return (
     <Link to={`/product/${v.id}`}>
       <div className="item-img-box">
-        <img src={process.env.PUBLIC_URL + v.imgSrc} alt={v.name} />
+        <img src={process.env.REACT_APP_PUBLIC_URL + v.imgSrc} alt={v.name} />
       </div>
       <div className="item-txt-box">
         <div className="item-name-box">{v.name}</div>
