@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { gnbMenu } from "../data/gnb";
 import { makeItemBox } from "./item_box";
