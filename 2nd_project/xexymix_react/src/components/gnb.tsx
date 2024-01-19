@@ -14,6 +14,7 @@ interface DropdownMenuProps {
 
 export function DropdownMenu(props: DropdownMenuProps) {
   const scrollY = useRef<number>(0);
+
   // 모달 오버레이에서 스크롤 방지
   useEffect(() => {
     if (props.state) {
@@ -34,7 +35,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
   const navigate = useNavigate();
   const dropdownBanner: string[] = ["kids", "review"];
 
-  const goSubPage = (link, category) => {
+  const goSubPage = (link: string, category?: string) => {
     props.hambergerToggleFunc();
     navigate(link, { state: { keyword: category } });
   };
@@ -115,7 +116,7 @@ interface SearchMenuProps {
   searchToggleFunc: () => void;
 }
 export function SearchMenu(props: SearchMenuProps) {
-  const scrollY = useRef(0);
+  const scrollY = useRef<number>(0);
 
   // 모달 오버레이에서 스크롤 방지
   useEffect(() => {
