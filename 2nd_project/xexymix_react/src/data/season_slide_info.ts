@@ -1,4 +1,18 @@
-export const seasonSlideInfo = [
+interface SeasonSlideInfo {
+    id: string;
+    imgSrc: string;
+    name: string;
+    type: string[];
+    option: string[];
+    category: string;
+    price: string;
+    sale: string | null;
+    iconContent: string[] | null;
+    descMain: string | null;
+    descSub: string | null;
+}
+
+export const seasonSlideInfo: SeasonSlideInfo[] = [
   {
     id: "92",
     imgSrc: "/images/season_slide/season_1-1.jpg",

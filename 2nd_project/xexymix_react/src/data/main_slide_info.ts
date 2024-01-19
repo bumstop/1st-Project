@@ -1,4 +1,11 @@
-export const mainSlideInfo = [
+interface MainSlideInfo {
+  title: string[];
+  category: string;
+  desc: string;
+  imgSrc: string;
+}
+
+export const mainSlideInfo: MainSlideInfo[] = [
   {
     title: [],
     category: "",

@@ -1,4 +1,4 @@
-export interface ItemInfo {
+interface ItemInfo {
   id: string;
   imgSrc: string;
   name: string;

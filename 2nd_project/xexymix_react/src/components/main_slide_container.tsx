@@ -1,4 +1,4 @@
-import { mainSlideInfo } from "../data/main_slide_info";
+import { MainSlideInfo, mainSlideInfo } from "../data/main_slide_info";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useEffect, useRef, useState } from "react";
@@ -20,7 +20,7 @@ export function MainSlideContainer(props) {
     ? mainSlideInfo
     : filteredItemSame(mainSlideInfo, "category", props.category);
 
-  const isEventItem = (v) => {
+  const isEventItem: boolean = (v: MainSlideInfo) => {
     let bool;
     v.imgSrc === "/images/main_slide/banner_0.jpg"
       ? (bool = true)

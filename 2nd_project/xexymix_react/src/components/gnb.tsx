@@ -7,8 +7,13 @@ import { useRecoilValue } from "recoil";
 /** 드롭다운메뉴
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
-export function DropdownMenu(props) {
-  const scrollY = useRef(0);
+interface DropdownMenuProps {
+  state: boolean;
+  hambergerToggleFunc: () => void;
+}
+
+export function DropdownMenu(props: DropdownMenuProps) {
+  const scrollY = useRef<number>(0);
   // 모달 오버레이에서 스크롤 방지
   useEffect(() => {
     if (props.state) {
@@ -22,12 +27,12 @@ export function DropdownMenu(props) {
 
     if (!props.state) {
       document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY.current, 10));
+      window.scrollTo(0, scrollY.current);
     }
   }, [props.state]);
 
   const navigate = useNavigate();
-  const dropdownBanner = ["kids", "review"];
+  const dropdownBanner: string[] = ["kids", "review"];
 
   const goSubPage = (link, category) => {
     props.hambergerToggleFunc();
@@ -105,7 +110,11 @@ const popularSearchWord = [
  *  @param props.state 서치 버튼 클릭시 useState를 가져와 on classToggle
  *  @param props.searchToggleFunc  state 를 toggle 해주는 함수
  */
-export function SearchMenu(props) {
+interface SearchMenuProps {
+  state: boolean;
+  searchToggleFunc: () => void;
+}
+export function SearchMenu(props: SearchMenuProps) {
   const scrollY = useRef(0);
 
   // 모달 오버레이에서 스크롤 방지
@@ -121,7 +130,7 @@ export function SearchMenu(props) {
 
     if (!props.state) {
       document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY.current, 10));
+      window.scrollTo(0, scrollY.current);
     }
   }, [props.state]);
 

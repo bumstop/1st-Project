@@ -1,4 +1,14 @@
-export const faqList = {
+interface FaqListObject {
+  cat: String;
+  q: String;
+  a: String;
+}
+interface FaqList {
+  "주문/결제": FaqListObject[];
+  배송: FaqListObject[];
+  "교환/반품": FaqListObject[];
+}
+export const faqList: FaqList = {
   "주문/결제": [
     {
       cat: "주문/결제",

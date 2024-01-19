@@ -1,4 +1,17 @@
-export const addressInfo = {
+interface AddressInfo {
+  사업자명: string;
+  대표자명: string;
+  팩스: string;
+  주소: string;
+  대표전화: string;
+  반품주소지: string;
+  사업자등록번호: string;
+  통신판매업신고번호: string;
+  "제안/제휴문의": string;
+  개인정보보호책임자: string;
+}
+
+export const addressInfo: AddressInfo = {
   사업자명: "(주)브랜드엑스코퍼레이션",
   대표자명: "이수연,강민준",
   팩스: "02-2179-9410",

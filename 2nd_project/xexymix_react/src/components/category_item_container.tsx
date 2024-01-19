@@ -3,10 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { gnbMenu } from "../data/gnb";
 import { makeItemBox } from "./item_box";
 import { filteredItem, filteredItemSame } from "../func/filter_func";
-import { ItemInfo, itemInfo } from "../data/item_info";
+import { itemInfo } from "../data/item_info";
 
 export function CategoryItemContainer(props: any) {
-  // const myItemInfo: ItemInfo[] = itemInfo;
 
   const chgItemCategory = (target: any) => {
     props.setItemCategory(target.innerText);
