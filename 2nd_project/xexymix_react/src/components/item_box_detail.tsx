@@ -1,5 +1,3 @@
-import React from "react";
-
 /** 박스 아이콘 출력 */
 const itemIcon = (v: any) =>
   v.iconContent &&

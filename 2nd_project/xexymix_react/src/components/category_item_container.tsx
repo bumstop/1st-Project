@@ -6,7 +6,7 @@ import { filteredItem, filteredItemSame } from "../func/filter_func";
 import { ItemInfo, itemInfo } from "../data/item_info";
 
 export function CategoryItemContainer(props: any) {
-  const myItemInfo: ItemInfo[] = itemInfo;
+  // const myItemInfo: ItemInfo[] = itemInfo;
 
   const chgItemCategory = (target: any) => {
     props.setItemCategory(target.innerText);
@@ -55,21 +55,21 @@ export function CategoryItemContainer(props: any) {
       ));
     // 맨즈, 우먼즈 페이지 아이템 필터링 조건
     if (props.filterType === "type" && props.filterState === "all") {
-      filterData = filteredItemSame(myItemInfo, "category", props.category);
+      filterData = filteredItemSame(itemInfo, "category", props.category);
       return categoryItem(filterData);
     }
     if (props.filterType === "type" && props.filterState !== "all") {
-      const info = filteredItemSame(myItemInfo, "category", props.category);
+      const info = filteredItemSame(itemInfo, "category", props.category);
       filterData = filteredItem(info, props.filterType, props.filterState);
       return categoryItem(filterData);
     }
     // 신상할인, 베스트 페이지 아이템 필터링 조건
     if (props.filterType === "iconContent" && props.filterState === "all") {
-      filterData = filteredItem(myItemInfo, props.filterType, props.condition);
+      filterData = filteredItem(itemInfo, props.filterType, props.condition);
       return categoryItem(filterData);
     }
     if (props.filterType === "iconContent" && props.filterState !== "all") {
-      const info = filteredItemSame(myItemInfo, "category", props.filterState);
+      const info = filteredItemSame(itemInfo, "category", props.filterState);
       filterData = filteredItem(info, props.filterType, props.condition);
       return categoryItem(filterData);
     }
