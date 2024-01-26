@@ -5,22 +5,34 @@ import { useEffect, useRef, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
 
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
-export function MainSlideContainer(props) {
+interface MainSlideContainerProps {
+  category: string;
+}
+export function MainSlideContainer(props: MainSlideContainerProps) {
+  interface SwiperWithAutoplay {
+    autoplay?: {
+      delay?: number;
+      disableOnInteraction?: boolean;
+    };
+  }
+
   const [isPlay, setIsPlay] = useState(true);
-  const mainSwiperRef = useRef();
+  const mainSwiperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
   function isPlayToggle() {
-    const mainSwiperAutoPlay = mainSwiperRef.current.swiper.autoplay;
+    const mainSwiperAutoPlay = (mainSwiperRef.current as SwiperWithAutoplay)?.autoplay;
 
-    isPlay ? setIsPlay(false) : setIsPlay(true);
-    isPlay ? mainSwiperAutoPlay.stop() : mainSwiperAutoPlay.start();
+    if (mainSwiperAutoPlay) {
+      isPlay ? setIsPlay(false) : setIsPlay(true);
+      isPlay ? mainSwiperAutoPlay.stop() : mainSwiperAutoPlay.start();
+    }
   }
 
   const filterData = Array.isArray(props.category)
     ? mainSlideInfo
     : filteredItemSame(mainSlideInfo, "category", props.category);
 
-  const isEventItem: boolean = (v: MainSlideInfo) => {
+  const isEventItem = (v: MainSlideInfo): boolean => {
     let bool;
     v.imgSrc === "/images/main_slide/banner_0.jpg"
       ? (bool = true)

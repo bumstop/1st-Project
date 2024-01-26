@@ -1,4 +1,4 @@
-interface MainSlideInfo {
+export interface MainSlideInfo {
   title: string[];
   category: string;
   desc: string;

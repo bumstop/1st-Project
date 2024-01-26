@@ -9,7 +9,8 @@ import { useRecoilValue } from "recoil";
  */
 interface DropdownMenuProps {
   state: boolean;
-  hambergerToggleFunc: () => void;
+  hambergerToggleFunc: () => void; 
+  // 함수의 매개변수가 없으므로 (), state를 바꾸는 함수는 리턴값이 없으므로 리턴을 void로 작성
 }
 
 export function DropdownMenu(props: DropdownMenuProps) {
@@ -72,8 +73,9 @@ export function DropdownMenu(props: DropdownMenuProps) {
     </div>
   ));
 
-  const dropdownMenuWrapRef = useRef();
-  const checkDimmed = (e) => {
+  const dropdownMenuWrapRef: React.RefObject<HTMLInputElement> = useRef(null);
+  // TypeScript에서 ref의 초기값이 null이라고 기대하기 때문에 null을 넣지 않으면 에러 발생
+  const checkDimmed = (e: React.MouseEvent) => {
     console.log(e.target, e.currentTarget);
     if (dropdownMenuWrapRef.current === e.target) props.hambergerToggleFunc();
   };
@@ -138,19 +140,20 @@ export function SearchMenu(props: SearchMenuProps) {
   const searchToggle = () => {
     props.searchToggleFunc();
   };
-  const searchRef = useRef();
+  const searchRef: React.RefObject<HTMLInputElement> = useRef(null);
   const navigate = useNavigate();
 
   // 검색어를 가지고 search 페이지로 이동
-  const goSearch = (searchValue) => {
+  const goSearch = (searchValue: string | undefined) => {
     searchToggle();
     console.log("검색 입력값:", searchValue);
     navigate("/search", { state: { keyword: searchValue } });
-    searchRef.current.value = "";
+    searchRef.current && (searchRef.current.value = "");
+    // searchRef.current?.value = "";
   };
 
-  const searchMenuWrapRef = useRef();
-  const checkDimmed = (e) => {
+  const searchMenuWrapRef: React.RefObject<HTMLDivElement> = useRef(null);
+  const checkDimmed = (e: React.MouseEvent) => {
     if (searchMenuWrapRef.current === e.target) searchToggle();
   };
 
@@ -168,12 +171,12 @@ export function SearchMenu(props: SearchMenuProps) {
             className="search-box"
             type="text"
             onKeyDown={(e) => {
-              if (e.key === "Enter") goSearch(searchRef.current.value);
+              if (e.key === "Enter") goSearch(searchRef.current?.value);
             }}
           />
           <button
             className="search-btn"
-            onClick={() => goSearch(searchRef.current.value)}
+            onClick={() => goSearch(searchRef.current?.value)}
           ></button>
         </div>
         <div className="popular-search">
@@ -190,7 +193,7 @@ export function SearchMenu(props: SearchMenuProps) {
             {popularSearchWord.map((v) => (
               <button
                 className="hashtag-box"
-                onClick={(e) => goSearch(e.target.innerText)}
+                onClick={(e) => goSearch(e.currentTarget.innerText)}
                 key={v}
               >
                 {v}
