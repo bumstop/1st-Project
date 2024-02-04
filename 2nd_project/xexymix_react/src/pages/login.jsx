@@ -77,7 +77,6 @@ export function KakaoLogin() {
 
       // Check if accessToken is available
       if (accessToken.length > 1) {
-        // 여기서 두번째 에러 발생 (Access-Control-Allow-Origin ?)
         const response = await axios({
           method: "GET",
           headers: {
