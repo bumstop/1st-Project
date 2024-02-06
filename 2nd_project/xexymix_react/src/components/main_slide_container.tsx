@@ -1,7 +1,8 @@
 import { MainSlideInfo, mainSlideInfo } from "../data/main_slide_info";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import SwiperCore from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
 
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
@@ -9,15 +10,15 @@ interface MainSlideContainerProps {
   category: string | Array<string>;
 }
 export function MainSlideContainer(props: MainSlideContainerProps) {
-
+  const [swiper, setSwiper] = useState<SwiperCore>();
   const [isPlay, setIsPlay] = useState(true);
-  const mainSwiperRef = useRef();
 
-  const swiper = useSwiper();
-  
   function isPlayToggle() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
-    isPlay ? swiper.autoplay.stop() : swiper.autoplay.start();
+
+    if (swiper) {
+      isPlay ? swiper.autoplay.stop() : swiper.autoplay.start();
+    }
   }
 
   const filterData = Array.isArray(props.category)
@@ -33,6 +34,7 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   };
 
   // const swiperSettings = {
+  // onSwiper: setSwiper,
   //   slidesPerView: "auto",
   //   centeredSlides: true,
   //   initialSlide: 0,
@@ -50,23 +52,22 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   // };
 
   // 메인페이지 스와이퍼 initialSlide가 인식되지 않는 문제 발생
-  // 다른 페이지는 정상인데 이벤트 아이템(크기 다름)이 들어간 스와이퍼에서
-  // centeredSlides를 설정하니 이벤트 아이템(크기 다름)이 initialSlide에서 제외당함.
+  // 다른 페이지는 정상인데 이벤트 아이템이 들어간 스와이퍼에서
+  // centeredSlides를 설정하니 이벤트 아이템이 initialSlide에서 제외당함.
   // 아래 useEffect를 사용해 해결함 (이벤트아이템이 있는 슬라이드면 1번 슬라이드로 이동)
-  // useEffect(() => {
-  //   if (swiper) {
-  //   if (filterData === mainSlideInfo) {
-  //     // mainSwiperRef.current.slideTo(2, 0);
-  //     swiper.slideTo(2, 0);
-  //     // slideTo(index, duration) (1번 슬라이드의 index는 2)
-  //   }
-  //   }
-  // }, [filterData, mainSlideInfo, swiper]);
+  useEffect(() => {
+    if (swiper) {
+      if (filterData === mainSlideInfo) {
+        swiper.slideTo(2, 0);
+        // slideTo(index, duration) (1번 슬라이드의 index는 2)
+      }
+    }
+  }, [filterData, mainSlideInfo, swiper]);
 
   return (
     <div className="main-slide-container">
       <Swiper
-        // ref={mainSwiperRef}
+        onSwiper={setSwiper}
         slidesPerView={"auto"}
         centeredSlides={true}
         initialSlide={0}
@@ -81,6 +82,7 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
+        // {...swiperSettings}
         className="main-slide-container"
       >
         {filterData.map(
