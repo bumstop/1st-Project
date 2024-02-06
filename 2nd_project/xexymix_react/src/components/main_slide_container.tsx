@@ -11,7 +11,7 @@ interface MainSlideContainerProps {
 }
 export function MainSlideContainer(props: MainSlideContainerProps) {
   const [swiper, setSwiper] = useState<SwiperCore>();
-  const [isPlay, setIsPlay] = useState(true);
+  const [isPlay, setIsPlay] = useState<boolean>(true);
 
   function isPlayToggle() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
@@ -67,7 +67,7 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   return (
     <div className="main-slide-container">
       <Swiper
-        onSwiper={setSwiper}
+        onSwiper={(swiper: SwiperCore) => setSwiper(swiper)}
         slidesPerView={"auto"}
         centeredSlides={true}
         initialSlide={0}
