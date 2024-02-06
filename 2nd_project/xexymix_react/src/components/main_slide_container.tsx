@@ -15,13 +15,6 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
 
   const swiper = useSwiper();
   
-  if (!swiper) {
-    // swiper가 null인 경우에 대한 처리
-    return null; // 또는 다른 로직 수행
-  }
-  
-  const { autoplay } = swiper;
-  
   function isPlayToggle() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
     isPlay ? swiper.autoplay.stop() : swiper.autoplay.start();
