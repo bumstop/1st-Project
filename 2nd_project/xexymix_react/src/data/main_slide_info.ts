@@ -7,7 +7,7 @@ export interface MainSlideInfo {
 
 export const mainSlideInfo: MainSlideInfo[] = [
   {
-    title: [],
+    title: [""],
     category: "",
     desc: "",
     imgSrc: "/images/main_slide/banner_0.jpg",

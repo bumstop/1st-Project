@@ -12,6 +12,7 @@ interface MainSlideContainerProps {
 export function MainSlideContainer(props: MainSlideContainerProps) {
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [isPlay, setIsPlay] = useState<boolean>(true);
+  // const [filterData, setFilterData] = useState<MainSlideInfo[]>(mainSlideInfo);
 
   function isPlayToggle() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
@@ -21,12 +22,24 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
     }
   }
 
-  const filterData = Array.isArray(props.category)
+  // 해당 함수가 어떤 타입의 배열을 받아들이는지에 대한 일반적인 구현을 갖고 있기 때문일 것입니다.
+  // 예를 들어, 이 함수가 여러 종류의 배열을 처리하도록 일반적으로 구현되었다면, 
+  // TypeScript에서는 해당 배열을 object[]로 처리할 수 있습니다. 
+  // -> 자동으로 object[] 타입으로 분류했기 때문에 MainSlideInfo[] 타입을 할당할 수 없는 에러 발생
+
+  // 하지만 여기서 중요한 것은 해당 함수의 반환 값이 실제로 MainSlideInfo[] 형식이라는 것입니다.
+  // 따라서 setFilterData 함수를 호출할 때 반환 값의 타입을 명시적으로 지정하여 TypeScript에게 올바른 타입이라는 것을 알려주어야 합니다.
+  const filterData: MainSlideInfo[] = Array.isArray(props.category)
     ? mainSlideInfo
-    : filteredItemSame(mainSlideInfo, "category", props.category);
+    : filteredItemSame(mainSlideInfo, "category", props.category) as MainSlideInfo[];
+
+  // useEffect(() => {
+  //     const data = filteredItemSame(mainSlideInfo, "category", props.category);
+  //     Array.isArray(props.category) && setFilterData(data as MainSlideInfo[]);
+  // }, []);
 
   const isEventItem = (v: MainSlideInfo): boolean => {
-    let bool;
+    let bool: boolean;
     v.imgSrc === "/images/main_slide/banner_0.jpg"
       ? (bool = true)
       : (bool = false);
@@ -62,7 +75,7 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
         // slideTo(index, duration) (1번 슬라이드의 index는 2)
       }
     }
-  }, [filterData, mainSlideInfo, swiper]);
+  }, []);
 
   return (
     <div className="main-slide-container">
@@ -85,32 +98,36 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
         // {...swiperSettings}
         className="main-slide-container"
       >
-        {filterData.map(
-          (
-            v: any // v 타입지정 뭘로 해야할까?
-          ) => (
-            <SwiperSlide
-              className={
-                "main-slide-item" + (isEventItem(v) ? " event-item" : "")
-              }
-              key={v.imgSrc}
-            >
-              <img src={process.env.PUBLIC_URL + v.imgSrc} alt="이미지" />
-              <div className="main-slide-item-txt-box">
-                <div className="main-slide-item-category">{v.category}</div>
-                <div className="main-slide-item-title">
-                  {v.title.map((v: any, i: number, a: Array<string>) => (
-                    <span key={i}>
-                      {v}
-                      {a.length === 1 ? "" : !i ? <br /> : ""}
-                    </span>
-                  ))}
-                </div>
-                <div className="main-slide-item-desc">{v.desc}</div>
+        {/* 
+          Q: v 타입지정 뭘로 해야할까?
+          A: MainSlideInfo
+
+          WHY? 
+          filterData의 타입을 MainSlideInfo[] 로 지정했기 때문에 
+          그 인자인 v의 타입은 MainSlideInfo가 된다.
+        */}
+        {filterData.map((v: MainSlideInfo) => (
+          <SwiperSlide
+            className={
+              "main-slide-item" + (isEventItem(v) ? " event-item" : "")
+            }
+            key={v.imgSrc}
+          >
+            <img src={process.env.PUBLIC_URL + v.imgSrc} alt="이미지" />
+            <div className="main-slide-item-txt-box">
+              <div className="main-slide-item-category">{v.category}</div>
+              <div className="main-slide-item-title">
+                {v.title.map((v: any, i: number, a: Array<string>) => (
+                  <span key={i}>
+                    {v}
+                    {a.length === 1 ? "" : !i ? <br /> : ""}
+                  </span>
+                ))}
               </div>
-            </SwiperSlide>
-          )
-        )}
+              <div className="main-slide-item-desc">{v.desc}</div>
+            </div>
+          </SwiperSlide>
+        ))}
         <div
           className={"main-slide-btn" + (isPlay ? "" : " on")}
           onClick={isPlayToggle}

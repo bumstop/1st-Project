@@ -25,7 +25,7 @@ const filteredItem = (obj: Array<object>, key: string, val: string) =>
  * @returns obj를 리턴, key값의 val로 필터링
  */
 
-const filteredItemSame = (obj: Array<object>, key: string, val: string) =>
+const filteredItemSame = (obj: Array<object>, key: string, val: string | string[]) =>
   obj.filter((v: any) => v[key].includes(val) && v[key].length === val.length);
 /**
  * val값 하나만 가지고 있는 객체를 리턴

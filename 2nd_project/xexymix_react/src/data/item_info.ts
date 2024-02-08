@@ -12,7 +12,7 @@ interface ItemInfo {
   descSub: string | null;
 }
 
-export const itemInfo: ItemInfo[] = [
+export const itemInfo: Array<ItemInfo> = [
   {
     id: "1",
     imgSrc: "/images/woman/woman1.jpg",
