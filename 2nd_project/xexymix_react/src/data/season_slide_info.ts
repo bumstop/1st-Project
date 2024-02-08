@@ -1,4 +1,4 @@
-interface SeasonSlideInfo {
+export interface SeasonSlideInfo {
     id: string;
     imgSrc: string;
     name: string;

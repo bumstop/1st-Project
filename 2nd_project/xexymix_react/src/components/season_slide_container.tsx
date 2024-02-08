@@ -4,8 +4,6 @@ import { makeItemBox } from "./item_box"; // props 로 import받은 Object의 va
 import { Autoplay, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css/scrollbar";
 
-// props 로 import받은 Object의 value를 넘겨준다
-
 export function SeasonSlideContainer() {
 
   return (
