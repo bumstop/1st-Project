@@ -12,7 +12,6 @@ interface MainSlideContainerProps {
 export function MainSlideContainer(props: MainSlideContainerProps) {
   const [swiper, setSwiper] = useState<SwiperCore>();
   const [isPlay, setIsPlay] = useState<boolean>(true);
-  // const [filterData, setFilterData] = useState<MainSlideInfo[]>(mainSlideInfo);
 
   function isPlayToggle() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
@@ -32,11 +31,6 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   const filterData: MainSlideInfo[] = Array.isArray(props.category)
     ? mainSlideInfo
     : filteredItemSame(mainSlideInfo, "category", props.category) as MainSlideInfo[];
-
-  // useEffect(() => {
-  //     const data = filteredItemSame(mainSlideInfo, "category", props.category);
-  //     Array.isArray(props.category) && setFilterData(data as MainSlideInfo[]);
-  // }, []);
 
   const isEventItem = (v: MainSlideInfo): boolean => {
     let bool: boolean;
