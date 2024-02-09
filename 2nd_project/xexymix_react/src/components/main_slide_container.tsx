@@ -69,7 +69,7 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
         // slideTo(index, duration) (1번 슬라이드의 index는 2)
       }
     }
-  }, []);
+  }, [swiper]); // swiper 의존성 배열 없으면 정상동작 안함 
 
   return (
     <div className="main-slide-container">
