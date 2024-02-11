@@ -63,11 +63,9 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   // centeredSlides를 설정하니 이벤트 아이템이 initialSlide에서 제외당함.
   // 아래 useEffect를 사용해 해결함 (이벤트아이템이 있는 슬라이드면 1번 슬라이드로 이동)
   useEffect(() => {
-    if (swiper) {
-      if (filterData === mainSlideInfo) {
+    if (swiper && filterData === mainSlideInfo) {
         swiper.slideTo(2, 0);
         // slideTo(index, duration) (1번 슬라이드의 index는 2)
-      }
     }
   }, [swiper]); // swiper 의존성 배열 없으면 정상동작 안함 
 
