@@ -1,4 +1,4 @@
-const circleBannerItems = [
+const circleBannerItems: [string, [string, string]] = [
   ["yoga", ["요가 컬렉션", ""]],
   ["cacaopay", ["4천원", "즉시할인"]],
   ["tosspay", ["10%할인", "즉시적용"]],
