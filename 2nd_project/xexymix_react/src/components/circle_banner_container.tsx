@@ -1,4 +1,4 @@
-const circleBannerItems: [string, [string, string]] = [
+const circleBannerItems: [string, string[]][] = [
   ["yoga", ["요가 컬렉션", ""]],
   ["cacaopay", ["4천원", "즉시할인"]],
   ["tosspay", ["10%할인", "즉시적용"]],
@@ -9,8 +9,8 @@ const circleBannerItems: [string, [string, string]] = [
 export function CircleBannerContainer() {
   return (
     <div className="circle-banner-container">
-      {circleBannerItems.map((v) => (
-        <div className="circle-item" key={v}>
+      {circleBannerItems.map((v: [string, string[]]) => (
+        <div className="circle-item" key={v[0]}>
           <a href="#!">
             <img src={`${process.env.PUBLIC_URL}/images/circle_banner/slide_${v[0]}.png`} alt="이미지" />
             <span className="circle-item-txt">
