@@ -119,6 +119,7 @@ interface SearchMenuProps {
 }
 export function SearchMenu(props: SearchMenuProps) {
   const scrollY = useRef<number>(0);
+  // const scrollY: React.MutableRefObject<number> = useRef<number>(0); 위랑 같음
 
   // 모달 오버레이에서 스크롤 방지
   useEffect(() => {
