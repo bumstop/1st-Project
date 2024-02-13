@@ -1,16 +1,16 @@
-interface Sub {
+export interface Sub {
   txt: string;
   type?: string;
   link: string;
 }
 
-interface GnbCategory {
+export interface GnbCategory {
   txt: string;
   link: string;
   sub?: Sub[];
 }
 
-interface RightBtnMenu {
+export interface RightBtnMenu {
   txt: string;
   link: string | null;
 }

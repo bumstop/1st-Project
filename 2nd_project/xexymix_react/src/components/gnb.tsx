@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { gnbMenu } from "../data/gnb";
+import { gnbMenu, GnbCategory, Sub } from "../data/gnb";
 import { userInfoState } from "../recoil/atoms";
 import { useRecoilValue } from "recoil";
 
@@ -9,7 +9,7 @@ import { useRecoilValue } from "recoil";
  */
 interface DropdownMenuProps {
   state: boolean;
-  hambergerToggleFunc: () => void; 
+  hambergerToggleFunc: () => void;
   // 함수의 매개변수가 없으므로 (), state를 바꾸는 함수는 리턴값이 없으므로 리턴을 void로 작성
 }
 
@@ -141,6 +141,7 @@ export function SearchMenu(props: SearchMenuProps) {
     props.searchToggleFunc();
   };
   const searchRef: React.RefObject<HTMLInputElement> = useRef(null);
+  // const searchRef = useRef<HTMLInputElement>(null); 위랑 같음
   const navigate = useNavigate();
 
   // 검색어를 가지고 search 페이지로 이동
@@ -208,27 +209,27 @@ export function SearchMenu(props: SearchMenuProps) {
 
 /******************** GNB ********************/
 export function Gnb() {
-  const userInfo = useRecoilValue(userInfoState);
-  const [isDropdown, setIsDropdown] = useState(false);
-  const [isSearch, setIsSearch] = useState(false);
+  const userInfo = useRecoilValue(userInfoState); // recoil은 타입을 뭘로 어떻게 선언해야 함?
+  const [isDropdown, setIsDropdown] = useState<boolean>(false);
+  const [isSearch, setIsSearch] = useState<boolean>(false);
 
-  const openDropdownAndCloseSearch = () => {
+  function openDropdownAndCloseSearch(): void {
     setIsDropdown(true);
     if (isSearch) setIsSearch(false);
   };
-  const openSearchAndCloseDropdown = () => {
+  function openSearchAndCloseDropdown(): void {
     setIsSearch(true);
     if (isDropdown) setIsDropdown(false);
   };
 
-  function hambergerToggle() {
+  function hambergerToggle(): void {
     isDropdown ? setIsDropdown(false) : openDropdownAndCloseSearch();
   }
-  function searchToggle() {
+  function searchToggle(): void {
     isSearch ? setIsSearch(false) : openSearchAndCloseDropdown();
   }
 
-  const makeGnbCategory = gnbMenu.gnbCategory.map((v) => (
+  const makeGnbCategory: JSX.Element[] = gnbMenu.gnbCategory.map((v: GnbCategory) => (
     <li key={v.txt}>
       <Link to={v.link}>{v.txt}</Link>
     </li>
@@ -271,6 +272,7 @@ export function Gnb() {
       </li>
     </>
   );
+  
   return (
     <div className="gnb-wrap">
       <div className="gnb">

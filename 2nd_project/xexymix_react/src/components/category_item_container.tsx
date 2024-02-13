@@ -93,30 +93,32 @@ export function CategoryItemContainer(props: any) {
     }
   }, []);
 
-  const dragStart = (e: any) => {
+  const dragStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>): void => {
     // 부모박스가 자식박스보다 작을때만 드래그 허용
     if (maxPosX.current > 0) {
       setIsDrag(true);
     }
-    const screenX = e.screenX || (e.touches && e.touches[0].screenX);
+    // const screenX =  e.screenX || (e.touches && e.touches[0].screenX);
+    const screenX = 'screenX' in e ? e.screenX : e.touches[0].screenX;
     FirstPositionRef.current = screenX - dragPosition;
   };
   // 두번째 드래그부터 deltaX가 0보다 커져 드래그가 초기화 되는 현상 발생.
   // -dragPosition 을 추가해서 보정해줌 -> 문제해결.
 
-  const dragging = (e: any) => {
+  const dragging = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>): void => {
+  // const dragging = (e: React.MouseEvent | React.TouchEvent) => {
     const inRange = (num: number, min: number, max: number): number => {
       if (num < min) return min;
       if (num > max) return max;
       return num;
     };
-    // const dragPosX = e.clientX || e.touches[0].screenX; 모바일 추가해야됨
-    const dragPosX = e.screenX || e.touches[0].screenX;
+    // const dragPosX = e.clientX || e.touches[0].screenX; 에서 밑줄로 바꿈
+    const dragPosX = 'screenX' in e ? e.screenX : e.touches[0].screenX;
     const deltaX = dragPosX - FirstPositionRef.current;
 
     setDragPosition(inRange(deltaX, -maxPosX.current, 0));
 
-    e.currentTarget.style.transform = `translateX(${dragPosition}px)`;
+    e.currentTarget.style.transform = `translateX(${dragPosition}px)`; // 'EventTarget & Element' 형식에 'style' 속성이 없습니다.
 
     console.log(dragPosition);
   };
