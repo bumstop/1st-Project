@@ -146,7 +146,7 @@ export function SearchMenu(props: SearchMenuProps) {
   const navigate = useNavigate();
 
   // 검색어를 가지고 search 페이지로 이동
-  const goSearch = (searchValue: string | undefined) => {
+  const goSearch = (searchValue: string | undefined): void => {
     searchToggle();
     console.log("검색 입력값:", searchValue);
     navigate("/search", { state: { keyword: searchValue } });
@@ -154,7 +154,7 @@ export function SearchMenu(props: SearchMenuProps) {
     // searchRef.current?.value = "";
   };
 
-  const searchMenuWrapRef: React.RefObject<HTMLDivElement> = useRef(null);
+  const searchMenuWrapRef = useRef<HTMLDivElement>(null);
   const checkDimmed = (e: React.MouseEvent) => {
     if (searchMenuWrapRef.current === e.target) searchToggle();
   };
@@ -192,7 +192,7 @@ export function SearchMenu(props: SearchMenuProps) {
             인기검색어
           </div>
           <div className="hashtag-box-wrap">
-            {popularSearchWord.map((v) => (
+            {popularSearchWord.map((v: string) => (
               <button
                 className="hashtag-box"
                 onClick={(e) => goSearch(e.currentTarget.innerText)}
