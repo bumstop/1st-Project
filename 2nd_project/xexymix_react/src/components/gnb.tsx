@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { gnbMenu, GnbCategory, Sub } from "../data/gnb";
 import { userInfoState } from "../recoil/atoms";
 import { useRecoilValue } from "recoil";
@@ -33,7 +33,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
     }
   }, [props.state]);
 
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
   const dropdownBanner: string[] = ["kids", "review"];
 
   const goSubPage = (link: string, category?: string) => {
