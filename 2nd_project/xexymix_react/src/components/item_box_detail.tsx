@@ -1,14 +1,16 @@
+import { SeasonSlideInfo } from "../data/season_slide_info";
+
 /** 박스 아이콘 출력 */
-const itemIcon = (v: any) =>
+const itemIcon = (v: SeasonSlideInfo) =>
   v.iconContent &&
-  v.iconContent.map((v: any) => (
+  v.iconContent.map((v: string) => (
     <span className={"item-icon" + (v === "주문폭주" ? " hot" : "")} key={v}>
       {v}
     </span>
   ));
 
 /** 상품설명 출력 */
-const descText = (v: any) =>
+const descText = (v: SeasonSlideInfo) =>
   v.descSub && v.descMain ? (
     <>
       <div className="mb-5">{v.descMain}</div>
