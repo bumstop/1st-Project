@@ -4,11 +4,18 @@ import { SeasonSlideInfo } from "../data/season_slide_info";
 
 /** info: v : 불러올 info.js 데이터 파일의 values 배열객체 */
 export function makeItemBox(v: SeasonSlideInfo) {
+  const strikeStyle = {
+    textDecoration: "line-through",
+    marginLeft: "5px",
+    fontSize: "12px",
+    color: "#979797",
+  };
+
   /** 가격/할인/콤마 출력 */
   const priceFormat = v.sale ? (
     <>
       <span>{Number(v.sale).toLocaleString()}</span>
-      <span style={{ textDecoration: 'line-through' }}>{Number(v.price).toLocaleString()}</span>
+      <span style={strikeStyle}>{Number(v.price).toLocaleString()}</span>
     </>
   ) : (
     <span>{Number(v.price).toLocaleString()}</span>

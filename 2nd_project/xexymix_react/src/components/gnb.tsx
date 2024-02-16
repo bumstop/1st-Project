@@ -74,7 +74,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
   ));
 
   // const dropdownMenuWrapRef: React.RefObject<HTMLDivElement> = useRef(null);
-  const dropdownMenuWrapRef = useRef(null); 여기부터 수정 시작, React.MutableRefObject<null>로 뜨는데 뭔지.
+  const dropdownMenuWrapRef = useRef(null); //여기부터 수정 시작, React.MutableRefObject<null>로 뜨는데 뭔지.
 
   // TypeScript에서 ref의 초기값이 null이라고 기대하기 때문에 null을 넣지 않으면 에러 발생
   const checkDimmed = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {

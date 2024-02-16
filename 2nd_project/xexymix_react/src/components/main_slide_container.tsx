@@ -41,7 +41,7 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   };
 
   // const swiperSettings = {
-  // onSwiper: setSwiper,
+  //   onSwiper: setSwiper,
   //   slidesPerView: "auto",
   //   centeredSlides: true,
   //   initialSlide: 0,
