@@ -1,9 +1,15 @@
+interface MainBannerContainerProps {
+  page :string
+}
+
 // props.page 호출한 page를 가져옴
-export function MainBannerContainer(props) {
+// export function MainBannerContainer(props: MainBannerContainerProps) {
+export function MainBannerContainer({page}: MainBannerContainerProps) {
+
   return (
     <div className="main-banner-container">
       <img
-        className={props.page === "best" ? "best-banner-img" : "new-banner-img"}
+        className={page === "best" ? "best-banner-img" : "new-banner-img"}
         src={`${process.env.PUBLIC_URL}/images/${props.page}_main_banner.jpg`}
         alt="메인배너"
       />
