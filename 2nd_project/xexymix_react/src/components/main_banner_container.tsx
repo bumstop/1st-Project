@@ -1,19 +1,18 @@
 interface MainBannerContainerProps {
-  page :string
+  page: string;
 }
 
 // props.page 호출한 page를 가져옴
 // export function MainBannerContainer(props: MainBannerContainerProps) {
-export function MainBannerContainer({page}: MainBannerContainerProps) {
-
+export function MainBannerContainer({ page }: MainBannerContainerProps) {
   return (
     <div className="main-banner-container">
       <img
         className={page === "best" ? "best-banner-img" : "new-banner-img"}
-        src={`${process.env.PUBLIC_URL}/images/${props.page}_main_banner.jpg`}
+        src={`${process.env.PUBLIC_URL}/images/${page}_main_banner.jpg`}
         alt="메인배너"
       />
-      {props.page === "new" && (
+      {page === "new" && (
         <div className="tit-box">
           <p className="first-tit">NEW</p>
           <p className="second-tit">오늘의 신상</p>
