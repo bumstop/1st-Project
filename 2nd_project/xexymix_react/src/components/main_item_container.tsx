@@ -14,6 +14,7 @@ import {
   filteredItemOne,
   filteredItemSame,
 } from "../func/filter_func";
+import { SeasonSlideInfo } from "../data/season_slide_info";
 
 export function MainItemContainer() {
   useEffect(() => {
@@ -21,8 +22,8 @@ export function MainItemContainer() {
     const eventTargets = document.querySelectorAll(".main-item-title");
 
     /** 화면에 targets요소가 보이면 seeing 요소 class 'on' toggle */
-    const observeIntersection = (targets) => {
-      const targetsArr = Array.from(targets);
+    const observeIntersection = (observeTargets: NodeListOf<Element>, eventTargets: NodeListOf<Element>) => {
+      const targetsArr = Array.from(observeTargets);
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((v) => {
@@ -45,10 +46,10 @@ export function MainItemContainer() {
           }
         });
       });
-      targets.forEach((v) => observer.observe(v));
+      observeTargets.forEach((v) => observer.observe(v));
     };
 
-    observeIntersection(observeTargets);
+    observeIntersection(observeTargets, eventTargets);
   }, []);
 
   return (
@@ -105,7 +106,7 @@ export function MainItemContainer() {
               <div className="item-box" data-index={i} key={v.name}>
                 {makeItemBox(v)}
               </div>
-            ))}
+            )) as SeasonSlideInfo }
         </div>
         {/* 남성 (12개 까지만 노출)*/}
         <h2 className="main-item-title-mobile">맨즈</h2>
