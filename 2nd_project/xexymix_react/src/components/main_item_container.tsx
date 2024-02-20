@@ -30,19 +30,18 @@ export function MainItemContainer() {
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((v) => {
-          if (v.isIntersecting) {
-            const seeing = targetsArr.indexOf(v.target);
-            eventTargets.forEach((v) => v.classList.remove("on"));
-            eventTargets[seeing].classList.add("on");
-
-            // console.log(v);
-          }
-          if (v.boundingClientRect.top > 0 && !v.isIntersecting) {
-            // console.log("안보인다", v);
-            const beforeSeeing =
+          const seeing = targetsArr.indexOf(v.target);
+          const beforeSeeing =
               targetsArr.indexOf(v.target) - 1 >= 0
                 ? targetsArr.indexOf(v.target) - 1
-                : 0;
+                : seeing;
+
+          if (v.isIntersecting) {
+            eventTargets.forEach((v) => v.classList.remove("on"));
+            eventTargets[seeing].classList.add("on");
+          }
+          if (v.boundingClientRect.top > 0 && !v.isIntersecting) {
+            console.log("안보인다", v);
 
             eventTargets.forEach((v) => v.classList.remove("on"));
             eventTargets[beforeSeeing].classList.add("on");
