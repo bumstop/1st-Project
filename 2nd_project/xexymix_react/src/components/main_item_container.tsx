@@ -22,7 +22,10 @@ export function MainItemContainer() {
     const eventTargets = document.querySelectorAll(".main-item-title");
 
     /** 화면에 targets요소가 보이면 seeing 요소 class 'on' toggle */
-    const observeIntersection = (observeTargets: NodeListOf<Element>, eventTargets: NodeListOf<Element>) => {
+    const observeIntersection = (
+      observeTargets: NodeListOf<Element>,
+      eventTargets: NodeListOf<Element>
+    ) => {
       const targetsArr = Array.from(observeTargets);
 
       const observer = new IntersectionObserver((entries) => {
@@ -100,18 +103,18 @@ export function MainItemContainer() {
         {/* 여성 아우터 (12개 까지만 노출) */}
         <h2 className="main-item-title-mobile">아우터</h2>
         <div className="item-box-wrap outer-item-box-wrap">
-          {filteredItem(itemInfo, "type", "outer")
+          {(filteredItem(itemInfo, "type", "outer") as SeasonSlideInfo[])
             .filter((v, i) => i < 12)
             .map((v, i) => (
               <div className="item-box" data-index={i} key={v.name}>
                 {makeItemBox(v)}
               </div>
-            )) as SeasonSlideInfo }
+            ))}
         </div>
         {/* 남성 (12개 까지만 노출)*/}
         <h2 className="main-item-title-mobile">맨즈</h2>
         <div className="item-box-wrap man-item-box-wrap">
-          {filteredItemSame(itemInfo, "category", "MENS")
+          {(filteredItemSame(itemInfo, "category", "MENS") as SeasonSlideInfo[])
             .filter((v, i) => i < 12)
             .map((v, i) => (
               <div className="item-box" data-index={i} key={v.name}>
@@ -122,10 +125,12 @@ export function MainItemContainer() {
         {/* 여성 상의 (12개 까지만 노출)*/}
         <h2 className="main-item-title-mobile">상의</h2>
         <div className="item-box-wrap woman-top-item-box-wrap">
-          {filteredItemOne(
-            filteredItemSame(itemInfo, "category", "WOMENS"),
-            "type",
-            "top"
+          {(
+            filteredItemOne(
+              filteredItemSame(itemInfo, "category", "WOMENS"),
+              "type",
+              "top"
+            ) as SeasonSlideInfo[]
           )
             .filter((v, i) => i < 12)
             .map((v, i) => (
@@ -137,10 +142,12 @@ export function MainItemContainer() {
         {/* 여성 하의 (12개 까지만 노출)*/}{" "}
         <h2 className="main-item-title-mobile">하의</h2>
         <div className="item-box-wrap woman-bottom-item-box-wrap">
-          {filteredItem(
-            filteredItemSame(itemInfo, "category", "WOMENS"),
-            "type",
-            "bottom"
+          {(
+            filteredItem(
+              filteredItemSame(itemInfo, "category", "WOMENS"),
+              "type",
+              "bottom"
+            ) as SeasonSlideInfo[]
           )
             .filter((v, i) => i < 12)
             .map((v, i) => (
