@@ -42,6 +42,7 @@ export function Search() {
     ));
 
   // 검색어를 가지고 search 페이지로 이동
+  // navigate의 두번째 인자중 하나인 state로 searchValue를 전달
   const goSearch = (searchValue) => {
     console.log("검색 입력값:", searchValue);
     navigate("/search", { state: { keyword: searchValue } });
