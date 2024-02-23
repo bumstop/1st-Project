@@ -1,8 +1,8 @@
-export function QuickMenu() {
-  function scrollTop() {
+export function QuickMenu(): JSX.Element {
+  function scrollTop(): void {
     window.scrollTo(0, 0);
   }
-  function scrollBottom() {
+  function scrollBottom(): void {
     window.scrollTo(0, document.body.scrollHeight);
   }
 

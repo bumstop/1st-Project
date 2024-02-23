@@ -16,7 +16,7 @@ import {
 } from "../func/filter_func";
 import { SeasonSlideInfo } from "../data/season_slide_info";
 
-export function MainItemContainer() {
+export function MainItemContainer(): JSX.Element {
   useEffect(() => {
     const observeTargets = document.querySelectorAll(".item-box-wrap");
     const eventTargets = document.querySelectorAll(".main-item-title");
@@ -25,16 +25,16 @@ export function MainItemContainer() {
     const observeIntersection = (
       observeTargets: NodeListOf<Element>,
       eventTargets: NodeListOf<Element>
-    ) => {
+    ): void => {
       const targetsArr = Array.from(observeTargets);
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((v) => {
           const seeing = targetsArr.indexOf(v.target);
           const beforeSeeing =
-              targetsArr.indexOf(v.target) - 1 >= 0
-                ? targetsArr.indexOf(v.target) - 1
-                : seeing;
+            targetsArr.indexOf(v.target) - 1 >= 0
+              ? targetsArr.indexOf(v.target) - 1
+              : seeing;
 
           if (v.isIntersecting) {
             eventTargets.forEach((v) => v.classList.remove("on"));
