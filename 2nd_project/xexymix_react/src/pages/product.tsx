@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { itemInfo } from "../data/item_info";
+import { itemInfo, ItemInfo } from "../data/item_info";
 import { seasonSlideInfo } from "../data/season_slide_info";
 import { descText, itemIcon } from "../components/item_box_detail";
 import { ProductOrderedList } from "../components/product_ordered_list";
@@ -12,15 +12,19 @@ export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
 
   const params = useParams();
-  const product = [...itemInfo, ...seasonSlideInfo].filter(
+  const product: ItemInfo = [...itemInfo, ...seasonSlideInfo].filter(
     (v) => v.id === params.productId
   )[0];
   const price = product.sale ? Number(product.sale) : Number(product.price);
 
-  let countObjectInitialValue = [];
-  product.option.forEach((v, i) => (countObjectInitialValue[i] = [v, 0]));
-  countObjectInitialValue = Object.fromEntries(countObjectInitialValue);
+  let countObjectInitialValue: Record<string, number> = {};
+  product.option.forEach((v, i) => (countObjectInitialValue[v.toString()] = 0));
+  
+  // product.option.forEach((v, i) => (countObjectInitialValue[i] = [v, 0]));
+  // countObjectInitialValue = Object.fromEntries(countObjectInitialValue);
 
+  console.log(countObjectInitialValue);
+  
   const [countObject, setCountObject] = useState(countObjectInitialValue);
 
   const changeCountObject = (key, value) => {
