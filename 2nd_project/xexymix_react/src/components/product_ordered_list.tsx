@@ -14,7 +14,7 @@ export const ProductOrderedList = (props: ProductOrderedListProps): JSX.Element 
   console.log("ProductOrderedList 랜더링됨");
 
   const countInputRef = useRef();
-  const changeCountObject = (key: string, value: any) => props.changeCountObject(key, value);
+  const changeCountObject = (key, value) => props.changeCountObject(key, value);
   const price = (countInputRef.current?.value || 1) * props.price;
 
   useDidMountEffect(() => {

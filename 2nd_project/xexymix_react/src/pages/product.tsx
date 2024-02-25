@@ -7,6 +7,7 @@ import { ProductOrderedList } from "../components/product_ordered_list";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { priceFormat } from "../components/item_box";
 
 export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
@@ -27,7 +28,7 @@ export function Product() {
   
   const [countObject, setCountObject] = useState(countObjectInitialValue);
 
-  const changeCountObject = (key, value) => {
+  const changeCountObject = (key: string, value: number): void => {
     setCountObject((prevState) => {
       return { ...prevState, [key]: value };
     });
@@ -40,14 +41,14 @@ export function Product() {
   const [productOrderedListArr, setProductOrderedListArr] = useState([]);
 
   /** 가격/할인/콤마 출력 함수 */
-  const priceFormat = product.sale ? (
-    <>
-      <strike>{Number(product.price).toLocaleString()}원</strike>
-      <span>{Number(product.sale).toLocaleString()}원</span>
-    </>
-  ) : (
-    <span>{Number(product.price).toLocaleString()}원</span>
-  ); // const priceFormat
+  // const priceFormat = product.sale ? (
+  //   <>
+  //     <strike>{Number(product.price).toLocaleString()}원</strike>
+  //     <span>{Number(product.sale).toLocaleString()}원</span>
+  //   </>
+  // ) : (
+  //   <span>{Number(product.price).toLocaleString()}원</span>
+  // ); // const priceFormat -> item_box.tsx 에서 import 해온뒤 재사용하는 것으로 변경함.
 
   /** 상품 옵션 선택 출력 함수 */
   const makeProductOption = (
@@ -130,7 +131,7 @@ export function Product() {
           <div className="product-order-box">
             <div className="product-order-list product-price">
               <span>판매가</span>
-              <span className="price-right">{priceFormat}</span>
+              <span className="price-right">{priceFormat(product)}</span>
             </div>
             <div className="product-order-list product-point">
               <span>포인트 적립</span>
