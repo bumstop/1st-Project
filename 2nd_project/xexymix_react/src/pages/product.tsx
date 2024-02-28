@@ -20,12 +20,12 @@ export function Product() {
 
   let countObjectInitialValue: Record<string, number> = {};
   product.option.forEach((v, i) => (countObjectInitialValue[v.toString()] = 0));
-  
+
   // product.option.forEach((v, i) => (countObjectInitialValue[i] = [v, 0]));
   // countObjectInitialValue = Object.fromEntries(countObjectInitialValue);
 
   console.log(countObjectInitialValue);
-  
+
   const [countObject, setCountObject] = useState(countObjectInitialValue);
 
   const changeCountObject = (key: string, value: number): void => {
@@ -70,8 +70,8 @@ export function Product() {
    */
   const addProductOrderedList = () => {
     const selectRefText =
-      selectProductOptionRef.current.options[
-        selectProductOptionRef.current.selectedIndex
+      selectProductOptionRef.current?.options[
+        selectProductOptionRef.current?.selectedIndex
       ].text;
 
     const isAlreadySelected =
@@ -97,7 +97,7 @@ export function Product() {
     selectProductOptionRef.current.options[0].selected = true;
   };
 
-  // 삭제버튼 클릭시 해당 리스트를 삭제하는 함수 -> 자식컴포넌트에 props로 넘겨준 후 사용 
+  // 삭제버튼 클릭시 해당 리스트를 삭제하는 함수 -> 자식컴포넌트에 props로 넘겨준 후 사용
   const removeProductOrderedList = (selectRefText) => {
     setProductOrderedListArr(
       productOrderedListArr.filter((v) => v.selectRefText !== selectRefText)
