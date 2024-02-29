@@ -38,7 +38,7 @@ export function Product() {
     Object.values(countObject).reduce((acc, cur) => acc + cur, 0) * price;
 
   const selectProductOptionRef = useRef();
-  const [productOrderedListArr, setProductOrderedListArr] = useState([]);
+  const [productOrderedListArr, setProductOrderedListArr] = useState([]); // 타입 지정 필요 여기부터 시작
 
   /** 가격/할인/콤마 출력 함수 */
   // const priceFormat = product.sale ? (
