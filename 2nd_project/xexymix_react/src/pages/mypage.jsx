@@ -1,9 +1,66 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+// 카카오계정과 함께 로그아웃
+export function KakaoLogout() {
+  const userInfo = localStorage.userInfo ? localStorage.getItem("userInfo") : undefined;
+  const accessToken = userInfo ? JSON.parse(userInfo).accessToken : undefined;
+  const ORIGINAL_URL = new URL(window.location.href).origin;
+  const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
+  const REDIRECT_URI = ORIGINAL_URL;
+  const CLIENT_ID_PARAMS = `client_id=${REST_API_KEY}`;
+  const REDIRECT_URI_PARAMS = `redirect_uri=${REDIRECT_URI}`;
+  const kakaoURL = `https://kauth.kakao.com/oauth/logout?${CLIENT_ID_PARAMS}&${REDIRECT_URI_PARAMS}`;
+
+  const makeFormData = (params) => {
+    const searchParams = new URLSearchParams();
+    Object.keys(params).forEach((key) => {
+      searchParams.append(key, params[key]);
+    });
+
+    return searchParams;
+  };
+
+  const [endTokenFetching, setEndTokenFetching] = useState(false);
+
+  const endTokenRequest = async () => {
+    if (endTokenFetching) return;
+    try {
+      setEndTokenFetching(true);
+      const response = await axios({
+        method: "POST",
+        url: "	https://kapi.kakao.com/v1/user/logout",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      console.log(response);
+      deleteLocalStorageProfile();
+      setEndTokenFetching(false);
+    } catch (error) {
+      console.log(error);
+      setEndTokenFetching(false);
+    }
+  };
+
+  const deleteLocalStorageProfile = () => {
+    localStorage.removeItem("userInfo");
+    window.location.href = ORIGINAL_URL;
+  };
+
+  return (
+    // <a className="logout-btn" href={kakaoURL}>로그아웃</a>
+    <div className="logout-btn" onClick={endTokenRequest}>
+      로그아웃
+    </div>
+  );
+}
 
 export function MyPage() {
-  const userInfo = JSON.parse(localStorage.userInfo);
-  const userThumbnailImage = userInfo.thumbnailImage;
-  const userNickname = userInfo.nickname;
+  const userInfo = localStorage.userInfo ? JSON.parse(localStorage.userInfo) : undefined;
+  const userThumbnailImage = localStorage.userInfo ? userInfo.thumbnailImage : undefined;
+  const userNickname = localStorage.userInfo ? userInfo.nickname : undefined;
   const myMenuList = [
     "주문내역",
     "쿠폰내역",
@@ -48,6 +105,8 @@ export function MyPage() {
                 회원님
               </span>
             </div>
+            <KakaoLogout />
+
             <div className="grade-view-btn">등급혜택 보기</div>
           </div>
           <div className="coupon-box profile-container__box">

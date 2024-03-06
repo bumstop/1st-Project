@@ -12,7 +12,7 @@ export function KakaoLogin() {
 
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
   const REDIRECT_URI = ORIGINAL_URL;
-  // const REDIRECT_URI = "http://localhost:3000"; // 빌드시 아래와 스위치 할것
+  // const REDIRECT_URI = "https://localhost:3000"; // 빌드시 아래와 스위치 할것
   // const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
 
   // 해시라우터를 사용함에 따라 카카오 redirect uri에 다른 페이지 지정 불가.
@@ -29,7 +29,7 @@ export function KakaoLogin() {
   const [accessTokenFetching, setAccessTokenFetching] = useState(false);
 
   const makeFormData = (params) => {
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams();     
     Object.keys(params).forEach((key) => {
       searchParams.append(key, params[key]);
     });
