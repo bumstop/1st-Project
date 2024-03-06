@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-// 카카오계정과 함께 로그아웃
+// 카카오 로그아웃
 export function KakaoLogout() {
   const userInfo = localStorage.userInfo ? localStorage.getItem("userInfo") : undefined;
   const accessToken = userInfo ? JSON.parse(userInfo).accessToken : undefined;
