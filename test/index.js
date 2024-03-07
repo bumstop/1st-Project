@@ -31,7 +31,10 @@ const getAccessToken = async () => {
       method: "POST",
       headers: {
         "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-      },
+      }, // 이거 역할이 뭐암?
+
+
+      
       url: "https://kauth.kakao.com/oauth/token",
       data: makeFormData({
         grant_type: "authorization_code",
