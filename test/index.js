@@ -1,4 +1,5 @@
 const q = (q) => document.querySelector(q);
+const qAll = (q) => document.querySelectorAll(q);
 const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
 const ORIGINAL_URL = new URL(window.location.href).origin;
 const REDIRECT_URI = "http://127.0.0.1:5501/test/";
@@ -33,8 +34,6 @@ const getAccessToken = async () => {
         "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
       }, // 이거 역할이 뭐암?
 
-
-      
       url: "https://kauth.kakao.com/oauth/token",
       data: makeFormData({
         grant_type: "authorization_code",
@@ -106,3 +105,47 @@ tokenBtn.addEventListener("click", () => {
   console.log("클릭");
   getAccessToken();
 });
+
+const addListInput = q(".add-list-input");
+const addListBtn = q(".add-list-btn");
+const listBox = q(".list-box");
+
+addListInput.addEventListener("keypress", (e) => {
+  if (e.code === "Enter") addList();
+});
+addListBtn.addEventListener("click", () => addList());
+
+function addList() {
+  const newElement = document.createElement("div");
+  const data = Math.random();
+  newElement.className = `added-list ${addListInput.value}`;
+  newElement.setAttribute("data-idx", data);
+  listBox.appendChild(newElement);
+
+  newElement.innerHTML = `
+    <input class="added-list-checkbox" type="checkbox">
+    <div class="added-list-text">${addListInput.value}</div>
+    <div class="added-list-delete-btn" onclick=deleteBtn(${data})>삭제</div>
+  `;
+  const deleteBtn = newElement.querySelector(".added-list-delete-btn");
+  const checkbox = newElement.querySelector(".added-list-checkbox");
+  const text = newElement.querySelector(".added-list-text");
+
+  checkbox.addEventListener("click", (e) => {
+    if (e.target.checked) {
+      text.style.textDecoration = "line-through";
+    }
+    if (!e.target.checked) {
+      text.style.textDecoration = "none";
+    }
+  });
+
+  // deleteBtn.addEventListener("click", (e) => {
+  //   newElement.remove();
+  // });
+}
+function deleteBtn(id) {
+  console.log(id);
+  document.querySelector(`#${id}`).style.display = "none";
+}
+// // console.log();
