@@ -11,9 +11,9 @@ export function KakaoLogin() {
   const ORIGINAL_URL = new URL(window.location.href).origin;
 
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
-  const REDIRECT_URI = ORIGINAL_URL;
+  // const REDIRECT_URI = ORIGINAL_URL;
   // const REDIRECT_URI = "https://localhost:3000"; // 빌드시 아래와 스위치 할것
-  // const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
+  const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
 
   // 해시라우터를 사용함에 따라 카카오 redirect uri에 다른 페이지 지정 불가.
   // 따라서 메인 페이지로 이동시킨 후 메인페이지에서 조건 검사후 다시 로그인 페이지로
