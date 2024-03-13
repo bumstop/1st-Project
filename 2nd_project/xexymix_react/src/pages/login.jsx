@@ -46,6 +46,7 @@ export function KakaoLogin() {
     try {
       setAccessTokenFetching(true);
       // await는 promise의 상태가 바뀌면 실행됨(then 과 비슷함).
+      // 대기, 성공, 실패의 3가지 상태
       const response = await axios({
         method: "POST",
         headers: {

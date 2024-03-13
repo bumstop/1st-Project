@@ -18,7 +18,6 @@ import { Product } from "./pages/product";
 import { Login } from "./pages/login";
 import { MyPage } from "./pages/mypage";
 
-// Import css
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {

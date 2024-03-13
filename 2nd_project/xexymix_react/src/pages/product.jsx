@@ -13,12 +13,14 @@ export function Product() {
   console.log("Product 컴포넌트 랜더링됨");
 
   const params = useParams();
-  const product: ItemInfo = [...itemInfo, ...seasonSlideInfo].filter(
+  // const product: ItemInfo = [...itemInfo, ...seasonSlideInfo].filter(
+  const product = [...itemInfo, ...seasonSlideInfo].filter(
     (v) => v.id === params.productId
   )[0];
   const price = product.sale ? Number(product.sale) : Number(product.price);
 
-  let countObjectInitialValue: Record<string, number> = {};
+  // let countObjectInitialValue: Record<string, number> = {};
+  let countObjectInitialValue = {};
   product.option.forEach((v, i) => (countObjectInitialValue[v.toString()] = 0));
 
   // product.option.forEach((v, i) => (countObjectInitialValue[i] = [v, 0]));
@@ -28,7 +30,8 @@ export function Product() {
 
   const [countObject, setCountObject] = useState(countObjectInitialValue);
 
-  const changeCountObject = (key: string, value: number): void => {
+  // const changeCountObject = (key: string, value: number): void => {
+  const changeCountObject = (key, value) => {
     setCountObject((prevState) => {
       return { ...prevState, [key]: value };
     });

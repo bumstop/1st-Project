@@ -1,16 +1,17 @@
 import { useRef } from "react";
 import { useDidMountEffect } from "../func/useDidMountEffect";
 
-interface ProductOrderedListProps {
-  selectRefText: string,
-  key: string,
-  price: number,
-  changeCountObject: () => void,
-  removeProductOrderedList: () => void,
-}
+// interface ProductOrderedListProps {
+//   selectRefText: string,
+//   key: string,
+//   price: number,
+//   changeCountObject: () => void,
+//   removeProductOrderedList: () => void,
+// }
 
 /** 상품 수량 및 가격 표시 박스 컴포넌트 */
-export const ProductOrderedList = (props: ProductOrderedListProps): JSX.Element => {
+// export const ProductOrderedList = (props: ProductOrderedListProps): JSX.Element => {
+export const ProductOrderedList = (props) => {
   console.log("ProductOrderedList 랜더링됨");
 
   const countInputRef = useRef();
