@@ -6,12 +6,15 @@ import { useEffect, useState } from "react";
 import { filteredItemSame } from "../func/filter_func";
 
 /** @param props.category mainSlideInfo 에서 category로 가져올 데이터 선별  */
-interface MainSlideContainerProps {
-  category: string | Array<string>;
-}
-export function MainSlideContainer(props: MainSlideContainerProps) {
-  const [swiper, setSwiper] = useState<SwiperCore>();
-  const [isPlay, setIsPlay] = useState<boolean>(true);
+// interface MainSlideContainerProps {
+//   category: string | Array<string>;
+// }
+// export function MainSlideContainer(props: MainSlideContainerProps) {
+export function MainSlideContainer(props) {
+  // const [swiper, setSwiper] = useState<SwiperCore>();
+  const [swiper, setSwiper] = useState();
+  // const [isPlay, setIsPlay] = useState<boolean>(true);
+  const [isPlay, setIsPlay] = useState(true);
 
   function isPlayToggle() {
     isPlay ? setIsPlay(false) : setIsPlay(true);
@@ -28,12 +31,17 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
 
   // 하지만 여기서 중요한 것은 해당 함수의 반환 값이 실제로 MainSlideInfo[] 형식이라는 것입니다.
   // 따라서 setFilterData 함수를 호출할 때 반환 값의 타입을 명시적으로 지정하여 TypeScript에게 올바른 타입이라는 것을 알려주어야 합니다.
-  const filterData: MainSlideInfo[] = Array.isArray(props.category)
+  // const filterData: MainSlideInfo[] = Array.isArray(props.category)
+  //   ? mainSlideInfo
+  //   : filteredItemSame(mainSlideInfo, "category", props.category) as MainSlideInfo[];
+  const filterData = Array.isArray(props.category)
     ? mainSlideInfo
-    : filteredItemSame(mainSlideInfo, "category", props.category) as MainSlideInfo[];
+    : filteredItemSame(mainSlideInfo, "category", props.category);
 
-  const isEventItem = (v: MainSlideInfo): boolean => {
-    let bool: boolean;
+  // const isEventItem = (v: MainSlideInfo): boolean => {
+  const isEventItem = (v) => {
+    // let bool: boolean;
+    let bool;
     v.imgSrc === "/images/main_slide/banner_0.jpg"
       ? (bool = true)
       : (bool = false);
@@ -72,7 +80,8 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
   return (
     <div className="main-slide-container">
       <Swiper
-        onSwiper={(swiper: SwiperCore) => setSwiper(swiper)}
+        // onSwiper={(swiper: SwiperCore) => setSwiper(swiper)}
+        onSwiper={(swiper) => setSwiper(swiper)}
         slidesPerView={"auto"}
         centeredSlides={true}
         initialSlide={0}
@@ -98,7 +107,8 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
           filterData의 타입을 MainSlideInfo[] 로 지정했기 때문에 
           그 인자인 v의 타입은 MainSlideInfo가 된다.
         */}
-        {filterData.map((v: MainSlideInfo) => (
+        {/* {filterData.map((v: MainSlideInfo) => ( */}
+        {filterData.map((v) => (
           <SwiperSlide
             className={
               "main-slide-item" + (isEventItem(v) ? " event-item" : "")
@@ -109,7 +119,8 @@ export function MainSlideContainer(props: MainSlideContainerProps) {
             <div className="main-slide-item-txt-box">
               <div className="main-slide-item-category">{v.category}</div>
               <div className="main-slide-item-title">
-                {v.title.map((v: any, i: number, a: Array<string>) => (
+                {/* {v.title.map((v: any, i: number, a: Array<string>) => ( */}
+                {v.title.map((v, i, a) => (
                   <span key={i}>
                     {v}
                     {a.length === 1 ? "" : !i ? <br /> : ""}

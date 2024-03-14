@@ -7,7 +7,8 @@ export function KakaoLogout() {
   const accessToken = userInfo ? JSON.parse(userInfo).accessToken : undefined;
   const ORIGINAL_URL = new URL(window.location.href).origin;
   const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
-  const REDIRECT_URI = ORIGINAL_URL;
+  // const REDIRECT_URI = ORIGINAL_URL;
+  const REDIRECT_URI = `https://bumstop.github.io/${process.env.PUBLIC_URL}`;
   const CLIENT_ID_PARAMS = `client_id=${REST_API_KEY}`;
   const REDIRECT_URI_PARAMS = `redirect_uri=${REDIRECT_URI}`;
   const kakaoURL = `https://kauth.kakao.com/oauth/logout?${CLIENT_ID_PARAMS}&${REDIRECT_URI_PARAMS}`;
@@ -46,7 +47,7 @@ export function KakaoLogout() {
 
   const deleteLocalStorageProfile = () => {
     localStorage.removeItem("userInfo");
-    window.location.href = ORIGINAL_URL;
+    window.location.href = REDIRECT_URI;
   };
 
   return (

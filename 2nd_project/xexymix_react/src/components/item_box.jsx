@@ -3,8 +3,10 @@ import { itemIcon, descText } from "./item_box_detail";
 import { SeasonSlideInfo } from "../data/season_slide_info";
 
 /** 가격/할인/콤마 출력 */
-export const priceFormat = (v: SeasonSlideInfo): JSX.Element => {
-  const strikeStyle: { [k: string]: string } = {
+// export const priceFormat = (v: SeasonSlideInfo): JSX.Element => {
+export const priceFormat = (v) => {
+  // const strikeStyle: { [k: string]: string } = {
+  const strikeStyle = {
     textDecoration: "line-through",
     marginLeft: "5px",
     fontSize: "12px",
@@ -22,7 +24,8 @@ export const priceFormat = (v: SeasonSlideInfo): JSX.Element => {
 };
 
 /** info: v : 불러올 info.js 데이터 파일의 values 배열객체 */
-export function makeItemBox(v: SeasonSlideInfo) {
+// export function makeItemBox(v: SeasonSlideInfo) {
+export function makeItemBox(v) {
   return (
     <Link to={`/product/${v.id}`}>
       <div className="item-img-box">

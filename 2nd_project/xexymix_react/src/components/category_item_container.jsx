@@ -5,30 +5,32 @@ import { makeItemBox } from "./item_box";
 import { filteredItem, filteredItemSame } from "../func/filter_func";
 import { itemInfo } from "../data/item_info";
 
-export function CategoryItemContainer(props: any) {
+export function CategoryItemContainer(props) {
 
-  const chgItemCategory = (target: any) => {
+  const chgItemCategory = (target) => {
     props.setItemCategory(target.innerText);
   };
-  const chgFilterState = (type: any) => {
+  const chgFilterState = (type) => {
     props.setFilterState(type);
   };
 
   // 아이템 카테고리 데이터
-  interface DefCategory {
-    txt: string;
-    type: string;
-  }
+  // interface DefCategory {
+  //   txt: string;
+  //   type: string;
+  // }
   // interface CategoryData extends DefCategory {
   //   link?: string;
   // }
 
-  const defCategory: DefCategory[] = [
+  // const defCategory: DefCategory[] = [
+  const defCategory = [
     { txt: "우먼즈", type: "WOMENS" },
     { txt: "맨즈", type: "MENS" },
   ];
 
-  const categoryData: any =
+  // const categoryData: any =
+  const categoryData =
     props.filterType === "type"
       ? gnbMenu.gnbCategory.filter((v) => v.txt === props.condition)[0].sub
       : defCategory;
@@ -44,10 +46,13 @@ export function CategoryItemContainer(props: any) {
 
   // 아이템 카테고리 생성
   const makeCategoryItem = () => {
-    let filterData: any;
+    // let filterData: any;
+    let filterData;
 
-    const categoryItem = (data: any) =>
-      data.map((v: any, i: any) => (
+    // const categoryItem = (data: any) =>
+    //   data.map((v: any, i: any) => (
+    const categoryItem = (data) =>
+      data.map((v, i) => (
         <div className="item-box" key={i}>
           {makeItemBox(v)}
         </div>
@@ -74,15 +79,22 @@ export function CategoryItemContainer(props: any) {
     }
   };
 
-  const [isDrag, setIsDrag] = useState<boolean>(false);
-  const [dragPosition, setDragPosition] = useState<number>(0);
-  const FirstPositionRef = useRef<number>(0);
-  const maxPosX = useRef<number>(0);
+  // const [isDrag, setIsDrag] = useState<boolean>(false);
+  // const [dragPosition, setDragPosition] = useState<number>(0);
+  // const FirstPositionRef = useRef<number>(0);
+  // const maxPosX = useRef<number>(0);
+  const [isDrag, setIsDrag] = useState(false);
+  const [dragPosition, setDragPosition] = useState(0);
+  const FirstPositionRef = useRef(0);
+  const maxPosX = useRef(0);
 
   useEffect(() => {
-    const dragBox = document.querySelector<HTMLDivElement>(".drag-box");
+    // const dragBox = document.querySelector<HTMLDivElement>(".drag-box");
+    const dragBox = document.querySelector(".drag-box");
+    // const categoryList =
+    //   document.querySelector<HTMLDivElement>(".category-list");
     const categoryList =
-      document.querySelector<HTMLDivElement>(".category-list");
+      document.querySelector(".category-list");
 
     if (dragBox && categoryList) {
       maxPosX.current = dragBox.clientWidth - categoryList.clientWidth;
@@ -93,7 +105,8 @@ export function CategoryItemContainer(props: any) {
     }
   }, []);
 
-  const dragStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>): void => {
+  // const dragStart = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>): void => {
+  const dragStart = (e) => {
     // 부모박스가 자식박스보다 작을때만 드래그 허용
     if (maxPosX.current > 0) {
       setIsDrag(true);
@@ -105,9 +118,11 @@ export function CategoryItemContainer(props: any) {
   // 두번째 드래그부터 deltaX가 0보다 커져 드래그가 초기화 되는 현상 발생.
   // -dragPosition 을 추가해서 보정해줌 -> 문제해결.
 
-  const dragging = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>): void => {
+  // const dragging = (e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>): void => {
+  const dragging = (e) => {
   // const dragging = (e: React.MouseEvent | React.TouchEvent) => {
-    const inRange = (num: number, min: number, max: number): number => {
+    // const inRange = (num: number, min: number, max: number): number => {
+    const inRange = (num, min, max) => {
       if (num < min) return min;
       if (num > max) return max;
       return num;

@@ -7,14 +7,15 @@ import { useRecoilValue } from "recoil";
 /** 드롭다운메뉴
  *  @param props.state 햄버거 버튼 클릭시 useState를 가져와 on classToggle
  */
-interface DropdownMenuProps {
-  state: boolean;
-  hambergerToggleFunc: () => void;
-  // 함수의 매개변수가 없으므로 (), state를 바꾸는 함수는 리턴값이 없으므로 리턴을 void로 작성
-}
+// interface DropdownMenuProps {
+//   state: boolean;
+//   hambergerToggleFunc: () => void;
+//   // 함수의 매개변수가 없으므로 (), state를 바꾸는 함수는 리턴값이 없으므로 리턴을 void로 작성
+// }
 
-export function DropdownMenu(props: DropdownMenuProps) {
-  const scrollY = useRef<number>(0);
+export function DropdownMenu(props) {
+  // const scrollY = useRef<number>(0);
+  const scrollY = useRef(0);
 
   // 모달 오버레이에서 스크롤 방지
   useEffect(() => {
@@ -33,22 +34,27 @@ export function DropdownMenu(props: DropdownMenuProps) {
     }
   }, [props.state]);
 
-  const navigate: NavigateFunction = useNavigate();
-  const dropdownBanner: string[] = ["kids", "review"];
+  // const navigate: NavigateFunction = useNavigate();
+  // const dropdownBanner: string[] = ["kids", "review"];
+  const navigate = useNavigate();
+  const dropdownBanner= ["kids", "review"];
 
-  const goSubPage = (link: string, category?: string) => {
+  // const goSubPage = (link: string, category?: string) => {
+  const goSubPage = (link, category) => {
     props.hambergerToggleFunc();
     navigate(link, { state: { keyword: category } });
   };
 
-  const makeDropdownCategory = gnbMenu.gnbCategory.map((v: GnbCategory) => (
+  // const makeDropdownCategory = gnbMenu.gnbCategory.map((v: GnbCategory) => (
+  const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
     <li key={v.txt}>
       <div className="category-head" onClick={() => goSubPage(v.link)}>
         {v.txt}
       </div>
       {v.sub && (
         <ul>
-          {v.sub.map((subV: Sub) => (
+          {/* {v.sub.map((subV: Sub) => ( */}
+          {v.sub.map((subV) => (
             <li
               className="category-sub"
               key={subV.txt}
@@ -62,7 +68,8 @@ export function DropdownMenu(props: DropdownMenuProps) {
     </li>
   ));
 
-  const makeDropdownBanner = dropdownBanner.map((v: string) => (
+  // const makeDropdownBanner = dropdownBanner.map((v: string) => (
+  const makeDropdownBanner = dropdownBanner.map((v) => (
     <div key={v}>
       <Link to={"/"}>
         <img
@@ -77,7 +84,8 @@ export function DropdownMenu(props: DropdownMenuProps) {
   const dropdownMenuWrapRef = useRef(null); //여기부터 수정 시작, React.MutableRefObject<null>로 뜨는데 뭔지.
 
   // TypeScript에서 ref의 초기값이 null이라고 기대하기 때문에 null을 넣지 않으면 에러 발생
-  const checkDimmed = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+  // const checkDimmed = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+  const checkDimmed = (e) => {
     console.log(e.target, e.currentTarget);
     if (dropdownMenuWrapRef.current === e.target) props.hambergerToggleFunc();
   };
@@ -111,16 +119,14 @@ const popularSearchWord = [
   "후드",
 ];
 
-/** 서치메뉴
- *  @param props.state 서치 버튼 클릭시 useState를 가져와 on classToggle
- *  @param props.searchToggleFunc  state 를 toggle 해주는 함수
- */
-interface SearchMenuProps {
-  state: boolean;
-  searchToggleFunc: () => void;
-}
-export function SearchMenu(props: SearchMenuProps) {
-  const scrollY = useRef<number>(0);
+// interface SearchMenuProps {
+//   state: boolean;
+//   searchToggleFunc: () => void;
+// }
+// export function SearchMenu(props: SearchMenuProps) {
+export function SearchMenu(props) {
+  // const scrollY = useRef<number>(0);
+  const scrollY = useRef(0);
   // const scrollY: React.MutableRefObject<number> = useRef<number>(0); 위랑 같음
 
   // 모달 오버레이에서 스크롤 방지
@@ -143,12 +149,14 @@ export function SearchMenu(props: SearchMenuProps) {
   const searchToggle = () => {
     props.searchToggleFunc();
   };
-  const searchRef: React.RefObject<HTMLInputElement> = useRef(null);
+  // const searchRef: React.RefObject<HTMLInputElement> = useRef(null);
+  const searchRef = useRef(null);
   // const searchRef = useRef<HTMLInputElement>(null); 위랑 같음
   const navigate = useNavigate();
 
   // 검색어를 가지고 search 페이지로 이동
-  const goSearch = (searchValue: string | undefined): void => {
+  // const goSearch = (searchValue: string | undefined): void => {
+  const goSearch = (searchValue) => {
     searchToggle();
     console.log("검색 입력값:", searchValue);
     navigate("/search", { state: { keyword: searchValue } });
@@ -156,8 +164,10 @@ export function SearchMenu(props: SearchMenuProps) {
     // searchRef.current?.value = "";
   };
 
-  const searchMenuWrapRef = useRef<HTMLDivElement>(null);
-  const checkDimmed = (e: React.MouseEvent) => {
+  // const searchMenuWrapRef = useRef<HTMLDivElement>(null);
+  const searchMenuWrapRef = useRef(null);
+  // const checkDimmed = (e: React.MouseEvent) => {
+  const checkDimmed = (e) => {
     if (searchMenuWrapRef.current === e.target) searchToggle();
   };
 
@@ -194,7 +204,8 @@ export function SearchMenu(props: SearchMenuProps) {
             인기검색어
           </div>
           <div className="hashtag-box-wrap">
-            {popularSearchWord.map((v: string) => (
+            {/* {popularSearchWord.map((v: string) => ( */}
+            {popularSearchWord.map((v) => (
               <button
                 className="hashtag-box"
                 onClick={(e) => goSearch(e.currentTarget.innerText)}
@@ -213,26 +224,29 @@ export function SearchMenu(props: SearchMenuProps) {
 /******************** GNB ********************/
 export function Gnb() {
   const userInfo = useRecoilValue(userInfoState); // recoil은 타입을 뭘로 어떻게 선언해야 함?
-  const [isDropdown, setIsDropdown] = useState<boolean>(false);
-  const [isSearch, setIsSearch] = useState<boolean>(false);
+  // const [isDropdown, setIsDropdown] = useState<boolean>(false);
+  // const [isSearch, setIsSearch] = useState<boolean>(false);
+  const [isDropdown, setIsDropdown] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
-  function openDropdownAndCloseSearch(): void {
+  function openDropdownAndCloseSearch() {
     setIsDropdown(true);
     if (isSearch) setIsSearch(false);
   };
-  function openSearchAndCloseDropdown(): void {
+  function openSearchAndCloseDropdown() {
     setIsSearch(true);
     if (isDropdown) setIsDropdown(false);
   };
 
-  function hambergerToggle(): void {
+  function hambergerToggle() {
     isDropdown ? setIsDropdown(false) : openDropdownAndCloseSearch();
   }
-  function searchToggle(): void {
+  function searchToggle() {
     isSearch ? setIsSearch(false) : openSearchAndCloseDropdown();
   }
 
-  const makeGnbCategory: JSX.Element[] = gnbMenu.gnbCategory.map((v: GnbCategory) => (
+  // const makeGnbCategory: JSX.Element[] = gnbMenu.gnbCategory.map((v: GnbCategory) => (
+  const makeGnbCategory = gnbMenu.gnbCategory.map((v) => (
     <li key={v.txt}>
       <Link to={v.link}>{v.txt}</Link>
     </li>
