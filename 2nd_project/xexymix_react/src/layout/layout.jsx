@@ -32,6 +32,9 @@ export function Layout() {
     if (code?.length > 1 && localStorage.userInfo === undefined) {
       navigate("login");
     }
+    if (code === undefined  && localStorage.userInfo?.length > 1 ) {
+      navigate("mypage");
+    }
   }, []);
 
   return (
