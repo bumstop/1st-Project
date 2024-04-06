@@ -1,11 +1,11 @@
-// interface MainBannerContainerProps {
-//   page: string;
-// }
+interface MainBannerContainerProps {
+  page: string;
+}
 
 // props.page 호출한 page를 가져옴
 // export function MainBannerContainer(props: MainBannerContainerProps) {
-// export function MainBannerContainer({ page }: MainBannerContainerProps) {
-export function MainBannerContainer({ page }) {
+export function MainBannerContainer({ page }: MainBannerContainerProps) {
+// export function MainBannerContainer({ page }) {
   return (
     <div className="main-banner-container">
       <img

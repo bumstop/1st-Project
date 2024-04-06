@@ -45,8 +45,8 @@ export function DropdownMenu(props) {
     navigate(link, { state: { keyword: category } });
   };
 
-  // const makeDropdownCategory = gnbMenu.gnbCategory.map((v: GnbCategory) => (
-  const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
+  const makeDropdownCategory = gnbMenu.gnbCategory.map((v: GnbCategory) => (
+  // const makeDropdownCategory = gnbMenu.gnbCategory.map((v) => (
     <li key={v.txt}>
       <div className="category-head" onClick={() => goSubPage(v.link)}>
         {v.txt}
