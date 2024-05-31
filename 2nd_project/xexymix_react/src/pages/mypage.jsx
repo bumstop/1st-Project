@@ -1,12 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 // 카카오 로그아웃
 export function KakaoLogout() {
   const userInfo = localStorage.userInfo ? localStorage.getItem("userInfo") : undefined;
   const accessToken = userInfo ? JSON.parse(userInfo).accessToken : undefined;
   const ORIGINAL_URL = new URL(window.location.href).origin;
-  const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
+  const REST_API_KEY = REACT_APP_KAKAO_API_KEY;
   const REDIRECT_URI = ORIGINAL_URL;
   // const REDIRECT_URI = "https://bumstop.github.io/react_xexymix_clone/";
   const CLIENT_ID_PARAMS = `client_id=${REST_API_KEY}`;

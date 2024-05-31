@@ -1,16 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { userInfoState } from "../recoil/atoms";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export function KakaoLogin() {
-  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useRecoilState(userInfoState);
 
   const ORIGINAL_URL = new URL(window.location.href).origin;
 
-  const REST_API_KEY = "bc6575d60a8bd35763d387b0e9398187";
+  const REST_API_KEY = REACT_APP_KAKAO_API_KEY;
   const REDIRECT_URI = ORIGINAL_URL;
   // const REDIRECT_URI = "https://localhost:3000"; // 빌드시 아래와 스위치 할것
   // const REDIRECT_URI = "https://bumstop.github.io/react_xexymix_clone/";
